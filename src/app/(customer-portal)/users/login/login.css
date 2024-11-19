@@ -1,0 +1,115 @@
+.login_logic {
+    border-top: 1px #ddd solid;
+    display: inline-block;
+    width: 100%;
+    padding-top: 30px;
+    margin-top: 100px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 100%;
+}
+
+.pop_wraper_inner {
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+.pop_container {
+    display: inline-block;
+    width: 100%;
+    border: 1px #ddd solid;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.signn {
+    color: #333;
+    font-size: 20px;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.form-group .input-group-addon {
+    min-width: 44px;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.form-control {
+    height: 40px;
+}
+
+.form-control {
+    border-radius: 0 !important;
+}
+
+.sign_in, .remember_secsd {
+    float: left;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.frlogin, .forgot_pass_sec {
+    float: right;
+}
+
+.login-btn {
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.rember__me{
+    margin-left: 5px;
+}
+
+@media (max-width: 767px) {
+    .login_logic{
+        border-top: unset!important;
+        margin-top: 50px!important;
+    }
+}

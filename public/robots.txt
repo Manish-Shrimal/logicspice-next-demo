@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /buynow
+Disallow: /billing
+
+Sitemap: https://www.logicspice.com/sitemap.xml

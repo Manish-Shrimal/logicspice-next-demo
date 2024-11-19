@@ -1,0 +1,318 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.resources-header {
+    background-position: left top;
+    background-size: cover;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold!important;
+    padding: 100px 0;
+    margin-top: 100px;
+    border-bottom: 1px solid #fff;
+}
+
+.resources-header span {
+    text-shadow: 0 0 3px #000;
+    font-family: "roboto", sans-serif!important;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold!important;
+}
+
+.breadcrems_header {
+    color: #fff;
+}
+
+.breadcrems_header {
+    background-color: #451095;
+    padding: 15px 0;
+}
+
+.breadcrems_header h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold!important;
+    text-transform: uppercase
+}
+
+.breadcrems_header ol.breadcrumb {
+    background: transparent none repeat scroll 0 0;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: inline-block;
+    width: 100%
+}
+
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+.breadcrems_header ol.breadcrumb li,
+.breadcrems_header ol.breadcrumb a {
+    color: #fff;
+    display: inline-block;
+}
+
+.content_area.content_area_gallery {
+    padding: 30px 0;
+}
+
+.event_gallery_colsshom_col_box_in {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    float: left;
+    padding: 25px;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+}
+
+.event_gallery_colsshom_col_box_in_shadow {
+    background: rgba(0, 0, 0, 0) url("/img/ourteam/port_shadow.png") no-repeat scroll right top / 100% auto;
+    display: block;
+    float: left;
+    height: 47px;
+    margin-top: -8px;
+    pointer-events: none;
+    width: 100%;
+}
+
+.event_gallery_colss .portfolio_cols {
+    float: left;
+    position: relative;
+    transition: all 0.2s ease-in-out 0s;
+    width: 100%;
+}
+
+.event_gallery_colss .portfolio_cols::after,
+.event_gallery_colss .portfolio_cols::before {
+    background: #d2dde2 none repeat scroll 0 0;
+    border: 1px dashed #bbb;
+    bottom: -1px;
+    content: "";
+    left: -4px;
+    position: absolute;
+    right: -5px;
+    top: 28px;
+}
+
+.event_gallery_colss .portfolio_cols::before {
+    transform: rotate(2deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.event_gallery_colss .portfolio_cols::after {
+    transform: rotate(-2deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.portfolio_cols_bdd {
+    border: 5px solid #e6ebec;
+    float: left;
+    height: 177px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0 0 1px #ccc;
+    transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -moz-transition: all 0.2s ease-in-out 0s;
+    z-index: 9;
+}
+
+.event_gallery_colss .portfolio_cols {
+    float: left;
+    position: relative;
+    transition: all 0.2s ease-in-out 0s;
+    width: 100%;
+}
+
+.event_gallery_colss .portfolio_cols::after,
+.event_gallery_colss .portfolio_cols::before {
+    background: #d2dde2 none repeat scroll 0 0;
+    border: 1px dashed #bbb;
+    bottom: -1px;
+    content: "";
+    left: -4px;
+    position: absolute;
+    right: -5px;
+    top: 28px;
+}
+
+.event_gallery_colss .portfolio_cols::before {
+    transform: rotate(2deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.event_gallery_colss .portfolio_cols::after {
+    transform: rotate(-2deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.portfolio_cols_hor {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #451095;
+    text-align: center;
+    transition: all .80s ease-in-out;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.gall_title {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.portfolio_cols_hor_tabs {
+    width: 100%;
+    padding: 10px;
+}
+
+.portfolio_cols_hor_tabs .btn.btn-primary {
+    margin-bottom: 7px;
+    padding: 9px 15px;
+    text-transform: capitalize;
+    background: transparent !important;
+    border: none;
+    color: #451095;
+    font-weight: 600!important;
+    padding: 0;
+    border-bottom: 1px #451095 solid;
+    border-radius: 0;
+}
+
+.topn {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.port_web_name > a {
+    color: #451095;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-decoration: underline!important;
+}
+
+.portfolio_cols_bdd {
+    border: 1px solid #e6e6e6;
+    float: left;
+    height: 310px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 9px;
+    padding: 11px 11px 0;
+}
+
+.portfolio_cols_bdd:hover .port_base_img img {
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+    -o-transform: scale(1.08);
+    -webkit-transition-duration: 0.80s;
+    -moz-transition-duration: 0.80s;
+    -o-transition-duration: 0.80s;
+}
+
+.portfolio_cols_bdd:hover {
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 9;
+    background: #fff;
+}
+
+.port_base_img img {
+    height: auto !important;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    display: block !important;
+}
+
+.port_base_img {
+    float: left;
+    height: 210px;
+
+    width: 100%;
+	overflow: hidden; 
+}
+
+.port_base_img img {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transition-duration: 0.80s;
+    -moz-transition-duration: 0.80s;
+    -o-transition-duration: 0.80s;
+}
+
+.gallery-icon {
+	float: left;
+	height: 207px;
+	margin-top: 30px;
+	overflow: hidden;
+	position: relative;
+	transition: all 0.2s ease-in-out 0s;
+	width: 100%;
+	z-index: 9;
+}
+
+.gallery-icon a {
+	display: block;
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.gallery-icon img {
+	height: auto !important;
+	min-height: 100%;
+	min-width: 100%;
+	width: inherit !important;
+}
+.port_web_name {
+	text-align: left;
+}
+
+
+.gallery-item::before {
+	transform: rotate(2deg);
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.gallery-item::after,
+.gallery-item::before {
+	background: #d2dde2 none repeat scroll 0 0;
+	border: 1px dashed #bbb;
+	bottom: -1px;
+	content: "";
+	left: -4px;
+	position: absolute;
+	right: -5px;
+	top: 28px;
+}
+
+.gallery-item::after {
+	transform: rotate(-2deg);
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.gallery-item {
+	float: left;
+	position: relative;
+	transition: all 0.2s ease-in-out 0s;
+	width: 100%;
+}
