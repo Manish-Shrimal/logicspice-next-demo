@@ -353,7 +353,7 @@ const Page = () => {
                     width={440}
                     height={100 / (100 / 100)}
                     className="lazy"
-                    src="/img/doctorappointment/salon-img.png"
+                    src="/img/salon-booking/salon-img.png"
                     alt="Salon Booking Software"
                     unoptimized={true}
                   />
@@ -587,7 +587,7 @@ const Page = () => {
                                     <p>
                                       Clients can easily book, reschedule, or
                                       cancel appointments in just a few clicks.
-                                      Whether it’s a haircut, facial, or
+                                      Whether it&apos;s a haircut, facial, or
                                       massage, booking is quick and hassle-free.
                                     </p>
                                   </div>

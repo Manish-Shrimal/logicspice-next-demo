@@ -2617,7 +2617,7 @@ const Page = () => {
                             width={100}
                             height={100}
                             className=""
-                            src="/img/doctorappointment/salon-booking-icon.png"
+                            src="/img/salon-booking/salon-booking-icon.png"
                             alt="Salon Booking Software"
                           />
                           <div className="abs-product">

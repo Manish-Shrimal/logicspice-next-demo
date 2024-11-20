@@ -17,8 +17,8 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import SoftwareEnquiry from "@/app/Components/SoftwareEnquiry";
-import GetDemoEnquiry from "@/app/Components/GetDemoEnquiry";
+// import SoftwareEnquiry from "@/app/Components/SoftwareEnquiry";
+// import GetDemoEnquiry from "@/app/Components/GetDemoEnquiry";
 // import "../../../../public/css/font-awesome.min.css";
 import "../../../../public/css/font-awesome.css";
 
@@ -34,6 +34,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { Pagination, Navigation } from "swiper/modules";
 import axios from "axios";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
+import dynamic from 'next/dynamic';
+
+const GetDemoEnquiry = dynamic(() => import('@/app/Components/GetDemoEnquiry'), { ssr: false }); 
+const SoftwareEnquiry = dynamic(() => import('@/app/Components/SoftwareEnquiry'), { ssr: false });
 
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,7 +50,6 @@ const Page = () => {
   const [showReviewModal, setShowReviewModal] = useState(false);
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
-  const [isInView, setIsInView] = useState(false);
   const iframeRef = useRef();
 
   const toggleJobPortalModal = () => setJobportal(!jobportal);
@@ -96,7 +99,6 @@ const Page = () => {
   const [instructorTab, setInstructorTab] = useState(false);
   const [adminpanelTab, setAdminpanelTab] = useState(false);
   const [pageData, setPageData] = useState([]);
-  const videoRef = useRef();
 
   const getData = async () => {
     try {
@@ -197,128 +199,130 @@ const Page = () => {
     setDemoAccessModal(!demoAccessModal);
   };
 
-  useEffect(() => {
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  }, []); // Empty dependency array to run once on mount
-
   // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setInView(entry.isIntersecting);
-  //     },
-  //     { root: null, rootMargin: "0px", threshold: 0.1 }
-  //   );
+  //   var Tawk_API = Tawk_API || {},
+  //     Tawk_LoadStart = new Date();
+  //   (function () {
+  //     var s1 = document.createElement("script"),
+  //       s0 = document.getElementsByTagName("script")[0];
+  //     s1.async = true;
+  //     s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
+  //     s1.charset = "UTF-8";
+  //     s1.setAttribute("crossorigin", "*");
+  //     s0.parentNode.insertBefore(s1, s0);
+  //   })();
+  // }, []); // Empty dependency array to run once on mount
 
-  //   if (ref.current) {
-  //     observer.observe(ref.current);
-  //   }
 
-  //   return () => {
-  //     if (ref.current) {
-  //       observer.unobserve(ref.current);
-  //     }
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   // Intersection Observer to detect when the iframe enters the viewport
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         setIsInView(true); // Set to true when the iframe is in the viewport
-  //         observer.unobserve(entry.target); // Stop observing after it starts playing
-  //       }
-  //     },
-  //     { threshold: 0.5 } // Trigger when 50% of the iframe is visible
-  //   );
-
-  //   if (iframeRef.current) {
-  //     observer.observe(iframeRef.current); // Start observing the iframe
-  //   }
-
-  //   return () => {
-  //     if (iframeRef.current) {
-  //       observer.unobserve(iframeRef.current); // Cleanup observer when component unmounts
-  //     }
-  //   };
-  // }, []);
-
-  // const iframeRef = useRef(null);
-  const [player, setPlayer] = useState(null);
-  // const [isInView, setIsInView] = useState(false);
-
-  // Load and initialize the YouTube Player API
   useEffect(() => {
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+    const timer = setTimeout(() => {
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    }, 5000); // 5000 milliseconds = 5 seconds
 
-    window.onYouTubeIframeAPIReady = () => {
-      const ytPlayer = new YT.Player("ytplayer", {
-        events: {
-          onReady: (event) => {
-            const savedTime =
-              parseFloat(localStorage.getItem("lastPlayedTime")) || 0;
-            event.target.seekTo(savedTime);
-            setPlayer(event.target);
-          },
-          onStateChange: (event) => {
-            if (
-              event.data === YT.PlayerState.PLAYING ||
-              event.data === YT.PlayerState.PAUSED
-            ) {
-              const currentTime = event.target.getCurrentTime();
-              localStorage.setItem("lastPlayedTime", currentTime);
-            }
-          },
-        },
-      });
-    };
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array to run only once
 
-    return () => {
-      document.body.removeChild(tag);
-    };
-  }, []);
+  const [isFullyVisible, setIsFullyVisible] = useState(false);
+  const videoRef = useRef(null);
 
-  // Set up IntersectionObserver to handle play/pause based on viewport visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting && entry.intersectionRatio === 1) {
+          // Fully visible
+          setIsFullyVisible(true);
+          observer.disconnect(); // Stop observing once fully visible
+        }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 1.0, // Trigger only when the entire element is visible
+      }
     );
 
-    if (iframeRef.current) observer.observe(iframeRef.current);
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
 
-    return () => {
-      if (iframeRef.current) observer.unobserve(iframeRef.current);
-    };
+    return () => observer.disconnect(); // Clean up observer on component unmount
   }, []);
 
-  // Control playback based on `isInView` and `player` readiness
-  useEffect(() => {
-    if (player) {
-      if (isInView) {
-        const savedTime =
-          parseFloat(localStorage.getItem("lastPlayedTime")) || 0;
-        player.seekTo(savedTime);
-        player.playVideo();
-      } else {
-        player.pauseVideo();
-      }
-    }
-  }, [isInView, player]);
+  // const iframeRef = useRef(null);
+  // const [player, setPlayer] = useState(null);
+  // // const [isInView, setIsInView] = useState(false);
+
+  // // Load and initialize the YouTube Player API
+  // useEffect(() => {
+  //   const tag = document.createElement("script");
+  //   tag.src = "https://www.youtube.com/iframe_api";
+  //   document.body.appendChild(tag);
+
+  //   window.onYouTubeIframeAPIReady = () => {
+  //     const ytPlayer = new YT.Player("ytplayer", {
+  //       events: {
+  //         onReady: (event) => {
+  //           const savedTime =
+  //             parseFloat(localStorage.getItem("lastPlayedTime")) || 0;
+  //           event.target.seekTo(savedTime);
+  //           setPlayer(event.target);
+  //         },
+  //         onStateChange: (event) => {
+  //           if (
+  //             event.data === YT.PlayerState.PLAYING ||
+  //             event.data === YT.PlayerState.PAUSED
+  //           ) {
+  //             const currentTime = event.target.getCurrentTime();
+  //             localStorage.setItem("lastPlayedTime", currentTime);
+  //           }
+  //         },
+  //       },
+  //     });
+  //   };
+
+  //   return () => {
+  //     document.body.removeChild(tag);
+  //   };
+  // }, []);
+
+  // // Set up IntersectionObserver to handle play/pause based on viewport visibility
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setIsInView(entry.isIntersecting);
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   if (iframeRef.current) observer.observe(iframeRef.current);
+
+  //   return () => {
+  //     if (iframeRef.current) observer.unobserve(iframeRef.current);
+  //   };
+  // }, []);
+
+  // // Control playback based on `isInView` and `player` readiness
+  // useEffect(() => {
+  //   if (player) {
+  //     if (isInView) {
+  //       const savedTime =
+  //         parseFloat(localStorage.getItem("lastPlayedTime")) || 0;
+  //       player.seekTo(savedTime);
+  //       player.playVideo();
+  //     } else {
+  //       player.pauseVideo();
+  //     }
+  //   }
+  // }, [isInView, player]);
 
   return (
     <>
@@ -534,26 +538,25 @@ const Page = () => {
 
       <section
         className="client-say crowdfunding-say NewTorowLi"
-        style={{ backgroundColor: "#fff" }}
+        style={{ backgroundColor: "#fff", marginTop: "100px" }}
       >
         <div className="container">
           <div className="row">
             <div className="col-md-6 job-video">
-              {/* {inView && (
-                <div className="jobvideo">
-                  <iframe
-                    width="100%"
-                    height="312"
-                    src="https://www.youtube.com/embed/83xCE7lMRTs?rel=0&autoplay=1"
-                     viewport="0 0 0"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
- 
-
-                </div>
-              )} */}
+              <div ref={videoRef}>
+                {isFullyVisible && (
+                  <div className="jobvideo">
+                    <iframe
+                      width="100%"
+                      height="312"
+                      src="https://www.youtube.com/embed/83xCE7lMRTs?rel=0&autoplay=1"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
+              </div>
               {/* <div ref={iframeRef}>
                 {isInView && (
                   <iframe
@@ -566,7 +569,7 @@ const Page = () => {
                   ></iframe>
                 )}
               </div> */}
-              <div ref={iframeRef}>
+              {/* <div ref={iframeRef}>
                 <iframe
                   id="ytplayer"
                   width="100%"
@@ -576,7 +579,7 @@ const Page = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-6">
               <div className="service-market-ttd-new JobBoardServiceMarketFeatures">

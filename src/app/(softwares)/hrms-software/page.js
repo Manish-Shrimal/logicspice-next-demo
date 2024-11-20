@@ -520,7 +520,7 @@ const Page = () => {
             businesses seeking reliable, scalable, and customizable HRMS
             software solutions. Whether you&apos;re managing employee information,
             tracking attendance, or processing payroll, our best HR Management
-            software helps you handle everything from one easy-to-use platform
+            software helps you handle everything from one easy-to-use platform.
           </p>
         </div>
       </section>
