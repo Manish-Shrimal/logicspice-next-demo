@@ -1062,8 +1062,8 @@ label.in-label::before {
 
 .cupon_bt_righ.ancorinput.btn.btn-primary {
 	margin-left: 8px;
-	padding: 7px 16px;
-	text-transform: capitalize;
+	padding: 7px 16px!important;
+	text-transform: capitalize!important;
 }
 
 .cls_dv {
@@ -1095,7 +1095,7 @@ label.in-label::before {
 	font-size: 21px;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
+	color: #fff!important;
 	text-shadow: 0 1px 0 #fff;
 	filter: alpha(opacity=20);
 	opacity: .2;
@@ -1106,6 +1106,9 @@ label.in-label::before {
 #paymentModal .modal-header .close {
 	color: #fff;
 	opacity: 1;
+}
+#paymentModal .modal-header {
+	background: #29166f;
 }
 
 .contact_detail_info_row_icn>img {

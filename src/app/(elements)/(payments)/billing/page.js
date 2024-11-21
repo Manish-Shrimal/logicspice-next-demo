@@ -34,6 +34,7 @@ const Page = () => {
   const billingInitials = useRef();
 
   const [discountApplied, setDiscountApplied] = useState(false);
+  const [discountApiHit, setDiscountApiHit] = useState(false);
 
   const initialAddArray = JSON.parse(Cookies.get("addArray") || "{}");
   const [addArray, setAddArray] = useState(initialAddArray);
@@ -60,7 +61,9 @@ const Page = () => {
   // Set the initial state with the parsed object
   const [currencyDetail, setCurrencyDetail] = useState(initialCurrencyDetail);
 
-  const [productType, setProductType] = useState(Cookies.get("productType").replace(/"/g, ""));
+  const [productType, setProductType] = useState(
+    Cookies.get("productType").replace(/"/g, "")
+  );
 
   const [formData, setFormData] = useState({
     billing_name: "",
@@ -109,7 +112,7 @@ const Page = () => {
   let totalPrice = useRef();
   let discountHtml = useRef();
   const [initialPriceBreakupHtml, setInitialPriceBreakupHtml] = useState();
-  const [totalFinalPrice, setTotalFinalPrice] = useState()
+  const [totalFinalPrice, setTotalFinalPrice] = useState();
 
   const initialHtml = useRef();
 
@@ -277,8 +280,6 @@ const Page = () => {
     }
   };
 
-
-
   useEffect(() => {
     // const fetchData = async () => {
     //   try {
@@ -397,8 +398,6 @@ const Page = () => {
     //   }
     // };
 
-
-
     const sendFormInitials = async () => {
       try {
         const updatedData = {
@@ -423,7 +422,7 @@ const Page = () => {
         // console.log(response)
         setInitialPriceBreakupHtml(response.data.html);
         setTotalFinalPrice(response.data.total);
-        initialHtml.current = response.data.html
+        initialHtml.current = response.data.html;
       } catch (error) {
         console.log(error.message);
       }
@@ -435,6 +434,66 @@ const Page = () => {
     getCountries();
   }, []); // Empty dependency array means this effect runs once on mount
 
+  // const applyDiscount = async (e) => {
+  //   e.preventDefault();
+
+  //   if (couponDiscount.coupon_code == "") {
+  //     setMessage("Please enter coupon code");
+  //     return false;
+  //   }
+  //   let discountData = {
+  //     coupon_code: couponDiscount.coupon_code,
+  //     payment_gateway: "paypal",
+  //     product_name: productType,
+  //     total_amount: totalFinalPrice,
+  //     currencySym: currencyDetail.currency_symbol,
+  //     currency: currencyDetail.name,
+  //     slug: currencyDetail.product_name,
+  //   };
+
+  //   try {
+  //     document.querySelector(".main_cart_loader").style.display = "block";
+
+  //     const response = await axios.post(
+  //       BaseAPI + "/softwares/discount",
+  //       discountData
+  //     );
+  //     document.querySelector(".main_cart_loader").style.display = "none";
+
+  //     // console.log(response);
+
+  //     if (response.data.status == 200) {
+  //       setFormData((pre) => ({
+  //         ...pre,
+  //         cost: response.data.data.total_amount,
+  //         discount: response.data.data.discount_price,
+  //         total_cost: response.data.data.charge_amount,
+  //       }));
+  //       totalPrice.current = response.data.data.charge_amount;
+
+  //       setDiscountApplied(true);
+  //       setPaymentModal(false);
+  //       console.log(response.data.html);
+  //       discountHtml.current = response.data.html;
+  //       setTotalFinalPrice(response.data.data.charge_amount);
+  //       if (discountHtml.current !== "") {
+  //         const offerElement = document.getElementById("ofer_finl"); // Corrected selector
+  //         if (offerElement) {
+  //           offerElement.innerHTML = discountHtml.current;
+  //         } else {
+  //           console.error("Element #ofer_finl not found in the DOM.");
+  //         }
+  //       }
+
+  //     }
+
+  //     setMessage(response.data.message);
+  //   } catch (error) {
+  //     // document.querySelector(".main_cart_loader").style.display = "none";
+
+  //     console.log(error.message);
+  //   }
+  // };
   const applyDiscount = async (e) => {
     e.preventDefault();
 
@@ -442,23 +501,24 @@ const Page = () => {
       setMessage("Please enter coupon code");
       return false;
     }
+
     let discountData = {
       coupon_code: couponDiscount.coupon_code,
       payment_gateway: "paypal",
       product_name: productType,
-      total_amount: totalPrice.current,
+      total_amount: totalFinalPrice,
       currencySym: currencyDetail.currency_symbol,
       currency: currencyDetail.name,
       slug: currencyDetail.product_name,
     };
 
     try {
+      // document.querySelector(".main_cart_loader").style.display = "block";
+setDiscountApiHit(true);
       const response = await axios.post(
         BaseAPI + "/softwares/discount",
         discountData
       );
-
-      // console.log(response);
 
       if (response.data.status == 200) {
         setFormData((pre) => ({
@@ -470,25 +530,28 @@ const Page = () => {
         totalPrice.current = response.data.data.charge_amount;
 
         setDiscountApplied(true);
+        setDiscountApiHit(false);
         setPaymentModal(false);
-        console.log(response.data.html);
         discountHtml.current = response.data.html;
+        setTotalFinalPrice(response.data.data.charge_amount);
 
         if (discountHtml.current !== "") {
-          const offerElement = document.querySelector("#ofer_finl"); // Corrected selector
+          const offerElement = document.getElementById("ofer_finl"); // Corrected selector
           if (offerElement) {
             offerElement.innerHTML = discountHtml.current;
           } else {
             console.error("Element #ofer_finl not found in the DOM.");
           }
         }
-
-        // $('#ofer_finl').html(response.data.html)
       }
 
       setMessage(response.data.message);
     } catch (error) {
-      console.log(error.message);
+      setDiscountApiHit(false);
+      console.error(error.message);
+      setMessage("An error occurred while applying the discount.");
+    } finally {
+      document.querySelector(".main_cart_loader").style.display = "none";
     }
   };
 
@@ -825,6 +888,19 @@ const Page = () => {
             aria-hidden={!paymentModal}
             style={{ display: paymentModal ? "block" : "none", width: "100%" }} // Adding display property
           >
+            {discountApiHit && (
+              <>
+                <div className="main_cart_loader" id="loadercart">
+                  <Image
+                    width={100}
+                    height={100}
+                    src="/img/loader_large_blue.gif"
+                    alt=""
+                  />
+                </div>
+              </>
+            )}
+
             <div class="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
