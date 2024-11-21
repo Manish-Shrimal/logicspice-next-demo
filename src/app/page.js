@@ -17,7 +17,7 @@ import Image from "next/image";
 import Servercomponents from "./Components/Servercomponents";
 import "aos/dist/aos.css"; // Import AOS CSS
 import AOS from "aos"; // Import AOS
-import GTMComponent from "./Components/GTMComponent";
+
 import Chatbot from "./Components/Chatbot";
 import "../../public/css/font-awesome.css";
 
@@ -79,7 +79,7 @@ const Page = () => {
   return (
     <>
     <Chatbot />
-    <GTMComponent />
+   
       <NavBar />
       <div className="home-slider">
         <div className="container">
