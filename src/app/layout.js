@@ -83,7 +83,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./resposive.css";
 import AOSInitializer from "./Components/AOSInitializer";
-import GTMComponent from "./Components/GTMComponent";
+
 import Chatbot from "./Components/Chatbot";
 import MetadataApi from "@/app/BaseAPI/MetadataApi";
 import Domain from "./BaseAPI/Domain";
@@ -155,7 +155,7 @@ export default function RootLayout({ children, params, searchParams }) {
       <body className={inter.className}>
         <AOSInitializer>{children}</AOSInitializer>
         <Chatbot />
-        <GTMComponent />
+
         {isHomePage && (
           <>
             <script
