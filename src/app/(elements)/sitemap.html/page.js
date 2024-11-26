@@ -11,8 +11,7 @@ import Image from "next/image";
 import "../elements.css";
 import Contactusmodel from "@/app/Components/Contactusmodel";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
-
+import "../../../../public/css/font-awesome.css";
 
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -90,7 +89,9 @@ const Page = () => {
                             <Link href="/technologies">Technologies</Link>
                           </li>
                           <li>
-                            <Link href="https://www.logicspice.com/blog">Blogs</Link>
+                            <Link href="https://www.logicspice.com/blog">
+                              Blogs
+                            </Link>
                           </li>
                           <li>
                             <Link href="/gallery">Gallery</Link>
@@ -218,15 +219,15 @@ const Page = () => {
                         </ul>
                       </li>
                       <li className="sub_mp">
-                        <Link href="/our-work-process">
-                          Our Process
-                        </Link>
+                        <Link href="/our-work-process">Our Process</Link>
                         <ul>
                           <li>
                             <Link href="/case-study">Case Study</Link>
                           </li>
                           <li>
-                            <Link href="/our-work-process">Development Methodology</Link>
+                            <Link href="/our-work-process">
+                              Development Methodology
+                            </Link>
                           </li>
                           <li>
                             <Link href="/resources/project-communication">
@@ -253,17 +254,33 @@ const Page = () => {
                       </li>
                       <li>
                         <Link href="/doctor-appointment-scheduling-software">
-                        Online Doctor Appointment Scheduling Software
+                          Online Doctor Appointment Scheduling Software
                         </Link>
                       </li>
                       <li>
                         <Link href="/hrms-software">
-                        Human Resource Management Software
+                          Human Resource Management Software
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/group-chat-internal-communication
+"
+                        >
+                          Group Chat App
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/live-chat-software
+"
+                        >
+                          Live Chat Software
                         </Link>
                       </li>
                       <li>
                         <Link href="/salon-booking-software">
-                        Salon Booking Software
+                          Salon Booking Software
                         </Link>
                       </li>
                       <li>
@@ -305,14 +322,10 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/groupon-clone">
-                          Groupon Clone Script
-                        </Link>
+                        <Link href="/groupon-clone">Groupon Clone Script</Link>
                       </li>
                       <li>
-                        <Link href="/freelancer-clone">
-                          Freelancer Clone
-                        </Link>
+                        <Link href="/freelancer-clone">Freelancer Clone</Link>
                       </li>
                       <li>
                         <Link href="/fiverr-clone">Fiverr Clone</Link>
@@ -373,9 +386,7 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/chat-room-script">
-                          Chat Room Script
-                        </Link>
+                        <Link href="/chat-room-script">Chat Room Script</Link>
                       </li>
                       <li>
                         <Link href="/grocery-app-development">
@@ -393,17 +404,13 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/linkedin-clone">
-                          LinkedIn Clone
-                        </Link>
+                        <Link href="/linkedin-clone">LinkedIn Clone</Link>
                       </li>
                       <li>
                         <Link href="/blog-script">Blog Script</Link>
                       </li>
                       <li>
-                        <Link href="/ebay-clone">
-                          eBay Clone Script
-                        </Link>
+                        <Link href="/ebay-clone">eBay Clone Script</Link>
                       </li>
                       <li>
                         <Link href="/recruitment-management-software">
@@ -421,9 +428,7 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/whatsapp-clone">
-                          WhatsApp Clone
-                        </Link>
+                        <Link href="/whatsapp-clone">WhatsApp Clone</Link>
                       </li>
                       <li>
                         <Link href="/real-estate-script">
@@ -644,14 +649,10 @@ const Page = () => {
                         <Link href="/android-app-development">Android</Link>
                       </li>
                       <li>
-                        <Link href="/web-development">
-                          Website Development
-                        </Link>
+                        <Link href="/web-development">Website Development</Link>
                       </li>
                       <li>
-                        <Link href="/psd-to-html">
-                          XHTML Conversion
-                        </Link>
+                        <Link href="/psd-to-html">XHTML Conversion</Link>
                       </li>
                       <li>
                         <Link href="/cakephp-development">
@@ -830,9 +831,7 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/website-design">
-                          UI UX Design Company
-                        </Link>
+                        <Link href="/website-design">UI UX Design Company</Link>
                       </li>
                       <li>
                         <Link href="/software-development">
@@ -933,16 +932,22 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/software-maintenance-support">Support &amp; Maintenance</Link>
+                        <Link href="/software-maintenance-support">
+                          Support &amp; Maintenance
+                        </Link>
                       </li>
                       <li>
                         <Link href="/psd-to-shopify">PSD to Shopify</Link>
                       </li>
                       <li>
-                        <Link href="/generative-ai-development">Generative AI Development</Link>
+                        <Link href="/generative-ai-development">
+                          Generative AI Development
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/blockchain-development">Blockchain Development</Link>
+                        <Link href="/blockchain-development">
+                          Blockchain Development
+                        </Link>
                       </li>
                       <li>
                         <Link href="/video-creation">Video Creation</Link>

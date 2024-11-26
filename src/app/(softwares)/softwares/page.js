@@ -663,6 +663,130 @@ const Page = () => {
                       </div>
                       <div className="col-sm-6 col-md-4">
                         <Link
+                          href="/live-chat-software"
+                          className="ready-product"
+                          data-aos="fade-up"
+                        >
+                          <Image
+                            unoptimized={true}
+                            width={100}
+                            height={100}
+                            className=""
+                            src="/img/doctorappointment/doctor-appointment-icon.png"
+                            alt="Doctor Appointment Scheduling Software"
+                          />
+                          <div className="abs-product">
+                            <h3>Live Chat Software</h3>
+                            <p>
+                            Our Live Chat Software enables businesses to provide real-time support to customers, enhancing user experience and boosting conversions. It’s an easy-to-use tool that helps teams engage with visitors instantly, answer queries, and offer solutions. 
+                            </p>
+                            <div className="product-star">
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div className="product-review">173 REVIEWS</div>
+                            <ul className="make-style">
+                              {/* <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/android-new.png"
+                                  alt="android"
+                                />
+                              </li>
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/apple.png"
+                                  alt="apple"
+                                />
+                              </li> */}
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/web_new.png"
+                                  alt="web"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="col-sm-6 col-md-4">
+                        <Link
+                          href="/group-chat-internal-communication"
+                          className="ready-product"
+                          data-aos="fade-up"
+                        >
+                          <Image
+                            unoptimized={true}
+                            width={100}
+                            height={100}
+                            className=""
+                            src="/img/doctorappointment/doctor-appointment-icon.png"
+                            alt="Doctor Appointment Scheduling Software"
+                          />
+                          <div className="abs-product">
+                            <h3>Group Chat App</h3>
+                            <p>
+                            Our Group Chat Internal Communication Software makes team collaboration smooth and efficient. It allows employees to stay connected, share ideas, and communicate instantly, whether they&apos;re in the office or working remotely. 
+                            </p>
+                            <div className="product-star">
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div className="product-review">173 REVIEWS</div>
+                            <ul className="make-style">
+                              {/* <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/android-new.png"
+                                  alt="android"
+                                />
+                              </li>
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/apple.png"
+                                  alt="apple"
+                                />
+                              </li> */}
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/web_new.png"
+                                  alt="web"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="col-sm-6 col-md-4">
+                        <Link
                           href="/crowdfunding-script"
                           className="ready-product"
                           data-aos="fade-up"
@@ -2143,7 +2267,6 @@ const Page = () => {
                           </div>
                         </Link>
                       </div>
-                      
 
                       <div className="col-sm-6 col-md-4">
                         <Link
@@ -4497,7 +4620,6 @@ const Page = () => {
                           </div>
                         </Link>
                       </div>
-                      
 
                       <div className="col-sm-6 col-md-4">
                         <a

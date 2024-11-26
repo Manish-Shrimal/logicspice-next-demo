@@ -1272,7 +1272,7 @@ const Page = () => {
                 data-aos="fade-left"
               >
                 <div className="libraries_laravel_choose libraries_laravel_choose-right">
-                  <Link href="" target="_blank">
+                  <Link href="/doctor-appointment-scheduling-software" target="_blank">
                     <div className="laravel_choose_features_img laravel_choose_features_img6">
                       <Image
                         unoptimized={true}
@@ -1295,7 +1295,7 @@ const Page = () => {
                   </Link>
                 </div>
               </div>
-              <div
+              {/* <div
                 className="col-sm-6 col-md-6 aos-init aos-animate"
                 data-aos="fade-left"
               >
@@ -1316,6 +1316,32 @@ const Page = () => {
                         Our Sports Area Booking Software is designed to manage
                         bookings for various sports facilities, including turfs,
                         tennis courts, football fields, and basketball courts.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              </div> */}
+              <div
+                className="col-sm-6 col-md-6 aos-init aos-animate"
+                data-aos="fade-left"
+              >
+                <div className="libraries_laravel_choose libraries_laravel_choose-right">
+                  <Link href="/salon-booking-software" target="_blank">
+                    <div className="laravel_choose_features_img laravel_choose_features_img6">
+                      <Image
+                        unoptimized={true}
+                        width={50}
+                        height={100}
+                        src="/img/marketplacesoftware/appointment-booking-icon.png"
+                        alt="Appointment Booking"
+                      />
+                    </div>
+                    <div className="laravel_choose_details">
+                      <h3>Salon Booking Software</h3>
+                      <p>
+                      Our Salon Booking Software helps salons and spas
+                              manage appointments with ease, and creating a
+                              smooth booking experience for clients.
                       </p>
                     </div>
                   </Link>
