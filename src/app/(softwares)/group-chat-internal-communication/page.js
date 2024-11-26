@@ -699,7 +699,7 @@ const Page = () => {
                                       projects, share updates, or collaborate
                                       with multiple team members in real-time.
                                       Use the @mention feature to grab specific
-                                      members' attention instantly.
+                                      members&apos; attention instantly.
                                     </p>
                                   </div>
                                 </span>
