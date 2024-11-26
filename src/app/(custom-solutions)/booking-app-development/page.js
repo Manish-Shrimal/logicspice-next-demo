@@ -12,7 +12,7 @@ import "../../resposive.css";
 import Customsolutiontabs from "@/app/Components/Customsolutiontabs";
 import Support from "@/app/Components/Support";
 import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import {
   Accordion,
   AccordionSummary,
@@ -24,6 +24,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Head from "next/head";
 const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -81,7 +82,6 @@ const Page = () => {
   ];
 
   const openModal = () => {
-
     setShowModal(!showModal);
   };
 
@@ -91,6 +91,18 @@ const Page = () => {
   return (
     <>
       <Navbar />
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/customsolutionspage/top-bg.png"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/customsolutions/Online-Booking-App.jpg"
+        />
+      </Head>
       <div className="top-head-custom Online-Booking-App">
         <div className="container">
           <div className="col-md-8">
@@ -128,19 +140,18 @@ const Page = () => {
                 </div>
               </Link> */}
               <Link
-  href="https://api.whatsapp.com/send?phone=+919829559922&text=Hi Logicspice Team, I have a question regarding the solutions you provide. Please Help!"
-  target="_blank"
-  aria-label="Contact Logicspice Team on WhatsApp"
->
-  <div className="WhatsappIcon WhatsappIconCustom">
-    <div className="coccoc-alo-phone coccoc-alo-green coccoc-alo-show">
-      <div className="coccoc-alo-ph-circle"></div>
-      <div className="coccoc-alo-ph-circle-fill"></div>
-      <div className="coccoc-alo-ph-img-circle"></div>
-    </div>
-  </div>
-</Link>
-
+                href="https://api.whatsapp.com/send?phone=+919829559922&text=Hi Logicspice Team, I have a question regarding the solutions you provide. Please Help!"
+                target="_blank"
+                aria-label="Contact Logicspice Team on WhatsApp"
+              >
+                <div className="WhatsappIcon WhatsappIconCustom">
+                  <div className="coccoc-alo-phone coccoc-alo-green coccoc-alo-show">
+                    <div className="coccoc-alo-ph-circle"></div>
+                    <div className="coccoc-alo-ph-circle-fill"></div>
+                    <div className="coccoc-alo-ph-img-circle"></div>
+                  </div>
+                </div>
+              </Link>
             </div>
             <ul className="head-feature">
               <li>Online Solution</li>

@@ -16,6 +16,7 @@ import { Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Support from "@/app/Components/Support";
+import Head from 'next/head';
 const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -79,6 +80,7 @@ const Page = () => {
   return (
     <>
       <Navbar />
+      <Head> <link rel="preload" href="/img/customsolutionspage/Custom-CRM-Software.jpg" as="image" /> </Head>
       <div className="top-head-custom Custom-CRM-Software">
         <div className="container">
           <div className="col-md-8">
