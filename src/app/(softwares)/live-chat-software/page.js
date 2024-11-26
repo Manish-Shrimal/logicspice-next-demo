@@ -2343,7 +2343,7 @@ const Page = () => {
                   <div style={activeIndex === 1 ? showStyle : collapseStyle}>
                     <div style={bodyStyle}>
                       <p>
-                      Yes! Our best live chat software for small business is economical, easy to set up, and it's scalable. Whether you’re a small startup or a large enterprise, our live chat solution fits in all sizes of businesses.
+                      Yes! Our best live chat software for small business is economical, easy to set up, and it&apos;s scalable. Whether you’re a small startup or a large enterprise, our live chat solution fits in all sizes of businesses.
                       </p>
                     </div>
                   </div>
