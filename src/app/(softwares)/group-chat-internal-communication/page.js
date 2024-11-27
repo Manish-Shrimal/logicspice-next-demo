@@ -443,10 +443,10 @@ const Page = () => {
               <div className="col-sm-5 col-md-5">
                 <div className="por-mobile-new">
                   <Image
-                    width={400}
+                    width={450}
                     height={100}
                     className="lazy"
-                    src="/img/jobboard/new-img-jobboard.png"
+                    src="/img/group-chat/group-chat-banner-img.png"
                     alt="Job_Board_Software"
                     sizes="(max-width: 768px) 100vw, 350px"
                     unoptimized={false} // Ensure image optimization is enabled
@@ -1391,7 +1391,7 @@ const Page = () => {
                       <GetDemoEnquiry
                         modalStatus={demoAccessModal}
                         toggle={openDemoAccessModal}
-                        title="Please fill the form below and get access to the live demo of Group Chat App . See how it works yourself!"
+                        title="Please fill the form below and get access to the live demo of Group Chat App. See how it works yourself!"
                       />
                     }
                   </div>

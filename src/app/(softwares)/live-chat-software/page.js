@@ -329,7 +329,7 @@ const Page = () => {
                       <GetDemoEnquiry
                         modalStatus={demoAccessModal}
                         toggle={openDemoAccessModal}
-                        title="Please fill the form below and get access to the live demo of Group Chat App. See how it works yourself!"
+                        title="Please fill the form below and get access to the live demo of Live Chat Software. See how it works yourself!"
                       />
                     }
                   </div>
@@ -445,7 +445,7 @@ const Page = () => {
                   width={350}
                   height={100}
                   className="lazy"
-                  src="/img/jobboard/new-img-jobboard.png"
+                  src="/img/live-chat/live-chat-banner-img.png"
                   alt="Job_Board_Software"
                   sizes="(max-width: 768px) 100vw, 350px"
                   unoptimized={false} // Ensure image optimization is enabled
@@ -526,7 +526,7 @@ const Page = () => {
               <div className="service-market-ttd-new JobBoardServiceMarketFeatures">
                 <ul>
                   <li>Real-Time Messaging</li>
-                  <li>Customizable Chat Widgetsg</li>
+                  <li>Customizable Chat Widgets</li>
                   <li>User-Friendly Interface</li>
                   <li>Instant Response</li>
                   <li>Mobile-Friendly</li>
@@ -1378,7 +1378,7 @@ const Page = () => {
       <section className="job_product_page_header_in">
         <div className="container">
           <div className="whateissuprt">
-            <h2 className="headhs">What Our Live Chat Software Does for You</h2>
+            <h2 className="headhs">What Our Live Chat Software Does for You?</h2>
             <h3 className="Haeddinh2">Instant Customer Support</h3>
            
             <p>
@@ -1413,17 +1413,15 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="SubscriptionModel" id="subscriptionmodel">
+      {/* <section className="SubscriptionModel" id="subscriptionmodel">
         <div className="container">
           <div className="job_or_title">
             <h2 className="taxt_tt_job">Subscription Model</h2>
             <br />
             <div className="SubscriptionModelBx">
               <p>
-                Experience convenience like never before with our
-                subscription-based hassle-free model, available at just{" "}
-                <strong>USD 45 per month</strong>, limited offer available for
-                the first year.
+              Experience convenience like never before with our subscription-based hassle-free model, available at just {" "}
+                <strong>USD 145 per month.</strong>
               </p>
               <div className="JobBoardPlans">
                 <ul>
@@ -1563,6 +1561,96 @@ const Page = () => {
             </div>
           </div>
         </div>
+      </section> */}
+      <section
+        className="SubscriptionModel"
+        id="subscriptionmodel"
+        style={{ background: "#f1f1f1" }}
+      >
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just USD 145
+                per month.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Experience convenience like never before with our
+                    subscription-based hassle-free model, available at just USD
+                    145 per month.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Zero Setup Fees:- There are no additional charges for the
+                    setup and installation of the software, making it easier for
+                    customers to get started.
+                  </span>
+                </li>
+                {/* <li>
+                  <span>
+                    Unlimited Appointment Booking: Book as many appointments as you need
+                    without any limitations.
+                  </span>
+                </li> */}
+                <li>
+                  <span>
+                    Enhanced Communication: Avail yourself of 5 domain-based
+                    email accounts to enhance your professional communication.
+                  </span>
+                </li>
+                
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our dedicated technical team will promptly
+                    address them during office hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="subscriptionprice" className="SubscriptionpriceSection">
         <div className="container">
@@ -1587,7 +1675,7 @@ const Page = () => {
                     <GetDemoEnquiry
                       modalStatus={demoAccessModal}
                       toggle={openDemoAccessModal}
-                      title="Please fill the form below and get access to the live demo of Live Chat Software . See how it works yourself!"
+                      title="Please fill the form below and get access to the live demo of Live Chat Software. See how it works yourself!"
                     />
                   }
                 </div>
@@ -2409,7 +2497,7 @@ const Page = () => {
                   <div style={activeIndex === 4 ? showStyle : collapseStyle}>
                     <div style={bodyStyle}>
                       <p>
-                        YYes, This software allows for a complete branding, starting from designing and choosing colors for your chat widget to changing the logos for a perfect fit with the look and feel of your website.
+                        Yes, This software allows for a complete branding, starting from designing and choosing colors for your chat widget to changing the logos for a perfect fit with the look and feel of your website.
                       </p>
                     </div>
                   </div>
