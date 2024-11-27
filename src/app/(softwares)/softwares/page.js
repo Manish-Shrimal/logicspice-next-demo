@@ -672,7 +672,7 @@ const Page = () => {
                             width={100}
                             height={100}
                             className=""
-                            src="/img/doctorappointment/doctor-appointment-icon.png"
+                            src="/img/live-chat/live-chat-icon.png"
                             alt="Doctor Appointment Scheduling Software"
                           />
                           <div className="abs-product">
@@ -734,7 +734,7 @@ const Page = () => {
                             width={100}
                             height={100}
                             className=""
-                            src="/img/doctorappointment/doctor-appointment-icon.png"
+                            src="/img/group-chat/group-chat-icon.png"
                             alt="Doctor Appointment Scheduling Software"
                           />
                           <div className="abs-product">
