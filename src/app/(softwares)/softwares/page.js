@@ -497,7 +497,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">173 REVIEWS</div>
+                            <div className="product-review">355 REVIEWS</div>
                             <ul className="make-style">
                               {/* <li>
                                 <Image
@@ -625,7 +625,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">173 REVIEWS</div>
+                            <div className="product-review">210 REVIEWS</div>
                             <ul className="make-style">
                               {/* <li>
                                 <Image
@@ -687,7 +687,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">173 REVIEWS</div>
+                            <div className="product-review">304 REVIEWS</div>
                             <ul className="make-style">
                               {/* <li>
                                 <Image
@@ -749,7 +749,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">173 REVIEWS</div>
+                            <div className="product-review">187 REVIEWS</div>
                             <ul className="make-style">
                               {/* <li>
                                 <Image

@@ -1878,6 +1878,12 @@ const Page = () => {
                   Unlimited Appointment Booking: Book as many appointments as you need without any limitations.
                   </span>
                 </li> */}
+                 <li>
+                  <span>
+                    Enhanced Communication: Avail yourself of 5 domain-based
+                    email accounts to enhance your professional communication.
+                  </span>
+                </li>
                 <li>
                   <span>
                     Effortless Program Operation: Revel in robust bandwidth that
@@ -1969,7 +1975,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>219 Reviews</p>
+                    <p>310 Reviews</p>
                   </div>
                 </div>
               </div>

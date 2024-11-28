@@ -317,7 +317,7 @@ const Page = () => {
                   </div>
                 </div>
                 <div className="job-valu-btn">
-                  <span>Fill your basic details and</span>
+                  {/* <span>Fill your basic details and</span>
 
                   <div
                     className="btn-get"
@@ -340,7 +340,23 @@ const Page = () => {
                     id="buy_now_1"
                   >
                     BUY NOW
-                  </a>
+                  </a> */}
+                  <div
+                      className="enquiry_software_btn"
+                      style={{ marginTop: "15px" }}
+                      onClick={openModal}
+                    >
+                      <button className="btn fiverr-buys NewGreenBtnJob">
+                        Enquire Now
+                      </button>
+                      {
+                        <SoftwareEnquiry
+                          modalStatus={showModal}
+                          toggle={openModal}
+                          title="Live Chat Software"
+                        />
+                      }
+                    </div>
                 </div>
                 <div
                   className="portal-price portal-priceNew"
@@ -388,7 +404,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>219 Reviews</p>
+                    <p>304 Reviews</p>
                   </div>
                 </div>
                 <div className="jocpp">
@@ -396,14 +412,14 @@ const Page = () => {
                     <li>
                       <i className="fa fa-globe" aria-hidden="true"></i>
                     </li>
-                    <li>
+                    {/* <li>
                       <i class="fa fa-android" aria-hidden="true"></i>
                     </li>
                     <li>
                       <i class="fa fa-apple" aria-hidden="true"></i>
-                    </li>
+                    </li> */}
                   </ul>
-                  <div className="portel-btnbx">
+                  {/* <div className="portel-btnbx">
                     <Link
                       href=""
                       className="StartFreeTrialBtn animate-charcter"
@@ -435,7 +451,7 @@ const Page = () => {
                       </i>
                       Subscription Model
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -1402,256 +1418,11 @@ const Page = () => {
             <p>
             Our cheapest live chat solution is designed to grow with you. The software is fully scalable, and you can choose the plan that fits your needs. Moreover, this live chat script is customizable, so it automatically meets your business needs.
             </p>
-            {/* <h3 className="Haeddinh2">Enhancing Workplace Productivity</h3>
-            <p>
-              Our internal communication apps for business provide a modern,
-              efficient way to connect employees and simplify communication
-              workflows. Whether you are managing remote teams or coordinating
-              in-office projects, this company communication software is your
-              all-in-one solution for enhancing workplace productivity.
-            </p> */}
+           
           </div>
         </div>
       </section>
-      {/* <section className="SubscriptionModel" id="subscriptionmodel">
-        <div className="container">
-          <div className="job_or_title">
-            <h2 className="taxt_tt_job">Subscription Model</h2>
-            <br />
-            <div className="SubscriptionModelBx">
-              <p>
-              Experience convenience like never before with our subscription-based hassle-free model, available at just {" "}
-                <strong>USD 145 per month.</strong>
-              </p>
-              <div className="JobBoardPlans">
-                <ul>
-                  <li>
-                    <span>Custom Domain &amp; Free SSL</span>
-                  </li>
-                  <li>
-                    <span>Styles and Texts Customization</span>
-                  </li>
-                  <li>
-                    <span>Custom Static Pages</span>
-                  </li>
-                  <li>
-                    <span>Built-in Blogging Platform</span>
-                  </li>
-                  <li>
-                    <span>Charge for Job Postings</span>
-                  </li>
-                  <li>
-                    <span>3,000 Active Jobs</span>
-                  </li>
-                  <li>
-                    <span>Payment Gateway Integration</span>
-                  </li>
-                  <li>
-                    <span>Language Translation</span>
-                  </li>
-                  <li>
-                    <span>Subscriptions &amp; Packages</span>
-                  </li>
-                  <li>
-                    <span>Apply With Resume</span>
-                  </li>
-                  <li>
-                    <span>Featured Employers</span>
-                  </li>
-                  <li>
-                    <span>Banner Ads</span>
-                  </li>
-                  <li>
-                    <span>XML Feed Importers</span>
-                  </li>
-                  <li>
-                    <span>Remove Branding From Footer</span>
-                  </li>
-                  <li>
-                    <span>Currency Management</span>
-                  </li>
-                  <li>
-                    <span>Sub Admin Feature</span>
-                  </li>
-                  <li>
-                    <span>Newsletter Management</span>
-                  </li>
-                  <li>
-                    <span>Manage Payment Gateway Configuration</span>
-                  </li>
-                  <li>
-                    <span>Manage Announcement</span>
-                  </li>
-                  <li>
-                    <span>Invoice Generator</span>
-                  </li>
-                </ul>
-              </div>
-              <p>Key Benefits:</p>
-              <ul>
-                <li>
-                  <span>
-                    Lifetime Updates: Enjoy complimentary updates for your
-                    software version throughout its lifespan, including{" "}
-                    <strong>Free bug &amp; security fixes</strong> under the
-                    subscription model.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Timely Upgrades: Seamlessly transition to upgraded versions
-                    at regular intervals, all at no extra cost.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <strong>Zero Setup Fees</strong>:- Customers can easily get
-                    started with the <strong>Search Engine Friendly</strong>{" "}
-                    software as there are no additional charges for setup and
-                    installation, ensuring a smooth onboarding experience.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Unlimited Job Postings: Post as many job openings as you
-                    need without any limitations.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Mobile Apps: Stay perpetually connected with Android and
-                    iPhone apps, available for an additional USD 45 per month
-                    for each, android or iPhone. These apps will be launched
-                    through your dedicated developer accounts on Google Play and
-                    the Apple App Store.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Effortless Program Operation: Revel in robust bandwidth that
-                    guarantees your program runs flawlessly, supported by
-                    resources allocated to your subscription model. Any increase
-                    in allocated resources will incur additional charges beyond
-                    the standard subscription model.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Enduring Support: Our dedicated{" "}
-                    <strong>Customer Care team</strong> is dedicated to
-                    providing lifelong assistance through our subscription
-                    model. Any software issues that arise will be promptly
-                    addressed by our dedicated technical team during office
-                    hours.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Personalized Customization Assistance: Delivering Custom
-                    Features According to Client Requirements at additional
-                    cost.
-                  </span>
-                </li>
-              </ul>
-              <p>
-                Discover a new era of convenience and efficiency with our
-                subscription offering. Subscribe today and elevate your
-                experience with our readymade solution!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* <section
-        className="SubscriptionModel"
-        id="subscriptionmodel"
-        style={{ background: "#f1f1f1" }}
-      >
-        <div className="container">
-          <div className="job_or_title">
-            <h2 className="taxt_tt_job">Subscription Model</h2>
-            <br />
-            <div className="SubscriptionModelBx">
-              <p>
-                Experience convenience like never before with our
-                subscription-based hassle-free model, available at just USD 145
-                per month.
-              </p>
-              <p>Key Benefits:</p>
-              <ul>
-                <li>
-                  <span>
-                    Experience convenience like never before with our
-                    subscription-based hassle-free model, available at just USD
-                    145 per month.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Lifetime Updates: Enjoy complimentary updates for your
-                    software version throughout its lifespan.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Timely Upgrades: Seamlessly transition to upgraded versions
-                    at regular intervals, all at no extra cost.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Zero Setup Fees:- There are no additional charges for the
-                    setup and installation of the software, making it easier for
-                    customers to get started.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Unlimited Appointment Booking: Book as many appointments as you need
-                    without any limitations.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Enhanced Communication: Avail yourself of 5 domain-based
-                    email accounts to enhance your professional communication.
-                  </span>
-                </li>
-                
-                <li>
-                  <span>
-                    Effortless Program Operation: Revel in robust bandwidth that
-                    guarantees your program runs flawlessly, supported by
-                    resources allocated to your subscription model. Any increase
-                    in allocated resources will incur additional charges beyond
-                    the standard subscription model.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Enduring Support: We are committed to providing lifelong
-                    assistance through our subscription model. If any software
-                    issues arise, our dedicated technical team will promptly
-                    address them during office hours.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Personalized Customization Assistance: Delivering Custom
-                    Features According to Client Requirements at additional
-                    cost.
-                  </span>
-                </li>
-              </ul>
-              <p>
-                Discover a new era of convenience and efficiency with our
-                subscription offering. Subscribe today and elevate your
-                experience with our readymade solution!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
+     
       <section className="SubscriptionModel" id="subscriptionmodel">
         <div className="container">
           <div className="job_or_title">
@@ -1690,6 +1461,12 @@ const Page = () => {
                   Unlimited Item/Product Listings: List as many items/products as you need without any limitations.
                   </span>
                 </li> */}
+                 <li>
+                  <span>
+                    Enhanced Communication: Avail yourself of 5 domain-based
+                    email accounts to enhance your professional communication.
+                  </span>
+                </li>
                 <li>
                   <span>
                     Effortless Program Operation: Revel in robust bandwidth that
@@ -1729,7 +1506,7 @@ const Page = () => {
           <h2 className="taxt_tt_job">Delivered Solution</h2>
           <div className="SubscriptionModelPrice">
             <div className="SubscriptionModelPriceBx">
-              <h4>
+              {/* <h4>
                 {pageData.currency_symbol}
                 {pageData.price}
                 <span className="sml_labl"> {pageData.name}</span>
@@ -1738,10 +1515,26 @@ const Page = () => {
                 {pageData.currency_symbol}
                 {pageData.other_price}
                 <span className="sml_labl"> {pageData.name}</span>
-              </strike>
+              </strike> */}
 
               <div className="SubscriptionModelPriceBtn">
-                <div className="btn btn-get" onClick={openDemoAccessModal}>
+              <div
+                      className="enquiry_software_btn"
+                      style={{ marginTop: "15px" }}
+                      onClick={openModal}
+                    >
+                      <button className="btn fiverr-buys NewGreenBtnJob">
+                        Enquire Now
+                      </button>
+                      {
+                        <SoftwareEnquiry
+                          modalStatus={showModal}
+                          toggle={openModal}
+                          title="Live Chat Software"
+                        />
+                      }
+                    </div>
+                {/* <div className="btn btn-get" onClick={openDemoAccessModal}>
                   <button>Get Demo Access!</button>
                   {
                     <GetDemoEnquiry
@@ -1757,19 +1550,19 @@ const Page = () => {
                   id="buy_now_1"
                 >
                   Buy Now
-                </a>
+                </a> */}
               </div>
               <div className="jocpp">
                 <ul className="job-pr-icon">
                   <li>
                     <i className="fa fa-globe" aria-hidden="true"></i>
                   </li>
-                  <li>
+                  {/* <li>
                     <i className="fa fa-android" aria-hidden="true"></i>
                   </li>
                   <li>
                     <i className="fa fa-apple" aria-hidden="true"></i>
-                  </li>
+                  </li> */}
                 </ul>
                 <div className="portel-btnbx">
                   <div className="line-border NewLineBoader">
@@ -1781,7 +1574,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>219 Reviews</p>
+                    <p>304 Reviews</p>
                   </div>
                 </div>
               </div>

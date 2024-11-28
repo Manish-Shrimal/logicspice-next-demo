@@ -182,31 +182,7 @@ const Page = () => {
                     </div>
                   </div>
                   <div className="job-valu-btn">
-                    {/* <span>Fill your basic details and</span>
-
-                    <div
-                      className="btn-get"
-                      onClick={openDemoAccessModal}
-                      style={{ textAlign: "center" }}
-                    >
-                      <button>Get Demo Access!</button>
-                      {
-                        
-                        <GetDemoEnquiry
-                          modalStatus={demoAccessModal}
-                          toggle={openDemoAccessModal}
-                          title="Please fill the form below and get access to the live demo of Salon Booking Software. See how it works yourself!"
-                        />
-                      }
-                    </div>
-
-                    <a
-                      className=" fiverr-buys NewGreenBtnJob text-center"
-                      href="/buy-now/salon-booking-software"
-                      id="buy_now_1"
-                    >
-                      BUY NOW
-                    </a> */}
+                    
                     <div
                       className="enquiry_software_btn"
                       style={{ marginTop: "15px" }}
@@ -270,7 +246,7 @@ const Page = () => {
                         alt=""
                         className="lazy"
                       />
-                      <p>219 Reviews</p>
+                      <p>210 Reviews</p>
                     </div>
                   </div>
                   <div className="jocpp robotic_icons">
@@ -606,7 +582,7 @@ const Page = () => {
                         alt=""
                         className="lazy"
                       />
-                      <p>219 Reviews</p>
+                      <p>210 Reviews</p>
                     </div>
                   </div>
                 </div>
