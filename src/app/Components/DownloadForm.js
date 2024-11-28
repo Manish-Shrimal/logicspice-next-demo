@@ -61,8 +61,13 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
     }));
   };
 
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(isEnquiryRequested){
+      return;
+    }
 
     // Handle form submission
     let newErrors = {};
@@ -94,6 +99,7 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
     }
 
     try {
+      setIsEnquiryRequested(true);
       const response = await axios.post(BaseAPI + "/pages/review", formData);
 
       if (response.data.status === 200) {
@@ -109,6 +115,7 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
           recaptchaRef.current.reset();
         }
         setResultSuccess(true);
+        setIsEnquiryRequested(false);
       }
     } catch (error) {
       console.log(error.message);

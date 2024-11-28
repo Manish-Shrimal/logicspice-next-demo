@@ -518,9 +518,10 @@ const Page = () => {
             Software, a complete solution for HR and payroll needs. Built to
             simplify HR operations, our software is ideal for small to mid-sized
             businesses seeking reliable, scalable, and customizable HRMS
-            software solutions. Whether you&apos;re managing employee information,
-            tracking attendance, or processing payroll, our best HR Management
-            software helps you handle everything from one easy-to-use platform.
+            software solutions. Whether you&apos;re managing employee
+            information, tracking attendance, or processing payroll, our best HR
+            Management software helps you handle everything from one easy-to-use
+            platform.
           </p>
         </div>
       </section>
@@ -1744,13 +1745,13 @@ const Page = () => {
             <h3 className="Haeddinh2">Global Reach with Local Flexibility</h3>
             <p>
               Our HRMS solution adapts to local labor laws and regulations,
-              supporting global operations smoothly, whether you&apos;re based in the
-              UK, USA, India, or beyond.
+              supporting global operations smoothly, whether you&apos;re based
+              in the UK, USA, India, or beyond.
             </p>
           </div>
         </div>
       </section>
-      <section className="SubscriptionModel" id="subscriptionmodel">
+      {/* <section className="SubscriptionModel" id="subscriptionmodel">
         <div className="container">
           <div className="job_or_title">
             <h2 className="taxt_tt_job">Subscription Model</h2>
@@ -1762,70 +1763,7 @@ const Page = () => {
                 <strong>USD 45 per month</strong>, limited offer available for
                 the first year.
               </p>
-              {/* <div className="JobBoardPlans">
-                <ul>
-                  <li>
-                    <span>Custom Domain &amp; Free SSL</span>
-                  </li>
-                  <li>
-                    <span>Styles and Texts Customization</span>
-                  </li>
-                  <li>
-                    <span>Custom Static Pages</span>
-                  </li>
-                  <li>
-                    <span>Built-in Blogging Platform</span>
-                  </li>
-                  <li>
-                    <span>Charge for Job Postings</span>
-                  </li>
-                  <li>
-                    <span>3,000 Active Jobs</span>
-                  </li>
-                  <li>
-                    <span>Payment Gateway Integration</span>
-                  </li>
-                  <li>
-                    <span>Language Translation</span>
-                  </li>
-                  <li>
-                    <span>Subscriptions &amp; Packages</span>
-                  </li>
-                  <li>
-                    <span>Apply With Resume</span>
-                  </li>
-                  <li>
-                    <span>Featured Employers</span>
-                  </li>
-                  <li>
-                    <span>Banner Ads</span>
-                  </li>
-                  <li>
-                    <span>XML Feed Importers</span>
-                  </li>
-                  <li>
-                    <span>Remove Branding From Footer</span>
-                  </li>
-                  <li>
-                    <span>Currency Management</span>
-                  </li>
-                  <li>
-                    <span>Sub Admin Feature</span>
-                  </li>
-                  <li>
-                    <span>Newsletter Management</span>
-                  </li>
-                  <li>
-                    <span>Manage Payment Gateway Configuration</span>
-                  </li>
-                  <li>
-                    <span>Manage Announcement</span>
-                  </li>
-                  <li>
-                    <span>Invoice Generator</span>
-                  </li>
-                </ul>
-              </div> */}
+            
               <p>Key Benefits:</p>
               <ul>
                 <li>
@@ -1852,10 +1790,12 @@ const Page = () => {
                 </li>
                 <li>
                   <span>
-                  Effective Payroll Management: Easily handle payroll for your team with accurate calculations, on-time payments, and full compliance with legal requirements.
+                    Effective Payroll Management: Easily handle payroll for your
+                    team with accurate calculations, on-time payments, and full
+                    compliance with legal requirements.
                   </span>
                 </li>
-                {/* <li>
+                <li>
                   <span>
                     Mobile Apps: Stay perpetually connected with Android and
                     iPhone apps, available for an additional USD 45 per month
@@ -1863,7 +1803,7 @@ const Page = () => {
                     through your dedicated developer accounts on Google Play and
                     the Apple App Store.
                   </span>
-                </li> */}
+                </li>
                 <li>
                   <span>
                     Effortless Program Operation: Revel in robust bandwidth that
@@ -1881,6 +1821,78 @@ const Page = () => {
                     model. Any software issues that arise will be promptly
                     addressed by our dedicated technical team during office
                     hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+       <section className="SubscriptionModel" id="subscriptionmodel">
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just{" "}
+                <strong>USD 45 per month</strong>, limited offer available for
+                the first year.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Zero Setup Fees</strong>:- There are no additional
+                    charges for the setup and installation of the software,
+                    making it easier for customers to get started.
+                  </span>
+                </li>
+                {/* <li>
+                  <span>
+                  Unlimited Appointment Booking: Book as many appointments as you need without any limitations.
+                  </span>
+                </li> */}
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our <strong>dedicated technical team</strong>{" "}
+                    will promptly address them during office hours.
                   </span>
                 </li>
                 <li>
@@ -2242,22 +2254,22 @@ const Page = () => {
             </h2>
             <br />
             <div className="logic-parter">
-              <a
+              {/* <a
                 className=""
                 aria-controls="jobportal"
                 onClick={toggleJobPortalModal}
               >
                 <i className="fa fa-cogs" aria-hidden="true"></i>
                 <span>How It Works</span>
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 className=""
                 aria-controls="buyjobportal"
                 onClick={toggleBuyJobPortalModal}
               >
                 <i className="fa fa-building" aria-hidden="true"></i>
                 <span>Companies Using It</span>
-              </a>
+              </a> */}
               <a onClick={toggleInfo} className="ylogicspice">
                 <i>
                   <Image
@@ -2276,7 +2288,7 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <div>
+      {/* <div>
         <Modal
           show={jobportal}
           onHide={toggleJobPortalModal}
@@ -2295,14 +2307,14 @@ const Page = () => {
               className="img-fluid"
             />
           </Modal.Body>
-          {/* <Modal.Footer>
+          <Modal.Footer>
             <button
               className="btn btn-secondary"
               onClick={toggleJobPortalModal}
             >
               Close
             </button>
-          </Modal.Footer> */}
+          </Modal.Footer>
         </Modal>
 
         <Modal
@@ -2503,16 +2515,16 @@ const Page = () => {
               </Slider>
             </div>
           </Modal.Body>
-          {/* <Modal.Footer>
+          <Modal.Footer>
             <button
               className="btn btn-secondary"
               onClick={toggleBuyJobPortalModal}
             >
               Close
             </button>
-          </Modal.Footer> */}
+          </Modal.Footer>
         </Modal>
-      </div>
+      </div> */}
       <section className="used_technology_section" id="technologies">
         <div className="container">
           <h4 className="title_main">
@@ -2522,7 +2534,6 @@ const Page = () => {
             <div className="row">
               <div className="col-sm-6">
                 <ul>
-                
                   <li data-aos="fade-up">
                     <div className="icntechimg">
                       <Image
@@ -2571,7 +2582,6 @@ const Page = () => {
                     </div>
                     <div className="icntechimg_nm">Apache</div>
                   </li>
-            
                 </ul>
               </div>
               <div className="col-sm-6">
@@ -2679,7 +2689,10 @@ const Page = () => {
               <div className="ecommerce--review">
                 <div className="customers_review_sec_row">
                   <div className="customer_review_stext">
-                  As a growing business, we needed the best HR software for small business, and this is it! It’s affordable, efficient, and has everything we need to manage payroll, attendance, and performance.
+                    As a growing business, we needed the best HR software for
+                    small business, and this is it! It’s affordable, efficient,
+                    and has everything we need to manage payroll, attendance,
+                    and performance.
                   </div>
                   <div className="who_ratset">
                     <span
@@ -2707,7 +2720,11 @@ const Page = () => {
                 </div>
                 <div className="customers_review_sec_row">
                   <div className="customer_review_stext" id="fiveer-clone">
-                  We were looking for a solution that could scale with our growing team. This HRMS software has exceeded our expectations. From recruitment to employee management, it has made everything more efficient, and the support team has been incredibly responsive.
+                    We were looking for a solution that could scale with our
+                    growing team. This HRMS software has exceeded our
+                    expectations. From recruitment to employee management, it
+                    has made everything more efficient, and the support team has
+                    been incredibly responsive.
                   </div>
 
                   <div className="who_ratset">
@@ -2737,7 +2754,10 @@ const Page = () => {
 
                 <div className="customers_review_sec_row">
                   <div className="customer_review_stext" id="fiveer-clone">
-                  This HR and payroll software has completely transformed how we manage our team. The payroll process used to take hours every month, but now it’s automated and much faster. It’s a huge time-saver!
+                    This HR and payroll software has completely transformed how
+                    we manage our team. The payroll process used to take hours
+                    every month, but now it’s automated and much faster. It’s a
+                    huge time-saver!
                   </div>
 
                   <div className="who_ratset">
@@ -2881,7 +2901,7 @@ const Page = () => {
           <div className="row">
             <div className="col-md-12 ecommerce__Quick_FAQ">
               <h4 className="title_main">Quick FAQ</h4>
-           
+
               <div id="accordion">
                 <div style={panelStyle} data-aos="fade-up">
                   <div style={headingStyle}>
@@ -2952,9 +2972,10 @@ const Page = () => {
                     <div style={bodyStyle}>
                       <p>
                         Yes, our{" "}
-                        <strong>best HR software for small business</strong>  is perfect for managing payroll. It
-                        automatically calculates wages, handles tax deductions,
-                        and ensures everything is accurate and on time.
+                        <strong>best HR software for small business</strong> is
+                        perfect for managing payroll. It automatically
+                        calculates wages, handles tax deductions, and ensures
+                        everything is accurate and on time.
                       </p>
                     </div>
                   </div>

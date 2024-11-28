@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -84,6 +85,10 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(isEnquiryRequested){
+      return;
+    }
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -100,6 +105,7 @@ const Page = () => {
       // const responsee = { data: { status: 200, message: "Submitted successfully!" } };
 
       if (response.data.status === 200) {
+        setIsEnquiryRequested(true);
         Swal.fire({
           icon: "success",
           title: "Successfully Applied",

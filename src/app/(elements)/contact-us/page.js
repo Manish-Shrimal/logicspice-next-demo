@@ -46,6 +46,7 @@ const Page = () => {
     
     recaptchaerror: "",
   });
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,6 +63,9 @@ const Page = () => {
 
   const submitEnquiryForm = async (e) => {
     e.preventDefault();
+    if(isEnquiryRequested){
+      return;
+    }
     const newErrors = {};
 
     if (!isRecaptchaVerified) {
@@ -106,6 +110,7 @@ const Page = () => {
       const response = await axios.post(BaseAPI + "/pages/enquire", formData);
 
       if (response.data.status === 200) {
+        setIsEnquiryRequested(true);
         setResultSuccess(true);
         setHtml(response.data.message);
         // setFormData({

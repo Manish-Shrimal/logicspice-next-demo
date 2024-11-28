@@ -277,7 +277,7 @@ const Page = () => {
     <>
     
     <Navbar />
-      <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign">
+      <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign LiveChatBanner">
         <div className="container">
           <div className="row">
             <div className="col-sm-7 col-md-7">
@@ -594,8 +594,8 @@ const Page = () => {
                             unoptimized={true}
                             width={300}
                             height={100}
-                            src="/img/jobboard/mobile-job-seeker.png"
-                            alt="Jobseeker App Feature"
+                            src="/img/live-chat/live-chat-mobile-screen.png"
+                            alt="Live Chat Feature"
                           />
                         </div>
                       </div>
@@ -889,8 +889,8 @@ const Page = () => {
                             unoptimized={true}
                             width={300}
                             height={100}
-                            src="/img/jobboard/emplyer-mobile.png"
-                            alt="Buyer App Features"
+                            src="/img/live-chat/agent-mobile-screen.png"
+                            alt="Live Chat Features"
                           />
                         </div>
                       </div>
@@ -1126,9 +1126,9 @@ const Page = () => {
                             unoptimized={true}
                             width={300}
                             height={100}
-                            src="/img/fiverrclone/gigger_deshboard.png"
+                            src="/img/live-chat/live-chat-admin.png"
                             alt="Admin Panel"
-                          />{" "}
+                          />
                         </div>
                       </div>
                       <div className="col-lg-8 col-md-9">
@@ -1562,7 +1562,7 @@ const Page = () => {
           </div>
         </div>
       </section> */}
-      <section
+      {/* <section
         className="SubscriptionModel"
         id="subscriptionmodel"
         style={{ background: "#f1f1f1" }}
@@ -1605,12 +1605,12 @@ const Page = () => {
                     customers to get started.
                   </span>
                 </li>
-                {/* <li>
+                <li>
                   <span>
                     Unlimited Appointment Booking: Book as many appointments as you need
                     without any limitations.
                   </span>
-                </li> */}
+                </li>
                 <li>
                   <span>
                     Enhanced Communication: Avail yourself of 5 domain-based
@@ -1633,6 +1633,78 @@ const Page = () => {
                     assistance through our subscription model. If any software
                     issues arise, our dedicated technical team will promptly
                     address them during office hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      <section className="SubscriptionModel" id="subscriptionmodel">
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just{" "}
+                <strong>USD 45 per month</strong>, limited offer available for
+                the first year.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Zero Setup Fees</strong>:- There are no additional
+                    charges for the setup and installation of the software,
+                    making it easier for customers to get started.
+                  </span>
+                </li>
+                {/* <li>
+                  <span>
+                  Unlimited Item/Product Listings: List as many items/products as you need without any limitations.
+                  </span>
+                </li> */}
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our <strong>dedicated technical team</strong>{" "}
+                    will promptly address them during office hours.
                   </span>
                 </li>
                 <li>
@@ -1774,7 +1846,7 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="job_portal_area script-update-bg">
+      {/* <section className="job_portal_area script-update-bg">
         <div className="container">
           <div className="job_or_title">
             <h2 className="taxt_tt_job">Script Update History</h2>
@@ -1984,7 +2056,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="job_portal_area job_portal_area_food">
         <div className="container">

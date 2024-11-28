@@ -33,6 +33,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
   const [errors, setErrors] = useState({});
   const [loader, setLoader] = useState(false);
   const [html, setHtml] = useState("");
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
 
   useEffect(() => {
     setPopupScProductContacts(modalStatus);
@@ -98,13 +99,19 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(isEnquiryRequested){
+      return;
+    }
     if (validateForm()) {
       setLoader(true);
       try {
+        isEnquiryRequested(true);
         const response = await axios.post(BaseAPI + "/pages/contact", formData);
         if (response.data.status === 200) {
+          setIsEnquiryRequested(true);
           setResultSuccess(true);
           setFormData((prevData) => ({
             ...prevData,
@@ -113,6 +120,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
             phone_no: "",
             message: "",
           }));
+          setIsEnquiryRequested(false);
         }
       } catch (error) {
         console.error("Submission error:", error.message);

@@ -18,9 +18,7 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import GetDemoEnquiry from "@/app/Components/GetDemoEnquiry";
-import "../../../../public/css/font-awesome.css"
-
-
+import "../../../../public/css/font-awesome.css";
 
 const Page = () => {
   const [showReviewModal, setShowReviewModal] = useState(false);
@@ -42,8 +40,6 @@ const Page = () => {
   };
 
   const openModal = () => {
-    
-
     setShowModal(!showModal);
   };
 
@@ -89,7 +85,7 @@ const Page = () => {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
- 
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -438,7 +434,7 @@ const Page = () => {
           </div>
         </section>
       </section> */}
-       <section className="product_middle_menu_box">
+      <section className="product_middle_menu_box">
         {isScrolled && (
           <section className="product_middle_menu top-fixed">
             <div className="container">
@@ -500,11 +496,11 @@ const Page = () => {
                               toggle={openModal}
                               title="Wordpress Twitter Login Plugin"
                             />
-                  //           <GetDemoEnquiry
-                  //   modalStatus={demoAccessModal}
-                  //   toggle={openDemoAccessModal}
-                  //   title="Wordpress Twitter Login Plugin"
-                  // />
+                            //           <GetDemoEnquiry
+                            //   modalStatus={demoAccessModal}
+                            //   toggle={openDemoAccessModal}
+                            //   title="Wordpress Twitter Login Plugin"
+                            // />
                           }
                         </Link>
                       </li>

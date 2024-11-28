@@ -277,7 +277,7 @@ const Page = () => {
     <>
       <div className="group_chat">
         <Navbar />
-        <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign">
+        <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign groupChatBanner">
           <div className="container">
             <div className="row">
               <div className="col-sm-7 col-md-7">
@@ -446,8 +446,8 @@ const Page = () => {
                     width={450}
                     height={100}
                     className="lazy"
-                    src="/img/group-chat/group-chat-banner-img.png"
-                    alt="Job_Board_Software"
+                    src="/img/live-chat/group-chat-banner.png"
+                    alt="Group Chat Software"
                     sizes="(max-width: 768px) 100vw, 350px"
                     unoptimized={false} // Ensure image optimization is enabled
                   />
@@ -603,8 +603,8 @@ const Page = () => {
                               unoptimized={true}
                               width={300}
                               height={100}
-                              src="/img/jobboard/mobile-job-seeker.png"
-                              alt="Jobseeker App Feature"
+                              src="/img/live-chat/group-chat-mobile-screen.png"
+                              alt="Group Chat Feature"
                             />
                           </div>
                         </div>
@@ -919,8 +919,8 @@ const Page = () => {
                               unoptimized={true}
                               width={300}
                               height={100}
-                              src="/img/jobboard/emplyer-mobile.png"
-                              alt="Buyer App Features"
+                              src="/img/live-chat/group-chat-Admin.png"
+                              alt="Group chat Features"
                             />
                           </div>
                         </div>
@@ -1216,7 +1216,7 @@ const Page = () => {
             </div>
           </div>
         </section>
-        <section className="SubscriptionModel" id="subscriptionmodel">
+        {/* <section className="SubscriptionModel" id="subscriptionmodel">
           <div className="container">
             <div className="job_or_title">
               <h2 className="taxt_tt_job">Subscription Model</h2>
@@ -1367,7 +1367,164 @@ const Page = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+        {/* <section
+        className="SubscriptionModel"
+        id="subscriptionmodel"
+        style={{ background: "#f1f1f1" }}
+      >
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just USD 145
+                per month.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Experience convenience like never before with our
+                    subscription-based hassle-free model, available at just USD
+                    145 per month.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Zero Setup Fees:- There are no additional charges for the
+                    setup and installation of the software, making it easier for
+                    customers to get started.
+                  </span>
+                </li>
+               
+                <li>
+                  <span>
+                    Enhanced Communication: Avail yourself of 5 domain-based
+                    email accounts to enhance your professional communication.
+                  </span>
+                </li>
+                
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our dedicated technical team will promptly
+                    address them during office hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+       <section className="SubscriptionModel" id="subscriptionmodel">
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just{" "}
+                <strong>USD 45 per month</strong>, limited offer available for
+                the first year.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Zero Setup Fees</strong>:- There are no additional
+                    charges for the setup and installation of the software,
+                    making it easier for customers to get started.
+                  </span>
+                </li>
+                {/* <li>
+                  <span>
+                  Unlimited Appointment Booking: Book as many appointments as you need without any limitations.
+                  </span>
+                </li> */}
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our <strong>dedicated technical team</strong>{" "}
+                    will promptly address them during office hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
         <section id="subscriptionprice" className="SubscriptionpriceSection">
           <div className="container">
             <h2 className="taxt_tt_job">Delivered Solution</h2>

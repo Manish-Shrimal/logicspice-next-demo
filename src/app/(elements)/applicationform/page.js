@@ -7,17 +7,20 @@ import "../elements.css";
 import Contactusmodel from "@/app/Components/Contactusmodel";
 import Image from "next/image";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
+  const router = useRouter();
 
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [loading, setLoading] = useState(false);
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
@@ -331,6 +334,7 @@ const Page = () => {
   const handleSubmit = async (e) => {
     // console.log("hii");
     e.preventDefault();
+    if(loading) return;
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
@@ -343,7 +347,7 @@ const Page = () => {
 
     // setLoader(true);
     try {
-      // console.log("hi");
+      setLoading(true);
 
       const response = await axios.post(
         BaseAPI + "/applicationform",
@@ -354,18 +358,19 @@ const Page = () => {
           },
         }
       );
-
+      setLoading(false);
+      console.log(response);
+      console.log("Outer")
       if (response.data.status === 200) {
         router.push("/apply-now");
-        // setResultSuccess(true);
+        console.log("Inner")
+        
 
-        if (response.data.status === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Successfully Applied",
-            text: response.data.message,
-          });
-        }
+        Swal.fire({
+          icon: "success",
+          title: "Successfully Applied",
+          text: response.data.message,
+        });
 
         setFormData({
           post: "",
@@ -444,6 +449,8 @@ const Page = () => {
         });
       }
     } catch (error) {
+      setLoading(false);
+
       console.error("Submission error:", error.message);
     }
   };
@@ -529,6 +536,17 @@ const Page = () => {
   return (
     <>
       <Navbar />
+      {loading && (
+        <div className="main_cart_loader" id="loadercart">
+          <Image
+            width={100}
+            height={100}
+            src="/img/loader_large_blue.gif"
+            alt=""
+          />
+        </div>
+      )}
+
       <div className="application-form-section ">
         <div className="container">
           <div className="appliction-form-bxs">

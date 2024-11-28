@@ -43,7 +43,6 @@ const Page = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [demoAccessModal, setDemoAccessModal] = useState(false);
   const openDemoAccessModal = () => {
-    // console.log(showModal);
 
     setDemoAccessModal(!demoAccessModal);
   };
@@ -1344,7 +1343,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="SubscriptionModel" id="subscriptionmodel">
+      {/* <section className="SubscriptionModel" id="subscriptionmodel">
         <div className="container">
           <div className="job_or_title">
             <h2 className="taxt_tt_job">Subscription Model</h2>
@@ -1417,6 +1416,78 @@ const Page = () => {
                 <li>
                   <span>
                     Personalized Customization Assistance&#58; Delivering Custom
+                    Features According to Client Requirements at additional
+                    cost.
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Discover a new era of convenience and efficiency with our
+                subscription offering. Subscribe today and elevate your
+                experience with our readymade solution!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      <section className="SubscriptionModel" id="subscriptionmodel">
+        <div className="container">
+          <div className="job_or_title">
+            <h2 className="taxt_tt_job">Subscription Model</h2>
+            <br />
+            <div className="SubscriptionModelBx">
+              <p>
+                Experience convenience like never before with our
+                subscription-based hassle-free model, available at just{" "}
+                <strong>USD 45 per month</strong>, limited offer available for
+                the first year.
+              </p>
+              <p>Key Benefits:</p>
+              <ul>
+                <li>
+                  <span>
+                    Lifetime Updates: Enjoy complimentary updates for your
+                    software version throughout its lifespan.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Timely Upgrades: Seamlessly transition to upgraded versions
+                    at regular intervals, all at no extra cost.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Zero Setup Fees</strong>:- There are no additional
+                    charges for the setup and installation of the software,
+                    making it easier for customers to get started.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                  Unlimited Shipment Postings: Post as many shipments as you need without any limitations.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Effortless Program Operation: Revel in robust bandwidth that
+                    guarantees your program runs flawlessly, supported by
+                    resources allocated to your subscription model. Any increase
+                    in allocated resources will incur additional charges beyond
+                    the standard subscription model.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Enduring Support: We are committed to providing lifelong
+                    assistance through our subscription model. If any software
+                    issues arise, our <strong>dedicated technical team</strong>{" "}
+                    will promptly address them during office hours.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Personalized Customization Assistance: Delivering Custom
                     Features According to Client Requirements at additional
                     cost.
                   </span>

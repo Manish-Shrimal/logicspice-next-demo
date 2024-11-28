@@ -74,9 +74,15 @@ const Page = () => {
     }))
   }
 
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
+
 
   const submitQuoteForm = async (e) => {
     e.preventDefault();
+
+    if(isEnquiryRequested){ 
+      return;
+    }
   
     const newErrors = {};
   
@@ -104,6 +110,7 @@ const Page = () => {
     }
   
     try {
+      setIsEnquiryRequested(true);
       const response = await axios.post(BaseAPI + "/pages/quote", formData);
   
       if (response.data.status === 200) {
@@ -118,6 +125,7 @@ const Page = () => {
         if (recaptchaRef.current) {
           recaptchaRef.current.reset();
         }
+        setIsEnquiryRequested(false);
   
         document.querySelector("#successMessage").innerHTML = "Request message sent successfully";
       }

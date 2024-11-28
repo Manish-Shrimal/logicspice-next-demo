@@ -1449,6 +1449,10 @@ section {
   border-radius: 0 !important;
   resize: none;
 }
+.btn-block {
+  display: block;
+  width: 100%;
+}
 
 /* .form_quote .form-group .btn-primary {
   width: 100%;

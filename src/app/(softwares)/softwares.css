@@ -6383,7 +6383,15 @@ a:hover {
 .HumanResourceBanner::after{
   border-bottom-color: #cec2b9;
 }
-
+.groupChatBanner::after{
+  border-bottom-color: #e1d9fd;
+}
+.LiveChatBanner::after {
+	border-bottom-color: #ccd8fd;
+}
+.groupChatBanner .por-mobile-new {
+	margin-top: 24px;
+}
 @media (max-width: 767px) {
   .software_products {
     padding: 0;
@@ -6964,4 +6972,20 @@ a:hover {
   direction: rtl;
     text-align: left;
     width: 100%;
+}
+
+
+
+.group_chat .tab_bbx_job ul.JobBoardNewtab li{
+  width: calc(100% / 2) !important;
+}
+
+.group_chat .fiverr-new-banner .job-portal-banner-link{
+
+  z-index: 9;
+}
+
+
+.group_chat .job-portal-banner{
+  min-height: 446px!important;
 }

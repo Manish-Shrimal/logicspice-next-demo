@@ -14,7 +14,7 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
   const [popupScProductEnquiry, setPopupScProductEnquiry] =
     useState(modalStatus);
   const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
-
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,6 +78,9 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
 
   const submitEnquiryForm = async (e) => {
     e.preventDefault();
+    if(isEnquiryRequested){
+      return;
+    }
     const newErrors = {};
 
     if (!isRecaptchaVerified) {
@@ -127,9 +130,11 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     try {
       console.log("From Software enquiry")
       // return;
+      setIsEnquiryRequested(true);
       const response = await axios.post(BaseAPI + "/pages/enquire", formData);
 
       if (response.data.status === 200) {
+        
         setResultSuccess(true);
         setHtml(response.data.message);
         // setFormData({
@@ -143,6 +148,7 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
         if (recaptchaRef.current) {
           recaptchaRef.current.reset();
         }
+        setIsEnquiryRequested(false);
       }
     } catch (error) {
       console.log(error.message);

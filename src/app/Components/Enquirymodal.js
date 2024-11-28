@@ -36,6 +36,7 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     budget: "",
     recaptchaerror: "",
   });
+  const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
 
   const [resultSuccess, setResultSuccess] = useState(false);
   const [html, setHtml] = useState("");
@@ -78,6 +79,9 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
 
   const submitEnquiryForm = async (e) => {
     e.preventDefault();
+    if(isEnquiryRequested){
+      return;
+    }
     const newErrors = {};
 
     if (!isRecaptchaVerified) {
@@ -149,9 +153,11 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     }
 
     try {
+      setIsEnquiryRequested(true);
       const response = await axios.post(BaseAPI + "/pages/enquire", formData);
 
       if (response.data.status === 200) {
+        
         setResultSuccess(true);
         setHtml(response.data.message);
         // setFormData({
@@ -165,6 +171,7 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
         if (recaptchaRef.current) {
           recaptchaRef.current.reset();
         }
+        setIsEnquiryRequested(false);
       }
     } catch (error) {
       console.log(error.message);

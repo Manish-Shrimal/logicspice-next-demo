@@ -43,9 +43,8 @@ const SoftwareEnquiry = lazy(() => import("@/app/Components/SoftwareEnquiry"), {
   ssr: false,
 });
 // import Footer from "@/app/Components/Footer";
-// import Navbar from "@/app/Components/Navbar";
+import Navbar from "@/app/Components/Navbar";
 const Footer = lazy(() => import("@/app/Components/Footer"), { ssr: false });
-const Navbar = lazy(() => import("@/app/Components/Navbar"), { ssr: false });
 const TabSection = lazy(
   () => import("@/app/(softwares)/fiverr-clone/TabSection"),
   { ssr: false }
@@ -54,7 +53,9 @@ const TabSection = lazy(
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-
+  const [studentTab, setStudentTab] = useState(true);
+  const [instructorTab, setInstructorTab] = useState(false);
+  const [adminpanelTab, setAdminpanelTab] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [jobportal, setJobportal] = useState(false);
@@ -301,10 +302,8 @@ const Page = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
-      <Suspense fallback={<div>Loading Services...</div>}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
+
 
       <section className="paid-pro job-portal-banner job-portal-bg fiverr-new-banner NewJobSiteDesign JobBoardNewDesign FiverrCloneMainBanner">
         <div className="container">
