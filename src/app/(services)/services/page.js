@@ -29,7 +29,7 @@ const Page = () => {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 5, 
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,

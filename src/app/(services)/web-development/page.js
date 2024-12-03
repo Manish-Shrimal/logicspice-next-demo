@@ -496,7 +496,7 @@ const Page = () => {
           <div className="WebLatestProjects">
             <div className="" id="slide-latestproducts">
               <Slider {...settings}>
-                <div className="WebLatestProjectsSlide WebLatestGreen">
+                {/* <div className="WebLatestProjectsSlide WebLatestGreen">
                   <div className="WebProjectLogo">
                     <Image
                       unoptimized={true}
@@ -545,7 +545,7 @@ const Page = () => {
                       alt="Web Development Services"
                     />
                   </div>
-                </div>
+                </div> */}
                 <div className="WebLatestProjectsSlide WebLatestRed">
                   <div className="WebProjectLogo">
                     <Image
@@ -649,7 +649,7 @@ const Page = () => {
                     />
                   </div>
                 </div>
-                <div className="WebLatestProjectsSlide WebLatestGreen">
+                {/* <div className="WebLatestProjectsSlide WebLatestGreen">
                   <div className="WebProjectLogo">
                     <Image
                       unoptimized={true}
@@ -698,7 +698,7 @@ const Page = () => {
                       alt="Web Development Services"
                     />
                   </div>
-                </div>
+                </div> */}
 
                 <div className="WebLatestProjectsSlide WebLatestTacksm">
                   <div className="WebProjectLogo">

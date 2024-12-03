@@ -933,7 +933,7 @@ const Page = () => {
                                 <li>
                                   <a
                                     target="_blank"
-                                    href="https://play.google.com/store/apps/details?id=com.logicspice.raydaar&amp;hl=en"
+                                    href=""
                                   >
                                     <Image
                                       unoptimized={true}

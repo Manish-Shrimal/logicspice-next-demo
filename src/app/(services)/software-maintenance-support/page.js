@@ -406,7 +406,8 @@ const Page = () => {
               </div>
               <div className="col-md-4 col-sm-6">
                 <div className="part-set">
-                  <i className="fa fa-money-bill"></i>
+                  {/* <i className="fa fa-money-bill"></i> */}
+                  <i class="fa fa-money" aria-hidden="true"></i>
                   <p>Reduction in TCO (Total cost of ownership )</p>
                 </div>
               </div>

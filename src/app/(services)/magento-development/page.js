@@ -712,7 +712,7 @@ const Page = () => {
         <div className="laravel-slider-bx">
           <div id="laravel-slader" className="">
             <Slider {...settings}>
-              <div className="php-item">
+              {/* <div className="php-item">
                 <a href="https://xagshop.logicspice.com/" target="_blank">
                   <Image
                     width={900}
@@ -728,7 +728,7 @@ const Page = () => {
                 >
                   VISIT SITE
                 </a>
-              </div>
+              </div> */}
               <div className="php-item">
                 <a href="https://www.regenepure.com/" target="_blank">
                   <Image

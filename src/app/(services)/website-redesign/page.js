@@ -478,7 +478,7 @@ const Page = () => {
                   </p>
                   <div className="WebProjectInfo">
                     <div className="WebProjectInfoLeft">
-                      <Link href="https://www.goodlucknc.com/" target="_blank">
+                      <Link href="" target="_blank">
                         <i
                           className="fa-solid fa-earth-americas"
                           aria-hidden="true"
@@ -487,7 +487,7 @@ const Page = () => {
                     </div>
                     <div className="WebProjectInfoView">
                       <Link
-                        href="https://www.logicspice.com/portfolio"
+                        href="/portfolio"
                         className=""
                       >
                         View Portfolio
@@ -634,7 +634,7 @@ const Page = () => {
                   </p>
                   <div className="WebProjectInfo">
                     <div className="WebProjectInfoLeft">
-                      <a href="https://fundcareusa.com/" target="_blank">
+                      <a href="" target="_blank">
                         <i
                           className="fa-solid fa-earth-americas"
                           aria-hidden="true"

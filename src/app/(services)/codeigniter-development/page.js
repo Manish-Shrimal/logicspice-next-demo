@@ -799,7 +799,7 @@ const Page = () => {
                     VISIT SITE
                   </a>
                 </div>
-                <div className="php-item">
+                {/* <div className="php-item">
                   <a href="https://www.entitymakers.com.au/" target="_blank">
                     <Image
                       unoptimized={true}
@@ -816,7 +816,7 @@ const Page = () => {
                   >
                     VISIT SITE
                   </a>
-                </div>
+                </div> */}
               </Slider>
             </div>
           </div>

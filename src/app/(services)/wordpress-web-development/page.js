@@ -17,7 +17,7 @@ const Page = () => {
   var settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 2.35,
+    slidesToShow: 2.95,
     centerMode: true,
     vertical: false,
   };
@@ -723,7 +723,7 @@ const Page = () => {
                   VISIT SITE
                 </a>
               </div>
-              <div className="php-item">
+              {/* <div className="php-item">
                 <a href="https://haitisupermarket.com/" target="_blank">
                   <Image
                     width={800}
@@ -739,7 +739,7 @@ const Page = () => {
                 >
                   VISIT SITE
                 </a>
-              </div>
+              </div> */}
             </Slider>
           </div>
         </div>

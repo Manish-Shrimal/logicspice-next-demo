@@ -1037,7 +1037,7 @@ section {
   letter-spacing: 0;
   font-variant: initial;
   color: #333;
-  font-size: 27px;
+  font-size: 35px;
 }
 
 #laravel-slader .slick-next::after {
@@ -1046,7 +1046,7 @@ section {
   letter-spacing: 0;
   font-variant: initial;
   color: #333;
-  font-size: 27px;
+  font-size: 35px;
 }
 
 #laravel-slader .slick-next::after {
@@ -1063,7 +1063,7 @@ section {
 #laravel-slader .slick-next {
   right: 48%;
   top: auto;
-  bottom: -25px;
+  bottom: -33px;
 }
 
 .main_btn_hire {
@@ -2053,10 +2053,21 @@ section {
   text-align: center;
 }
 
-#satisfying_clients .slick-prev::before,
-#satisfying_clients .slick-next::before {
+#satisfying_clients .slick-prev::before{
   font-size: 27px;
   color: #040404;
+}
+
+#satisfying_clients .slick-next::after{
+  font-size: 27px;
+  color: #040404;
+  content: "→";
+  font-family: 'slick';
+    /* font-size: 20px; */
+    line-height: 1;
+    opacity: .75;
+    /* color: white; */
+    -webkit-font-smoothing: antialiased;
 }
 
 .satisfied_clients_logo img {
@@ -2136,9 +2147,14 @@ section {
   font-family: FontAwesome !important;
 }
 
-#casestudy_carousel .slick-next::before {
+#casestudy_carousel .slick-next::after {
   content: "\f105";
   font-family: FontAwesome !important;
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav--home-projects {
@@ -3663,9 +3679,15 @@ section {
   font-size: 27px;
 }
 
-#slide-latestproducts .slick-next::before {
+#slide-latestproducts .slick-next::after {
   content: "\f105" !important;
   font-family: FontAwesome !important;
+  font-family: FontAwesome !important;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  color: #333;
+  font-size: 27px;
 }
 
 #slide-latestproducts .slick-prev {
@@ -4317,9 +4339,19 @@ section.new-why-choose-section.sass_title h2 span {
   bottom: -35px;
 }
 
-#satisfying_clients1 .slick-prev::before,
-#satisfying_clients1 .slick-next::before {
+#satisfying_clients1 .slick-prev::before
+ {
   font-size: 30px;
+}
+#satisfying_clients1 .slick-next::after {
+  content: "→";
+  font-size: 30px!important;
+  font-family: 'slick';
+  /* font-size: 20px; */
+  line-height: 1;
+  opacity: 1;
+  color: white;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*-----big-data-development--*/

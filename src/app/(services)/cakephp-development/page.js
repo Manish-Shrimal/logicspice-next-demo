@@ -666,7 +666,7 @@ const Page = () => {
             <div id="laravel-slader" className="">
               <Slider {...settings}>
                 <div className="php-item">
-                  <a href="https://racingcartel.com.au/" target="_blank">
+                  <a href="" target="_blank">
                     <Image unoptimized={true}
                       width={900}
                       height={500 / (100 / 100)}
@@ -675,7 +675,7 @@ const Page = () => {
                     />
                   </a>
                   <a
-                    href="https://racingcartel.com.au/"
+                    href=""
                     target="_blank"
                     className="visit-site"
                   >
@@ -684,7 +684,7 @@ const Page = () => {
                 </div>
 
                 <div className="php-item">
-                  <Link href="https://www.iamcleaning.co.za/" target="_blank">
+                  <Link href="" target="_blank">
                     <Image unoptimized={true}
                       width={900}
                       height={500 / (100 / 100)}
@@ -693,7 +693,7 @@ const Page = () => {
                     />
                   </Link>
                   <Link
-                    href="https://www.iamcleaning.co.za/"
+                    href=""
                     target="_blank"
                     className="visit-site"
                   >
@@ -717,7 +717,7 @@ const Page = () => {
                     VISIT SITE
                   </a>
                 </div>
-                <div className="php-item">
+                {/* <div className="php-item">
                   <a href="https://az360jobs.com/" target="_blank">
                     <Image unoptimized={true}
                       width={900}
@@ -733,7 +733,7 @@ const Page = () => {
                   >
                     VISIT SITE
                   </a>
-                </div>
+                </div> */}
               </Slider>
             </div>
           </div>
