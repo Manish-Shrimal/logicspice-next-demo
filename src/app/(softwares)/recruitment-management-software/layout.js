@@ -26,7 +26,6 @@
 //       .replace(/\\+/g, '')      // Remove unnecessary backslashes
 //       .replace(/[\u0000-\u001F\u007F]/g, '');  // Remove control characters
 
-
 //       schemaOrg = cleanedText;
 
 //   }
@@ -66,7 +65,7 @@
 //         <meta name="description" content={metadata.description} />
 //         <meta name="keywords" content={metadata.keywords} />
 //         <title>{metadata.title}</title>
-        
+
 //       </Head>
 //       <body className={inter.className}>{children}</body>
 //       <script
@@ -76,8 +75,6 @@
 //     </html>
 //   );
 // }
-
-
 
 import { Inter } from "next/font/google";
 import "../../globals.css";
@@ -90,9 +87,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // Fetch data
-  const product = await fetch(`${MetadataApi}/recruitment-management-software`, {
-    cache: "no-store",
-  }).then((res) => res.json());
+  const product = await fetch(
+    `${MetadataApi}/recruitment-management-software`,
+    {
+      cache: "no-store",
+    }
+  ).then((res) => res.json());
 
   let text = product.data.schema;
 
@@ -110,60 +110,60 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   // Example FAQ schema
   const faqSchema = {
-   "@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [{
-"@type": "Question",
-"name": "Can candidates upload their CV to apply for job?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Yes, they can upload their CV and can apply for a particular job position."
-}
-},{
-"@type": "Question",
-"name": "Can jobseeker search for jobs using work type and location?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Yes, they can search for Jobs by using Keyword, Category, Location & Work Type etc."
-}
-},{
-"@type": "Question",
-"name": "Once I purchase this script, how many days will it take to go online?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "it takes 2 working days generally, provided all the information to make it live has been given."
-}
-},{
-"@type": "Question",
-"name": "Can I resell the script? Will I have rights over the script code?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "No, You can�t resell the script. All rights will remain with Logicspice only."
-}
-},{
-"@type": "Question",
-"name": "Will I be able to use it on multiple domains, after I purchase this script?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "You will be licensed to use it only for the domain, you purchased for."
-}
-},{
-"@type": "Question",
-"name": "Along with hosting server details, what other recommendations?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "We recommend you purchase SSL certificate along with a hosting server, considering that an SSL certificate is necessary for all the websites these days and it provides a secure layer to the website as well."
-}
-}]
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Can candidates upload their CV to apply for job?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, they can upload their CV and can apply for a particular job position.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can jobseeker search for jobs using work type and location?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, they can search for Jobs by using Keyword, Category, Location & Work Type etc.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Once I purchase this script, how many days will it take to go online?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "it takes 2 working days generally, provided all the information to make it live has been given.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I resell the script? Will I have rights over the script code?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No, You can�t resell the script. All rights will remain with Logicspice only.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Will I be able to use it on multiple domains, after I purchase this script?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You will be licensed to use it only for the domain, you purchased for.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Along with hosting server details, what other recommendations?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We recommend you purchase SSL certificate along with a hosting server, considering that an SSL certificate is necessary for all the websites these days and it provides a secure layer to the website as well.",
+        },
+      },
+    ],
   };
 
-  // Combine the existing schema and FAQ schema
-  // schemaOrg = {
-  //   ...schemaOrg,
-  //   ...faqSchema,
-  // };
-
-  // Return metadata
   return {
     title: product.data.meta_title,
     description: product.data.meta_description,
@@ -216,7 +216,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.faqSchema),
+            __html: metadata.faqSchema,
           }}
         />
       )}

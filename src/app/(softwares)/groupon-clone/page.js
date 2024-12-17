@@ -341,7 +341,7 @@ const Page = () => {
                       alt="crowd_funding_script"
                       src="/img/jobboard/stars.png"
                     />
-                    <p>27 Reviews</p>
+                    <p>12 Reviews</p>
                   </div>
                 </div>
               </div>
@@ -1443,7 +1443,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>32 Reviews</p>
+                    <p>12 Reviews</p>
                   </div>
                 </div>
               </div>
@@ -1732,7 +1732,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">24</div>
+                      <div className="people_star_num">9</div>
                     </div>
 
                     <div className="review_rating_fjs">

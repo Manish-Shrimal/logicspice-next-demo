@@ -103,11 +103,11 @@ const Workingwith = () => {
       img: "/img/home/look/logo-job-at-home.webp",
       logoSize: 110,
     },
-    {
-      link: "https://www.wedoitcheaper.com/",
-      img: "/img/home/look/logo-we-do.webp",
-      logoSize: 200,
-    },
+    // {
+    //   link: "https://www.wedoitcheaper.com/",
+    //   img: "/img/home/look/logo-we-do.webp",
+    //   logoSize: 200,
+    // },
     {
       link: "https://www.gblancers.com/",
       img: "/img/home/look/logo-gb-lancers.webp",

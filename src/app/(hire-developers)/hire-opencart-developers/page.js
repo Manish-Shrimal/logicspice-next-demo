@@ -510,7 +510,7 @@ const Page = () => {
                     </li>
                     <li>
                       <b>Website URL:</b>{" "}
-                      <a href="http://organicmoringaaustralia.com.au/">
+                      <a href="">
                         http://organicmoringaaustralia.com.au/
                       </a>
                     </li>

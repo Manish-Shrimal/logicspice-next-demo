@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, use } from "react";
 import axios from "axios";
 import BaseAPI from "../../../BaseAPI/BaseAPI";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -19,6 +19,7 @@ const Page = () => {
   const [productDetails, setProductDetails] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const openModal = () => {
     // console.log(showModal);
@@ -133,11 +134,14 @@ const Page = () => {
 
   const getCountries = async () => {
     try {
+      
       const response = await axios.get(BaseAPI + "/softwares/getCountries");
+      setLoading(false);
       if (response.data.status === 200) {
         setCountries(response.data.data);
       }
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };
@@ -175,15 +179,17 @@ const Page = () => {
 
     if (!formData.billing_postcode) {
       newErrors.billing_postcode = "Postcode is required";
-    } else if (!/^\d{6}$/.test(formData.billing_postcode)) {
-      newErrors.billing_postcode = "Postcode is invalid";
     }
+    // else if (!/^\d{6}$/.test(formData.billing_postcode)) {
+    //   newErrors.billing_postcode = "Postcode is invalid";
+    // }
 
     if (!formData.billing_phone) {
       newErrors.billing_phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(formData.billing_phone)) {
-      newErrors.billing_phone = "Phone number is invalid";
     }
+    // else if (!/^\d{10}$/.test(formData.billing_phone)) {
+    //   newErrors.billing_phone = "Phone number is invalid";
+    // }
     if (!isCaptchaVerified) {
       newErrors.captcha = "Please verify Recaptcha";
     }
@@ -514,7 +520,7 @@ const Page = () => {
 
     try {
       // document.querySelector(".main_cart_loader").style.display = "block";
-setDiscountApiHit(true);
+      setDiscountApiHit(true);
       const response = await axios.post(
         BaseAPI + "/softwares/discount",
         discountData
@@ -559,6 +565,18 @@ setDiscountApiHit(true);
     <>
       <section className="order_summary">
         <Navbar />
+        {loading && (
+          <>
+            <div className="main_cart_loader" id="loadercart">
+              <Image
+                width={100}
+                height={100}
+                src="/img/loader_large_blue.gif"
+                alt=""
+              />
+            </div>
+          </>
+        )}
 
         <div className="container">
           <form

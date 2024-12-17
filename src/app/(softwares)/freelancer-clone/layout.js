@@ -210,7 +210,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.faqSchema),
+            __html: metadata.faqSchema,
           }}
         />
       )}

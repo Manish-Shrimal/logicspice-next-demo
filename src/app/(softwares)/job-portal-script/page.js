@@ -2825,21 +2825,24 @@ const Page = () => {
                     Safari 5+, IE 9+
                   </li>
                   <li className="same ">
-                    <b>Framework - </b> Laravel 10.x ReactJS (Version 18.2.0)
+                    <b>Framework - </b> Laravel 10.x 
+                  </li>
+                  <li className="same ">
+                    <b>Library - </b> ReactJS (Version 18.2.0)
                   </li>
                   <li className="same">
-                    <b>Language - </b> PHP 8.2 Supported ReactJS (library),
+                    <b>Language - </b> PHP 8.2,
                     jQuery
                   </li>
                   <li className="other">
                     <b>Design - </b> HTML 5, CSS 3, Bootstrap4, JavaScript
                   </li>
-                  <li className="other">
+                  {/* <li className="other">
                     <b>Laravel - </b> 10.x{" "}
                   </li>
                   <li className="other">
                     <b>PHP - </b> 8.2{" "}
-                  </li>
+                  </li> */}
                   <li className="other">
                     <b>Database - </b> MySQL 5.5+
                   </li>
@@ -3048,7 +3051,7 @@ const Page = () => {
                         style={{ width: "100%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">206</div>
+                    <div className="people_star_num">174</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -3065,7 +3068,7 @@ const Page = () => {
                         style={{ width: "30%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">12</div>
+                    <div className="people_star_num">44</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -3133,7 +3136,7 @@ const Page = () => {
                 <div className="main-rait">
                   <span>
                     <i className="fa fa-star"></i>{" "}
-                    <span>4.7 out of 5 stars</span>
+                    <span>4.8 out of 5 stars</span>
                   </span>
                 </div>
               </div>

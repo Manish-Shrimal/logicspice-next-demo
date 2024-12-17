@@ -2588,7 +2588,7 @@ section {
   background-repeat: no-repeat !important;
   line-height: 22px !important;
   padding-right: 0px !important;
-  width: 25% !important;
+  width: 25% ;
   font-weight: 400 !important;
   background-position: left 4px !important;
   font-family: 'robotoregular';
@@ -3610,6 +3610,9 @@ a.StartFreeTrialBtn {
 
 .ecommerce--review--point .progress-bar-danger {
   background-color: #451095 !important;
+}
+.ecommerce--review--point .progress .progress-bar{
+     background-color: #451095!important;
 }
 
 .ecommerce--review--point .progress {
@@ -6403,9 +6406,9 @@ a:hover {
     text-align: center !important;
   }
 
-  .SubscriptionpriceSection {
+  /* .SubscriptionpriceSection {
     display: none !important;
-  }
+  } */
 
   .NewJobSiteDesign {
     margin-top: 58px;
@@ -6529,7 +6532,7 @@ a:hover {
   }
 
   .SubscriptionpriceSection {
-    display: inline-block;
+    display: inline-block!important;
   }
 
   .SubscriptionModelPrice {

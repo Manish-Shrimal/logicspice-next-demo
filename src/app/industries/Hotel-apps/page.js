@@ -789,7 +789,7 @@ const Page = () => {
                   </div>
                   <div className="blog_head_detail">
                     <h3 className="entry-title heading_subsiti">
-                      <a href="/blog/how-much-would-it-cost-to-develop-a-food-delivery-app-on-android-ios/">
+                      <a href="">
                         <span>
                           How much would it cost To develop a food delivery app
                           on Android and iOS ?
@@ -812,14 +812,14 @@ const Page = () => {
                         <li>
                           <i className="fa fa-tag" aria-hidden="true"></i>
                           <span>
-                            <Link
+                            {/* <Link
                               href="/blog/tag/food-delivery-app-for-ios-and-android"
                               title="food delivery app for ios and android"
                               style={{ marginRight: '10px' }}
                             >
                               food delivery app for ios and android
                             </Link>
-                            ,
+                            , */}
                             
                             <Link href="" title="hire mobile app developers." >
                               hire mobile app developers.

@@ -29,7 +29,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
         .replace(/[\u0000-\u001F\u007F]/g, '');  // Remove control characters
   
       // Parse the cleaned string as JSON
-      schemaOrg = cleanedText;
+      schemaOrg = cleanedText && JSON.parse(cleanedText);
       } else{
         schemaOrg = "";
       }

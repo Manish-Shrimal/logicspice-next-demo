@@ -136,7 +136,7 @@ export default async function RootLayout({ children, params, searchParams }) {
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.faqSchema),
+            __html: metadata.faqSchema,
           }}
         />
       )}

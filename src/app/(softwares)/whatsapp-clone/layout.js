@@ -104,7 +104,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       .replace(/\\+/g, "") // Remove unnecessary backslashes
       .replace(/[\u0000-\u001F\u007F]/g, ""); // Remove control characters
 
-    schemaOrg = cleanedText;
+      schemaOrg = cleanedText && JSON.parse(cleanedText);
   }
 
   // Example FAQ schema
@@ -197,24 +197,24 @@ export default async function RootLayout({ children, params, searchParams }) {
         <title>{metadata.title}</title>
       </Head>
       <body className={inter.className}>{children}</body>
-      {/* <script
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
-      /> */}
-      {metadata.schemaOrg && (
+        dangerouslySetInnerHTML={{ __html: metadata.schemaOrg }}
+      />
+      {/* {metadata.schemaOrg && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.schemaOrg),
+            __html: metadata.schemaOrg,
           }}
         />
-      )}
+      )} */}
       {/* Render the FAQ schema separately */}
       {metadata.faqSchema && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.faqSchema),
+            __html: metadata.faqSchema,
           }}
         />
       )}

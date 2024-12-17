@@ -22,18 +22,18 @@
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {
-  console.log('Middleware triggered for:', request.url);
+  // console.log('Middleware triggered for:', request.url);
 
   const auth = request.headers.get('authorization');
-  console.log('Authorization Header:', auth);
+  // console.log('Authorization Header:', auth);
 
   const username = process.env.BASIC_AUTH_USER || 'admin';
   const password = process.env.BASIC_AUTH_PASS || 'password';
   const expectedAuth = `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`;
-  console.log('Expected Auth:', expectedAuth);
+  // console.log('Expected Auth:', expectedAuth);
 
   if (!auth || auth !== expectedAuth) {
-    console.log('Unauthorized access attempt');
+    // console.log('Unauthorized access attempt');
     return new NextResponse('Unauthorized', {
       status: 401,
       headers: {
@@ -42,7 +42,7 @@ export function middleware(request) {
     });
   }
 
-  console.log('User authorized');
+  // console.log('User authorized');
   return NextResponse.next();
 }
 

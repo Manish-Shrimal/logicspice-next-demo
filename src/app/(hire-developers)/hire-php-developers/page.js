@@ -625,7 +625,7 @@ const Page = () => {
                 </div>
               </div>
             </div>
-            <div>
+            {/* <div>
               <div className="row">
                 <div className="col-md-6">
                   <div className="port_feat_img">
@@ -669,7 +669,7 @@ const Page = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
           </Slider>
         </div>
       </section>

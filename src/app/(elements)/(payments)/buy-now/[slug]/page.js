@@ -289,7 +289,7 @@ const Page = ({ params }) => {
         discountData
       );
 
-      console.log(response);
+      // console.log(response);
 
       if (response.data.status == 200) {
         // setFormData((pre) => ({
@@ -462,7 +462,7 @@ const Page = ({ params }) => {
                           </div>
                         </span>
                         <div className="pay_pri_term">
-                          For more detail visit following pages
+                          For more detail visit following pages{" "}
                           <Link
                             href="/privacy-policy"
                             target="_blank"
@@ -470,7 +470,7 @@ const Page = ({ params }) => {
                           >
                             Privacy Policy
                           </Link>{" "}
-                          and
+                          and{" "}  
                           <Link
                             href="/terms-of-use"
                             target="_blank"

@@ -678,7 +678,12 @@ const Page = () => {
                           <div className="abs-product">
                             <h3>Live Chat Software</h3>
                             <p>
-                            Our Live Chat Software enables businesses to provide real-time support to customers, enhancing user experience and boosting conversions. It’s an easy-to-use tool that helps teams engage with visitors instantly, answer queries, and offer solutions. 
+                              Our Live Chat Software enables businesses to
+                              provide real-time support to customers, enhancing
+                              user experience and boosting conversions. It’s an
+                              easy-to-use tool that helps teams engage with
+                              visitors instantly, answer queries, and offer
+                              solutions.
                             </p>
                             <div className="product-star">
                               <i className="fa fa-star" aria-hidden="true"></i>
@@ -740,7 +745,11 @@ const Page = () => {
                           <div className="abs-product">
                             <h3>Group Chat App</h3>
                             <p>
-                            Our Group Chat Internal Communication Software makes team collaboration smooth and efficient. It allows employees to stay connected, share ideas, and communicate instantly, whether they&apos;re in the office or working remotely. 
+                              Our Group Chat Internal Communication Software
+                              makes team collaboration smooth and efficient. It
+                              allows employees to stay connected, share ideas,
+                              and communicate instantly, whether they&apos;re in
+                              the office or working remotely.
                             </p>
                             <div className="product-star">
                               <i className="fa fa-star" aria-hidden="true"></i>
@@ -1058,7 +1067,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">27 REVIEWS</div>
+                            <div className="product-review">12 REVIEWS</div>
                             <ul className="make-style">
                               <li>
                                 <Image
@@ -3411,7 +3420,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">27 REVIEWS</div>
+                            <div className="product-review">12 REVIEWS</div>
                             <ul className="make-style">
                               <li>
                                 <Image
@@ -5371,7 +5380,7 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div className="product-review">27 REVIEWS</div>
+                            <div className="product-review">12 REVIEWS</div>
                             <ul className="make-style">
                               <li>
                                 <Image

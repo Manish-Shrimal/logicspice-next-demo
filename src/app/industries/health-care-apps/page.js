@@ -899,17 +899,17 @@ const Page = () => {
                       </ul>
                     </div>
                     <div className="blog_details">
-                      In today&APOS;s scenario, online buyers expect quick,
+                      In today&apos;s scenario, online buyers expect quick,
                       personalized, and hassle free experiences. If your
-                      ecommerce website doesn&APOS;t convey these services,
-                      you&APOS;re missing out on huge online sales and
-                      <a
-                        href="/blogs/detail/factors-to-consider-while-choosing-ecommerce-web-builder"
+                      ecommerce website doesn&apos;t convey these services,
+                      you&apos;re missing out on huge online sales and {""}
+                      <Link
+                        href="https://blog.logicspice.com/factors-to-consider-while-choosing-ecommerce-web-builder"
                         className="blog_read_more"
                         title="read more"
                       >
                         read more
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -1085,7 +1085,7 @@ const Page = () => {
 
       <div className="quoue_box_full_sec">
         <div className="whatsapp-call">
-          <a
+          <Link
             href="https://api.whatsapp.com/send?phone=+919829559922&amp;text=Hi Logicspice Team, I have a question regarding the solutions you provide. Please Help!"
             target="_blank"
           >
@@ -1095,7 +1095,7 @@ const Page = () => {
               height={50}
               width={50}
             />
-          </a>
+          </Link>
         </div>
         <div className="quote_pop_plus quote_pop_in" onClick={toggleModal}>
           <Contactusmodel modalStatus={modalOpen} toggle={toggleModal} />

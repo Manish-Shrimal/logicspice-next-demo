@@ -103,7 +103,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       .replace(/\\+/g, "") // Remove unnecessary backslashes
       .replace(/[\u0000-\u001F\u007F]/g, ""); // Remove control characters
 
-    schemaOrg = cleanedText;
+    schemaOrg = cleanedText && JSON.parse(cleanedText);
   }
 
   // Example FAQ schema
@@ -204,7 +204,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.schemaOrg),
+            __html: metadata.schemaOrg,
           }}
         />
       )}
@@ -213,7 +213,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.faqSchema),
+            __html: metadata.faqSchema,
           }}
         />
       )}

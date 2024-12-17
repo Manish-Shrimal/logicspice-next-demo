@@ -17,7 +17,7 @@ import Image from "next/image";
 import Servercomponents from "./Components/Servercomponents";
 import "aos/dist/aos.css"; // Import AOS CSS
 import AOS from "aos"; // Import AOS
-
+import GTMComponent from "./Components/GTMComponent";
 import Chatbot from "./Components/Chatbot";
 import "../../public/css/font-awesome.css";
 
@@ -70,16 +70,30 @@ const Certificationtabs = lazy(() => import("./Components/Certificationtabs"), {
 const Workingwith = lazy(() => import("./Components/Workingwith"),{
   ssr: false,
 });
-// import React, { useState } from "react";
 
 const Page = () => {
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (
+  //       window.innerHeight + document.documentElement.scrollTop >=
+  //       document.documentElement.offsetHeight
+  //     ) {
+  //       setSecondSectionRender(true);
+  //       getData();
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
   // useEffect(() => {
   //   AOS.init(); // Initialize AOS
   // }, []);s
   return (
     <>
     <Chatbot />
-   
+    <GTMComponent />
       <NavBar />
       <div className="home-slider">
         <div className="container">
@@ -98,6 +112,10 @@ const Page = () => {
       <Suspense fallback={<div>Loading Take a look...</div>}>
         <TakeaLook />
       </Suspense>
+
+      {}
+
+      {/* Lets load initially till this point and futher section will be loader when we scroll down. */}
       
 
       {/* ReadyMade Solution Section  */}

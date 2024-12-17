@@ -76,7 +76,7 @@ const Page = () => {
                       <div class="FreeScriptProductsMoreBtn">
                         <a
                           class=""
-                          href="https://www.logicspice.com/softwares/lead-generation-contact-form-php-script/"
+                          href="/lead-generation-contact-form-php-script/"
                         >
                           <span>Read More</span>
                           <i>
@@ -122,7 +122,7 @@ const Page = () => {
                       <div class="FreeScriptProductsMoreBtn">
                         <a
                           class=""
-                          href="https://www.logicspice.com/softwares/faq-script"
+                          href="/faq-script"
                         >
                           <span>Read More</span>
                           <i>
@@ -167,7 +167,7 @@ const Page = () => {
                       <div class="FreeScriptProductsMoreBtn">
                         <a
                           class=""
-                          href="https://www.logicspice.com/softwares/blog-script/"
+                          href="/blog-script/"
                         >
                           <span>Read More</span>
                           <i>
@@ -212,7 +212,7 @@ const Page = () => {
                       <div class="FreeScriptProductsMoreBtn">
                         <a
                           class=""
-                          href="https://www.logicspice.com/softwares/cakephp-cms-script/"
+                          href="/cakephp-cms-script"
                         >
                           <span>Read More</span>
                           <i>

@@ -2595,19 +2595,25 @@ const Page = () => {
                     Safari 5+, IE 9+
                   </li>
                   <li className="same aos-init aos-animate" data-aos="fade-up">
-                    <b>Framework - </b> CakePHP
+                    <b>Framework - </b> Laravel 10.x
                   </li>
                   <li className="same aos-init aos-animate" data-aos="fade-up">
-                    <b>Language - </b> PHP 7 Supported, AJAX, jQuery
+                    <b>Library - </b> ReactJS (Version 18.2.0)
+                  </li>
+                  <li className="same aos-init aos-animate" data-aos="fade-up">
+                    <b>Language - </b> PHP 8.2, jQuery
                   </li>
                   <li className="other aos-init aos-animate" data-aos="fade-up">
-                    <b>Design - </b> HTML 5, CSS 3, JavaScript
+                    <b>Design - </b> HTML 5, CSS 3, Bootstrap5, JavaScript
                   </li>
                   <li className="other aos-init" data-aos="fade-up">
                     <b>Database - </b> MySQL 5.5+{" "}
                   </li>
                   <li className="other aos-init" data-aos="fade-up">
                     <b>Server - </b> Apache 2.4+
+                  </li>
+                  <li className="other aos-init" data-aos="fade-up">
+                    <b>Mobile Apps - </b> React Native Version 0.71.8
                   </li>
                 </ul>
               </div>
@@ -2890,7 +2896,7 @@ const Page = () => {
                 <div className="main-rait">
                   <span>
                     <i className="fa fa-star"></i>{" "}
-                    <span>4.7 out of 5 stars</span>
+                    <span>4.9 out of 5 stars</span>
                   </span>
                 </div>
               </div>

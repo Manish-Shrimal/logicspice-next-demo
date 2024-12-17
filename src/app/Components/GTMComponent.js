@@ -86,7 +86,6 @@
 import { useEffect } from 'react';
 
 export default function GTMComponent() {
-  console.log("From component")
   // useEffect(() => { 
   //   // Add event listener for page load
   //   const handlePageLoad = () => {

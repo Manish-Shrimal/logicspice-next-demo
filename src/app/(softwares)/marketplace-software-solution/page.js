@@ -27,8 +27,6 @@ import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
 import GetDemoEnquiry from "@/app/Components/GetDemoEnquiry";
 import "../../../../public/css/font-awesome.css";
 
-
-
 const Page = () => {
   const [activeTab, setActiveTab] = useState("tab2");
   const [sellerTab, setSellerTab] = useState(true);
@@ -208,7 +206,6 @@ const Page = () => {
                         toggle={openModal}
                         title="Marketplace Software"
                       />
-
                     }
                   </div>
                 </div>
@@ -1381,12 +1378,11 @@ const Page = () => {
                 <div className="btn btn-get" onClick={openModal}>
                   <button>Enquire Now</button>
                   {
-  <EnquiryModal
-  modalStatus={showModal}
-  toggle={openModal}
-  title="Marketplace Software"
-/>
-
+                    <EnquiryModal
+                      modalStatus={showModal}
+                      toggle={openModal}
+                      title="Marketplace Software"
+                    />
                   }
                 </div>
               </div>
@@ -1680,7 +1676,7 @@ const Page = () => {
                         style={{ width: "0%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">500</div>
+                    <div className="people_star_num">514</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -1697,7 +1693,7 @@ const Page = () => {
                         style={{ width: "0%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">60</div>
+                    <div className="people_star_num">36</div>
                   </div>
                   <div className="review_rating_fjs">
                     <div className="star_num">
@@ -1713,7 +1709,7 @@ const Page = () => {
                         style={{ width: "0%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">3</div>
+                    <div className="people_star_num">10</div>
                   </div>
                   <div className="review_rating_fjs">
                     <div className="star_num">
@@ -1762,7 +1758,7 @@ const Page = () => {
                 <div className="main-rait">
                   <span>
                     <i className="fa fa-star"></i>{" "}
-                    <span>4.7 out of 5 stars</span>
+                    <span>4.9 out of 5 stars</span>
                   </span>
                 </div>
               </div>
@@ -2169,10 +2165,10 @@ const Page = () => {
                 <button>Enquire Now</button>
                 {
                   <EnquiryModal
-                  modalStatus={showModal}
-                  toggle={openModal}
-                  title="Marketplace Software"
-                />
+                    modalStatus={showModal}
+                    toggle={openModal}
+                    title="Marketplace Software"
+                  />
                 }
               </div>
             </div>

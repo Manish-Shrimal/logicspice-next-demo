@@ -748,6 +748,9 @@ sites_maps,
 	width: 100%;
 	display: inline-block;
 }
+.pay_pri_term a{
+	color: rgb(59, 81, 153);
+}
 
 .drop:hover .drop_contanet {
 	display: block;
@@ -844,6 +847,7 @@ label.in-label::before {
 
 .input_des {
 	width: 58.33333333%;
+	padding-left: 12px;
 	float: left;
 	font-size: 23px;
 	color: #1a1615;
@@ -1717,3 +1721,4 @@ label.error {
     opacity: 0.8;
     padding-bottom: 10px;
 }
+

@@ -1922,7 +1922,7 @@ const Page = () => {
                         style={{ width: "100%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">200</div>
+                    <div className="people_star_num">180</div>
                   </div>
                   <div className="review_rating_fjs">
                     <div className="star_num">
@@ -1938,7 +1938,7 @@ const Page = () => {
                         style={{ width: "30%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">25</div>
+                    <div className="people_star_num">45</div>
                   </div>
                   <div className="review_rating_fjs">
                     <div className="star_num">
@@ -2003,7 +2003,7 @@ const Page = () => {
                 <div className="main-rait">
                   <span>
                     <i className="fa fa-star"></i>{" "}
-                    <span>4.7 out of 5 stars</span>
+                    <span>4.8 out of 5 stars</span>
                   </span>
                 </div>
               </div>

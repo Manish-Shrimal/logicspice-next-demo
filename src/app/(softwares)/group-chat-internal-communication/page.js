@@ -1267,8 +1267,14 @@ const Page = () => {
                   {pageData.currency_symbol}
                   {pageData.price}
                   <span className="sml_labl"> {pageData.name}</span>
-                </h4>
-                <strike className="srik_cls">
+                </h4> */}
+                <h4>
+                {/* {pageData.currency_symbol}
+                {pageData.price} */}
+                $ 895
+                {/* <span className="sml_labl"> {pageData.name}</span> */}
+              </h4>
+                {/* <strike className="srik_cls">
                   {pageData.currency_symbol}
                   {pageData.other_price}
                   <span className="sml_labl"> {pageData.name}</span>
@@ -1929,7 +1935,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">206</div>
+                      <div className="people_star_num">168</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -1946,7 +1952,7 @@ const Page = () => {
                           style={{ width: "30%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">13</div>
+                      <div className="people_star_num">19</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -2014,7 +2020,7 @@ const Page = () => {
                   <div className="main-rait">
                     <span>
                       <i className="fa fa-star"></i>{" "}
-                      <span>4.7 out of 5 stars</span>
+                      <span>4.9 out of 5 stars</span>
                     </span>
                   </div>
                 </div>

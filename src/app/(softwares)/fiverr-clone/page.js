@@ -515,7 +515,7 @@ const Page = () => {
 
       <section
         className="client-say crowdfunding-say NewTorowLi"
-        style={{ backgroundColor: "#fff", marginTop: "100px" }}
+        style={{ backgroundColor: "#f1f1f1" }}
       >
         <div className="container">
           <div className="row">
@@ -526,7 +526,7 @@ const Page = () => {
                     <iframe
                       width="100%"
                       height="312"
-                      src="https://www.youtube.com/embed/83xCE7lMRTs?rel=0&autoplay=1"
+                      src="https://www.youtube.com/embed/83xCE7lMRTs?rel=0&autoplay=0"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -576,7 +576,7 @@ const Page = () => {
         </div>
       </section>
 
-      <Suspense fallback={<div>Loading Services...</div>}>
+      <Suspense fallback={<div></div>}>
         <TabSection />
       </Suspense>
 
@@ -1610,7 +1610,7 @@ const Page = () => {
                     <div className="main-rait">
                       <span>
                         <i className="fa fa-star"></i>{" "}
-                        <span>4.7 out of 5 stars</span>
+                        <span>4.9 out of 5 stars</span>
                       </span>
                     </div>
                     <div className="review_rating_fjs">
@@ -1627,7 +1627,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">510</div>
+                      <div className="people_star_num">512</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -1644,7 +1644,7 @@ const Page = () => {
                           style={{ width: "60%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">46</div>
+                      <div className="people_star_num">57</div>
                     </div>
 
                     <div className="review_rating_fjs">

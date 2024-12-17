@@ -16,7 +16,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.logicspice.com", "lswebsitedemo.logicspice.com"],
+    domains: ["www.logicspice.com", "lswebsitedemo.logicspice.com", "manage.logicspice.com"],
   },
 
   async redirects() {
@@ -65,6 +65,16 @@ const nextConfig = {
       {
         source: "/services/website-development/cakephp-development",
         destination: "/cakephp-development", 
+        permanent: true,
+      },
+      {
+        source: "/android-app-development/",
+        destination: "/android-app-development", 
+        permanent: true,
+      },
+      {
+        source: "/startup-mobile-app-development-company/",
+        destination: "/startup-mobile-app-development-company", 
         permanent: true,
       },
       {

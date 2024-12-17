@@ -110,7 +110,7 @@ const Page = () => {
                       Logicspice is known for its Quality Assurance on each and
                       every aspects. We maintain the quality in our web and
                       <Link
-                        href="/services/mobile-app-development"
+                        href="/mobile-app-development"
                         target="_blank"
                       >
                         mobile development

@@ -34,7 +34,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">553 REVIEWS</div>
+                  <div className="product-review">569 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -87,7 +87,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">213 REVIEWS</div>
+                  <div className="product-review">219 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -139,7 +139,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">47 REVIEWS</div>
+                  <div className="product-review">49 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -191,7 +191,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">124 REVIEWS</div>
+                  <div className="product-review">128 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -243,7 +243,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">23 REVIEWS</div>
+                  <div className="product-review">24 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -295,7 +295,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">168 REVIEWS</div>
+                  <div className="product-review">173 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -347,7 +347,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">31 REVIEWS</div>
+                  <div className="product-review">32 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -399,7 +399,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">27 REVIEWS</div>
+                  <div className="product-review">28 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -452,7 +452,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">45 REVIEWS</div>
+                  <div className="product-review">47 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -492,7 +492,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">37 REVIEWS</div>
+                  <div className="product-review">38 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -529,7 +529,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">26 REVIEWS</div>
+                  <div className="product-review">12 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image
@@ -582,7 +582,7 @@ const ReadymadeSolution = () => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </div>
-                  <div className="product-review">43 REVIEWS</div>
+                  <div className="product-review">44 REVIEWS</div>
                   <ul className="make-style">
                     <li>
                       <Image

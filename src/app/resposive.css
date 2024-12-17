@@ -1678,8 +1678,8 @@
   }
 
   .order_summarty_left {
-    width: 100%;
-    margin-bottom: 30px;
+    width: 100%!important;
+    margin-bottom: 30px!important;
   }
 
   .SubscribePlan {
@@ -1687,15 +1687,31 @@
   }
 
   .order_summarty_right {
-    width: 100%;
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
+    width: 100%!important;
+    background: #fff!important;
+    padding: 20px!important;
+    margin-bottom: 20px!important;
+  }
+  .SubscribeBtn {
+    display: inline-block!important;
+    margin: 1px 0 0 0!important;
+    vertical-align: top!important;
+  }
+  .order_addonStep {
+    padding: 25px!important;
   }
 
-  .order_addonStep {
-    padding: 25px;
-  }
+  /* .oder_dfied iframe {
+    transform: scale(0.88)!important;
+    -webkit-transform: scale(0.88)!important;
+    transform-origin: 0 0!important;
+    -webkit-transform-origin: 0 0!important; */
+    /* width: 180px;
+} */
+.oder_form {
+  width: 100% !important;
+  float: left;
+}
 
 
   .industries_country .col-sm-4 {
@@ -3461,7 +3477,7 @@
   }
 
   .service-market-ttd li {
-    width: 100%;
+    width: 100% !important;
   }
 
   .app-footer-mobile {

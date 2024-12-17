@@ -34,7 +34,6 @@ import GetDemoEnquiry from "@/app/Components/GetDemoEnquiry";
 // import "../../../../public/css/font-awesome.min.css";
 import "../../../../public/css/font-awesome.css";
 
-
 const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [jobportal, setJobportal] = useState(false);
@@ -43,7 +42,6 @@ const Page = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [demoAccessModal, setDemoAccessModal] = useState(false);
   const openDemoAccessModal = () => {
-
     setDemoAccessModal(!demoAccessModal);
   };
 
@@ -256,23 +254,22 @@ const Page = () => {
                   <div
                     className=" btn-get"
                     onClick={openDemoAccessModal}
-
                     style={{ textAlign: "center" }}
                   >
                     <button>Get Demo Access!</button>
                     {
-//                       <SoftwareEnquiry
-//                         modalStatus={showModal}
-//                         toggle={openModal}
-//                         title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
-// See how it work yourself!"
-//                       />
-<GetDemoEnquiry
-                    modalStatus={demoAccessModal}
-                    toggle={openDemoAccessModal}
-                    title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
+                      //                       <SoftwareEnquiry
+                      //                         modalStatus={showModal}
+                      //                         toggle={openModal}
+                      //                         title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
+                      // See how it work yourself!"
+                      //                       />
+                      <GetDemoEnquiry
+                        modalStatus={demoAccessModal}
+                        toggle={openDemoAccessModal}
+                        title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
  See how it works yourself!"
-                  />
+                      />
                     }
                   </div>
                   <Link
@@ -297,10 +294,7 @@ const Page = () => {
               </div>
               <ul className="job-pr-icon jobwidthauto">
                 <li>
-                  <i
-                    className="fa fa-globe"
-                    aria-hidden="true"
-                  ></i>
+                  <i className="fa fa-globe" aria-hidden="true"></i>
                 </li>
                 <li>
                   <i className="fa fa-android"></i>
@@ -351,10 +345,10 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section className="client-say" style={{ backgroundColor: "#fff" }}>
+      <section className="client-say" style={{ backgroundColor: "#f1f1f1" }}>
         <div className="container">
           <div className="row">
-            <div className="col-md-6 job-video">
+            {/* <div className="col-md-6 job-video">
               <iframe
                 width="100%"
                 height="312"
@@ -363,7 +357,28 @@ const Page = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
+            </div> */}
+            {/* <div className="col-md-6 job-video">
+              <iframe
+                width="100%"
+                height="312"
+                src="https://vimeo.com/1036623829/embed/?rel=0&autoplay=0"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div> */}
+            <div className="col-md-6 job-video">
+              <iframe
+                width="100%"
+                height="312"
+                src="https://player.vimeo.com/video/1036623829?autoplay=0&loop=0"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </div>
+
             <div className="col-md-6">
               <div className="service-market-ttd-new JobBoardServiceMarketFeatures ServiceMarketFeaturesFull">
                 <ul>
@@ -1465,7 +1480,8 @@ const Page = () => {
                 </li>
                 <li>
                   <span>
-                  Unlimited Shipment Postings: Post as many shipments as you need without any limitations.
+                    Unlimited Shipment Postings: Post as many shipments as you
+                    need without any limitations.
                   </span>
                 </li>
                 <li>
@@ -1518,23 +1534,22 @@ const Page = () => {
                 <span className="sml_labl"> {pageData.name}</span>
               </strike>
               <div className="SubscriptionModelPriceBtn">
-                <div className="btn btn-get"                     onClick={openDemoAccessModal}
-                >
+                <div className="btn btn-get" onClick={openDemoAccessModal}>
                   <button>Get Demo Access!</button>
                   {
-//                     <SoftwareEnquiry
-//                       modalStatus={showModal}
-//                       toggle={openModal}
-//                       title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
-// See how it work yourself!"
-//                     />
+                    //                     <SoftwareEnquiry
+                    //                       modalStatus={showModal}
+                    //                       toggle={openModal}
+                    //                       title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
+                    // See how it work yourself!"
+                    //                     />
 
-<GetDemoEnquiry
-                    modalStatus={demoAccessModal}
-                    toggle={openDemoAccessModal}
-                    title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
+                    <GetDemoEnquiry
+                      modalStatus={demoAccessModal}
+                      toggle={openDemoAccessModal}
+                      title="Please fill the form below and get access to the live demo of Logistic Marketplace Software.
  See how it works yourself!"
-                  />
+                    />
                   }
                 </div>
                 <Link
@@ -1547,10 +1562,7 @@ const Page = () => {
               <div className="jocpp">
                 <ul className="job-pr-icon">
                   <li>
-                    <i
-                      className="fa fa-globe"
-                      aria-hidden="true"
-                    ></i>
+                    <i className="fa fa-globe" aria-hidden="true"></i>
                   </li>
                   <li>
                     <i className="fa fa-android"></i>
@@ -1766,7 +1778,7 @@ const Page = () => {
           id="jobportal"
           className="modal-service"
         >
-           <Modal.Header className="modal-dialog-service">
+          <Modal.Header className="modal-dialog-service">
             <button
               type="button"
               className="custom-close-button"
@@ -1795,7 +1807,7 @@ const Page = () => {
           id="buyjobportal"
           className="modal-service"
         >
-           <Modal.Header className="modal-dialog-service">
+          <Modal.Header className="modal-dialog-service">
             <button
               type="button"
               className="custom-close-button"
@@ -1826,7 +1838,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/loadmoversgh.jpg"
                       alt="icon"
                       title=""
@@ -1852,7 +1864,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/fletes24.jpg"
                       alt="icon"
                       title=""
@@ -1867,7 +1879,7 @@ const Page = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                     logistics.onestop.global
+                      logistics.onestop.global
                     </Link>
                   </div>
                   <Link
@@ -1878,7 +1890,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/logisticsonestop.jpg"
                       alt="icon"
                       title=""
@@ -1904,7 +1916,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/afodel.jpg"
                       alt="icon"
                       title=""
@@ -1930,7 +1942,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/esseltransport.jpg"
                       alt="icon"
                       title=""
@@ -1945,7 +1957,7 @@ const Page = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                    loadboard.trucking21.com
+                      loadboard.trucking21.com
                     </Link>
                   </div>
                   <Link
@@ -1956,7 +1968,7 @@ const Page = () => {
                     <Image
                       unoptimized={true}
                       width={900}
-                      height={100 / (100 /100)}
+                      height={100 / (100 / 100)}
                       src="/img/logisticmarketplace/loadboard.jpg"
                       alt="icon"
                       title=""
@@ -1967,7 +1979,6 @@ const Page = () => {
               </Slider>
             </div>
           </Modal.Body>
-         
         </Modal>
       </div>
 
@@ -2161,7 +2172,7 @@ const Page = () => {
                     <div className="main-rait">
                       <span>
                         <i className="fa fa-star"></i>{" "}
-                        <span>4.7 out of 5 stars</span>
+                        <span>4.9 out of 5 stars</span>
                       </span>
                     </div>
                     <div className="review_rating_fjs">
@@ -2178,7 +2189,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">159</div>
+                      <div className="people_star_num">157</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -2195,7 +2206,7 @@ const Page = () => {
                           style={{ width: "20%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">14</div>
+                      <div className="people_star_num">16</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -2554,8 +2565,8 @@ const Page = () => {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                      No, you can&apos;t resell the software. All rights will remain
-                      with Logicspice only.
+                      No, you can&apos;t resell the software. All rights will
+                      remain with Logicspice only.
                     </Typography>
                   </AccordionDetails>
                 </Accordion>

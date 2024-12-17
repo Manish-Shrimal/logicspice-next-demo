@@ -379,21 +379,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     ]
   };
 
-  // Combine existing schema and FAQ schema
-  if (schemaOrg) {
-    if (schemaOrg["@type"] === "FAQPage") {
-      // Merge FAQ entries if schemaOrg is also an FAQPage
-      schemaOrg.mainEntity = [
-        ...schemaOrg.mainEntity,
-        ...faqSchema.mainEntity,
-      ];
-    } else {
-      // Include both schemas
-      schemaOrg = [schemaOrg, faqSchema];
-    }
-  } else {
-    schemaOrg = faqSchema;
-  }
+
 
   return {
     title: product.data.meta_title,
@@ -413,7 +399,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
         "max-snippet": -1,
       },
     },
-    schemaOrg,
+    schemaOrg: schemaOrg || null,
+    faqSchema: faqSchema
   };
 }
 
@@ -426,6 +413,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <title>{metadata.title}</title>
+
       </Head>
       <body className={inter.className}>{children}</body>
       {metadata.schemaOrg && (
@@ -433,6 +421,14 @@ export default async function RootLayout({ children, params, searchParams }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(metadata.schemaOrg),
+          }}
+        />
+      )}
+      {metadata.faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: metadata.faqSchema,
           }}
         />
       )}

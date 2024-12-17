@@ -1506,6 +1506,12 @@ const Page = () => {
           <h2 className="taxt_tt_job">Delivered Solution</h2>
           <div className="SubscriptionModelPrice">
             <div className="SubscriptionModelPriceBx">
+            <h4>
+                {/* {pageData.currency_symbol}
+                {pageData.price} */}
+                $ 895
+                {/* <span className="sml_labl"> {pageData.name}</span> */}
+              </h4>
               {/* <h4>
                 {pageData.currency_symbol}
                 {pageData.price}
@@ -2158,7 +2164,7 @@ const Page = () => {
                         style={{ width: "100%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">206</div>
+                    <div className="people_star_num">274</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -2175,7 +2181,7 @@ const Page = () => {
                         style={{ width: "30%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">13</div>
+                    <div className="people_star_num">30</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -2243,7 +2249,7 @@ const Page = () => {
                 <div className="main-rait">
                   <span>
                     <i className="fa fa-star"></i>{" "}
-                    <span>4.7 out of 5 stars</span>
+                    <span>4.9 out of 5 stars</span>
                   </span>
                 </div>
               </div>

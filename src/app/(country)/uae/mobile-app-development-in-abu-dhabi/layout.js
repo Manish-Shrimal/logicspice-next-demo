@@ -26,7 +26,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
       .replace(/\\+/g, "") // Remove unnecessary backslashes
       .replace(/[\u0000-\u001F\u007F]/g, ""); // Remove control characters
 
-    
     // Parse the cleaned string as JSON
     if (cleanedText) {
       schemaOrg = JSON.parse(cleanedText);
@@ -73,10 +72,10 @@ export default async function RootLayout({ children, params, searchParams }) {
         <title>{metadata.title}</title>
       </Head>
       <body className={inter.className}>{children}</body>
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
-      />
+      /> */}
     </html>
   );
 }

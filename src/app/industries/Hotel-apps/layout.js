@@ -67,10 +67,10 @@ export default async function RootLayout({ children, params, searchParams }) {
       </Head>
       <body className={inter.className}>{children}</body>
       <Chatbot />
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
-      />
+      /> */}
     </html>
   );
 }

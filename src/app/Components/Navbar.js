@@ -46,6 +46,30 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const [isMobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currentScreenSize = window.innerWidth;
+      if (currentScreenSize < 768) {
+        setMobileOpen(true);  // Mobile screen (less than 768px)
+      } else {
+        setMobileOpen(false); // Desktop or larger screen
+      }
+    };
+  
+    // Initial check
+    handleResize();
+  
+    // Listen to window resizing
+    window.addEventListener("resize", handleResize);
+  
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
 
   return (
     <>
@@ -85,7 +109,7 @@ const Navbar = () => {
                 <li className="dropdown mega-menu-fw">
                   <Link
                     className="dropdown-toggle"
-                    href="/company"
+                    href={isMobileOpen ? "" : "/company"}
                     id="companyDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -239,7 +263,8 @@ const Navbar = () => {
                 <li className="dropdown mega-menu-fw">
                   <Link
                     className=" dropdown-toggle"
-                    href="/softwares"
+                    href={isMobileOpen ? "" : "/softwares"}
+
                     id="softwareDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -463,7 +488,7 @@ const Navbar = () => {
                 <li className="dropdown mega-menu-fw">
                   <Link
                     className="dropdown-toggle"
-                    href="/services"
+                    href={isMobileOpen ? "" : "/services"}
                     id="servicesDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -679,7 +704,7 @@ const Navbar = () => {
                 <li className="dropdown mega-menu-fw">
                   <Link
                     className=" dropdown-toggle"
-                    href="/custom-solutions"
+                    href={isMobileOpen ? "" : "/custom-solutions"}
                     id="hiringDropdown"
                     role="button"
                     data-toggle="dropdown"

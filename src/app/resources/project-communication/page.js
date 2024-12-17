@@ -41,7 +41,7 @@ const Page = () => {
                   <Link href="/">Home</Link>
                 </li>
                 <li class="breadcrumb-item">
-                  <Link href="/resources'">Resources</Link>
+                  <Link href="/resources">Resources</Link>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                 Project Communication Strategy
