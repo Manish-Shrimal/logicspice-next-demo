@@ -255,6 +255,7 @@ export default async function RootLayout({ children, params, searchParams }) {
       {/* Inject the schema scripts */}
       {metadata.schemaOrg && (
         <Script
+          id="schema-org-script"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(metadata.schemaOrg),
@@ -264,9 +265,10 @@ export default async function RootLayout({ children, params, searchParams }) {
       )}
       {metadata.faqSchema && (
         <Script
+          id="faq-schema-script"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: metadata.faqSchema,
+            __html: JSON.stringify(metadata.faqSchema),
           }}
         />
       )}
