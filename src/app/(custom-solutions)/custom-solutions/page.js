@@ -887,7 +887,7 @@ const Page = () => {
                           />
                         </Link>
                       </div>
-                      <Link
+                      {/* <Link
                         className=""
                         href="/social-network-integration-in-android-app"
                       >
@@ -910,7 +910,7 @@ const Page = () => {
                             </span>
                           </div>
                         </div>
-                      </Link>
+                      </Link> */}
                     </div>
                   </li>
                 </ul>

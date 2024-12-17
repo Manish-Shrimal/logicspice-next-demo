@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "@/app/Components/Footer";
 import Navbar from "@/app/Components/Navbar";
 import "@/app/(custom-solutions)/customsolutions.css";
@@ -17,6 +17,7 @@ import Support from "@/app/Components/Support";
 import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
 import { Collapse } from "react-bootstrap";
 import "../../../../public/css/font-awesome.css";
+import Chatbot from "@/app/Components/Chatbot";
 
 const Page = () => {
   const [showModal, setShowModal] = useState(false);
@@ -92,6 +93,10 @@ const Page = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+  
+
+
   return (
     <>
       <Navbar />

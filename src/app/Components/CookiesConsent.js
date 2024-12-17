@@ -11,20 +11,23 @@ const CookiesConsent = () => {
     if (typeof window !== "undefined") {
       console.log("Here");
       const cookieAccepted = localStorage.getItem("cookieAccepted");
-      if (!cookieAccepted || cookieAccepted !== "yes") {
+      if (cookieAccepted !== "yes") {
         console.log("Cookie not accepted");
         setIsActive(true);
+        console.log(isActive);
+      } else {
+        setIsActive(false);
       }
     }
   }, [pathname]); // Re-run this effect whenever the route changes
   
-
   const handleAccept = () => {
     localStorage.setItem("cookieAccepted", "yes");
     setIsActive(false);
   };
 
   const handleDecline = () => {
+    localStorage.setItem("cookieAccepted", "no");
     setIsActive(false);
   };
 

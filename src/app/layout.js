@@ -83,13 +83,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./resposive.css";
 import AOSInitializer from "./Components/AOSInitializer";
+import GTMComponent from "./Components/GTMComponent";
+import CookiesConsent from "./Components/CookiesConsent";
 
 import Chatbot from "./Components/Chatbot";
 import MetadataApi from "@/app/BaseAPI/MetadataApi";
 import Domain from "./BaseAPI/Domain";
 import Head from "next/head";
-
-
 const inter = Inter({ subsets: ["latin"] });
 let schemaData;
 
@@ -151,11 +151,19 @@ export default function RootLayout({ children, params, searchParams }) {
 
   return (
     <html lang="en">
-    
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="mGh8hmWuw4T_mXtpY3zzzIpZSMy-k0ua2kHramwX7j4"
+        />
+        
+      </Head>
+      
       <body className={inter.className}>
         <AOSInitializer>{children}</AOSInitializer>
         <Chatbot />
-
+        <GTMComponent />
+        <CookiesConsent />
         {isHomePage && (
           <>
             <script
