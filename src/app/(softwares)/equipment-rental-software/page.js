@@ -1782,10 +1782,10 @@ const Page = () => {
                     Safari 5+, IE 9+
                   </li>
                   <li className="same aos-init aos-animate" data-aos="fade-up">
-                    <b>Framework - </b> Laravel 5.5.41
+                    <b>Framework - </b> Laravel 10
                   </li>
                   <li className="same aos-init aos-animate" data-aos="fade-up">
-                    <b>Language - </b> PHP 7 Supported, AJAX, jQuery
+                    <b>Language - </b> PHP 8.1 Supported, AJAX, jQuery
                   </li>
                   <li className="other aos-init aos-animate" data-aos="fade-up">
                     <b>Design - </b> HTML 5, CSS 3, Bootstrap 3.3.6, JavaScript
