@@ -1,5 +1,5 @@
 "use client";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Footer from "@/app/Components/Footer";
 import Navbar from "@/app/Components/Navbar";
 import "@/app/(softwares)/softwares.css";
@@ -18,10 +18,14 @@ import { Modal, ModalBody } from "react-bootstrap";
 import axios from "axios";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
 
-
-
-const GetDemoEnquiry = dynamic(() => import('@/app/Components/GetDemoEnquiry'), { ssr: false }); 
-const SoftwareEnquiry = dynamic(() => import('@/app/Components/SoftwareEnquiry'), { ssr: false });
+const GetDemoEnquiry = dynamic(
+  () => import("@/app/Components/GetDemoEnquiry"),
+  { ssr: false }
+);
+const SoftwareEnquiry = dynamic(
+  () => import("@/app/Components/SoftwareEnquiry"),
+  { ssr: false }
+);
 const Page = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -145,20 +149,6 @@ const Page = () => {
     setAdminTab(true);
   };
 
-  useEffect(() => {
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  }, []); // Empty dependency array to run once on mount
-
   const iframeRef = useRef(null);
   const [player, setPlayer] = useState(null);
   const [isInView, setIsInView] = useState(false);
@@ -225,8 +215,6 @@ const Page = () => {
       }
     }
   }, [isInView, player]);
-
-
 
   const [inView, setInView] = useState(false);
 
@@ -519,16 +507,16 @@ const Page = () => {
           <div className="row">
             <div className="col-md-6 job-video">
               <div ref={iframeRef}>
-              {inView && (
-                <iframe
-                  id="ytplayer"
-                  width="100%"
-                  height="312"
-                  src="https://www.youtube-nocookie.com/embed/jZUjtbUTuHQ?enablejsapi=1&mute=1"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                {inView && (
+                  <iframe
+                    id="ytplayer"
+                    width="100%"
+                    height="312"
+                    src="https://www.youtube-nocookie.com/embed/jZUjtbUTuHQ?enablejsapi=1&mute=1"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 )}
               </div>
               {/* <iframe
@@ -2006,6 +1994,78 @@ const Page = () => {
             <h2 className="taxt_tt_job">Script Update History</h2>
             <br />
             <div className="script-update_title">
+              <p>
+                V7.0 - December 23rd, 2024 - New feature added and several key
+                improvements to enhance functionality and user experience.
+              </p>
+              <strong
+                style={{
+                  padding: "16px 0 0",
+                  display: "inline-block",
+                  fontSize: "17px",
+                }}
+              >
+                Job Import via CSV/XLSX Format
+              </strong>
+              <ul style={{ marginTop: "6px" }}>
+                <li>
+                  <span>
+                    Admins can now seamlessly import job records using CSV or
+                    XLSX files.
+                  </span>
+                </li>
+
+                <li>
+                  <span>
+                    All imported jobs will be automatically associated with the
+                    selected employer for efficient management.
+                  </span>
+                </li>
+              </ul>
+
+              <strong
+                style={{
+                  padding: "16px 0 0",
+                  display: "inline-block",
+                  fontSize: "17px",
+                }}
+              >
+                Page Speed Optimization
+              </strong>
+              <ul style={{ marginTop: "6px" }}>
+                <li>
+                  <span>
+                    We have implemented optimizations techniques to ensure
+                    faster page load times, delivering a smoother user
+                    experience.
+                  </span>
+                </li>
+              </ul>
+
+              <strong
+                style={{
+                  padding: "16px 0 0",
+                  display: "inline-block",
+                  fontSize: "17px",
+                }}
+              >
+                Sub-Admin Role Assignment
+              </strong>
+              <ul style={{ marginTop: "6px" }}>
+                <li>
+                  <span>
+                    An improved feature allows admins to assign specific roles
+                    to sub-admins.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Sub-admins will have access only to the features and
+                    sections they are authorized to manage.
+                  </span>
+                </li>
+              </ul>
+              {/* New updates end */}
               <p>
                 V6.0 - September 19th, 2023 - Latest release brings new
                 features, coupled with significant leaps in technologies!
@@ -3715,16 +3775,19 @@ const Page = () => {
 
       <section className="JObboardVideSection">
         <div className="container">
-          <div className="JobBoardVideoBottom JobBoardbxVideoBottom" ref={secondVideoRef}>
-          {inViewSecond && (
-            <iframe
-              width="100%"
-              height="312"
-              src="https://www.youtube-nocookie.com/embed/7fJVD2R2kkA?rel=0"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen=""
-            ></iframe>
+          <div
+            className="JobBoardVideoBottom JobBoardbxVideoBottom"
+            ref={secondVideoRef}
+          >
+            {inViewSecond && (
+              <iframe
+                width="100%"
+                height="312"
+                src="https://www.youtube-nocookie.com/embed/7fJVD2R2kkA?rel=0"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen=""
+              ></iframe>
             )}
           </div>
         </div>

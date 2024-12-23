@@ -152,20 +152,6 @@ const Page = () => {
     setDemoAccessModal(!demoAccessModal);
   };
 
-  useEffect(() => {
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  }, []); // Empty dependency array to run once on mount
-
   return (
     <>
       <NavBar />
@@ -1458,6 +1444,54 @@ const Page = () => {
             <br />
             <div className="script-update_title">
               <p>
+                V1.1 - December 23rd, 2024 - Featuring significant upgrades and
+                enhancements to improve performance and accessibility.
+              </p>
+
+              <strong
+                style={{
+                  padding: "16px 0 0",
+                  display: "inline-block",
+                  fontSize: "17px",
+                }}
+              >
+                Upgrade to Latest Technologies
+              </strong>
+              <ul style={{ marginTop: "6px" }}>
+                <li>
+                  <span>
+                    Updated to PHP 8.1 for improved performance, security, and
+                    compatibility.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Migrated to the Laravel 10 framework, ensuring a modern and
+                    robust development environment.
+                  </span>
+                </li>
+              </ul>
+
+              <strong
+                style={{
+                  padding: "16px 0 0",
+                  display: "inline-block",
+                  fontSize: "17px",
+                }}
+              >
+                German Language Translation
+              </strong>
+              <ul style={{ marginTop: "6px" }}>
+                <li>
+                  <span>
+                    The platform now supports German language, allowing users to
+                    navigate and use the system in their preferred language for
+                    a more localized experience.
+                  </span>
+                </li>
+              </ul>
+              {/* New features end */}
+              <p>
                 V1.0 - March 28th, 2022 - Major updates and improvements
                 completed!
               </p>
@@ -2546,7 +2580,11 @@ const Page = () => {
             <div className="row">
               <div className="col-sm-6 col-md-4">
                 <div className="thumbnail">
-                  <Link href="/crowdfunding-script" title="View Detail" target="_blank">
+                  <Link
+                    href="/crowdfunding-script"
+                    title="View Detail"
+                    target="_blank"
+                  >
                     <div className="caption">
                       <div className="other-caption-bx">
                         <h3>Crowdfunding</h3>
@@ -2573,7 +2611,11 @@ const Page = () => {
               </div>
               <div className="col-sm-6 col-md-4">
                 <div className="thumbnail">
-                  <Link href="/whatsapp-clone" title="View Detail" target="_blank">
+                  <Link
+                    href="/whatsapp-clone"
+                    title="View Detail"
+                    target="_blank"
+                  >
                     <div className="caption">
                       <div className="other-caption-bx">
                         <h3>WhatsApp Clone App</h3>
@@ -2597,7 +2639,11 @@ const Page = () => {
               </div>
               <div className="col-sm-6 col-md-4">
                 <div className="thumbnail">
-                  <Link href="/groupon-clone" title="View Detail" target="_blank">
+                  <Link
+                    href="/groupon-clone"
+                    title="View Detail"
+                    target="_blank"
+                  >
                     <div className="caption">
                       <div className="other-caption-bx">
                         <h3>Groupon clone</h3>
