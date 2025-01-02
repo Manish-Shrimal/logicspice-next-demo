@@ -17,7 +17,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
     phone_no: "",
     message: "",
     post_url: "",
-    recaptchaToken: "",
+    recaptcha_token: "",
   });
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
       newErrors.messageerror = "Message is required";
     }
 
-    if (!formData.recaptchaToken) {
+    if (!formData.recaptcha_token) {
       newErrors.reacptchaerror = "Please verify Recaptcha";
     }
 
@@ -108,7 +108,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
     if (validateForm()) {
       setLoader(true);
       try {
-        isEnquiryRequested(true);
+        setIsEnquiryRequested(true);
         const response = await axios.post(BaseAPI + "/pages/contact", formData);
         if (response.data.status === 200) {
           setIsEnquiryRequested(true);
@@ -122,16 +122,31 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
           }));
           setIsEnquiryRequested(false);
         }
+        else if (response.data.status === 500) {
+          setErrors({ ...errors, reacptchaerror: JSON.stringify(response.data.message) });
+        }
       } catch (error) {
         console.error("Submission error:", error.message);
       }
     }
   };
 
+  // const onRecaptchaChange = (token) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     recaptchaToken: token,
+  //   }));
+  //   if (token) {
+  //     setErrors((prevError) => ({
+  //       ...prevError,
+  //       recaptchaerror: "",
+  //     }));
+  //   }
+  // };
   const onRecaptchaChange = (token) => {
     setFormData((prevData) => ({
       ...prevData,
-      recaptchaToken: token,
+      recaptcha_token: token, // Assign the token here
     }));
     if (token) {
       setErrors((prevError) => ({
@@ -140,7 +155,7 @@ const Contactusmodel = ({ modalStatus, toggle }) => {
       }));
     }
   };
-
+  
   const close = () => {
     setPopupScProductContacts(false);
     setResultSuccess(false);

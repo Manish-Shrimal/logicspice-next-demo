@@ -71,7 +71,6 @@ export default async function RootLayout({ children, params, searchParams }) {
         <title>{metadata.title}</title>
       </Head>
       <body className={inter.className}>{children}</body>
-      <Chatbot />
       <CookiesConsent />
       {/* <script
         type="application/ld+json"

@@ -1444,52 +1444,33 @@ const Page = () => {
             <br />
             <div className="script-update_title">
               <p>
-                V1.1 - December 23rd, 2024 - Featuring significant upgrades and
+                V2.0 - December 24th, 2024 - Featuring significant upgrades and
                 enhancements to improve performance and accessibility.
               </p>
 
-              <strong
-                style={{
-                  padding: "16px 0 0",
-                  display: "inline-block",
-                  fontSize: "17px",
-                }}
-              >
-                Upgrade to Latest Technologies
-              </strong>
-              <ul style={{ marginTop: "6px" }}>
+              <ul>
                 <li>
                   <span>
-                    Updated to PHP 8.1 for improved performance, security, and
-                    compatibility.
+                    Updated to <b>PHP 8.1</b> for improved{" "}
+                    <b>performance, security</b>, and <b>compatibility</b>.
                   </span>
                 </li>
                 <li>
                   <span>
-                    Migrated to the Laravel 10 framework, ensuring a modern and
-                    robust development environment.
+                    Migrated to the <b>Laravel 10</b> framework, ensuring a{" "}
+                    <b>modern</b> and <b>robust</b> development environment.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    The platform&apos;s <b>multilingual support</b> feature is now
+                    updated with German and French languages, allowing users to
+                    navigate and use the system in their preferred language for
+                    a more <b>localized experience</b>.
                   </span>
                 </li>
               </ul>
 
-              <strong
-                style={{
-                  padding: "16px 0 0",
-                  display: "inline-block",
-                  fontSize: "17px",
-                }}
-              >
-                German Language Translation
-              </strong>
-              <ul style={{ marginTop: "6px" }}>
-                <li>
-                  <span>
-                    The platform now supports German language, allowing users to
-                    navigate and use the system in their preferred language for
-                    a more localized experience.
-                  </span>
-                </li>
-              </ul>
               {/* New features end */}
               <p>
                 V1.0 - March 28th, 2022 - Major updates and improvements

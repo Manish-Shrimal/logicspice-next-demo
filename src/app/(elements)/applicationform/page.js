@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 const Page = () => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const router = useRouter();
+  const recaptchaRef = useRef(null);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -24,6 +25,7 @@ const Page = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+  const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
 
   const resumeFile = useRef(null);
 
@@ -101,63 +103,47 @@ const Page = () => {
     place: "",
     resume: null,
     image: null,
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
+
   });
 
-  // const [formData, setFormData] = useState({
-  //   post: "",
-  //   image: null,
-  //   firstName: "",
-  //   middleName: "",
-  //   lastName: "",
-  //   dob: "",
-  //   fatherName: "",
-  //   motherName: "",
-  //   fatherOccupation: "",
-  //   motherOccupation: "",
-  //   category: "",
-  //   gender: "",
-  //   maritalStatus: "",
-  //   physicalChallenged: "",
-  //   currentAddress: "",
-  //   permanentAddress: "",
-  //   emailAddress: "",
-  //   Phone: "",
-  //   matricCourse: "",
-  //   matricCollege: "",
-  //   matricUniversity: "",
-  //   matricYear: "",
-  //   matricPercentage: "",
-  //   SecondaryCourse: "",
-  //   secondaryCollege: "",
-  //   secondaryUniversity: "",
-  //   secondaryYear: "",
-  //   secondaryPercentage: "",
-  //   graduationCourse: "",
-  //   graduationCollege: "",
-  //   graduationUniversity: "",
-  //   graduationYear: "",
-  //   graduationPercentage: "",
-  //   expYear: "",
-  //   expMonth: "",
-  //   expectedSalary:"",
-  //   place: "",
-  //   resume: "",
-  // });
+
+
+  // const onRecaptchaChange = (token) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     recaptchaToken: token,
+  //   }));
+  //   if (token) {
+  //     setErrors((prevError) => ({
+  //       ...prevError,
+  //       recaptchaerror: "",
+  //     }));
+  //   }
+  // };
+  const [errors, setErrors] = useState({});
+
 
   const onRecaptchaChange = (token) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      recaptchaToken: token,
-    }));
     if (token) {
+      setIsRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
       setErrors((prevError) => ({
         ...prevError,
         recaptchaerror: "",
       }));
+    } else {
+      setIsRecaptchaVerified(false);
     }
   };
 
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -173,36 +159,7 @@ const Page = () => {
     }));
   };
 
-  // const handleFileUpload = (event) => {
-  //   const uploadedFile = event.target.files[0];
-  //   resumeFile.current = uploadedFile;
 
-  //   if (uploadedFile) {
-  //     const allowedExtensions = /(\.pdf|\.doc|\.docx)$/i;
-
-  //     if (!allowedExtensions.exec(uploadedFile.name)) {
-  //       setErrors({
-  //         ...errors,
-  //         resume: "Invalid file type. Please upload a PDF, DOC, or DOCX file.",
-  //       });
-  //       return;
-  //     }
-
-  //     const maxSize = 5 * 1024 * 1024; // 5MB
-  //     if (uploadedFile.size > maxSize) {
-  //       setErrors({
-  //         ...errors,
-  //         resume: "File size exceeds the 5MB limit.",
-  //       });
-  //       return;
-  //     }
-
-  //     // Clear previous errors
-  //     setErrors({ ...errors, resume: null });
-  //     setFormData({ ...formData, resume: uploadedFile });
-  //   }
-
-  // };
 
   const handleFileUpload = (event) => {
     const uploadedFile = event.target.files[0];
@@ -327,7 +284,9 @@ const Page = () => {
       newErrors.expectedSalary = "This field is required.";
     if (!formData.place) newErrors.place = "This field is required.";
     if (!formData.resume) newErrors.resume = "This field is required.";
-
+    if (!isRecaptchaVerified) {
+      newErrors.recaptchaerror = "Please verify that you are not a robot";
+    }
     return newErrors;
   };
 
@@ -371,6 +330,7 @@ const Page = () => {
           title: "Successfully Applied",
           text: response.data.message,
         });
+        setIsRecaptchaVerified(false);
 
         setFormData({
           post: "",
@@ -446,7 +406,13 @@ const Page = () => {
           place: "",
           resume: null,
           image: null,
+          recaptcha_token: "", // Field to hold the reCAPTCHA token
         });
+      } else if(response.data.status === 500) {
+        // console.log("yaha aaya")
+        setFormErrors({
+          recaptchaerror: response.data.message,
+        })
       }
     } catch (error) {
       setLoading(false);
@@ -531,8 +497,22 @@ const Page = () => {
       place: "",
       resume: null,
       image: null,
+      recaptcha_token: "",
     });
   };
+
+  useEffect(() => {
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+
+      // Add the expired callback to reset verification status
+      recaptchaRef.current.execute(); // Trigger the reCAPTCHA
+
+      recaptchaRef.current.props.onExpired = () => {
+        setIsRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
+      };
+    }
+  }, []);
   return (
     <>
       <Navbar />
@@ -2482,14 +2462,14 @@ const Page = () => {
                         {/* <div class="currwnt-bx">
                             <div id="recaptcha1" style="transform: scale(0.75); transform-origin: left top;"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-3mo9j5xxutq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6Leg3gITAAAAAPzWHZ1PgnMhko9tHq8yWvH2q2S7&amp;co=aHR0cHM6Ly93d3cubG9naWNzcGljZS5jb206NDQz&amp;hl=en&amp;v=WV-mUKO4xoWKy9M4ZzRyNrP_&amp;theme=light&amp;size=normal&amp;cb=nttq9a3kshdx"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
                         </div> */}
-                        <div className="form-group-google">
+                        <div className="google-recaptcha">
                           <ReCAPTCHA
                             key={recaptchaKey}
                             sitekey={recaptchaKey}
                             onChange={onRecaptchaChange}
                           />
                           <div className="gcpc FormError" id="captcha_msg">
-                            {errors.reacptchaerror}
+                            {errors.recaptchaerror}
                           </div>
                         </div>
                       </div>

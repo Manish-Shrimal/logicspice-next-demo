@@ -3,6 +3,7 @@ import "../../globals.css";
 import Head from "next/head";
 import MetadataApi from "@/app/BaseAPI/MetadataApi";
 import Domain from "@/app/BaseAPI/Domain";
+import CookiesConsent from "@/app/Components/CookiesConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +39,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     keywords: product.data.meta_keyword,
     // Add other meta tags as needed
     alternates: {
-      canonical: `${Domain}/hire-angular-js-developers`,
+      canonical: `${Domain}/hire-angular-js-experts`,
     },
     robots: {
       index: true,
@@ -67,6 +68,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <meta name="keywords" content={metadata.keywords} />
         <title>{metadata.title}</title>
       </Head>
+      <CookiesConsent />
       <body className={inter.className}>{children}</body>
       <script
         type="application/ld+json"

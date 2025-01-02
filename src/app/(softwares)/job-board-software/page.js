@@ -1995,76 +1995,46 @@ const Page = () => {
             <br />
             <div className="script-update_title">
               <p>
-                V7.0 - December 23rd, 2024 - New feature added and several key
+                V7.0 - December 24th, 2024 - New feature added and several key
                 improvements to enhance functionality and user experience.
               </p>
-              <strong
-                style={{
-                  padding: "16px 0 0",
-                  display: "inline-block",
-                  fontSize: "17px",
-                }}
-              >
-                Job Import via CSV/XLSX Format
-              </strong>
-              <ul style={{ marginTop: "6px" }}>
+
+              <ul>
                 <li>
                   <span>
-                    Admins can now seamlessly import job records using CSV or
-                    XLSX files.
+                    Admin can now efficiently{" "}
+                    <b>import jobs via CSV or XLSX files</b>, automatically
+                    associating them with the selected employer for streamlined
+                    management.
                   </span>
                 </li>
 
                 <li>
                   <span>
-                    All imported jobs will be automatically associated with the
-                    selected employer for efficient management.
-                  </span>
-                </li>
-              </ul>
-
-              <strong
-                style={{
-                  padding: "16px 0 0",
-                  display: "inline-block",
-                  fontSize: "17px",
-                }}
-              >
-                Page Speed Optimization
-              </strong>
-              <ul style={{ marginTop: "6px" }}>
-                <li>
-                  <span>
-                    We have implemented optimizations techniques to ensure
-                    faster page load times, delivering a smoother user
+                    Optimization techniques implemented for faster page load and{" "}
+                    <b>performance optimization</b> for smoother user
                     experience.
                   </span>
                 </li>
+
+                <li>
+                  <span>
+                    Admin can now assign specific roles to sub-admins through{" "}
+                    <b>sub-admin role management</b>, restricting their access
+                    to authorized features and sections only.
+                  </span>
+                </li>
+
+                <li>
+                  <span>
+                    The platform&apos;s <b>multilingual support</b> feature is now
+                    updated with Greek, German and Ukrainian languages, allowing
+                    users to navigate and use the system in their preferred
+                    language for a more <b>localized experience</b>.
+                  </span>
+                </li>
               </ul>
 
-              <strong
-                style={{
-                  padding: "16px 0 0",
-                  display: "inline-block",
-                  fontSize: "17px",
-                }}
-              >
-                Sub-Admin Role Assignment
-              </strong>
-              <ul style={{ marginTop: "6px" }}>
-                <li>
-                  <span>
-                    An improved feature allows admins to assign specific roles
-                    to sub-admins.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Sub-admins will have access only to the features and
-                    sections they are authorized to manage.
-                  </span>
-                </li>
-              </ul>
               {/* New updates end */}
               <p>
                 V6.0 - September 19th, 2023 - Latest release brings new

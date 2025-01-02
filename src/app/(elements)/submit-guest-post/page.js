@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "@/app/Components/Footer";
 import NavBar from "@/app/Components/Navbar";
 import "@/app/(softwares)/softwares.css";
@@ -13,11 +13,15 @@ import Contactusmodel from "@/app/Components/Contactusmodel";
 import axios from "axios";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import Swal from "sweetalert2";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
+  const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
+  const recaptchaRef = useRef(null);
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -28,6 +32,7 @@ const Page = () => {
     email: "",
     contact: "",
     message: "",
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
   });
 
   const [errors, setErrors] = useState({
@@ -35,6 +40,7 @@ const Page = () => {
     email: "",
     contact: "",
     message: "",
+    recaptchaerror: "",
   });
 
   useEffect(() => {}, [formData]);
@@ -48,12 +54,35 @@ const Page = () => {
     }));
   };
 
+  const onRecaptchaChange = (token) => {
+    if (token) {
+      setIsRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
+      setErrors((prevError) => ({
+        ...prevError,
+        recaptchaerror: "",
+      }));
+    } else {
+      setIsRecaptchaVerified(false);
+    }
+  };
+
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = "This field is required.";
     if (!formData.email) newErrors.email = "This field is required.";
     if (!formData.contact) newErrors.contact = "This field is required.";
     if (!formData.message) newErrors.message = "This field is required.";
+    if (!isRecaptchaVerified) {
+      newErrors.recaptchaerror = "Please verify that you are not a robot";
+    }
     return newErrors;
   };
 
@@ -89,6 +118,12 @@ const Page = () => {
           email: "",
           contact: "",
           message: "",
+          recaptcha_token: "", // Field to hold the reCAPTCHA token
+        });
+      } else if (response.data.status === 500) {
+        // console.log("yaha aaya")
+        setErrors({
+          recaptchaerror: response.data.message,
         });
       }
     } catch (error) {
@@ -97,6 +132,19 @@ const Page = () => {
       console.error("Submission error:", error.message);
     }
   };
+
+  useEffect(() => {
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+
+      // Add the expired callback to reset verification status
+      recaptchaRef.current.execute(); // Trigger the reCAPTCHA
+
+      recaptchaRef.current.props.onExpired = () => {
+        setIsRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -236,6 +284,16 @@ const Page = () => {
                         {errors.message && (
                           <label className="error">{errors.message}</label>
                         )}
+                      </div>
+                      <div className="form-group">
+                        <ReCAPTCHA
+                          key={recaptchaKey}
+                          sitekey={recaptchaKey}
+                          onChange={onRecaptchaChange}
+                        />
+                        <div className="gcpc FormError" id="captcha_msg">
+                          {errors.recaptchaerror}
+                        </div>
                       </div>
 
                       <div className="form-group">

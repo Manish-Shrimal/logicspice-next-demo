@@ -16,6 +16,8 @@ import HTMLReactParser from "html-react-parser";
 
 const Page = () => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
+  const recaptchaRef = useRef(null);
+
   const [productDetails, setProductDetails] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -83,6 +85,8 @@ const Page = () => {
     currency: currencyDetail.name || "",
     product_name_new: productType || "",
     payment_gateway: "paypal",
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
+
   });
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
@@ -122,9 +126,28 @@ const Page = () => {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
+  // const recaptchaChange = (token) => {
+  //   setIsCaptchaVerified(true);
+  //   setErrors({ ...errors, captcha: "" });
+  // };
   const recaptchaChange = (token) => {
-    setIsCaptchaVerified(true);
-    setErrors({ ...errors, captcha: "" });
+    if (token) {
+      setIsCaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
+      setErrors((prevError) => ({
+        ...prevError,
+        captcha: "",
+      }));
+    } else {
+      setIsCaptchaVerified(false);
+    }
   };
 
   const handleClose = (e) => {
@@ -256,6 +279,11 @@ const Page = () => {
         if (response.data.status === 200) {
           paymentUrl.current = response.data.url;
           window.location.href = paymentUrl.current; // Redirect to the URL
+        }else if(response.data.status === 500) {
+          // console.log("yaha aaya")
+          setErrors({
+            captcha: response.data.message,
+          })
         }
       } catch (error) {
         console.log(error.message);

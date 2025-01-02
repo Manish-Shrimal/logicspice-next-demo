@@ -17,6 +17,7 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
     phone_no: "",
     // message: "",
     product_name: "",
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
   });
   const [resultSuccess, setResultSuccess] = useState(false);
   const [errors, setErrors] = useState({
@@ -65,7 +66,7 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(isEnquiryRequested){
+    if (isEnquiryRequested) {
       return;
     }
 
@@ -116,6 +117,11 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
         }
         setResultSuccess(true);
         setIsEnquiryRequested(false);
+      } else if (response.data.status === 500) {
+        // console.log("yaha aaya")
+        setErrors({
+          recaptcha: response.data.message,
+        });
       }
     } catch (error) {
       console.log(error.message);
@@ -123,6 +129,11 @@ const Contactusmodel = ({ modalStatus, toggle, title }) => {
   };
   const onRecaptchaChange = (token) => {
     if (token) {
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
       setIsRecaptchaVerified(true);
       setErrors((prevError) => ({
         ...prevError,

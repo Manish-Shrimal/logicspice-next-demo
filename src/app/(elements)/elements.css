@@ -410,6 +410,11 @@ sites_maps,
 	position: relative;
 }
 
+.application-form-section .google-recaptcha {
+	float: left !important;
+    width: 52% !important;
+}
+
 .contact-top-bg .form-group span {
 	position: absolute;
 	left: 1px;

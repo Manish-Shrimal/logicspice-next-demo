@@ -457,7 +457,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="">
+                              <Link href="https://free-templates.logicspice.com/" target="_blank">
                                 <span className="hover_btn_menu ">
                                   <i className="menu_icon_all icon_temp"></i>
                                 </span>

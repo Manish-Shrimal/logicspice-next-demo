@@ -25,6 +25,8 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     post_slug: "",
     post_url: "",
     budget: "",
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
+
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -57,10 +59,20 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
   const onRecaptchaChange = (token) => {
     if (token) {
       setIsRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
       setFormErrors((prevError) => ({
         ...prevError,
         recaptchaerror: "",
       }));
+    } else {
+      setIsRecaptchaVerified(false);
     }
   };
 
@@ -172,6 +184,11 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
           recaptchaRef.current.reset();
         }
         setIsEnquiryRequested(false);
+      } else if (response.data.status === 500) {
+        // console.log("yaha aaya");
+        setFormErrors({
+          recaptchaerror: response.data.message,
+        });
       }
     } catch (error) {
       console.log(error.message);

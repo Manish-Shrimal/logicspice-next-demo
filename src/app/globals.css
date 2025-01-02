@@ -7888,3 +7888,42 @@ section {
   color: #3c3c3c !important;
   opacity: 1;
 }
+
+
+
+/*--------*/
+.SubscribeHadding {
+	color: #202020;
+	font-size: 33px;
+	font-weight: 500;
+}
+.SubscribeNews {
+	margin-top: 30px;
+}
+.SubscribeInput {
+	display: inline-block;
+	position: relative;
+  width: 305px;
+}
+.SubscribeInput span {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	width: 50px;
+	height: 48px;
+	background: #eee;
+	text-align: center;
+	font-size: 21px;
+	line-height: 48px;
+	border-right: 1px solid #d0d1d8;
+}
+.SubscribeInput .form-control {
+	width: 100% !important;
+	height: 50px !important;
+	padding-left: 60px !important;
+	border: 1px solid #d0d1d8 !important;
+	box-shadow: none !important;
+}
+.SubscribeNews .newcontact-btn .btn.btn-primary {
+	float: none;
+}

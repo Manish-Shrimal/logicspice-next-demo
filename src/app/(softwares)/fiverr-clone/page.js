@@ -176,38 +176,9 @@ const Page = () => {
     setDemoAccessModal(!demoAccessModal);
   };
 
-  // useEffect(() => {
-  //   var Tawk_API = Tawk_API || {},
-  //     Tawk_LoadStart = new Date();
-  //   (function () {
-  //     var s1 = document.createElement("script"),
-  //       s0 = document.getElementsByTagName("script")[0];
-  //     s1.async = true;
-  //     s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
-  //     s1.charset = "UTF-8";
-  //     s1.setAttribute("crossorigin", "*");
-  //     s0.parentNode.insertBefore(s1, s0);
-  //   })();
-  // }, []); // Empty dependency array to run once on mount
+ 
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"),
-          s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = "https://embed.tawk.to/66ed1e29e5982d6c7bb15ccc/1i873rkmf";
-        s1.charset = "UTF-8";
-        s1.setAttribute("crossorigin", "*");
-        s0.parentNode.insertBefore(s1, s0);
-      })();
-    }, 5000); // 5000 milliseconds = 5 seconds
-
-    // Cleanup the timer on component unmount
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array to run only once
+ 
 
   const [isFullyVisible, setIsFullyVisible] = useState(false);
   const videoRef = useRef(null);
@@ -1627,7 +1598,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">512</div>
+                      <div className="people_star_num">499</div>
                     </div>
 
                     <div className="review_rating_fjs">

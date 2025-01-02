@@ -69,7 +69,6 @@
 //     <html lang="en">
 //       <body className={inter.className}>
 //         <AOSInitializer>{children}</AOSInitializer>
-//         <Chatbot />
 //         <GTMComponent />
 //         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ __html: schemaData }) }} />
 //         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ __html: schemaData2 }) }} />
@@ -142,12 +141,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default function RootLayout({ children, params, searchParams }) {
   const isHomePage = params && params.slug === undefined; // Adjust as necessary to match your home page route
-  // let schemaData2 = {
-  //   "@context": "https://schema.org",
-  //   "@type": "Organization",
-  //   url: "https://www.logicspice.com/",
-  //   logo: "https://www.logicspice.com/img/images/logo.png",
-  // };
+
 
   return (
     <html lang="en">
@@ -160,10 +154,11 @@ export default function RootLayout({ children, params, searchParams }) {
       </Head>
       
       <body className={inter.className}>
+      <Chatbot />
         <AOSInitializer>{children}</AOSInitializer>
-        <Chatbot />
+        
         <GTMComponent />
-        <CookiesConsent />
+        {/* <CookiesConsent /> */}
         {isHomePage && (
           <>
             <script
@@ -172,12 +167,7 @@ export default function RootLayout({ children, params, searchParams }) {
                 __html: JSON.stringify({ __html: schemaData }),
               }}
             />
-            {/* <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({ __html: schemaData2 }),
-              }}
-            /> */}
+            
           </>
         )}
       </body>

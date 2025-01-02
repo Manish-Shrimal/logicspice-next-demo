@@ -1,40 +1,43 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "@/app/Components/Navbar";
 import Footer from "@/app/Components/Footer";
-import DescriptionIcon from "@mui/icons-material/Description";
-// import "@/app/globals.css"
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
-import "/public/css/font-awesome.css"
-import "/public/css/font-awesome.min.css"
-
-
-import PersonIcon from "@mui/icons-material/Person";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import "../../../../public/css/font-awesome.css";
+import "/public/css/font-awesome.css";
+import "/public/css/font-awesome.min.css";
 import Contactusmodel from "@/app/Components/Contactusmodel";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
-import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined";
 import Image from "next/image";
 import "../elements.css";
 import "@/app/globals.css";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
+import BaseAPI from "@/app/BaseAPI/BaseAPI";
+import Swal from "sweetalert2";
 
 const Page = () => {
+  const recaptchaRef = useRef(null);
+  const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
+  const [isNewsletterRecaptchaVerified, setIsNewsletterRecaptchaVerified] =
+    useState(false);
+
+  const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
+
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone_no: "",
-    
+
     message: "",
     product_name: "",
     post_slug: "",
     post_url: "",
-    
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
+  });
+  const [newsletterData, setNewsletterData] = useState({
+    newsletter_email: "",
+    recaptcha_token: "", // Field to hold the reCAPTCHA tokenphone_no: "",
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -43,8 +46,9 @@ const Page = () => {
     product_name: "",
     post_slug: "",
     post_url: "",
-    
+    newsletter_email: "",
     recaptchaerror: "",
+    newsletter_recaptchaerror: "",
   });
   const [isEnquiryRequested, setIsEnquiryRequested] = useState(false);
 
@@ -61,9 +65,60 @@ const Page = () => {
     }));
   };
 
+  const handleNewsletterChange = (e) => {
+    const { name, value } = e.target;
+    setNewsletterData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setFormErrors((prevError) => ({
+      ...prevError,
+      [name]: "",
+    }));
+  };
+
+  const onRecaptchaChange = (token) => {
+    if (token) {
+      setIsRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
+      setFormErrors((prevError) => ({
+        ...prevError,
+        recaptchaerror: "",
+      }));
+    } else {
+      setIsRecaptchaVerified(false);
+    }
+  };
+  const onNewsletterRecaptchaChange = (token) => {
+    if (token) {
+      setIsNewsletterRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setNewsletterData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
+      setFormErrors((prevError) => ({
+        ...prevError,
+        newsletter_recaptchaerror: "",
+      }));
+    } else {
+      setIsNewsletterRecaptchaVerified(false);
+    }
+  };
+
   const submitEnquiryForm = async (e) => {
     e.preventDefault();
-    if(isEnquiryRequested){
+    if (isEnquiryRequested) {
       return;
     }
     const newErrors = {};
@@ -86,20 +141,7 @@ const Page = () => {
       newErrors.message = "Please enter your message";
     }
 
-    if (formData.budget !== "") {
-      const budgetRegex = /^[0-9$.,]*$/;
-      if (!budgetRegex.test(formData.budget)) {
-        newErrors.budget =
-          "Please enter a valid budget (only numbers and special characters are allowed)";
-      }
-    }
-    if (formData.phone_no !== "") {
-      const phoneRegex = /^[0-9$.,]*$/;
-      if (!phoneRegex.test(formData.phone_no)) {
-        newErrors.phone_no =
-          "Please enter a valid phone number (only numbers and special characters are allowed)";
-      }
-    }
+    
 
     if (Object.keys(newErrors).length > 0) {
       setFormErrors(newErrors);
@@ -113,17 +155,23 @@ const Page = () => {
         setIsEnquiryRequested(true);
         setResultSuccess(true);
         setHtml(response.data.message);
-        // setFormData({
-        //   name: "",
-        //   email: "",
-        //   company: "",
-        //   phone_no: "",
-        //   message: "",
-        // });
+        setFormData({
+          name: "",
+          email: "",
+
+          phone_no: "",
+          message: "",
+          recaptcha_token: "",
+        });
 
         if (recaptchaRef.current) {
           recaptchaRef.current.reset();
         }
+      } else if (response.data.status === 500) {
+        // console.log("yaha aaya")
+        setFormErrors({
+          recaptchaerror: response.data.message,
+        });
       }
     } catch (error) {
       console.log(error.message);
@@ -132,6 +180,58 @@ const Page = () => {
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
+  };
+
+  useEffect(() => {
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+
+      // Add the expired callback to reset verification status
+      recaptchaRef.current.execute(); // Trigger the reCAPTCHA
+
+      recaptchaRef.current.props.onExpired = () => {
+        setIsRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
+      };
+    }
+  }, []);
+
+  const handleNewsletterSubmit = async () => {
+    if (newsletterData.newsletter_email === "") {
+      setFormErrors({
+        newsletter_email: "Please enter your email",
+      });
+      return;
+    }
+    if (!isNewsletterRecaptchaVerified) {
+      setFormErrors({
+        newsletter_recaptchaerror: "Please verify that you are not a robot",
+      });
+      return;
+    }
+    try {
+      const response = await axios.post(BaseAPI + "/subscribe", {
+        email: newsletterData,
+      });
+      if (response.data.status == 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: response.data.message,
+        });
+        setNewsletterData({
+          newsletter_email: "",
+          recaptcha_token: "",
+        });
+      } else {
+        Swal.fire({
+          icon: "warning",
+          title: "",
+          text: response.data.message,
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -145,13 +245,13 @@ const Page = () => {
               <div className="col-sm-12">
                 <div className="contact_full_sec_right">
                   <form
-                    action="/contact-us"
-                    enctype="multipart/form-data"
-                    name="contactUs"
-                    id="contactUs"
-                    method="post"
-                    acceptCharset="utf-8"
-                    noValidate="novalidate"
+                  // action="/contact-us"
+                  // enctype="multipart/form-data"
+                  // name="contactUs"
+                  // id="contactUs"
+                  // method="post"
+                  // acceptCharset="utf-8"
+                  // noValidate="novalidate"
                   >
                     <div style={{ display: "none" }}>
                       <input type="hidden" name="_method" value="POST" />
@@ -167,41 +267,36 @@ const Page = () => {
                             <i class="fa fa-user-o" aria-hidden="true"></i>
                           </span>
                           <input
-                                      type="text"
-                                      name="name"
-                                      value={formData.name}
-                                      className={`form-control ${
-                                        formErrors.name ? "fieldRequired" : ""
-                                      }`}
-                                      style={{ height: "40px" }}
-                                      placeholder="Your Name *"
-                                      onChange={handleChange}
-                                    />
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            className={`form-control ${
+                              formErrors.name ? "fieldRequired" : ""
+                            }`}
+                            style={{ height: "40px" }}
+                            placeholder="Your Name *"
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-group">
                           <span>
-                            {/* <i
-                              className="fa fa-envelope-o"
-                              aria-hidden="true"
-                            ></i> */}
-                            {/* <EmailOutlinedIcon /> */}
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
                           </span>
                           <input
-                                      type="email"
-                                      name="email"
-                                      value={formData.email}
-                                      className={`form-control ${
-                                        formErrors.email ? "fieldRequired" : ""
-                                      }`}
-                                      placeholder="Your Email *"
-                                      style={{ height: "40px" }}
-                                      id="UserEmail"
-                                      aria-describedby="inputGroupPrepend"
-                                      onChange={handleChange}
-                                    />
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            className={`form-control ${
+                              formErrors.email ? "fieldRequired" : ""
+                            }`}
+                            placeholder="Your Email *"
+                            style={{ height: "40px" }}
+                            id="UserEmail"
+                            aria-describedby="inputGroupPrepend"
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
                     </div>
@@ -209,26 +304,26 @@ const Page = () => {
                       <div className="col-sm-6">
                         <div className="form-group">
                           <span>
-                            {/* <i className="fa fa-phone" aria-hidden="true"></i> */}
-                            {/* <LocalPhoneIcon /> */}
                             <i class="fa fa-phone" aria-hidden="true"></i>
                           </span>
                           <input
-                            name="data[User][phone_no]"
-                            placeholder="Phone/Whatsapp Number*"
-                            value=""
+                            name="phone_no"
+                            placeholder="Phone/Whatsapp Number"
+                            value={formData.phone_no}
                             size="40"
-                            className="form-control required"
+                            className={`form-control ${
+                              formErrors.phone_no ? "fieldRequired" : ""
+                            }`}
                             type="text"
+                            style={{ height: "40px" }}
                             id="UserPhoneNo"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
                     </div>
                     <div className="form-group">
                       <span className="textarea-field">
-                        {/* <i className="fa fa-file-text-o" aria-hidden="true"></i> */}
-                        {/* <DescriptionOutlinedIcon /> */}
                         <i class="fa fa-file-text-o" aria-hidden="true"></i>
                       </span>
                       <textarea
@@ -249,6 +344,15 @@ const Page = () => {
                     <div className="row">
                       <div className="col-sm-6">
                         <div className="form-group">
+                          <ReCAPTCHA
+                            key={recaptchaKey}
+                            sitekey={recaptchaKey}
+                            onChange={onRecaptchaChange}
+                          />
+                          <div className="gcpc FormError" id="captcha_msg">
+                            {formErrors.recaptchaerror}
+                          </div>
+
                           <div
                             id="recaptcha1"
                             style={{
@@ -257,33 +361,7 @@ const Page = () => {
                             }}
                           >
                             <div style={{ width: "304px", height: "78px" }}>
-                              <div>
-                                <iframe
-                                  title="reCAPTCHA"
-                                  width="304"
-                                  height="78"
-                                  role="presentation"
-                                  name="a-f9j4xhzei2kh"
-                                  frameBorder="0"
-                                  scrolling="no"
-                                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                                  src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Leg3gITAAAAAPzWHZ1PgnMhko9tHq8yWvH2q2S7&amp;co=aHR0cHM6Ly93d3cubG9naWNzcGljZS5jb206NDQz&amp;hl=en&amp;v=hfUfsXWZFeg83qqxrK27GB8P&amp;theme=light&amp;size=normal&amp;cb=rxrfvas6yfvv"
-                                ></iframe>
-                              </div>
-                              <textarea
-                                id="g-recaptcha-response-1"
-                                name="g-recaptcha-response"
-                                className="g-recaptcha-response"
-                                style={{
-                                  width: "250px",
-                                  height: "40px",
-                                  border: "1px solid rgb(193, 193, 193)",
-                                  margin: "10px 25px",
-                                  padding: "0px",
-                                  resize: "none",
-                                  display: "none",
-                                }}
-                              ></textarea>
+                              <div></div>
                             </div>
                             <iframe style={{ display: "none" }}></iframe>
                           </div>
@@ -309,42 +387,17 @@ const Page = () => {
                       </div>
                       <div className="col-sm-6">
                         <div className="form-group newcontact-btn">
-                          <input
-                            type="hidden"
-                            name="data[User][valid_status]"
-                            value="0"
-                            id="valid_status"
-                          />
-                          <input
-                            type="hidden"
-                            name="data[User][dummy_field]"
-                            id="dummy_field"
-                          />
-                          <input
-                            type="hidden"
-                            name="data[User][contact_type]"
-                            value="contactus"
-                            id="UserContactType"
-                          />
-                          <input
-                            type="hidden"
-                            value="http://www.logicspice.com/contact-us"
-                            name="data[User][post_url]"
-                          />
-                          <input
+                          <button
                             title="Submit"
                             className="btn btn-primary"
                             size="30"
                             label=""
                             type="submit"
-                            value="Send"
-                          />
-                          {/* <div
-                            className="loadloader contact_page"
-                            id="loadloader5"
+                            // value="Send"
+                            onClick={submitEnquiryForm}
                           >
-                            <Image width={100} height={100} src="/img/loading-old.gif" alt="" />
-                          </div> */}
+                            SEND
+                          </button>
                         </div>
                       </div>
                       <div className="cart-icons"></div>
@@ -352,6 +405,64 @@ const Page = () => {
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="gest-contact-bx">
+            <h2 className="SubscribeHadding">Subscribe to our newsletter</h2>
+            <div className="SubscribeNews">
+              <div className="form-group">
+                <div className="SubscribeInput">
+                  <span>
+                    <DraftsOutlinedIcon />{" "}
+                  </span>
+                  <input
+                    name="newsletter_email"
+                    placeholder="Enter you email address"
+                    value={newsletterData.newsletter_email}
+                    size="40"
+                    className={`form-control ${
+                      formErrors.newsletter_email ? "fieldRequired" : ""
+                    }`}
+                    type="text"
+                    style={{ height: "40px" }}
+                    id="UserPhoneNo"
+                    onChange={handleNewsletterChange}
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <div className="SubscribeInput">
+                  <ReCAPTCHA
+                    key={recaptchaKey}
+                    sitekey={recaptchaKey}
+                    onChange={onNewsletterRecaptchaChange}
+                  />
+                  <div className="gcpc FormError" id="captcha_msg">
+                    {formErrors.newsletter_recaptchaerror}
+                  </div>
+                </div>
+              </div>
+              <div className="form-group newcontact-btn">
+                <button
+                  title="Subscribe"
+                  className="btn btn-primary"
+                  size="30"
+                  label=""
+                  type="submit"
+                  onClick={handleNewsletterSubmit}
+                >
+                  SUBSCRIBE
+                </button>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-6"></div>
+            </div>
+            <div className="row">
+              <div className="col-sm-6"></div>
+              <div className="col-sm-6"></div>
+              <div className="cart-icons"></div>
             </div>
           </div>
           <div className="gest-contact-bx">

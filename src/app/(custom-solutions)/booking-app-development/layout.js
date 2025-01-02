@@ -5,6 +5,7 @@ import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import MetadataApi from "@/app/BaseAPI/MetadataApi";
 import Domain from "@/app/BaseAPI/Domain";
 import CookiesConsent from "@/app/Components/CookiesConsent";
+import Chatbot from "@/app/Components/Chatbot";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +70,7 @@ export default async function RootLayout({ children, params, searchParams }) {
         <meta name="keywords" content={metadata.keywords} />
         <title>{metadata.title}</title>
       </Head>
+      
       <CookiesConsent />
       <body className={inter.className}>{children}</body>
       {/* <script
@@ -78,3 +80,5 @@ export default async function RootLayout({ children, params, searchParams }) {
     </html>
   );
 }
+
+

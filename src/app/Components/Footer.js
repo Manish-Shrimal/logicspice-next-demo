@@ -2,12 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, AccordionItem } from "./Accordian";
 import Link from "next/link";
-// import "@fortawesome/fontawesome-free/css/all.css";
 import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
-
 import Image from "next/image";
-// import { FaPlus, FaMinus } from 'react-icons/fa'; // Import plus and minus icons
-// import "../../responsive.css";
+
 
 const injectedConstants = {
   HTTPS_PATH: "https://www.logicspice.com/",
@@ -40,6 +37,7 @@ const Footer = () => {
   //   })();
   // }, [window.location.pathname]); // Empty dependency array to run once on mount
   return (
+    <>
     <section className="footer_bg">
       <div className="container">
         <div className="">
@@ -1125,6 +1123,7 @@ const Footer = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

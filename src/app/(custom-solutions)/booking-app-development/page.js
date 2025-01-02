@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "@/app/Components/Footer";
 import Navbar from "@/app/Components/Navbar";
 import "@/app/(custom-solutions)/customsolutions.css";
@@ -88,6 +88,11 @@ const Page = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+
+
+
+
   return (
     <>
       <Navbar />

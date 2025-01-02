@@ -25,6 +25,8 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     post_slug: "",
     post_url: "",
     // budget: "",
+    recaptcha_token: "", // Field to hold the reCAPTCHA token
+
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -40,6 +42,7 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
 
   const [resultSuccess, setResultSuccess] = useState(false);
   const [html, setHtml] = useState("");
+  const [responseData, setResponseData] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -54,13 +57,33 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
     }));
   }, []);
 
+  // const onRecaptchaChange = (token) => {
+  //   if (token) {
+  //     setIsRecaptchaVerified(true);
+  //     setFormErrors((prevError) => ({
+  //       ...prevError,
+  //       recaptchaerror: "",
+  //     }));
+  //   }
+  // };
+
   const onRecaptchaChange = (token) => {
     if (token) {
       setIsRecaptchaVerified(true);
+
+      // Save the reCAPTCHA token in the form data
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+
+      // Clear any previous reCAPTCHA errors
       setFormErrors((prevError) => ({
         ...prevError,
         recaptchaerror: "",
       }));
+    } else {
+      setIsRecaptchaVerified(false);
     }
   };
 
@@ -107,9 +130,11 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
       setLoading(true);
       const response = await axios.post(`${BaseAPI}/pages/request`, formData);
       setLoading(false);
+      console.log(response.data.status,"hi");
   
       if (response.data.status === 200) {
         setResultSuccess(true);
+        setResponseData(response.data);
         setHtml(response.data.message);
         if (recaptchaRef.current) recaptchaRef.current.reset();
         setIsRecaptchaVerified(false);
@@ -121,7 +146,15 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
           product_name: "",
           post_slug: "",
           post_url: "",
+          recaptcha_token: "",
         });
+        if (recaptchaRef.current) recaptchaRef.current.reset();
+        setIsRecaptchaVerified(false);
+      } else if(response.data.status === 500) {
+        // console.log("yaha aaya")
+        setFormErrors({
+          recaptchaerror: response.data.message,
+        })
       }
     } catch (error) {
       setLoading(false);
@@ -436,22 +469,20 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
                                                 className="thnk_ss"
                                                 id="thnak_message_sec"
                                               >
-                                                Thank you, we have received your
-                                                message
+                                                {responseData.message}
                                               </span>
                                               <p
                                                 className="hh_cls"
                                                 id="sub_message"
                                               >
-                                                We will get back to you within
-                                                the next 24 hours.
+                                                {responseData.submessage}
                                               </p>
-                                              <span
+                                              {/* <span
                                                 id="pnglnk"
                                                 dangerouslySetInnerHTML={{
                                                   __html: html,
                                                 }}
-                                              ></span>{" "}
+                                              ></span>{" "} */}
                                               <br />
                                               <a
                                                 onClick={closeModal}

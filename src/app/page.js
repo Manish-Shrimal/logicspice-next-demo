@@ -20,6 +20,7 @@ import AOS from "aos"; // Import AOS
 import GTMComponent from "./Components/GTMComponent";
 import Chatbot from "./Components/Chatbot";
 import "../../public/css/font-awesome.css";
+import CookiesConsent from "./Components/CookiesConsent";
 
 
 const ServicesNewSection = lazy(() =>
@@ -92,8 +93,8 @@ const Page = () => {
   // }, []);s
   return (
     <>
-    <Chatbot />
     <GTMComponent />
+    <CookiesConsent />
       <NavBar />
       <div className="home-slider">
         <div className="container">
