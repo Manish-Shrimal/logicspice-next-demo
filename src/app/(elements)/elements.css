@@ -450,6 +450,15 @@ sites_maps,
     float: left;
     text-align: center;
 }
+.google-reting-review .ls-google-swction{
+	display: inline-block;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+    border-radius: 6px;
+    min-height: 263px !important;
+}
 
 .gest-contact-bx i {
 	font-size: 24px;
