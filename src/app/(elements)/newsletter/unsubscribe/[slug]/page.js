@@ -18,6 +18,9 @@ const Page = ({ params }) => {
           title: "Success",
           text: response.data.message,
         });
+        setTimeout(() => {
+          window.location.href = "www.logicspice.com/contact-us";
+        }, 2000);
       } else {
         Swal.fire({
           icon: "warning",
