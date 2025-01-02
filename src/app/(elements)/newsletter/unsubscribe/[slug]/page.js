@@ -1,16 +1,15 @@
 "use client";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
+import Domain from "@/app/BaseAPI/Domain";
 import axios from "axios";
 import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 
 const Page = ({ params }) => {
-
   const unsubscribe = async (email) => {
-    
     try {
       const response = await axios.post(BaseAPI + "/unsubscribe", {
-        email: email
+        email: email,
       });
       if (response.data.status === 200) {
         Swal.fire({
@@ -18,9 +17,6 @@ const Page = ({ params }) => {
           title: "Success",
           text: response.data.message,
         });
-        setTimeout(() => {
-          window.location.href = "www.logicspice.com/contact-us";
-        }, 2000);
       } else {
         Swal.fire({
           icon: "warning",
@@ -28,6 +24,9 @@ const Page = ({ params }) => {
           text: response.data.message,
         });
       }
+      setTimeout(() => {
+        window.location.href = `${Domain}`+ "/contact-us";
+      }, 2000);
     } catch (error) {
       console.log(error.message);
     }
