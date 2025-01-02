@@ -222,6 +222,9 @@ const Page = () => {
           newsletter_email: "",
           recaptcha_token: "",
         });
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
       } else {
         Swal.fire({
           icon: "warning",
@@ -802,7 +805,7 @@ const Page = () => {
               </div>
               <div className="col-sm-4">
                 <div className="logic-fd">
-                  <i className="fa fa-handshake" aria-hidden="true"></i>
+                  <i className="fa fa-handshake-o" aria-hidden="true"></i>
                   <span>
                     Be a Part of Logicspice Family
                     <br />
@@ -813,7 +816,7 @@ const Page = () => {
               <div className="col-sm-4">
                 <div className="logic-fd">
                   {/* <i className="fa fa-skype" aria-hidden="true"></i> */}
-                  <i className="fa-brands fa-skype"></i>
+                  <i className="fa fa-skype"></i>
                   <span>
                     Don&apos;t Have Much Time?
                     <br />
