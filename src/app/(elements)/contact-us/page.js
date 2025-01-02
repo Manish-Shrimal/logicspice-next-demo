@@ -417,7 +417,7 @@ const Page = () => {
                   </span>
                   <input
                     name="newsletter_email"
-                    placeholder="Enter you email address"
+                    placeholder="Enter your email address"
                     value={newsletterData.newsletter_email}
                     size="40"
                     className={`form-control ${
