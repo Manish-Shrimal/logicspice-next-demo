@@ -116,6 +116,27 @@ const Page = () => {
 
       {}
 
+      <section className="new_contentt">
+    <div className="container">
+        <p style={{ marginBottom: "15px" }}>
+          At Logicspice, we are always growing to meet the evolving needs of
+          businesses. Our newest services include
+          <Link href="/blockchain-development"> Blockchain Development services </Link>
+           for secure and transparent operations, Generative AI to drive
+          creativity and boost efficiency, and Video Creation for high-quality,
+          impactful brand videos.
+        </p>
+        <p>
+          We have also developed ready-to-use software solutions for healthcare
+          providers, such as Doctor Appointment Booking Software; Salon Booking
+          Software for beauty and wellness businesses, Group Chat Apps for
+          Internal Communication, Live Chat Software, and flexible booking for a
+          whole profundity of service industries, making it easy for people to
+          book appointments in order to enrich customer interactions.
+        </p>
+      </div>
+    </section>
+
       {/* Lets load initially till this point and futher section will be loader when we scroll down. */}
       
 

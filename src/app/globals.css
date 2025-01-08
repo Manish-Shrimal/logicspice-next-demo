@@ -3639,7 +3639,8 @@ positivitymain {
 /* take a look css  */
 
 .take-a-look {
-  padding: 30px 0;
+  padding: 50px 0;
+  background: rgb(241, 241, 241);
 }
 
 .take-a-look .carousel-control {
@@ -7926,4 +7927,17 @@ section {
 }
 .SubscribeNews .newcontact-btn .btn.btn-primary {
 	float: none;
+}
+
+
+.new_contentt{
+  padding: 50px 0 0;
+}
+
+.new_contentt a{
+  color: #31aae1!important;
+}
+
+.new_contentt p{
+  font-family: "roboto", sans-serif !important;
 }
