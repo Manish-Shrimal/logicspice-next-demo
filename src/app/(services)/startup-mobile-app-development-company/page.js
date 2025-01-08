@@ -15,7 +15,6 @@ const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
-
     setShowModal(!showModal);
   };
 
@@ -46,7 +45,8 @@ const Page = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm-4 col-md-3">
-              <Image unoptimized={true}
+              <Image
+                unoptimized={true}
                 width={300}
                 height={500 / (100 / 100)}
                 alt="Startup Solution"
@@ -67,10 +67,7 @@ const Page = () => {
                 </p>
                 <p>
                   Logicspice have a team of web &{" "}
-                  <Link
-                    href="/mobile-app-development"
-                    target="_blank"
-                  >
+                  <Link href="/mobile-app-development" target="_blank">
                     mobile app developers
                   </Link>{" "}
                   who can turn your idea into a successful business. Our team
@@ -88,6 +85,67 @@ const Page = () => {
           </div>
         </div>
       </section>
+      <section className="innovative_startup">
+        <div className="container">
+          <h2 className="title_main">
+            Our Latest Additions: Innovative Services and Software Solutions for
+            Startups
+          </h2>
+          <h4>Helping Startups Succeed with Smart Solutions</h4>
+          <p>
+            At Logicspice, we know how important it is for startups to have the
+            right tools and technology to grow. That’s why we’ve added services
+            and software solutions that make a real difference.
+          </p>
+          <p>
+            Our{" "}
+            <Link href="/blockchain-development">
+              {" "}
+              Blockchain Development Services{" "}
+            </Link>{" "}
+            helps startups create secure platforms for things like smart
+            contracts and decentralized apps, giving your business a strong
+            foundation of trust.
+          </p>
+          <p>
+            With Generative AI Development, you can automate tasks, get
+            creative, and boost productivity using advanced AI models.
+          </p>
+          <p>
+            Our Video Creation Services help bring your brand’s story to life,
+            whether it’s for pitching to investors or attracting customers.
+          </p>
+          <p>
+            We also offer ready-to-use software to make running your business
+            easier. From Doctor Appointment Booking Software for healthcare
+            startups to Salon Booking Software for beauty and wellness
+            businesses, we’ve got you covered. Our Group Chat Apps are perfect
+            for improving internal communication and team collaboration, while
+            our Live Chat Software helps you engage with customers in real time,
+            boosting satisfaction and conversions. We also provide{" "}
+            <Link href="/booking-software-solutions">
+              customizable booking solutions
+            </Link>{" "}
+            for various service-based businesses, ensuring smooth and easy
+            interactions for your clients.
+          </p>
+          <p>
+            Let us help your startup turn your ideas into success. Whether
+            you're just starting out or looking to grow, we’ve got the right
+            tools and support to help you move forward.
+          </p>
+          <p>
+            Ready to get started? Reach out to us today and let’s chat about how
+            our services can help your startup thrive!
+          </p>
+          <div className="mt-5">
+            <Link href="/contact-us" className="btn btn-startup">
+              Let's Talk About Your Startup
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="working_process">
         <div className="container">
           <h2 className="title_main">How We Nourish Your Startup Business?</h2>
@@ -95,7 +153,8 @@ const Page = () => {
             <div className="row">
               <div className="col-sm-4 col-md-6" data-aos="fade-left">
                 <div className="image_working right_img">
-                  <Image unoptimized={true}
+                  <Image
+                    unoptimized={true}
                     width={100}
                     height={500 / (100 / 100)}
                     alt="Innovation as a Core Value -Logicspice"
@@ -119,7 +178,8 @@ const Page = () => {
           <div className="work_section">
             <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-left">
               <div className="image_working right_img">
-                <Image unoptimized={true}
+                <Image
+                  unoptimized={true}
                   width={300}
                   height={500 / (100 / 100)}
                   alt="Stand Ahead From Competition"
@@ -143,7 +203,8 @@ const Page = () => {
             <div className="row">
               <div className="col-sm-4 col-md-6" data-aos="fade-left">
                 <div className="image_working right_img">
-                  <Image unoptimized={true}
+                  <Image
+                    unoptimized={true}
                     width={300}
                     height={500 / (100 / 100)}
                     alt="Skilled Developers"
@@ -159,9 +220,7 @@ const Page = () => {
                     complete stack through the Cloud&sbquo; Business
                     Logic&sbquo; API Layer and the front-end. Our team of
                     dedicated developers specialized in Android&sbquo; iPhone &{" "}
-                    <Link href="/website-development">
-                      web development service
-                    </Link>{" "}
+                    <Link href="/web-development">web development service</Link>{" "}
                     has helped the startup to reach their goal with minimized
                     cost & time.
                   </p>
@@ -172,7 +231,8 @@ const Page = () => {
           <div className="work_section">
             <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-right">
               <div className="image_working">
-                <Image unoptimized={true}
+                <Image
+                  unoptimized={true}
                   width={300}
                   height={500 / (100 / 100)}
                   alt="Interactive UI"
@@ -196,7 +256,8 @@ const Page = () => {
             <div className="row">
               <div className="col-sm-4 col-md-6" data-aos="fade-right">
                 <div className="image_working">
-                  <Image unoptimized={true}
+                  <Image
+                    unoptimized={true}
                     width={300}
                     height={500 / (100 / 100)}
                     alt="Flexibility in Execution"
@@ -219,7 +280,8 @@ const Page = () => {
           <div className="work_section">
             <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-right">
               <div className="image_working">
-                <Image unoptimized={true}
+                <Image
+                  unoptimized={true}
                   width={300}
                   height={500 / (100 / 100)}
                   alt="User-End Priority"
@@ -253,7 +315,8 @@ const Page = () => {
               <div className="box_enterprises">
                 <div className="enterprises-left">
                   <a href="#">
-                    <Image unoptimized={true}
+                    <Image
+                      unoptimized={true}
                       width={100}
                       height={100}
                       className="enterprises-object"
@@ -276,7 +339,8 @@ const Page = () => {
               <div className="box_enterprises">
                 <div className="enterprises-left">
                   <a href="#">
-                    <Image unoptimized={true}
+                    <Image
+                      unoptimized={true}
                       width={100}
                       height={100}
                       className="enterprises-object"
@@ -298,7 +362,8 @@ const Page = () => {
               <div className="box_enterprises">
                 <div className="enterprises-left">
                   <a href="#">
-                    <Image unoptimized={true}
+                    <Image
+                      unoptimized={true}
                       width={100}
                       height={100}
                       className="enterprises-object"
@@ -320,7 +385,8 @@ const Page = () => {
               <div className="box_enterprises">
                 <div className="enterprises-left">
                   <a href="#">
-                    <Image unoptimized={true}
+                    <Image
+                      unoptimized={true}
                       width={100}
                       height={100}
                       className="enterprises-object"
@@ -362,7 +428,8 @@ const Page = () => {
                 <li>
                   <Link href="/hire-android-app-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
+                      <Image
+                        unoptimized={true}
                         width={90}
                         height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-web-developer.png"
@@ -377,7 +444,8 @@ const Page = () => {
                 <li>
                   <Link href="/hire-ios-app-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
+                      <Image
+                        unoptimized={true}
                         width={90}
                         height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-ios-developer.png"
@@ -390,9 +458,10 @@ const Page = () => {
                 <li>
                   <Link href="/hire-web-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
-                         width={90}
-                         height={100 / (100 / 100)}
+                      <Image
+                        unoptimized={true}
+                        width={90}
+                        height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-developer.png"
                         alt="hire web and app developers"
                       />
@@ -403,9 +472,10 @@ const Page = () => {
                 <li>
                   <Link href="/hire-cakephp-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
-                         width={90}
-                         height={100 / (100 / 100)}
+                      <Image
+                        unoptimized={true}
+                        width={90}
+                        height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-cakephp.png"
                         alt="hire web and app developers"
                       />
@@ -416,9 +486,10 @@ const Page = () => {
                 <li>
                   <Link href="/hire-wordpress-experts">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
-                         width={90}
-                         height={100 / (100 / 100)}
+                      <Image
+                        unoptimized={true}
+                        width={90}
+                        height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-wordpress.png"
                         alt="hire web and app developers"
                       />
@@ -429,9 +500,10 @@ const Page = () => {
                 <li>
                   <Link href="/hire-laravel-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
-                         width={90}
-                         height={100 / (100 / 100)}
+                      <Image
+                        unoptimized={true}
+                        width={90}
+                        height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-laraval.png"
                         alt="hire web and app developers"
                       />
@@ -442,9 +514,10 @@ const Page = () => {
                 <li>
                   <Link href="/hire-codeigniter-developers">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
-                         width={90}
-                         height={100 / (100 / 100)}
+                      <Image
+                        unoptimized={true}
+                        width={90}
+                        height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-codeigniter.png"
                         alt="hire web and app developers"
                       />
@@ -457,7 +530,8 @@ const Page = () => {
                 <li>
                   <Link href="/hire-magento-experts">
                     <div className="hire_ex_img">
-                      <Image unoptimized={true}
+                      <Image
+                        unoptimized={true}
                         width={90}
                         height={100 / (100 / 100)}
                         src="/img/startupmobileappdevelopmentcompany/hire-magento.png"
@@ -482,10 +556,7 @@ const Page = () => {
               </p>
             </div>
             <div className="col-sm-4">
-              <Link
-                href="/contact-us"
-                className="btn btn-primary"
-              >
+              <Link href="/contact-us" className="btn btn-primary">
                 Contact Us
               </Link>
             </div>
@@ -498,7 +569,8 @@ const Page = () => {
             href="https://api.whatsapp.com/send?phone=+919829559922&amp;text=Hi Logicspice Team&sbquo; I have a question regarding the solutions you provide. Please Help!"
             target="_blank"
           >
-            <Image unoptimized={true}
+            <Image
+              unoptimized={true}
               width={100}
               height={100}
               src="/img/images/whatsapp.png"
