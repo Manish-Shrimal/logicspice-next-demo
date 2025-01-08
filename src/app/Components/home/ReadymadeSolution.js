@@ -9,8 +9,8 @@ const ReadymadeSolution = () => {
         <p style={{ marginBottom: "15px" }}>
           At Logicspice, we are always growing to meet the evolving needs of
           businesses. Our newest services include
-          <Link href="/blockchain-development"> Blockchain Development </Link>
-          services for secure and transparent operations, Generative AI to drive
+          <Link href="/blockchain-development"> Blockchain Development services </Link>
+           for secure and transparent operations, Generative AI to drive
           creativity and boost efficiency, and Video Creation for high-quality,
           impactful brand videos.
         </p>

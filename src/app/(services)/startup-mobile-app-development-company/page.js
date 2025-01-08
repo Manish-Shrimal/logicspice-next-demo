@@ -151,7 +151,7 @@ const Page = () => {
           <h2 className="title_main">How We Nourish Your Startup Business?</h2>
           <div className="work_section">
             <div className="row">
-              <div className="col-sm-4 col-md-6" data-aos="fade-left">
+              <div className="col-sm-4 col-md-6" >
                 <div className="image_working right_img">
                   <Image
                     unoptimized={true}
@@ -162,7 +162,7 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="col-sm-8 col-md-6" data-aos="fade-right">
+              <div className="col-sm-8 col-md-6" >
                 <div className="idea_working">
                   <h3>Innovation as a Core Value</h3>
                   <p>
@@ -176,7 +176,7 @@ const Page = () => {
             </div>
           </div>
           <div className="work_section">
-            <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-left">
+            <div className="col-sm-4 col-md-6 pull-right" >
               <div className="image_working right_img">
                 <Image
                   unoptimized={true}
@@ -187,7 +187,7 @@ const Page = () => {
                 />
               </div>
             </div>
-            <div className="col-sm-8 col-md-6 pull-left" data-aos="fade-right">
+            <div className="col-sm-8 col-md-6 pull-left" >
               <div className="idea_working">
                 <h3>Stand Ahead From Competition</h3>
                 <p>
@@ -201,7 +201,7 @@ const Page = () => {
           </div>
           <div className="work_section">
             <div className="row">
-              <div className="col-sm-4 col-md-6" data-aos="fade-left">
+              <div className="col-sm-4 col-md-6" >
                 <div className="image_working right_img">
                   <Image
                     unoptimized={true}
@@ -212,7 +212,7 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="col-sm-8 col-md-6" data-aos="fade-right">
+              <div className="col-sm-8 col-md-6" >
                 <div className="idea_working">
                   <h3>Skilled Developers</h3>
                   <p>
@@ -229,7 +229,7 @@ const Page = () => {
             </div>
           </div>
           <div className="work_section">
-            <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-right">
+            <div className="col-sm-4 col-md-6 pull-right" >
               <div className="image_working">
                 <Image
                   unoptimized={true}
@@ -240,7 +240,7 @@ const Page = () => {
                 />
               </div>
             </div>
-            <div className="col-sm-8 col-md-6 pull-left" data-aos="fade-left">
+            <div className="col-sm-8 col-md-6 pull-left" >
               <div className="idea_working">
                 <h3>Interactive UI</h3>
                 <p>
@@ -254,7 +254,7 @@ const Page = () => {
           </div>
           <div className="work_section">
             <div className="row">
-              <div className="col-sm-4 col-md-6" data-aos="fade-right">
+              <div className="col-sm-4 col-md-6" >
                 <div className="image_working">
                   <Image
                     unoptimized={true}
@@ -265,7 +265,7 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="col-sm-8 col-md-6" data-aos="fade-left">
+              <div className="col-sm-8 col-md-6" >
                 <div className="idea_working">
                   <h3>Flexibility in Execution</h3>
                   <p>
@@ -278,7 +278,7 @@ const Page = () => {
             </div>
           </div>
           <div className="work_section">
-            <div className="col-sm-4 col-md-6 pull-right" data-aos="fade-right">
+            <div className="col-sm-4 col-md-6 pull-right" >
               <div className="image_working">
                 <Image
                   unoptimized={true}
@@ -289,7 +289,7 @@ const Page = () => {
                 />
               </div>
             </div>
-            <div className="col-sm-8 col-md-6 pull-left" data-aos="fade-left">
+            <div className="col-sm-8 col-md-6 pull-left" >
               <div className="idea_working">
                 <h3>User-End Priority</h3>
                 <p>
