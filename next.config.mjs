@@ -57,14 +57,25 @@ const nextConfig = {
         destination: "https://setcourses.logicspice.com/", 
         permanent: true,
       },
+      
       // {
       //   source: "/services/:slug*",
       //   destination: "/:slug*", 
       //   permanent: true,
       // },
       {
+        source: "/services/digital-marketing",
+        destination: "/digital-marketing", 
+        permanent: true,
+      },
+      {
         source: "/services/website-development/cakephp-development",
         destination: "/cakephp-development", 
+        permanent: true,
+      },
+      {
+        source: "/devops-services",
+        destination: "/devops-development", 
         permanent: true,
       },
       {
@@ -95,14 +106,36 @@ const nextConfig = {
       },
       {
         source: "/softwares/cakephp-cms-script",
-        destination: "/cakephp-cms-script", 
+        destination: "/softwares", 
+        permanent: true,
+      },
+      {
+        source: "/cakephp-cms-script",
+        destination: "/softwares", 
         permanent: true,
       },
       {
         source: "/softwares/lead-generation-contact-form-php-script",
-        destination: "/lead-generation-contact-form-php-script", 
+        destination: "/softwares", 
         permanent: true,
       },
+      {
+        source: "/lead-generation-contact-form-php-script",
+        destination: "/softwares", 
+        permanent: true,
+      },
+
+      {
+        source: "/social-network-integration-in-android-app",
+        destination: "/softwares", 
+        permanent: true,
+      },
+      {
+        source: "/best/best-property-management-software",
+        destination: "/rental-property-management-software", 
+        permanent: true,
+      },
+      
       
 
       // Case study

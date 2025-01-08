@@ -156,22 +156,7 @@ const Page = () => {
                       <p>228 Reviews</p>
                     </div>
 
-                    <a
-                      className="btn text-primary jobportal-btn js-anchor-link"
-                      style={{ display: "none" }}
-                      href="#subscriptionmodel"
-                    >
-                      <i>
-                        <Image
-                          unoptimized={true}
-                          width={100}
-                          height={100}
-                          src="/img/images/product_new/subscription2.png"
-                          alt="subscription"
-                        />
-                      </i>
-                      Subscription Model
-                    </a>
+                    
                   </div>
                 </div>
               </div>

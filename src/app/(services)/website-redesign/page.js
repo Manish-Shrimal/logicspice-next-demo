@@ -191,7 +191,7 @@ const Page = () => {
                   incorporate the recent changes and updates in the enterprise
                   through their web pages and{" "}
                   <Link
-                    href="/website-development"
+                    href="/web-development"
                     target="_blank"
                     // style="color: #31aae1; font-weight: 500; text-decoration: underline; text-transform: capitalize;">
                     style={{color: "#31aae1" , fontWeight : "500", textDecoration : "underline!important", textTransform : "capitalize"}}

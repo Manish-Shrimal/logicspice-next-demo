@@ -559,11 +559,7 @@ const Page = () => {
                           User Management System
                         </Link>
                       </li>
-                      <li>
-                        <Link href="/social-network-integration-in-android-app">
-                          Social Network Integration In Android App
-                        </Link>
-                      </li>
+
                       <li>
                         <Link href="/erp-system-software-development">
                           ERP System Software Development
@@ -869,7 +865,7 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/software-mainenance-support">
+                        <Link href="/software-maintenance-support">
                           Live Support Script Development
                         </Link>
                       </li>
@@ -1069,6 +1065,12 @@ const Page = () => {
                       <li>
                         <Link href="/hire-yii-developers">
                           Hire Yii Developers Experts
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="hire-django-developers">
+                          Hire Django Developers | Django Web Development Se
+                          Experts
                         </Link>
                       </li>
                     </ul>

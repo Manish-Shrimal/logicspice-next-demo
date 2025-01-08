@@ -478,7 +478,7 @@ const Page = () => {
                           unoptimized={true}
                           width={60}
                           height={100}
-                          src="/img/customsolutions/Search.png"
+                          src=""
                           alt="Smart Routing"
                         />
                         <h3>Search </h3>

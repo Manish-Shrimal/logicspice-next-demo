@@ -17,6 +17,8 @@ import Swal from "sweetalert2";
 
 const Page = () => {
   const recaptchaRef = useRef(null);
+  const recaptchaNewsletterRef = useRef(null);
+
   const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
   const [isNewsletterRecaptchaVerified, setIsNewsletterRecaptchaVerified] =
     useState(false);
@@ -195,6 +197,19 @@ const Page = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (recaptchaNewsletterRef.current) {
+      recaptchaNewsletterRef.current.reset();
+
+      // Add the expired callback to reset verification status
+      recaptchaNewsletterRef.current.execute(); // Trigger the reCAPTCHA
+
+      recaptchaNewsletterRef.current.props.onExpired = () => {
+        setIsNewsletterRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
+      };
+    }
+  }, []);
+
   const handleNewsletterSubmit = async () => {
     if (newsletterData.newsletter_email === "") {
       setFormErrors({
@@ -222,8 +237,8 @@ const Page = () => {
           newsletter_email: "",
           recaptcha_token: "",
         });
-        if (recaptchaRef.current) {
-          recaptchaRef.current.reset();
+        if (recaptchaNewsletterRef.current) {
+          recaptchaNewsletterRef.current.reset();
         }
       } else {
         Swal.fire({

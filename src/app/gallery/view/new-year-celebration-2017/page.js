@@ -120,13 +120,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/76c93_New-Year-Party-2017---Logicspice.jfif"
+                        href="/img/sunresort/76c93_New-Year-Party-2017---Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/76c93_New-Year-Party-2017---Logicspice.jfif"
+                          src="/img/sunresort/76c93_New-Year-Party-2017---Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -174,13 +174,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/c749b_New-Year-Fun---Logicspice.jfif"
+                        href="/img/sunresort/c749b_New-Year-Fun---Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/c749b_New-Year-Fun---Logicspice.jfif"
+                          src="/img/sunresort/c749b_New-Year-Fun---Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -192,13 +192,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/8cc90_New-Year-Fun--Logicspice.jfif"
+                        href="/img/sunresort/8cc90_New-Year-Fun--Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/8cc90_New-Year-Fun--Logicspice.jfif"
+                          src="/img/sunresort/8cc90_New-Year-Fun--Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -228,13 +228,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/c399e_New-Year-2017---Logicspice.jfif"
+                        href="/img/sunresort/c399e_New-Year-2017---Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/c399e_New-Year-2017---Logicspice.jfif"
+                          src="/img/sunresort/c399e_New-Year-2017---Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -246,13 +246,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/a0207_New-Year-Event.jfif"
+                        href="/img/sunresort/a0207_New-Year-Event.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/a0207_New-Year-Event.jfif"
+                          src="/img/sunresort/a0207_New-Year-Event.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -264,13 +264,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/13d67_New-Year-Fun-2017-.jfif"
+                        href="/img/sunresort/13d67_New-Year-Fun-2017-.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/13d67_New-Year-Fun-2017-.jfif"
+                          src="/img/sunresort/13d67_New-Year-Fun-2017-.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -282,13 +282,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/6a217_New-Year-Fun-2017--.jfif"
+                        href="/img/sunresort/6a217_New-Year-Fun-2017--.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/6a217_New-Year-Fun-2017--.jfif"
+                          src="/img/sunresort/6a217_New-Year-Fun-2017--.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -300,13 +300,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/5d657_New-Year-Fun-2017---Logicspice.jfif"
+                        href="/img/sunresort/5d657_New-Year-Fun-2017---Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/5d657_New-Year-Fun-2017---Logicspice.jfif"
+                          src="/img/sunresort/5d657_New-Year-Fun-2017---Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />
@@ -318,13 +318,13 @@ const Page = () => {
                   <figure class="gallery-item">
                     <div class="gallery-icon landscape">
                       <Link
-                        href="/img/sunresort/3fae7_NewYear-Fun-2017---Logicspice.jfif"
+                        href="/img/sunresort/3fae7_NewYear-Fun-2017---Logicspice.jpeg"
                         data-lightbox="images"
                       >
                         <Image
                           width={500}
                           height={100 / (100 / 100)}
-                          src="/img/sunresort/3fae7_NewYear-Fun-2017---Logicspice.jfif"
+                          src="/img/sunresort/3fae7_NewYear-Fun-2017---Logicspice.jpeg"
                           alt="Logicspice functions &amp; events"
                           class="attachment-thumbnail size-thumbnail"
                         />

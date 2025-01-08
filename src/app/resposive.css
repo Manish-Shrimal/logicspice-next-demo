@@ -90,7 +90,19 @@
   .NewJobSiteDesign {
     padding-bottom: 0;
   }
+  .CookiePolicyBx {
+    float: left;
+    width: 62%;
+  }
+  .CookiePolicyBtnBx {
+    float: right;
+    padding-top: 35px;
+    width: 38%;
+    text-align: right;
+  }
+  
 }
+
 
 @media (max-width: 1200px) {
   .home-slide3 {
@@ -466,6 +478,8 @@
   }
 }
 
+
+
 @media (max-width: 1026px) {
   .home-slide3 {
     background: rgba(0, 0, 0, 0) url("/img/images/1024.jpg") no-repeat scroll center top / cover;
@@ -532,7 +546,9 @@
   }
 }
 
+
 @media (min-width: 992px) and (max-width: 1100px) {
+  
   .home-project__clip .home-project__phone .phone__reveal img {
     height: auto;
   }
@@ -584,6 +600,27 @@
 }
 
 @media (max-width: 991px) {
+  .CookiePolicyBtnBx .btn {
+    margin-left: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .CookiePolicyBx {
+    float: left;
+    width: 58%;
+  }
+  .CookiePolicyBtnBx {
+    float: right;
+    padding-top: 35px;
+    width: 38%;
+    text-align: right;
+  }
+  .CookiePolicyBtnBx {
+    float: right;
+    padding-top: 35px;
+    width: 42%;
+    text-align: right;
+  }
   .wl-cont {
     float: left !important;
     width: 100% !important;

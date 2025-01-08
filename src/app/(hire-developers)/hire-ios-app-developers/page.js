@@ -448,7 +448,7 @@ const Page = () => {
                     width={63}
                     height={100}
                     alt="step-5"
-                    src="/img/globalbusinesscountries/step-icon5.png"
+                    src="/img/hiredevelopers/step-icon5.png"
                   />
                 </i>
                 <h5>Assign and kick start</h5>

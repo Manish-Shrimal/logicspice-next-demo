@@ -421,7 +421,7 @@ const Page = () => {
                           unoptimized={true}
                           width={100}
                           height={100}
-                          src="/app/webroot/img/images/product_new/subscription2.png"
+                          src=""
                           alt="subscription"
                         />
                       </i>

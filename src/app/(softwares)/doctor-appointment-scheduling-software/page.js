@@ -170,7 +170,7 @@ const Page = () => {
                 <div className="both-left-p-sec">
                   <h2>
                     Manage patient appointments with a flexible scheduling
-                    solution.
+                    solution
                   </h2>
                 </div>
                 <div className="job-valu">

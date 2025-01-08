@@ -604,7 +604,7 @@ const Page = () => {
                             width={100}
                             height={100}
                             className="media-object"
-                            src="/img/kesepara.jpg"
+                            src="/img/globalbusinesscountries/kesepara.jpg"
                             alt="..."
                           />
                         </div>

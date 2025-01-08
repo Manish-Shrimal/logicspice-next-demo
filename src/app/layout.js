@@ -142,7 +142,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default function RootLayout({ children, params, searchParams }) {
   const isHomePage = params && params.slug === undefined; // Adjust as necessary to match your home page route
 
-
   return (
     <html lang="en">
       <Head>
@@ -150,13 +149,18 @@ export default function RootLayout({ children, params, searchParams }) {
           name="google-site-verification"
           content="mGh8hmWuw4T_mXtpY3zzzIpZSMy-k0ua2kHramwX7j4"
         />
-        
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="LogicSpice RSS Feed"
+          href="/rss.xml"
+        />
       </Head>
-      
+
       <body className={inter.className}>
-      <Chatbot />
+        <Chatbot />
         <AOSInitializer>{children}</AOSInitializer>
-        
+
         <GTMComponent />
         {/* <CookiesConsent /> */}
         {isHomePage && (
@@ -167,7 +171,6 @@ export default function RootLayout({ children, params, searchParams }) {
                 __html: JSON.stringify({ __html: schemaData }),
               }}
             />
-            
           </>
         )}
       </body>

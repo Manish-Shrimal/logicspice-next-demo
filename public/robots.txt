@@ -2,4 +2,21 @@ User-agent: *
 Disallow: /buynow
 Disallow: /billing
 
+Disallow: /app/webroot/files/template/Francohospital-site
+Disallow: /app/webroot/files/template/ls-bank/
+Disallow: /app/webroot/files/template/chocofun/
+Disallow: /app/webroot/files/template/Francohospital-site
+Disallow: /app/webroot/files/template/Sandka-purge
+Disallow: /app/webroot/files/template/eurotrad
+Disallow: /app/webroot/files/template/Askandhelp
+Disallow: /demo/
+Disallow: /app/webroot/files/template/My-way-site/
+Disallow: /app/webroot/files/template/wildlife
+Disallow: /app/webroot/files/template/devine_date/
+Disallow: /app/webroot/files/template/My-way-site/
+Disallow: /app/webroot/files/template/Interio-site/
+Disallow: /app/webroot/files/template/Interio-site/
+Disallow: /app/webroot/files/template/
+Disallow: /smtp/
+
 Sitemap: https://www.logicspice.com/sitemap.xml

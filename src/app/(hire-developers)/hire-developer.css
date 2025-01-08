@@ -1965,9 +1965,9 @@
   font-family: "roboto", sans-serif;
 }
 
-.NewFaqDesignSection .ecommerce__Quick_FAQ .title_main {
+/* .NewFaqDesignSection .ecommerce__Quick_FAQ .title_main {
   border-bottom: 1px #ddd solid;
-}
+} */
 
 .ecommerce__Quick_FAQ .accordion-item .accordion-button {
   padding: 25px 10px;
@@ -2018,7 +2018,7 @@
 }
 
 .CustomQuickFAQScript .accordion-header .accordion-button {
-  background: url(/img/ordermanagement/faq_select-min.png) 4% center no-repeat #fff;
+  background: url(/img/ordermanagement/faq_select-min.png) 4% center no-repeat #fff!important;
   padding: 18px 10px 18px 70px;
   font-size: 20px !important;
   color: #303030;
@@ -2031,7 +2031,7 @@
 }
 
 .CustomQuickFAQScript .accordion-header .accordion-button.collapsed {
-  background: url(/img/ordermanagement/faq_select-plus.png) 4% center no-repeat rgba(0, 0, 0, 0);
+  background: url(/img/ordermanagement/faq_select-plus.png) 4% center no-repeat rgba(0, 0, 0, 0)!important;
   clear: both;
   display: block;
 }
@@ -2063,4 +2063,10 @@
 .custom-ser-txt8,
 .custom-ser-txt3 {
   padding-bottom: 0;
+}
+
+
+.NewSubtitle{
+  color: #fff;
+    font-size: 20px;
 }

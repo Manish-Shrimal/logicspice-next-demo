@@ -33,6 +33,7 @@ const Page = () => {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
+    nav: true,
   };
 
   const handleTabClick = (tab) => {
@@ -1463,7 +1464,7 @@ const Page = () => {
                   <Image
                     width={150}
                     height={100}
-                    src="/img/services/client-icon3.svg"
+                    src="/img/services/client-icon3.png"
                     alt="client-icon3"
                   />
                 </li>

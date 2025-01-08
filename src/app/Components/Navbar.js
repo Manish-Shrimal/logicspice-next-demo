@@ -683,7 +683,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="http://plp.logicspice.com">
+                              <Link href="https://plp.logicspice.com">
                                 <span className="hover_btn_menu ">
                                   <i className="menu_icon_all icon_placement_launch"></i>{" "}
                                 </span>
