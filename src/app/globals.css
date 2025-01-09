@@ -3639,8 +3639,8 @@ positivitymain {
 /* take a look css  */
 
 .take-a-look {
-  padding: 50px 0;
-  background: rgb(241, 241, 241);
+  padding: 60px 0;
+  /* background: rgb(241, 241, 241); */
 }
 
 .take-a-look .carousel-control {
@@ -7931,7 +7931,8 @@ section {
 
 
 .new_contentt{
-  padding: 50px 0 0;
+  padding: 60px 0 ;
+  background: #eeeeee;
 }
 
 .new_contentt a{
