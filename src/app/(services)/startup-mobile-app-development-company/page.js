@@ -136,8 +136,8 @@ const Page = () => {
           </p> */}
           <p>
             At Logicspice, we know how important it is for startups to have the
-            right tools and technology to grow. That's why we&apos;ve added services
-            and software solutions that make a real difference. Our{" "}
+            right tools and technology to grow. That&apos;s why we&apos;ve added
+            services and software solutions that make a real difference. Our{" "}
             <Link href="/blockchain-development">
               {" "}
               Blockchain Development Services{" "}
@@ -146,10 +146,30 @@ const Page = () => {
             contracts and decentralized apps, giving your business a strong
             foundation of trust.
           </p>
-          <p>In addition, our Generative AI Development services empower startups to automate tasks, enhance creativity, and boost productivity with advanced AI models. To help you tell your brand’s story, our Video Creation Services are designed to create compelling visuals—perfect for pitching to investors or attracting customers.</p>
-          <p>We also offer ready-to-use software to make running your business easier. From Doctor Appointment Booking Software for healthcare startups to Salon Booking Software for beauty and wellness businesses, we've got you covered. Our Group Chat Apps are perfect for improving internal communication and team collaboration, while our Live Chat Software helps you engage with customers in real time, boosting satisfaction and conversions. We also provide  <Link href="/booking-software-solutions">
+          <p>
+            In addition, our Generative AI Development services empower startups
+            to automate tasks, enhance creativity, and boost productivity with
+            advanced AI models. To help you tell your brand&apos;s story, our Video
+            Creation Services are designed to create compelling visuals—perfect
+            for pitching to investors or attracting customers.
+          </p>
+          <p>
+            We also offer ready-to-use software to make running your business
+            easier. From Doctor Appointment Booking Software for healthcare
+            startups to Salon Booking Software for beauty and wellness
+            businesses, we&apos;ve got you covered. Our Group Chat Apps are perfect
+            for improving internal communication and team collaboration, while
+            our Live Chat Software helps you engage with customers in real time,
+            boosting satisfaction and conversions. We also provide{" "}
+            <Link href="/booking-software-solutions">
               customizable booking solutions
-            </Link>{" "} for various service-based businesses, ensuring smooth and easy interactions for your clients. Let us help your startup turn your ideas into success. Whether you're just starting out or looking to grow, we've got the right tools and support to help you move forward.</p>
+            </Link>{" "}
+            for various service-based businesses, ensuring smooth and easy
+            interactions for your clients. Let us help your startup turn your
+            ideas into success. Whether you&apos;re just starting out or looking to
+            grow, we&apos;ve got the right tools and support to help you move
+            forward.
+          </p>
           <p>
             Ready to get started? Reach out to us today and let&apos;s chat
             about how our services can help your startup thrive!
