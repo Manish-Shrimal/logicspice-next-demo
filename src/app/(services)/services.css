@@ -9648,6 +9648,7 @@ section.yellow_slider .btn_align .btn_same {
 .innovative_startup p{
   /* font-size: 18px; */
   color: #3f3f3f!important;
+  word-spacing: -1px!important;
   font-weight: normal;
   text-align: justify;
   margin-bottom: 15px;
@@ -9657,11 +9658,11 @@ section.yellow_slider .btn_align .btn_same {
 
 .innovative_startup a{
   
-  color: #31aae1!important;
+  color: #0d6efd!important;
 }
 
 .idea_working a{
-  color: #31aae1!important;
+  color: #0d6efd!important;
 }
 
 .innovative_startup .btn-startup{
