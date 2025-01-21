@@ -280,6 +280,18 @@ const Page = () => {
                 </i>
                 <span>Blockchain</span>
               </li>
+              <li>
+                <i>
+                  <Image
+                    unoptimized={true}
+                    width={60}
+                    height={100}
+                    src="/img/technology/tailwindcss-icon.png"
+                    alt="tailwindcss"
+                  />
+                </i>
+                <span>Tailwind Css</span>
+              </li>
             </ul>
           </div>
         </div>

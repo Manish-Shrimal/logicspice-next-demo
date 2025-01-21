@@ -9,7 +9,7 @@ import Enquirymodal from "@/app/Components/Enquirymodal";
 import Contactusmodel from "@/app/Components/Contactusmodel";
 import "../../resposive.css";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import Customsolutiontabs from "@/app/Components/Customsolutiontabs";
 import Support from "@/app/Components/Support";
 import WhyHireFromLogicspice from "@/app/Components/WhyHireFromLogicspice";
@@ -29,6 +29,50 @@ const Page = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+  // const testimonialData = [
+  //   {
+  //     id: 1,
+  //     image: "/img/globalbusinesscountries/kesepara.jpg",
+  //     heading: "C2C Ecommerce Website About Fashion",
+  //     text: "&quot;Exactly the best team available online ! I have been working and communicating with a few companies over the internet and i didn&apos;t see a single better company than logicspice. They are",
+  //     name: "Burak",
+  //     location: "Turkey",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/img/globalbusinesscountries/dsherevk.jpg",
+  //     heading: "Website + Mobile App (iOs&Android)",
+  //     text: "&quot;&quot;Manish was very cooperative and professional during the project. The team was great, the project was very complicated and they tried their best to complete it with the best diligence. I",
+  //     name: "Dmitry",
+  //     location: "Canada",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/img/globalbusinesscountries/sabdeen.jpg",
+  //     heading: "Build a Website",
+  //     text: "&quot;Best project management experience/journey I had. Great team spirit, very flexible and understanding while maintaining time and budget target.Top tear professional communication and support.",
+  //     name: "Sherif A.",
+  //     location: "Dubai",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: "/img/globalbusinesscountries/beatbuehlmann.jpg",
+  //     heading: "Financial Web Application For Pensioners",
+  //     text: "&quot;Excellent work again from logicspice! They definitely put their best effort into the project along with very valuable inputs regarding possible enhancements of the web project. With logicspice",
+  //     name: "Beat B.",
+  //     location: "Switzerland",
+  //   },
+  //   {
+  //     id: 5,
+  //     image: "/img/globalbusinesscountries/tjulia1.jpg",
+  //     heading: "Build a Social Networking Website With Payment System",
+  //     text: "&quot;I hired this team for a very complex project that involved handling many different types of users, payment options, and social network integration. Extremely timely and professional. Will use again!&quot;",
+  //     name: "Tom J.",
+  //     location: "USA",
+  //   },
+  // ];
+
+
   const testimonialData = [
     {
       id: 1,
@@ -42,7 +86,7 @@ const Page = () => {
       id: 2,
       image: "/img/globalbusinesscountries/dsherevk.jpg",
       heading: "Website + Mobile App (iOs&Android)",
-      text: "&quot;&quot;Manish was very cooperative and professional during the project. The team was great, the project was very complicated and they tried their best to complete it with the best diligence. I",
+      text: "&quot;Manish was very cooperative and professional during the project. The team was great, the project was very complicated and they tried their best to complete it with the best diligence. I",
       name: "Dmitry",
       location: "Canada",
     },
@@ -58,7 +102,7 @@ const Page = () => {
       id: 4,
       image: "/img/globalbusinesscountries/beatbuehlmann.jpg",
       heading: "Financial Web Application For Pensioners",
-      text: "&quot;Excellent work again from logicspice! They definitely put their best effort into the project along with very valuable inputs regarding possible enhancements of the web project. With logicspice",
+      text: " &quot; Excellent work again from logicspice! They definitely put their best effort into the project along with very valuable inputs regarding possible enhancements of the web project. With logicspice",
       name: "Beat B.",
       location: "Switzerland",
     },

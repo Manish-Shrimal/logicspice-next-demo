@@ -74,6 +74,6 @@ export default async function RootLayout({ children, params, searchParams }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
       />
-    </html>
+    </html> 
   );
 }

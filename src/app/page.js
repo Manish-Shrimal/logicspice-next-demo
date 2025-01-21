@@ -113,8 +113,9 @@ const Page = () => {
       <Suspense fallback={<div>Loading Take a look...</div>}>
         <TakeaLook />
       </Suspense>
-
+  
       {}
+      <hr />
 
       <section className="new_contentt">
     <div className="container">

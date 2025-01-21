@@ -15,7 +15,9 @@ const TakeaLook = () => {
             </p>
           </div>
           <Looksilder />
+          
         </div>
+        <hr />
       </section>
   )
 }

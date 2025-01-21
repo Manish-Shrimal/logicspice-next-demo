@@ -412,7 +412,7 @@ sites_maps,
 
 .application-form-section .google-recaptcha {
 	float: left !important;
-    width: 52% !important;
+    /* width: 52% !important; */
 }
 
 .contact-top-bg .form-group span {

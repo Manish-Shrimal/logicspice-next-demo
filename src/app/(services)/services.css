@@ -8888,6 +8888,10 @@ section.web-cloning_slider .slidere-tittle h1 {
 }
 
 @media (max-width: 768px) {
+
+  .innovative_startup p {
+    word-spacing: 0px!important;
+   }
   .faq_quick_sec {
     padding: 8px;
   }
@@ -8904,6 +8908,10 @@ section.web-cloning_slider .slidere-tittle h1 {
 @media only screen and (max-width: 767px) {
   .ecommerce_faq_section {
     padding: 40px 0 20px;
+  }
+
+  .innovative_startup p {
+   word-spacing: 0px!important;
   }
 
   .CustomQuickFAQScript .accordion-header .accordion-button {
@@ -9661,11 +9669,21 @@ section.yellow_slider .btn_align .btn_same {
 
 .innovative_startup a{
   
-  color: #0d6efd!important;
+  color: #451095!important;
 }
 
+
+.innovative_startup a:hover{
+  color: #23527c!important;
+}
+
+
 .idea_working a{
-  color: #0d6efd!important;
+  color: #451095!important;
+}
+
+.idea_working a:hover{
+  color: #23527c!important;
 }
 
 .innovative_startup .btn-startup{
@@ -9674,4 +9692,27 @@ section.yellow_slider .btn_align .btn_same {
   color: #fff!important;
   padding: 13px 30px!important;
   font-size: 18px!important;
+}
+
+
+
+.robotic-automation-services .libraries_laravel_choose{
+  min-height: 240px;
+}
+
+.robotic-automation-services  .laravel-descriptions-bx p a{
+  color: #bdb2f0;
+    text-decoration: unset !important;
+}
+
+.robotic-automation-services  .laravel-devlopments-services p{
+  font-size: 16px;
+}
+
+
+.Robotoicdescriptions{
+  background: url(/img/robotic-process-automation/rpa-bg.jpg) center center no-repeat;
+  background-size: auto;
+  background-size: cover;
+  direction: rtl;
 }

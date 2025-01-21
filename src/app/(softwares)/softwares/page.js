@@ -38,7 +38,6 @@ const Page = () => {
     setModalOpen(!modalOpen);
   };
 
-
   return (
     <>
       <Navbar />
@@ -549,6 +548,71 @@ const Page = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
                             <div className="product-review">310 REVIEWS</div>
+                            <ul className="make-style">
+                              {/* <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/android-new.png"
+                                  alt="android"
+                                />
+                              </li>
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/apple.png"
+                                  alt="apple"
+                                />
+                              </li> */}
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/web_new.png"
+                                  alt="web"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="col-sm-6 col-md-4">
+                        <Link
+                          href="/applicant-tracking-system"
+                          className="ready-product"
+                          data-aos="fade-up"
+                        >
+                          <Image
+                            unoptimized={true}
+                            width={100}
+                            height={100}
+                            className=""
+                            src="/img/applicant-tracking-system/applicant-tracking-icon.png"
+                            alt="Human Resource Management Software"
+                          />
+                          <div className="abs-product">
+                            <h3>Applicant Tracking System Software</h3>
+                            <p>
+                              Simplify hiring with our Applicant Tracking
+                              System. From job posting to final hire, keep track
+                              of all applications and make informed decisions
+                              with ease.
+                            </p>
+                            <div className="product-star">
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div className="product-review">394 REVIEWS</div>
                             <ul className="make-style">
                               {/* <li>
                                 <Image

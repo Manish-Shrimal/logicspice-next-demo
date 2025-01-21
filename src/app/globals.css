@@ -3640,7 +3640,14 @@ positivitymain {
 
 .take-a-look {
   padding: 60px 0;
+  /* border-bottom: 1px solid #3f3f3f; */
   /* background: rgb(241, 241, 241); */
+}
+.take-a-look hr{
+  /* color: #000!important; */
+  border-bottom: 1px solid black!important;
+  margin: 0!important;
+
 }
 
 .take-a-look .carousel-control {
@@ -5258,6 +5265,9 @@ body.modal-open .quote_pop_plus {
 }
 
 @media (max-width: 991px) {
+  .innovative_startup p {
+    word-spacing: unset!important;
+   }
   .about-us .col-md-3 {
     margin-bottom: 20px;
   }
@@ -5267,15 +5277,15 @@ body.modal-open .quote_pop_plus {
   }
 
   .CookiePolicyBx {
-    width: 100%;
-    text-align: center;
+    width: 100%!important;
+    text-align: center!important;
   }
 
   .CookiePolicyBtnBx {
-    width: 100%;
-    float: left;
-    padding-top: 4px;
-    text-align: center;
+    width: 100%!important;
+    float: left!important;
+    padding-top: 4px!important;
+    text-align: center!important;
   }
 
   .CookiePolicyBtnBx .btn {
@@ -6578,9 +6588,9 @@ body.modal-open .quote_pop_plus {
   }
 
   .CookiePolicyBtnBx {
-    padding-top: 20px;
-    text-align: center;
-    width: 100%;
+    padding-top: 20px!important;
+    text-align: center!important;
+    width: 100%!important;
   }
 
   .CookiePolicyBtnBx .btn {
@@ -7936,7 +7946,13 @@ section {
 }
 
 .new_contentt a{
-  color: #0d6efd!important;
+  /* color: #0d6efd!important; */
+  /* color: rgb(13, 110, 253)!important; */
+  color: #451095!important;
+}
+
+.new_contentt a:hover{
+  color: #23527c!important;
 }
 
 .new_contentt p{

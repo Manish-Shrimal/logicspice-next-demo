@@ -4545,8 +4545,10 @@
   }
 
   .take-a-look {
-    padding: 30px 0 0 !important;
+    padding: 30px 0  !important;
   }
+
+
 
   .readymateSolution .ready-product {
     width: 96% !important;
@@ -4559,7 +4561,7 @@
   .ClientLogoHome {
     display: inline-block !important;
     width: 100% !important;
-    height: 100px !important;
+    /* height: 100px !important; */
     /* overflow: hidden!important; */
   }
 

@@ -2405,6 +2405,18 @@ const Page = () => {
                       </div>
                       <div className="icntechimg_nm">MySQL</div>
                     </li>
+                       <li data-aos="fade-up">
+                      <div className="icntechimg">
+                        <Image
+                          unoptimized={true}
+                          width={60}
+                          height={100}
+                          src="/img/technology/tailwindcss-icon.png"
+                          alt="Tailwind"
+                        />
+                      </div>
+                      <div className="icntechimg_nm">Tailwind css</div>
+                    </li>
                     {/* <li data-aos="fade-up">
                     <div className="icntechimg">
                       <Image

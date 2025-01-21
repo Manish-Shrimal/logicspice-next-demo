@@ -104,10 +104,7 @@ const Page = () => {
     resume: null,
     image: null,
     recaptcha_token: "", // Field to hold the reCAPTCHA token
-
   });
-
-
 
   // const onRecaptchaChange = (token) => {
   //   setFormData((prevData) => ({
@@ -123,27 +120,77 @@ const Page = () => {
   // };
   const [errors, setErrors] = useState({});
 
+  // const onRecaptchaChange = (token) => {
+  //   if (token) {
+  //     setIsRecaptchaVerified(true);
 
-  const onRecaptchaChange = (token) => {
-    if (token) {
-      setIsRecaptchaVerified(true);
+  //     // Save the reCAPTCHA token in the form data
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       recaptcha_token: token,
+  //     }));
 
-      // Save the reCAPTCHA token in the form data
-      setFormData((prevData) => ({
-        ...prevData,
-        recaptcha_token: token,
-      }));
+  //     // Clear any previous reCAPTCHA errors
+  //     setErrors((prevError) => ({
+  //       ...prevError,
+  //       recaptchaerror: "",
+  //     }));
+  //   } else {
+  //     setIsRecaptchaVerified(false);
+  //   }
+  // };
 
-      // Clear any previous reCAPTCHA errors
-      setErrors((prevError) => ({
-        ...prevError,
-        recaptchaerror: "",
-      }));
-    } else {
-      setIsRecaptchaVerified(false);
-    }
-  };
+  const [recaptchaExpirationTimer, setRecaptchaExpirationTimer] =
+    useState(null);
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
 
+  // const onRecaptchaChange = (token) => {
+  //   if (token) {
+  //     setIsRecaptchaVerified(true);
+
+  //     // Save the reCAPTCHA token in the form data
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       recaptcha_token: token,
+  //     }));
+
+  //     // Clear any previous reCAPTCHA errors
+  //     setErrors((prevError) => ({
+  //       ...prevError,
+  //       recaptchaerror: "",
+  //     }));
+
+  //     // Clear the previous timer if any
+  //     if (recaptchaExpirationTimer) {
+  //       clearTimeout(recaptchaExpirationTimer);
+  //     }
+
+  //     // Set a new timer to expire in 2 minutes
+  //     const timer = setTimeout(() => {
+  //       // Uncheck reCAPTCHA after 2 minutes and remove token
+  //       setIsRecaptchaVerified(false);
+  //       setRecaptchaToken(null);
+  //       setFormData((prevData) => ({
+  //         ...prevData,
+  //         recaptcha_token: "", // Clear the token in the form data
+  //       }));
+
+  //       // Set the error message
+  //       setErrors((prevError) => ({
+  //         ...prevError,
+  //         recaptchaerror: "reCAPTCHA expired. Please verify again.",
+  //       }));
+  //     }, 120000); // 120000ms = 2 minutes
+
+  //     // Save the timer
+  //     setRecaptchaExpirationTimer(timer);
+  //     setIsRecaptchaVerified(true);
+
+  //   } else {
+  //     setIsRecaptchaVerified(false);
+  //     setRecaptchaToken(null);
+  //   }
+  // };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -158,8 +205,6 @@ const Page = () => {
       [name]: "",
     }));
   };
-
-
 
   const handleFileUpload = (event) => {
     const uploadedFile = event.target.files[0];
@@ -293,11 +338,31 @@ const Page = () => {
   const handleSubmit = async (e) => {
     // console.log("hii");
     e.preventDefault();
-    if(loading) return;
+    if (loading) return;
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      return;
+    }
+
+    // if (Object.keys(validationErrors).length > 0) {
+    //   setErrors(validationErrors);
+
+    //   // If the form has errors, set a custom message for reCAPTCHA
+    //   setErrors((prevErrors) => ({
+    //     ...prevErrors,
+    //     recaptchaerror: "Please complete the form before verifying reCAPTCHA.",
+    //   }));
+    //   return;
+    // }
+
+    // If reCAPTCHA is not verified or the token is expired, show an error
+    if (!isRecaptchaVerified) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        recaptchaerror: "Please verify that you are not a robot.",
+      }));
       return;
     }
 
@@ -319,11 +384,10 @@ const Page = () => {
       );
       setLoading(false);
       console.log(response);
-      console.log("Outer")
+      console.log("Outer");
       if (response.data.status === 200) {
         router.push("/apply-now");
-        console.log("Inner")
-        
+        console.log("Inner");
 
         Swal.fire({
           icon: "success",
@@ -408,11 +472,24 @@ const Page = () => {
           image: null,
           recaptcha_token: "", // Field to hold the reCAPTCHA token
         });
-      } else if(response.data.status === 500) {
+      } else if (response.data.status === 500) {
+        recaptchaRef.current.reset();
+        Swal.fire({
+          icon: "warning",
+          title: "Error",
+          text: response.data.message,
+        });
+        setIsRecaptchaVerified(false);
+
         // console.log("yaha aaya")
-        setFormErrors({
-          recaptchaerror: response.data.message,
-        })
+      } else {
+        recaptchaRef.current.reset();
+        Swal.fire({
+          icon: "warning",
+          title: "Error",
+          text: response.data.message,
+        });
+        setIsRecaptchaVerified(false);
       }
     } catch (error) {
       setLoading(false);
@@ -420,6 +497,7 @@ const Page = () => {
       console.error("Submission error:", error.message);
     }
   };
+  const resumeInputRef = useRef(null); // Ref for the resume input
 
   const handleReset = () => {
     setFormData({
@@ -499,20 +577,81 @@ const Page = () => {
       image: null,
       recaptcha_token: "",
     });
+    recaptchaRef.current.reset();
+    setIsRecaptchaVerified(false);
+    setErrors({});
+    if (resumeInputRef.current) {
+      resumeInputRef.current.value = "";
+    }
+  };
+
+  // useEffect(() => {
+  //   if (recaptchaRef.current) {
+  //     recaptchaRef.current.reset();
+
+  //     // Add the expired callback to reset verification status
+  //     recaptchaRef.current.execute(); // Trigger the reCAPTCHA
+
+  //     recaptchaRef.current.props.onExpired = () => {
+  //       setIsRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
+  //     };
+  //   }
+  // }, []);
+
+  const onRecaptchaChange = (token) => {
+    if (token) {
+      setIsRecaptchaVerified(true);
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: token,
+      }));
+      setErrors((prevError) => ({
+        ...prevError,
+        recaptchaerror: "",
+      }));
+
+      if (recaptchaExpirationTimer) {
+        clearTimeout(recaptchaExpirationTimer);
+      }
+
+      const timer = setTimeout(() => {
+        setIsRecaptchaVerified(false);
+        setFormData((prevData) => ({
+          ...prevData,
+          recaptcha_token: "",
+        }));
+        setErrors((prevError) => ({
+          ...prevError,
+          recaptchaerror: "reCAPTCHA expired. Please verify again.",
+        }));
+      }, 120000); // 2 minutes expiration time
+
+      setRecaptchaExpirationTimer(timer);
+    } else {
+      setIsRecaptchaVerified(false);
+      setFormData((prevData) => ({
+        ...prevData,
+        recaptcha_token: "",
+      }));
+    }
+  };
+
+  const onRecaptchaExpired = () => {
+    setIsRecaptchaVerified(false);
+    setErrors((prevError) => ({
+      ...prevError,
+      recaptchaerror: "reCAPTCHA expired. Please verify again.",
+    }));
   };
 
   useEffect(() => {
-    if (recaptchaRef.current) {
-      recaptchaRef.current.reset();
-
-      // Add the expired callback to reset verification status
-      recaptchaRef.current.execute(); // Trigger the reCAPTCHA
-
-      recaptchaRef.current.props.onExpired = () => {
-        setIsRecaptchaVerified(false); // Reset verification status when reCAPTCHA expires
-      };
-    }
-  }, []);
+    // Cleanup function to reset timer when component unmounts or reCAPTCHA is reset
+    return () => {
+      if (recaptchaExpirationTimer) {
+        clearTimeout(recaptchaExpirationTimer);
+      }
+    };
+  }, [recaptchaExpirationTimer]);
   return (
     <>
       <Navbar />
@@ -541,9 +680,6 @@ const Page = () => {
                         name="post"
                         placeholder="Post*"
                         className="form-control required"
-                        // className={`form-control ${
-                        //   errors.post ? "fieldRequired" : ""
-                        // }`}
                         type="text"
                         id="post"
                         value={formData.post}
@@ -556,39 +692,10 @@ const Page = () => {
                         {errors.post}
                       </label>
                     </div>
-                    {/* {errors.post && (
-                      <label
-                        htmlFor="post"
-                        className="error"
-                        style={{ display: 'inline-block' }}
-                      >
-                        {errors.post}
-                      </label>
-                      
-                    )} */}
                   </div>
                 </div>
                 <div className="appliction-top-right">
                   <div className="upload-photo">
-                    {/* <Image
-                      width={100}
-                      height={100}
-                      unoptimized={true}
-                      src={
-                        formData.resume
-                          ? URL.createObjectURL(formData.resume)
-                          : "/img/images/author_icon.png"
-                      }
-                      alt="photo"
-                      id="show_image"
-                    />
-                    <input
-                      type="file"
-                      name="image"
-                      className="form-control"
-                      id="add_image"
-                      onChange={handleFileUpload}
-                    /> */}
                     <Image
                       width={100}
                       height={100}
@@ -630,9 +737,6 @@ const Page = () => {
                             name="first_name"
                             placeholder="First Name*"
                             className="form-control required"
-                            // className={`form-control ${
-                            //   errors.firstName ? "fieldRequired" : ""
-                            // }`}
                             type="text"
                             id="firstName"
                             value={formData.first_name}
@@ -645,15 +749,6 @@ const Page = () => {
                             {errors.firstName}
                           </label>
                         </div>
-                        {/* <label
-                          htmlFor="firstName"
-                          className="error"
-                          style={{
-                            display: formData.firstName ? "none" : "inline-block",
-                          }}
-                        >
-                          This field is required.
-                        </label> */}
 
                         <div className="personal-detals-td">
                           <input
@@ -671,9 +766,6 @@ const Page = () => {
                             name="last_name"
                             placeholder="Last Name*"
                             className="form-control required"
-                            // className={`form-control ${
-                            //   errors.lastName ? "fieldRequired" : ""
-                            // }`}
                             type="text"
                             id="lastName"
                             value={formData.last_name}
@@ -685,15 +777,6 @@ const Page = () => {
                           >
                             {errors.lastName}
                           </label>
-                          {/* <label
-                            htmlFor="lastName"
-                            className="error"
-                            style={{
-                              display: formData.lastName ? "none" : "inline-block",
-                            }}
-                          >
-                            This field is required.
-                          </label> */}
                         </div>
                       </div>
                     </div>
@@ -713,23 +796,11 @@ const Page = () => {
                         </div>
                         <div className="personal-detals-tr">
                           <div className="personal-detals-td">
-                            {/* <input
-                              name="dob"
-                              id="dob"
-                              placeholder="Date of birth*"
-                              className="form-control required"
-                              type="date"
-                              value={formData.dob}
-                              onChange={handleChange}
-                            /> */}
                             <input
                               name="dob"
                               id="dob"
                               placeholder="Date of birth*"
                               className="form-control required"
-                              // className={`form-control ${
-                              //   errors.dob ? "fieldRequired" : ""
-                              // }`}
                               type="date"
                               value={formData.dob}
                               max={new Date().toISOString().split("T")[0]} // Set max to today's date
@@ -742,25 +813,12 @@ const Page = () => {
                             >
                               {errors.dob}
                             </label>
-
-                            {/* <label
-                              htmlFor="dob"
-                              className="error"
-                              style={{
-                                display: formData.dob ? "none" : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <input
                               name="father_name"
                               placeholder="Father's Name*"
                               className="form-control required"
-                              // className={`form-control ${
-                              //   errors.fatherName ? "fieldRequired" : ""
-                              // }`}
                               type="text"
                               id="fatherName"
                               value={formData.father_name}
@@ -772,26 +830,12 @@ const Page = () => {
                             >
                               {errors.fatherName}
                             </label>
-                            {/* <label
-                              htmlFor="fatherName"
-                              className="error"
-                              style={{
-                                display: formData.fatherName
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <input
                               name="mother_name"
                               placeholder="Mother's Name*"
                               className="form-control required"
-                              // className={`form-control ${
-                              //   errors.motherName ? "fieldRequired" : ""
-                              // }`}
                               type="text"
                               id="motherName"
                               value={formData.mother_name}
@@ -803,17 +847,6 @@ const Page = () => {
                             >
                               {errors.motherName}
                             </label>
-                            {/* <label
-                              htmlFor="motherName"
-                              className="error"
-                              style={{
-                                display: formData.motherName
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                         </div>
                       </div>
@@ -835,9 +868,6 @@ const Page = () => {
                               name="father_occupation"
                               placeholder="Father's Occupation*"
                               className="form-control required"
-                              // className={`form-control ${
-                              //   errors.fatherOccupation ? "fieldRequired" : ""
-                              // }`}
                               type="text"
                               id="fatherOccupation"
                               value={formData.father_occupation}
@@ -849,26 +879,12 @@ const Page = () => {
                             >
                               {errors.fatherOccupation}
                             </label>
-                            {/* <label
-                              htmlFor="fatherOccupation"
-                              className="error"
-                              style={{
-                                display: formData.fatherOccupation
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <input
                               name="mother_occupation"
                               placeholder="Mother's Occupation*"
                               className="form-control required"
-                              // className={`form-control ${
-                              //   errors.motherOccupation ? "fieldRequired" : ""
-                              // }`}
                               type="text"
                               id="motherOccupation"
                               value={formData.mother_occupation}
@@ -905,15 +921,15 @@ const Page = () => {
                           <div className="personal-detals-td">
                             <select
                               name="category"
-                              // className="form-control form-select required"
-                              className={`form-control ${
-                                errors.motherOccupation ? "fieldRequired" : ""
-                              }`}
+                              // className={`form-control ${
+                              //   errors.motherOccupation ? "fieldRequired" : ""
+                              // }`}
+                              className="form-control"
                               id="category"
                               value={formData.category}
                               onChange={handleChange}
                             >
-                              <option value="">Select Category</option>
+                              <option value="">Select Category*</option>
                               <option value="General">General</option>
                               <option value="OBC">OBC</option>
                               <option value="SC">SC</option>
@@ -926,17 +942,6 @@ const Page = () => {
                             >
                               {errors.category}
                             </label>
-                            {/* <label
-                              htmlFor="category"
-                              className="error"
-                              style={{
-                                display: formData.category
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <select
@@ -946,7 +951,7 @@ const Page = () => {
                               value={formData.gender}
                               onChange={handleChange}
                             >
-                              <option value="">Select Gender</option>
+                              <option value="">Select Gender*</option>
                               <option value="Male">Male</option>
                               <option value="Female">Female</option>
                               <option value="Other">Other</option>
@@ -957,17 +962,6 @@ const Page = () => {
                             >
                               {errors.gender}
                             </label>
-                            {/* <label
-                              htmlFor="gender"
-                              className="error"
-                              style={{
-                                display: formData.gender
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <select
@@ -977,7 +971,7 @@ const Page = () => {
                               value={formData.marital_status}
                               onChange={handleChange}
                             >
-                              <option value="">Select Marital Status</option>
+                              <option value="">Select Marital Status*</option>
                               <option value="Married">Married</option>
                               <option value="Single">Single</option>
                               <option value="Divorced">Divorced</option>
@@ -988,17 +982,6 @@ const Page = () => {
                             >
                               {errors.maritalStatus}
                             </label>
-                            {/* <label
-                              htmlFor="maritalStatus"
-                              className="error"
-                              style={{
-                                display: formData.maritalStatus
-                                  ? "none"
-                                  : "inline-block",
-                              }}
-                            >
-                              This field is required.
-                            </label> */}
                           </div>
                           <div className="personal-detals-td">
                             <select
@@ -1034,7 +1017,7 @@ const Page = () => {
                           <div class="personal-detals-td">
                             <textarea
                               name="current_address"
-                              placeholder="current Address*"
+                              placeholder="Current Address*"
                               className="form-control required"
                               type="text"
                               id="currentAddress"
@@ -1051,7 +1034,7 @@ const Page = () => {
                           <div class="personal-detals-td">
                             <textarea
                               name="permanent_address"
-                              placeholder="Permanent Address"
+                              placeholder="Permanent Address*"
                               className="form-control required"
                               type="text"
                               id="permanentAddress"
@@ -1068,7 +1051,7 @@ const Page = () => {
                           <div class="personal-detals-td">
                             <input
                               name="email_address"
-                              placeholder="Email Address"
+                              placeholder="Email Address*"
                               className="form-control required"
                               type="text"
                               id="emailAddress"
@@ -1085,7 +1068,7 @@ const Page = () => {
                           <div class="personal-detals-td">
                             <input
                               name="phone"
-                              placeholder="Phone Number"
+                              placeholder="Phone Number*"
                               className="form-control required"
                               type="text"
                               id="Phone"
@@ -1432,12 +1415,6 @@ const Page = () => {
                             </div>
                             <div class="personal-detals-td">
                               <input
-                                // name="data[Application][secondary_percentage]"
-                                // placeholder="Percentage*"
-                                // max="100"
-                                // class="form-control required positiveNumber"
-                                // type="text"
-                                // id="ApplicationSecondaryPercentage"
                                 name="secondary_percentage"
                                 placeholder="Percentage*"
                                 className="form-control  required"
@@ -1461,11 +1438,6 @@ const Page = () => {
                             </div>
                             <div class="personal-detals-td">
                               <input
-                                // name="data[Application][graduation_course]"
-                                // placeholder="Course/Subjects*"
-                                // class="form-control required"
-                                // type="text"
-                                // id="ApplicationGraduationCourse"
                                 name="graduation_course"
                                 placeholder="Course/Subjects*"
                                 className="form-control  required"
@@ -1482,11 +1454,6 @@ const Page = () => {
                             </div>
                             <div class="personal-detals-td">
                               <input
-                                // name="data[Application][graduation_college]"
-                                // placeholder="School/College &amp; City*"
-                                // class="form-control required"
-                                // type="text"
-                                // id="ApplicationGraduationCollege"
                                 name="graduation_college"
                                 placeholder="School/College &amp; City*"
                                 className="form-control  required"
@@ -1503,11 +1470,6 @@ const Page = () => {
                             </div>
                             <div class="personal-detals-td">
                               <input
-                                // name="data[Application][graduation_university]"
-                                // placeholder="University*"
-                                // class="form-control required"
-                                // type="text"
-                                // id="ApplicationGraduationUniversity"
                                 name="graduation_university"
                                 placeholder="University*"
                                 className="form-control  required"
@@ -1525,9 +1487,6 @@ const Page = () => {
                             <div class="personal-detals-td">
                               <div class="input select">
                                 <select
-                                  // name="data[Application][graduation_year]"
-                                  // class="form-control required"
-                                  // id="ApplicationGraduationYear"
                                   name="graduation_year"
                                   placeholder="University*"
                                   className="form-control form-select  required"
@@ -1614,12 +1573,6 @@ const Page = () => {
                             </div>
                             <div class="personal-detals-td">
                               <input
-                                // name="data[Application][graduation_percentage]"
-                                // placeholder="Percentage*"
-                                // max="100"
-                                // class="form-control required positiveNumber"
-                                // type="text"
-                                // id="ApplicationGraduationPercentage"
                                 name="graduation_percentage"
                                 placeholder="Percentage*"
                                 className="form-control  required"
@@ -1912,10 +1865,6 @@ const Page = () => {
                       <div class="application-input">
                         <div class="input select">
                           <select
-                            // name="data[Application][work_experience_year]"
-                            // id="exp_year"
-                            // class="form-control required"
-                            // onchange="if (!window.__cfRLUnblockHandlers) return false; getYear(this.value)"
                             name="work_experience_year"
                             className="form-control required"
                             type="text"
@@ -1990,10 +1939,6 @@ const Page = () => {
                       <div class="application-input">
                         <div class="input select">
                           <select
-                            // name="data[Application][work_experience_months]"
-                            // id="exp_month"
-                            // class="form-control required"
-                            // onchange="if (!window.__cfRLUnblockHandlers) return false; getMonth(this.value)"
                             name="work_experience_months"
                             className="form-control required"
                             type="text"
@@ -2310,25 +2255,23 @@ const Page = () => {
                       <label>Expected Salary:</label>
                       <div class="current-input">
                         <input
-                          // name="data[Application][expected_salary]"
-                          // placeholder="Expected Salary"
-                          // class="form-control required number"
-                          // min="1"
-                          // type="text"
-                          // id="ApplicationExpectedSalary"
                           name="expected_salary"
-                          placeholder="Expected Salary"
+                          placeholder="Expected Salary*"
                           className="form-control  required"
                           id="gender"
                           value={formData.expected_salary}
                           onChange={handleChange}
                         />
-                        <label
+                        <span
                           className="error"
-                          style={{ display: "inline-block" }}
+                          style={{
+                            display: "inline-block",
+                            color: "red",
+                            fontSize: "13px",
+                          }}
                         >
                           {errors.expectedSalary}
-                        </label>
+                        </span>
                       </div>
                     </div>
                     <div class="currwnt-bx">
@@ -2399,32 +2342,26 @@ const Page = () => {
                           <label>Place:</label>
                           <div class="current-input">
                             <input
-                              // name="data[Application][place]"
-                              // placeholder="Place"
-                              // class="form-control required"
-                              // type="text"
-                              // id="ApplicationPlace"
                               name="place"
-                              placeholder="Place"
+                              placeholder="Place*"
                               className="form-control  required"
                               id="place"
                               value={formData.place}
                               onChange={handleChange}
                             />
-                            <label
+                            <span
                               className="error"
-                              style={{ display: "inline-block" }}
+                              style={{
+                                display: "inline-block",
+                                color: "red",
+                                fontSize: "13px",
+                              }}
                             >
                               {errors.place}
-                            </label>
+                            </span>
                           </div>
                         </div>
-                        {/* <div class="currwnt-bx">
-                            <label>Date:</label>
-                            <div class="current-input">
-                              {new Date().toLocaleDateString()}
-                            </div>
-                          </div> */}
+
                         <div class="current-bx">
                           <label>Date:</label>
                           <div class="current-input">
@@ -2442,10 +2379,7 @@ const Page = () => {
                         <div class="sign_dv">
                           <p>Upload Resume</p>
                           <input
-                            // type="file"
-                            // name="data[Application][resume]"
-                            // class="form-control required"
-                            // id="add_resume"
+                            ref={resumeInputRef} // Attach ref to the file input
                             name="resume"
                             type="file"
                             className="form-control  required"
@@ -2459,16 +2393,20 @@ const Page = () => {
                             {errors.resume}
                           </label>
                         </div>
-                        {/* <div class="currwnt-bx">
-                            <div id="recaptcha1" style="transform: scale(0.75); transform-origin: left top;"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-3mo9j5xxutq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6Leg3gITAAAAAPzWHZ1PgnMhko9tHq8yWvH2q2S7&amp;co=aHR0cHM6Ly93d3cubG9naWNzcGljZS5jb206NDQz&amp;hl=en&amp;v=WV-mUKO4xoWKy9M4ZzRyNrP_&amp;theme=light&amp;size=normal&amp;cb=nttq9a3kshdx"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
-                        </div> */}
+
                         <div className="google-recaptcha">
                           <ReCAPTCHA
+                            ref={recaptchaRef}
                             key={recaptchaKey}
                             sitekey={recaptchaKey}
                             onChange={onRecaptchaChange}
+                            onExpired={onRecaptchaExpired}
                           />
-                          <div className="gcpc FormError" id="captcha_msg">
+                          <div
+                            className="gcpc FormError"
+                            id="captcha_msg"
+                            style={{ float: "left" }}
+                          >
                             {errors.recaptchaerror}
                           </div>
                         </div>
@@ -2484,15 +2422,12 @@ const Page = () => {
                         type="submit"
                         value="Submit"
                       />
-                      {/* <button
-                          title="Submit"
-                          class="btn btn-primary"
-                          size="30"
-                          value="Submit"
-                          onClick={handleReset}
-                        /> */}
 
-                      <a href="javascript:void();" class="btn btn-default">
+                      <a
+                        href="javascript:void(0);"
+                        class="btn btn-default"
+                        onClick={handleReset}
+                      >
                         Reset
                       </a>
                     </div>

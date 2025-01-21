@@ -7,7 +7,7 @@ import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
 import Image from "next/image";
 import Link from "next/link";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,7 +29,7 @@ const Page = () => {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 5, 
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -126,6 +126,21 @@ const Page = () => {
                 </Link>
               </div>
               <div className="col-md-4 col-sm-4 padding-no">
+                <Link href="/robotic-process-automation-services">
+                  <div className="our-services-bx">
+                    <div className="our-services-img">
+                      <Image
+                        width={70}
+                        height={100}
+                        src="/img/applicant-tracking-system/rpa-icon.png"
+                        alt="Generative AI development"
+                      />
+                    </div>
+                    <h2>Robotic Process Automation (RPA)</h2>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-4 col-sm-4 padding-no">
                 <Link href="/blockchain-development">
                   <div className="our-services-bx">
                     <div className="our-services-img">
@@ -155,8 +170,6 @@ const Page = () => {
                   </div>
                 </Link>
               </div>
-
-
 
               <div className="col-md-4 col-sm-4 padding-no">
                 <Link href="/devops-development">
@@ -871,7 +884,7 @@ const Page = () => {
                 id="tab1_li"
                 className={`ddlj ${activeTab === "tab1" ? "active" : ""}`}
                 onClick={() => handleTabClick("tab1")}
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
               >
                 <a>Mobile App Development</a>
               </li>
@@ -879,7 +892,7 @@ const Page = () => {
                 id="tab2_li"
                 className={`ddlj ${activeTab === "tab2" ? "active" : ""}`}
                 onClick={() => handleTabClick("tab2")}
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
               >
                 <a>Web Development</a>
               </li>
@@ -887,7 +900,7 @@ const Page = () => {
                 id="tab3_li"
                 className={`ddlj ${activeTab === "tab3" ? "active" : ""}`}
                 onClick={() => handleTabClick("tab3")}
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
               >
                 <a>Others</a>
               </li>

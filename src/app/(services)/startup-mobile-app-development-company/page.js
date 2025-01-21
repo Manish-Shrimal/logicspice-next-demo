@@ -88,7 +88,7 @@ const Page = () => {
       <section className="innovative_startup">
         <div className="container">
           <h2 className="title_main">
-            Our Latest Additions: Innovative Services and Software Solutions for
+            Innovative Services and Software Solutions for
             Startups
           </h2>
           <h4>Helping Startups Succeed with Smart Solutions</h4>

@@ -9,7 +9,7 @@ import Enquirymodal from "@/app/Components/Enquirymodal";
 import Contactusmodel from "@/app/Components/Contactusmodel";
 import "../../resposive.css";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import Customsolutiontabs from "@/app/Components/Customsolutiontabs";
 import Support from "@/app/Components/Support";
 import WhyHireFromLogicspice from "@/app/Components/WhyHireFromLogicspice";
@@ -73,7 +73,7 @@ const Page = () => {
       {" "}
       <Navbar />
       <section
-        style={{}}
+        // style={{}}
         class="hire_developer_back_iin otherhire_developer_back_iin"
       >
         <div class="hire_developer_back_iin_mask new-developers-mask">
@@ -106,7 +106,7 @@ const Page = () => {
                 </div>
                 <div class="nt_cdl">
                   <a onClick={openModal} className="btn btn-primary">
-                  <Enquirymodal
+                    <Enquirymodal
                       modalStatus={showModal}
                       toggle={openModal}
                       title="Request to hire-react-developers"
@@ -456,123 +456,18 @@ const Page = () => {
 
           <div class="step-but">
             <a onClick={openModal} className="btn btn-primary">
-            <Enquirymodal
-                      modalStatus={showModal}
-                      toggle={openModal}
-                      title="Request to hire-react-developers"
-                    />
-                    Hire Now!
+              <Enquirymodal
+                modalStatus={showModal}
+                toggle={openModal}
+                title="Request to hire-react-developers"
+              />
+              Hire Now!
             </a>
           </div>
         </div>
       </section>
       <WhyHireFromLogicspice testimonialData={testimonialData} />
       <div class="clearfix"></div>
-      {/* <section class="enq-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 text-center">
-              <a onClick={openModal} className="btn btn-primary">
-                 <Enquirymodal
-                      modalStatus={showModal}
-                      toggle={openModal}
-                      title="Request to hire-react-developers"
-                    />
-                    Hire Now!
-              
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>{" "} */}
-      {/* <section class="ecommerce_faq_section NewFaqDesignSection">
-        <div class="container">
-          <div class="row CustomQuickFAQScript">
-            <div class=" row ">
-              <div class="col-md-5">
-                <h4 class="title_main">
-                  Frequently <br />
-                  Asked Questions
-                </h4>
-                <div class="FaqImgBx">
-                  <Image
-                    width={500}
-                    height={100}
-                    src="/img/laraveldevelopment/FaqLaravelImg.png"
-                    alt="laravel web development"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-7">
-          <MDBAccordion v-model="activeItem" borderless>
-            <MDBAccordionItem
-              headerTitle="Why is ReactJS used in web development?"
-              collapseId="flush-collapse1"
-              // className="aos-init aos-animate"
-              data-aos="fade-up"
-            
-              
-            >
-              <p>
-                ReactJS allows developers to craft dynamic user interfaces for
-                web applications with reusable components.
-              </p>
-            </MDBAccordionItem>
-
-            <MDBAccordionItem
-              headerTitle="Why should I hire ReactJS developers from Logicspice?"
-              collapseId="flush-collapse2"
-              // className="aos-init aos-animate"
-              data-aos="fade-up"
-            >
-              <p>
-                Logicspice&apos;s ReactJS developers are experienced professionals
-                known for creating efficient, responsive web apps tailored for
-                your enterprise.
-              </p>
-            </MDBAccordionItem>
-
-            <MDBAccordionItem
-              headerTitle="How does ReactJS differ from other frontend libraries/frameworks?"
-              collapseId="flush-collapse3"
-              data-aos="fade-up"
-            >
-              <p>
-                ReactJS emphasizes component-based architecture, facilitating
-                faster development and easier maintenance compared to
-                traditional frameworks.
-              </p>
-            </MDBAccordionItem>
-
-            <MDBAccordionItem
-              headerTitle="How do you ensure my project's confidentiality?"
-              collapseId="flush-collapse4"
-              data-aos="fade-up"
-            >
-              <p>
-                At Logicspice, client confidentiality is our priority. We&apos;re
-                committed to ensuring your project&apos;s confidentiality via NDAs
-                etc.
-              </p>
-            </MDBAccordionItem>
-
-            <MDBAccordionItem
-              headerTitle="Can I hire developers for varied project durations?"
-              collapseId="flush-collapse5"
-              data-aos="fade-up"
-            >
-              <p>
-                Indeed! Be it a short-term task or a long-drawn project,
-                Logicspice has flexible hiring models to suit all needs.
-              </p>
-            </MDBAccordionItem>
-          </MDBAccordion>
-        </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <section className="ecommerce_faq_section" id="faq">
         <div className="container">
           <div className="CustomQuickFAQScript">

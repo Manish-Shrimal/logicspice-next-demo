@@ -234,8 +234,8 @@ const Page = () => {
                     developers.
                   </p>
                   <p>
-                    Whether you&apos;re a startup or an established business, our
-                    Django experts offer comprehensive end-to-end services
+                    Whether you&apos;re a startup or an established business,
+                    our Django experts offer comprehensive end-to-end services
                     tailored to your unique requirements. From planning to
                     deployment, we&apos;ll work closely with you to ensure your
                     Django skills perfectly align with your project goals and
