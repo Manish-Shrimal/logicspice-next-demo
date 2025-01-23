@@ -295,19 +295,77 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/crowdfunding-script">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_crowd_funding"></i>
-                                </span>
-                                <span>Crowdfunding Script</span>
-                              </Link>
-                            </li>
-                            <li>
                               <Link href="/job-board-software">
                                 <span className="hover_btn_menu ">
                                   <i className="menu_icon_all icon_reqruitment_application"></i>
                                 </span>
                                 <span>Job Board Software</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/applicant-tracking-system">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_applicant_tracking"></i>
+                                </span>
+                                <span>Applicant Tracking System</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/recruitment-management-software">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all rms_clone"></i>
+                                </span>
+                                <span>Recruitment Management</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/doctor-appointment-scheduling-software">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all doctor_appointment_clone"></i>
+                                </span>
+                                <span>Doctor Appointment Software</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/groupon-clone">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_groupon"></i>
+                                </span>
+                                <span>Groupon Clone</span>
+                              </Link>
+                            </li>
+
+                            <li>
+                              <Link href="/hrms-software">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_human_resource"></i>
+                                </span>
+                                <span>Human Resource Management</span>
+                              </Link>
+                            </li>
+ 
+
+
+
+
+
+
+                            
+                           
+                            
+                     
+                           
+                            
+                          </ul>
+                        </div>
+                        <div className="col-sm-4">
+                          <ul>
+                          <li>
+                              <Link href="/logistic-marketplace-software">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_logistic"></i>
+                                </span>
+                                <span>Logistic Marketplace Software</span>
                               </Link>
                             </li>
                             <li>
@@ -319,11 +377,11 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/groupon-clone">
+                              <Link href="/inventory-management-software">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_groupon"></i>
+                                  <i className="menu_icon_all icon_online_test_app"></i>
                                 </span>
-                                <span>Groupon Clone</span>
+                                <span>Inventory Management</span>
                               </Link>
                             </li>
                             <li>
@@ -342,10 +400,14 @@ const Navbar = () => {
                                 <span>Freelancer Clone</span>
                               </Link>
                             </li>
-                          </ul>
-                        </div>
-                        <div className="col-sm-4">
-                          <ul>
+                            <li>
+                              <Link href="/crowdfunding-script">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_crowd_funding"></i>
+                                </span>
+                                <span>Crowdfunding Script</span>
+                              </Link>
+                            </li>
                             <li>
                               <Link href="/equipment-rental-software">
                                 <span className="hover_btn_menu ">
@@ -354,7 +416,14 @@ const Navbar = () => {
                                 <span>Equipment Rental System</span>
                               </Link>
                             </li>
-                            <li>
+
+
+
+                          </ul>
+                        </div>
+                        <div className="col-sm-4">
+                          <ul>
+                          <li>
                               <Link href="/classified-ads-script">
                                 <span className="hover_btn_menu ">
                                   <i className="menu_icon_all icon_classfied"></i>
@@ -363,55 +432,11 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/logistic-marketplace-software">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_logistic"></i>
-                                </span>
-                                <span>Logistic Marketplace Software</span>
-                              </Link>
-                            </li>
-                            <li>
                               <Link href="/marketplace-software-solution">
                                 <span className="hover_btn_menu ">
                                   <i className="menu_icon_all icon_service_provider_system"></i>
                                 </span>
                                 <span>Marketplace Software Solution</span>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/inventory-management-software">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_online_test_app"></i>
-                                </span>
-                                <span>Inventory Management</span>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/recruitment-management-software">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all rms_clone"></i>
-                                </span>
-                                <span>Recruitment Management</span>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/business-directory-system">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_business_directorysystem"></i>
-                                </span>
-                                <span>Business Directory Software</span>
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="col-sm-4">
-                          <ul>
-                            <li>
-                              <Link href="/event-booking-software">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_event_booking"></i>
-                                </span>
-                                <span>Event Booking Software</span>
                               </Link>
                             </li>
                             <li>
@@ -471,6 +496,13 @@ const Navbar = () => {
                               </Link>
                             </li>
 
+
+
+                            
+                           
+                            
+                           
+
                             <li className="ad-footer-view-all">
                               <Link
                                 href="/softwares"
@@ -517,30 +549,27 @@ const Navbar = () => {
                               </Link>
                             </span>
                             <li>
-                              <Link href="/php-development">
+                              <Link href="/django-development">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_php_programing"></i>{" "}
+                                  <i className="menu_icon_all icon_django_programing"></i>{" "}
                                 </span>
-                                <span>PHP Development Company</span>
+                                <span>Django Development</span>
                               </Link>
                             </li>
                             <li>
-                              <Link href="/cakephp-development" className="">
+                              <Link href="/artificial-intelligence">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_cakephp"></i>{" "}
+                                  <i className="menu_icon_all icon_artificial_programing"></i>{" "}
                                 </span>
-                                <span>CakePHP Development</span>
+                                <span>Artificial Intelligence</span>
                               </Link>
                             </li>
                             <li>
-                              <Link
-                                href="/codeigniter-development"
-                                className=""
-                              >
+                              <Link href="/robotic-process-automation-services">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_codeigniter_frm"></i>{" "}
+                                  <i className="menu_icon_all icon_robotic_process"></i>{" "}
                                 </span>
-                                <span>Codeigniter Development</span>
+                                <span>Robotic Process Automation</span>
                               </Link>
                             </li>
                             <li>
@@ -567,6 +596,12 @@ const Navbar = () => {
                                 <span>eCommerce Website Package</span>
                               </Link>
                             </li>
+
+
+
+                           
+                            
+                            
                           </ul>
                         </div>
                         <div className="col-sm-4">
@@ -602,11 +637,11 @@ const Navbar = () => {
                               </Link>
                             </span>
                             <li>
-                              <Link href="/website-design" className="">
+                              <Link href="/reactjs-development" className="">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_web"></i>
+                                  <i className="menu_icon_all icon_react_development"></i>
                                 </span>
-                                <span>Web Design</span>
+                                <span>React JS Development</span>
                               </Link>
                             </li>
                             <li>
@@ -640,11 +675,11 @@ const Navbar = () => {
                               </Link>
                             </span>
                             <li>
-                              <Link href="/software-development" className="">
+                              <Link href="/blockchain-development" className="">
                                 <span className="hover_btn_menu icon_software-development">
-                                  <i className="menu_icon_all icon_software-development"></i>
+                                  <i className="menu_icon_all icon_blockchain_development"></i>
                                 </span>
-                                <span>Software Development</span>
+                                <span>Blockchain Development</span>
                               </Link>
                             </li>
                             <li>
@@ -690,6 +725,13 @@ const Navbar = () => {
                                 <span>Placement Launch Pad</span>
                               </Link>
                             </li>
+
+
+
+                            
+                            
+                            
+                            
                             <li class="ad-footer-view-all mobile-show">
                               <Link href="/services" class="btn btn-primary">
                                 View All Services
