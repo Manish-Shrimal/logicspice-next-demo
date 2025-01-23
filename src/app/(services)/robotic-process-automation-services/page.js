@@ -90,7 +90,7 @@ const Page = () => {
                     complex workflows. As a leading RPA services company, we
                     provide comprehensive RPA development services to equip your
                     business with intelligent bots, automated systems, and
-                    innovative strategies. Our tailored RPA solutions help you
+                    innovative strategies. Our customized  RPA solutions help you
                     identify automation opportunities, reduce human error, and
                     lower operational costs. From accelerating routine tasks to
                     managing end-to-end business processes, our robotic process
@@ -167,8 +167,7 @@ const Page = () => {
                     </Link>{" "}
                     (AI) are two distinct technologies with different functions,
                     but both are critical for streamlining business operations.
-                    RPA is used by RPA software companies to automate
-                    repetitive, rule-based tasks across systems by mimicking
+                    RPA software companies automate repetitive, rule-based tasks across systems by mimicking
                     human actions, such as clicking buttons, entering data, and
                     extracting information. RPA software excels at handling
                     structured data, like spreadsheets and forms, making it
@@ -219,7 +218,7 @@ const Page = () => {
               productivity. At Logicspice, we offer expert RPA services designed
               to streamline your business processes. Our team works closely with
               you to identify the best automation opportunities and implement
-              custom RPA solutions tailored to your needs. We provide{" "}
+              custom RPA solutions that match  your needs. We provide{" "}
               <Link href="/">custom software development services</Link> ,
               ensuring your automation tools are fully compatible with your
               existing systems while maximizing efficiency.
@@ -384,14 +383,8 @@ const Page = () => {
                     </div>
                     <h3>RPA Development</h3>
                     <p>
-                      We specialize in RPA development services that create
-                      intelligent applications tailored to your business needs.
-                      Using leading RPA tools like UiPath, Microsoft Power
-                      Automate, and others, we design and deploy automation
-                      pipelines that improve efficiency and reduce manual tasks.
-                      Our custom software development ensures your organization
-                      benefits from scalable and optimized solutions that are
-                      easy to implement and maintain.
+                    We specialize in RPA development services that create intelligent applications tailored to your business needs, we design and deploy automation pipelines that improve efficiency and reduce manual tasks. Our custom software development ensures your organization benefits from scalable and optimized solutions that are easy to implement and maintain.
+
                     </p>
                   </div>
                 </div>
@@ -548,12 +541,8 @@ const Page = () => {
                     <div className="laravel_choose_details">
                       <h3>Automate Routine Tasks</h3>
                       <p>
-                        Robotic Process Automation allows you to automate both
-                        back-office and front-office tasks across various
-                        departments like customer support, accounting,
-                        procurement, and scheduling. With RPA solutions, your
-                        business can run efficiently 24/7 without human
-                        intervention.
+                      Robotic Process Automation allows you to automate both back-office and front-office tasks across various departments like customer support, accounting, procurement, and scheduling. With RPA solutions, your business can run efficiently 24/7 without or least human intervention.
+
                       </p>
                     </div>
                   </div>
@@ -668,7 +657,7 @@ const Page = () => {
                     <div className="laravel_choose_details">
                       <h3>Enhance Customer Experience</h3>
                       <p>
-                        RPA bots provide faster, more efficient responses to
+                      RPA provides faster, more efficient responses to
                         customers, ensuring a smooth and positive experience.
                         Whether it&apos;s faster issue resolution or quicker
                         onboarding, RPA enhances your customer service, leading
@@ -821,7 +810,7 @@ const Page = () => {
                       />
                     </div>
                     <div className="laravel_choose_details">
-                      <h3>Tailored RPA Solutions </h3>
+                      <h3>Customized RPA Solutions </h3>
                       <p>
                         We provide customized RPA services to match your unique
                         business needs, ensuring that the automation solutions
@@ -980,14 +969,11 @@ const Page = () => {
                       </MDBAccordionItem>
 
                       <MDBAccordionItem
-                        headerTitle="What is the best RPA software for my company?"
+                        headerTitle="How long does it take to implement RPA?"
                         collapseId="flush-collapse3"
                       >
                         <p>
-                          Some of the best RPA software options are UiPath,
-                          Automation Anywhere, and Blue Prism. These tools are
-                          easy to use and can help automate tasks across
-                          different systems and applications.
+                        The implementation timeline depends on the complexity of the processes and the number of bots required. Simple processes may take a few weeks, while more complex implementations could take months.
                         </p>
                       </MDBAccordionItem>
 

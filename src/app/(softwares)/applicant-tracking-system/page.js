@@ -411,14 +411,15 @@ const Page = () => {
                 <div className="service-market-ttd-new JobBoardServiceMarketFeatures">
                   <ul>
                     <li>Centralized Candidate Management</li>
-                    <li>Smart Resume Filtering</li>
+                    <li>Smart Search Filters</li>
                     <li>Automated Candidate Communication</li>
-                    <li>Multi-Platform Job Posting</li>
+                    <li>Manage Candidate Database</li>
                     <li>User-Friendly Dashboard</li>
-                    <li>Real-Time Analytics and Reporting</li>
+                    <li>Real-Time Interview Process</li>
                     <li>Customizable Hiring Workflows</li>
                     <li>Mobile-Friendly Access</li>
-                    <li>SEO Friendly</li>
+                    <li>SEO Friendly Environment
+                    </li>
                     {/* <li>Reporting and Analytics</li>
                     <li>SEO-Friendly Environment</li>
                     <li>Multi-Location Access</li> */}
@@ -493,7 +494,7 @@ const Page = () => {
                     className={`admin_app_job ddlj ${adminTab ? "active" : ""}`}
                     onClick={() => handleAdminTab()}
                   >
-                    <a>Admin Panel</a>
+                    <a>Employer Panel</a>
                   </li>
                 </ul>
               </div>
@@ -579,9 +580,7 @@ const Page = () => {
                                   Easy Application Process
                                   <div className="product-idea">
                                     <p>
-                                      Candidates can apply to job openings in
-                                      just a few clicks, attaching resumes and
-                                      cover letters directly from their profile.
+                                    Applicants submit their applications in just a few clicks, with the option to easily upload their resumes or other required documents directly within the portal.
                                     </p>
                                   </div>
                                 </span>
@@ -664,13 +663,10 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Feedback and Notifications
+                                Email Notifications
                                   <div className="product-idea">
                                     <p>
-                                      Receive automatic updates about
-                                      application status, interview scheduling,
-                                      and feedback through email or SMS
-                                      notifications.
+                                    Receive automatic updates about application status, interview scheduling, and feedback through email notifications.
                                     </p>
                                   </div>
                                 </span>
@@ -715,9 +711,7 @@ const Page = () => {
                                   Manage Candidate Profiles
                                   <div className="product-idea">
                                     <p>
-                                      View and manage detailed candidate
-                                      profiles with ease, including resumes,
-                                      cover letters, and application history.
+                                    View and manage detailed candidate profiles with ease, including resumes and application history.
                                     </p>
                                   </div>
                                 </span>
@@ -850,10 +844,7 @@ const Page = () => {
                                   Customizable Workflows
                                   <div className="product-idea">
                                     <p>
-                                      Tailor the recruitment workflow to fit
-                                      your business needs, from initial
-                                      screening to final offer, ensuring
-                                      consistency in every hiring process.
+                                    Customize the recruitment workflow to fit your business needs, from initial screening to final offer, ensuring consistency in every hiring process.
                                     </p>
                                   </div>
                                 </span>
@@ -1010,11 +1001,7 @@ const Page = () => {
                                   Advanced Reporting & Analytics
                                   <div className="product-idea">
                                     <p>
-                                      Access detailed analytics on recruitment
-                                      efforts, such as time-to-hire,
-                                      cost-per-hire, and applicant drop-off
-                                      rates, to make data-driven hiring
-                                      decisions.
+                                    Access detailed insights into your recruitment process, including time-to-hire, candidate history, and communication records. Use this data to make smarter, more informed hiring decisions.
                                     </p>
                                   </div>
                                 </span>
@@ -1157,27 +1144,18 @@ const Page = () => {
                 A Better Experience for Recruiters and Candidates
               </h3>
               <p>
-                Recruiters can take full advantage of our applicant tracking
-                software for recruiters, which offers tools for posting jobs,
-                reviewing applications, and managing candidates with ease.
-                Automatic resume sorting, smart filters, and communication tools
-                ensure you focus on the most qualified candidates. For
-                candidates, the system provides a seamless way to apply for
-                jobs, upload resumes, and track their application status. They
-                can save job postings for later, share opportunities via email
-                or social media, and receive timely updates about their
-                applications.
+              Recruiters can take full advantage of our applicant tracking software, which offers tools for posting jobs, reviewing applications, and managing candidates with ease. Automatic resume sorting, smart filters, and communication tools ensure you focus on the most qualified candidates. 
+
+              </p>
+              <p>
+              For candidates, the system provides a seamless way to apply for jobs, upload resumes, and track their application status. They can save job postings for later, share opportunities via email, and receive timely updates about their applications.
               </p>
               <h3 className="Haeddinh2">
-                Simple and Effective Recruitment for Small Businesses
+              Simple and Effective Recruitment for Small and Mid Size Businesses
               </h3>
               <p>
-                Our applicant tracking software for small business is built with
-                simplicity and efficiency in mind. With the ability to post
-                jobs, sort candidates, and collaborate with your team, you&apos;ll
-                have everything you need to streamline your recruitment efforts.
-                Designed for ease of use, it keeps the process simple and
-                efficient.
+              Our applicant tracking software for small and medium businesses is built with simplicity and efficiency in mind. With the ability to post jobs, sort candidates, and collaborate with your team, you&apos;ll have everything you need to streamline your recruitment efforts. Designed for ease of use, it keeps the process simple and efficient.
+
               </p>
               <h3 className="Haeddinh2">Designed for Global Reach</h3>
               <p>
@@ -2467,10 +2445,7 @@ const Page = () => {
                     <div style={activeIndex === 2 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          Not at all! Our ATS applicant tracking software is
-                          user-friendly and designed for people with no
-                          technical background. You can get started easily, and
-                          our support team is always available to help.
+                        Not at all! Our ATS applicant tracking software is user-friendly and designed for people with no technical background. You can get started easily, and our support team is always available to provide support and help.
                         </p>
                       </div>
                     </div>
