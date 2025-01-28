@@ -140,6 +140,22 @@ const Page = () => {
                   </div>
                 </Link>
               </div>
+
+              <div className="col-md-4 col-sm-4 padding-no">
+                <Link href="/next-js-development-services">
+                  <div className="our-services-bx">
+                    <div className="our-services-img">
+                      <Image
+                        width={66}
+                        height={100}
+                        src="/img/services/serv_4.png"
+                        alt="serv_4"
+                      />
+                    </div>
+                    <h2>Next.js Development Services</h2>
+                  </div>
+                </Link>
+              </div>
               <div className="col-md-4 col-sm-4 padding-no">
                 <Link href="/blockchain-development">
                   <div className="our-services-bx">

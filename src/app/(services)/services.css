@@ -9716,3 +9716,22 @@ section.yellow_slider .btn_align .btn_same {
   background-size: cover;
   direction: rtl;
 }
+
+
+
+
+.nextjs_developement .laravel-descriptions-bx p a{
+  text-decoration: none!important;
+}
+
+.nextjs_developement .laravel-banner-txt h6{
+  /* text-shadow: 0 0 10px rgb(36, 149, 254); */
+
+  font-weight: 600!important;
+ 
+}
+
+.nextjs_developement .page_img{
+  float: right!important;
+  margin-top: 20px!important;
+}
