@@ -7,7 +7,7 @@ const Page = () => {
       <Navbar />
       <iframe
         // src="http://localhost:3001/home/22"
-        src="https://rms-next.logicspice.com/home/25"
+        src="https://rms-next.logicspice.com/home/26"
         id="myIframe"
         style={{
           position: "fixed",
