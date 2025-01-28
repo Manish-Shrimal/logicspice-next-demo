@@ -148,7 +148,7 @@ const Page = () => {
                       <Image
                         width={66}
                         height={100}
-                        src="/img/services/serv_4.png"
+                        src="/img/services/nextjs-srevice-icon.png"
                         alt="serv_4"
                       />
                     </div>
