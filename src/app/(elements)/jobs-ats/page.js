@@ -10,7 +10,7 @@ const Page = () => {
         src="https://rms-next.logicspice.com/home/26"
         id="myIframe"
         style={{
-          position: "fixed",
+          // position: "fixed",
           width: "100%",
           height: "600px",
           zIndex: "1000",
