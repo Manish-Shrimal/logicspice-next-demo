@@ -11,6 +11,7 @@ const Page = () => {
         id="myIframe"
         style={{
           // position: "fixed",
+          marginTop: "100px",
           width: "100%",
           height: "600px",
           zIndex: "1000",
