@@ -1,3 +1,4 @@
+import Footer from "@/app/Components/Footer";
 import Navbar from "@/app/Components/Navbar";
 import React from "react";
 
@@ -13,13 +14,14 @@ const Page = () => {
           // position: "fixed",
           marginTop: "100px",
           width: "100%",
-          height: "600px",
+          height: "800px",
           zIndex: "1000",
           border: "none",
           right: "0",
           bottom: "0",
         }}
       ></iframe>
+      <Footer />
     </>
   );
 };

@@ -136,7 +136,7 @@ const Page = () => {
                         alt="Generative AI development"
                       />
                     </div>
-                    <h2>Robotic Process Automation (RPA)</h2>
+                    <h2>Robotic Process Automation</h2>
                   </div>
                 </Link>
               </div>
@@ -146,7 +146,7 @@ const Page = () => {
                   <div className="our-services-bx">
                     <div className="our-services-img">
                       <Image
-                        width={66}
+                        width={125}
                         height={100}
                         src="/img/services/nextjs-srevice-icon.png"
                         alt="serv_4"
