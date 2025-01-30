@@ -2217,7 +2217,7 @@ const Page = () => {
                     <div style={activeIndex === 1 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                        Customers can book a wash in just a few clicks using our car cleaning app. They can pick a wash package, choose a time, pay online, and even track the progress of their service—all from their phone. It's quick and super convenient!
+                        Customers can book a wash in just a few clicks using our car cleaning app. They can pick a wash package, choose a time, pay online, and even track the progress of their service—all from their phone. It&apos;s quick and super convenient!
 
                         </p>
                       </div>
