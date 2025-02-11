@@ -311,13 +311,15 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/recruitment-management-software">
+                              <Link href="/equipment-rental-software">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all rms_clone"></i>
+                                  <i className="menu_icon_all icon_machinerental"></i>
                                 </span>
-                                <span>Recruitment Management</span>
+                                <span>Equipment Rental System</span>
                               </Link>
                             </li>
+
+
                             <li>
                               <Link href="/doctor-appointment-scheduling-software">
                                 <span className="hover_btn_menu ">
@@ -369,11 +371,27 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link href="/wordpress-ecommerce-website">
+                              <Link href="/real-estate-script">
                                 <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all wordpress_ecommerce_icon"></i>
+                                  <i className="menu_icon_all icon_real_estate"></i>
                                 </span>
-                                <span>Wordpress eCommerce</span>
+                                <span>Real Estate Software</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/classified-ads-script">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_classfied"></i>
+                                </span>
+                                <span>Classified Ads Software</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link href="/event-booking-software">
+                                <span className="hover_btn_menu ">
+                                  <i className="menu_icon_all icon_event_booking"></i>
+                                </span>
+                                <span>Event Booking Software</span>
                               </Link>
                             </li>
                             <li>
@@ -382,14 +400,6 @@ const Navbar = () => {
                                   <i className="menu_icon_all icon_online_test_app"></i>
                                 </span>
                                 <span>Inventory Management</span>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/udemy-clone">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all udemy-clone-icon"></i>
-                                </span>
-                                <span> Udemy Clone Script</span>
                               </Link>
                             </li>
                             <li>
@@ -408,14 +418,6 @@ const Navbar = () => {
                                 <span>Crowdfunding Script</span>
                               </Link>
                             </li>
-                            <li>
-                              <Link href="/equipment-rental-software">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_machinerental"></i>
-                                </span>
-                                <span>Equipment Rental System</span>
-                              </Link>
-                            </li>
 
 
 
@@ -423,14 +425,7 @@ const Navbar = () => {
                         </div>
                         <div className="col-sm-4">
                           <ul>
-                          <li>
-                              <Link href="/classified-ads-script">
-                                <span className="hover_btn_menu ">
-                                  <i className="menu_icon_all icon_classfied"></i>
-                                </span>
-                                <span>Classified Ads Software</span>
-                              </Link>
-                            </li>
+                          
                             <li>
                               <Link href="/marketplace-software-solution">
                                 <span className="hover_btn_menu ">
@@ -613,11 +608,11 @@ const Navbar = () => {
                               </Link>
                             </span>
                             <li>
-                              <Link href="/ios-app-development">
+                              <Link href="/react-native-app-development">
                                 <span className="hover_btn_menu icon_iphone_application">
-                                  <i className="menu_icon_all icon_iphone_application"></i>{" "}
+                                  <i className="menu_icon_all icon_reactnative_development"></i>{" "}
                                 </span>
-                                <span>iPhone App Development</span>
+                                <span>ReactNative App Development</span>
                               </Link>
                             </li>
                             <li>

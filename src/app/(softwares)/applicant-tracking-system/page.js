@@ -223,7 +223,7 @@ const Page = () => {
 
                     <a
                       className=" fiverr-buys NewGreenBtnJob text-center"
-                      href="/buy-now/doctor-appointment-scheduling-software"
+                      href="/buy-now/applicant-tracking-system"
                       id="buy_now_1"
                     >
                       BUY NOW
@@ -1472,217 +1472,7 @@ const Page = () => {
             </div>
           </div>
         </section>
-        {/* <section className="job_portal_area script-update-bg">
-        <div className="container">
-          <div className="job_or_title">
-            <h2 className="taxt_tt_job">Script Update History</h2>
-            <br />
-            <div className="script-update_title">
-              <p>
-                V6.0 - September 19th, 2023 - Latest release brings new
-                features, coupled with significant leaps in technologies!
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    Enjoy a unified modern design on both web and mobile
-                    platforms.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Upgraded to the latest PHP version, switched to the{" "}
-                    <strong>Laravel framework</strong>, and revamped it&apos;s
-                    frontend with <strong>ReactJS</strong>.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Stripe Payment Gateway Integration Updated with latest
-                    version.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Latest optimizations have resulted in noticeable performance
-                    enhancements.
-                  </span>
-                </li>
-              </ul>
-              <p>
-                V5.0 - April 26th, 2023 - New feature added and minor
-                improvements!
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    Employer Membership Plan Feature: We have updated our
-                    membership plan feature, and employers will be able to view
-                    the jobseeker contact details only if they have that
-                    respective membership plan active.
-                  </span>
-                </li>
-                <li>
-                  <span>Optimized job search method.</span>
-                </li>
-                <li>
-                  <span>Minor bug fixes and UI improvements.</span>
-                </li>
-              </ul>
-              <p>
-                V4.0 - June 14th, 2022 - New features added and minor
-                improvements!
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    Job import using XML format:- Admin have the option to
-                    import the jobs in XML format with any third party URL. All
-                    the job records will be imported with selection of each XML
-                    parameter for corresponding values.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Auto assignment of categories:- Job category is
-                    automatically assigned for the best matched keyword while
-                    importing the jobs.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Import Jobseekers :- Employers can now{" "}
-                    <strong>import jobseekers</strong> in bulk through excel
-                    file by using the predefined format.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Announcement marquee :- Admin have ability to manage the
-                    announcements over the website which will show over the
-                    homepage.{" "}
-                  </span>
-                </li>
-              </ul>
-
-              <p>
-                V3.0 – June 29th, 2021 – New features added and design
-                improvements!
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    Search Job provided in the homepage for convenient searching
-                    with a new modern layout and even guest jobseekers can
-                    upload CV from the homepage itself.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Optimized job search with filters like title, skill,
-                    category and popular searches.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Upload video CV option where jobseekers can upload their{" "}
-                    <strong>video CV</strong> and employer can view it in
-                    jobseeker profile.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    A new layout with modern eye catching user interface
-                    components for every section in the web version.
-                  </span>
-                </li>
-              </ul>
-
-              <p>
-                V2.0 – November 03rd, 2020 – New features added and other small
-                improvements!
-              </p>
-              <ul>
-                <li>
-                  <span>Automatic Job Expiry feature.</span>
-                </li>
-                <li>
-                  <span>Membership plans for jobseekers.</span>
-                </li>
-                <li>
-                  <span>Performance improvements.</span>
-                </li>
-                <li>
-                  <span>Minor bug fixes</span>
-                </li>
-              </ul>
-              <p>
-                V1.0 – February 13th, 2020 – Major updates and design
-                improvements!
-              </p>
-              <ul>
-                <li>
-                  <span>
-                    Modern design applied both for web version and apps.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <strong>Stripe</strong> payment gateway was integrated.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    New language as French added in frontend of the script.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Mail notification will send when job is posted, deleted and
-                    modified.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Provided ability to Recruiter to send email to any
-                    jobseeker.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Provided ability to admin to configure paypal with payment
-                    mode.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    New announcement section shown over home page in scrolling
-                    strip bar.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    New section as Professional certification/participation
-                    added in jobseeker profile.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Recruiter &amp; Jobseeker can delete profile by himself with
-                    specific reason.
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    Mail history will show in both Jobseeker &amp; recruiter
-                    panel.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      
 
         <section className="job_portal_area job_portal_area_food">
           <div className="container">
@@ -1692,22 +1482,7 @@ const Page = () => {
               </h2>
               <br />
               <div className="logic-parter">
-                {/* <a
-                className=""
-                aria-controls="jobportal"
-                onClick={toggleJobPortalModal}
-              >
-                <i className="fa fa-cogs" aria-hidden="true"></i>
-                <span>How It Works</span>
-              </a>
-              <a
-                className=""
-                aria-controls="buyjobportal"
-                onClick={toggleBuyJobPortalModal}
-              >
-                <i className="fa fa-building" aria-hidden="true"></i>
-                <span>Companies Using It</span>
-              </a> */}
+               
                 <a onClick={toggleInfo} className="ylogicspice">
                   <i>
                     <Image
@@ -1745,14 +1520,7 @@ const Page = () => {
                 className="img-fluid"
               />
             </Modal.Body>
-            {/* <Modal.Footer>
-                <button
-                  className="btn btn-secondary"
-                  onClick={toggleJobPortalModal}
-                >
-                  Close
-                </button>
-              </Modal.Footer> */}
+          
           </Modal>
 
           <Modal
@@ -1953,14 +1721,7 @@ const Page = () => {
                 </Slider>
               </div>
             </Modal.Body>
-            {/* <Modal.Footer>
-                <button
-                  className="btn btn-secondary"
-                  onClick={toggleBuyJobPortalModal}
-                >
-                  Close
-                </button>
-              </Modal.Footer> */}
+       
           </Modal>
         </div>
         <section className="used_technology_section" id="technologies">

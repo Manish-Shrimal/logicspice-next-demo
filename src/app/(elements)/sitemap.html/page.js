@@ -263,6 +263,12 @@ const Page = () => {
                         </Link>
                       </li>
                       <li>
+                        <Link href="/car-wash-software">
+                          Car Wash Software
+                        </Link>
+                      </li>
+                      
+                      <li>
                         <Link
                           href="/group-chat-internal-communication
 "

@@ -146,7 +146,8 @@ export default function GTMComponent() {
       script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-946594877';
       script.async = true;
       document.head.appendChild(script);
-  
+
+      console.log("Fron gtag")
       const initScript = document.createElement('script');
       initScript.innerHTML = `
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});

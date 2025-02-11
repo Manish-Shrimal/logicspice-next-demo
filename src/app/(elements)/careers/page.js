@@ -148,7 +148,7 @@ const Page = () => {
                     Professional training is the key to acquiring the skills and
                     knowledge necessary for effective problem-solving in your
                     chosen field. Explore the{" "}
-                    <Link href="http://plp.logicspice.com" target="_blank">
+                    <Link href="https://plp.logicspice.com" target="_blank">
                       Placement Launch Pad
                     </Link>{" "}
                     for Training and Placements.

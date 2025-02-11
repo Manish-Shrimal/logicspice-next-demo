@@ -1435,6 +1435,18 @@ bread-top {
 .product-main-menu .hover_btn_menu .menu_icon_all.udemy-clone-icon {
   background: url(/img/header/udemy-icon.png) no-repeat;
 }
+.product-main-menu .hover_btn_menu .menu_icon_all.icon_applicant_tracking {
+  background: url(/img/header/icon_applicant_tracking.png) no-repeat;
+}
+.product-main-menu .hover_btn_menu .menu_icon_all.doctor_appointment_clone {
+  background: url(/img/header/icon_doctor_appointment.png) no-repeat;
+}
+.product-main-menu .hover_btn_menu .menu_icon_all.icon_human_resource {
+  background: url(/img/header/icon_human_resource.png) no-repeat;
+}
+.product-main-menu .hover_btn_menu .menu_icon_all.icon_real_estate {
+  background: url(/img/header/icon_real_estate.png) no-repeat;
+}
 
 .product-main-menu .hover_btn_menu .menu_icon_all.icon_product_review {
   background-position: -50px -117px;
@@ -1595,6 +1607,27 @@ bread-top {
   background: url(/img/header/placement-launch-icon.png) no-repeat;
 }
 
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_django_programing {
+  background: url(/img/header/icon_django_programing.png) no-repeat;
+}
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_artificial_programing {
+  background: url(/img/header/icon_artificial_programing.png) no-repeat;
+}
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_robotic_process {
+  background: url(/img/header/icon_robotic_process.png) no-repeat;
+}
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_blockchain_development {
+  background: url(/img/header/icon_blockchain.png) no-repeat;
+}
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_reactnative_development {
+  background: url(/img/header/icon_reactnative.png) no-repeat;
+}
+
+
+.service-main-menu .hover_btn_menu .menu_icon_all.icon_react_development {
+  background: url(/img/header/icon_react_development.png) no-repeat;
+}
+.serv-div_new .padding-no:nth-child(3)
 .hire-main-menu .hover_btn_menu .menu_icon_all {
   left: 50%;
   position: absolute;

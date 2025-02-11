@@ -89,12 +89,20 @@ const Testimonials = ({ testimonialData }) => {
   };
 
   // Utility function to decode HTML entities
+  // const decodeHtmlEntities = (str) => {
+  //   const tempElement = document.createElement("div");
+  //   tempElement.innerHTML = str;
+  //   return tempElement.textContent || tempElement.innerText;
+  // };
   const decodeHtmlEntities = (str) => {
+    if (typeof window === "undefined") {
+      return str; // Return as-is if running on the server
+    }
     const tempElement = document.createElement("div");
     tempElement.innerHTML = str;
     return tempElement.textContent || tempElement.innerText;
   };
-
+    
   return (
     <div className="slider-container">
       <Slider {...settings}>

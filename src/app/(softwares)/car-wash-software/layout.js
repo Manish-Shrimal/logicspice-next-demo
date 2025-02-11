@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // Fetch data
-  const product = await fetch(`${MetadataApi}/applicant-tracking-system`,{
+  const product = await fetch(`${MetadataApi}/car-wash-software`,{
     cache: "no-store",
   }).then((res) =>
     res.json()
@@ -28,8 +28,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
       .replace(/[\u0000-\u001F\u007F]/g, '');  // Remove control characters
 
 
-      schemaOrg = cleanedText ;
-
+      // schemaOrg = cleanedText ;
+      schemaOrg = cleanedText && JSON.parse(cleanedText);
   }
 
   // Return metadata
@@ -39,7 +39,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     keywords: product.data.meta_keyword,
     // Add other meta tags as needed
     alternates: {
-      canonical: `${Domain}/applicant-tracking-system`,
+      canonical: `${Domain}/car-wash-software`,
     },
     robots: {
       index: true,

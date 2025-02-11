@@ -2078,7 +2078,7 @@ const Page = () => {
                           style={{ width: "100%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">382</div>
+                      <div className="people_star_num">173</div>
                     </div>
 
                     <div className="review_rating_fjs">
@@ -2095,7 +2095,7 @@ const Page = () => {
                           style={{ width: "30%" }}
                         ></div>
                       </div>
-                      <div className="people_star_num">12</div>
+                      <div className="people_star_num">19</div>
                     </div>
 
                     <div className="review_rating_fjs">

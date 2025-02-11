@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // Fetch data
-  const product = await fetch(`${MetadataApi}/responsive-web-design`,{
+  const product = await fetch(`${MetadataApi}/robotic-process-automation-services`,{
     cache: "no-store",
   }).then((res) =>
     res.json()
@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     keywords: product.data.meta_keyword,
     // Add other meta tags as needed
     alternates: {
-      canonical: `${Domain}/responsive-web-design`,
+      canonical: `${Domain}/robotic-process-automation-services`,
     },
     robots: {
       index: true,

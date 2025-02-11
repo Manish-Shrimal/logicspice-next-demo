@@ -6,29 +6,88 @@ import Navbar from "@/app/Components/Navbar";
 import axios from "axios";
 import "@/app/(blog)/blog.css";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
+import Image from "next/image";
+import Link from "next/link";
+import parse from "html-react-parser";
+import Swal from "sweetalert2";
 const Page = () => {
-  console.log("Blog-Page");
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [recaptcha1, setrecaptcha1] = useState("");
   const [blogData, setBlogData] = useState([]);
-  const handleSubscribe = (event) => {
-    const emailInput = document.getElementById("subscribe-email");
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 15;
+  const [categoryList, setCategoryList] = useState([]);
+  const [recentPostsList, setRecentPostsList] = useState([]);
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
+  const [subscribeEmail, setSubscribeEmail] = useState();
+  const handlePageChange = (pageNumber) => {
+    window.scrollTo(0, 0);
+    setCurrentPage(pageNumber);
+  };
 
-    if (!emailInput.value.trim()) {
-      emailInput.setCustomValidity("Please enter a valid email address.");
-    } else {
-      emailInput.setCustomValidity("");
-    }
+  const handleSubscribe = async() => {
+    const emailInput = document.getElementById("subscribe-email");
+    const emailPattern = /\S+@\S+\.\S+/;
     if (!isCaptchaValid) {
       setrecaptcha1("Please check this");
       return;
     }
+    else if (!emailPattern.test(emailInput.value)) {
+      emailInput.setCustomValidity("Please enter a valid email address.");
+      Swal.fire({
+        icon: "error",
+        title: "Subscription Failed",
+        text: "Please enter a valid email address.",
+      });
+      return;
+    } else {
+      
+      emailInput.setCustomValidity("");
+      try {
+        const response = await axios.post(
+          "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
+          {
+            email_address: subscribeEmail,
+          }
+        );
+    
+        // If subscription is successful
+        if (response.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "Subscription Successful",
+            text: "You have been successfully subscribed.",
+          });
+        } else {
+          // Handle other response statuses if needed
+          Swal.fire({
+            icon: "error",
+            title: "Something went wrong",
+            text: "Please try again later.",
+          });
+        }
+        setSubscribeEmail("");
+      } catch (error) {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Subscription Failed",
+          text: "An error occurred while subscribing. Please try again later.",
+        });
+      }
+    }
+    
   };
 
   const handleInputChange = (event) => {
     const emailInput = event.target;
-
+    setSubscribeEmail(emailInput.value);
     if (emailInput.value.trim()) {
       emailInput.setCustomValidity("");
     } else {
@@ -54,8 +113,11 @@ const Page = () => {
       const response = await axios.get(
         "https://lswebsitedemo.logicspice.com/logicspice/api/blog/listing"
       );
-      setBlogData(response.data.response);
-      console.log(response.data.response, "Blog Data");
+      setBlogData(response.data.response.blogData);
+      setFilteredBlogs(response.data.response.blogData);
+      setCategoryList(response.data.response.categoryList);
+      setRecentPostsList(response.data.response.recentBlogs);
+      // console.log(response.data.response, "Blog Data");
     } catch (error) {
       console.error(error);
     }
@@ -65,10 +127,27 @@ const Page = () => {
     getData();
   }, []);
 
+  const handleSearchChange = (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearchText(value);
 
-  const handleSearchChange = (e) =>{
+    const filtered = blogData.filter((blog) => {
+      const searchFields = [
+        blog.subject,
+        blog.meta_title,
+        blog.meta_keyword,
+        blog.blog_description,
+        blog.tags,
+      ];
 
-  }
+      return searchFields.some((field) =>
+        field ? field.toLowerCase().includes(value) : false
+      );
+    });
+
+    setFilteredBlogs(filtered);
+    setCurrentPage(1);
+  };
 
   return (
     <>
@@ -87,71 +166,18 @@ const Page = () => {
 
         <div className="container">
           <div className="main-blog-container">
-            {/* <div className="blog-container">
-              {blogData.length > 0 ? (
-                blogData.map((blog,i) => (
-                <div className="blog-box" key={blog.id}>
-                  <h1 className="blog-title">
-                    <a
-                      href="https://blog.logicspice.com/how-online-booking-software-can-boost-customer-retention"
-                      className="light_blue"
-                      title="How Online Booking Software Can Boost Customer Retention?"
-                    >
-                      {blog.meta_title}
-                    </a>
-                  </h1>
-                  <p className="blog-date">
-                    Dec 05, 2024 /
-                    <a
-                      className="text-[#337ab7]"
-                      href="https://blog.logicspice.com/category/booking-software"
-                    >
-                      Booking software
-                    </a>
-                  </p>
-                  <span className="blog-link">
-                    <a href="https://blog.logicspice.com/tag/online-booking-software">
-                      Online Booking Software,{" "}
-                    </a>
-                    <a href="https://blog.logicspice.com/tag/online-booking-software-for-small-business">
-                      Online Booking Software For Small Business,{" "}
-                    </a>
-                    <a href="https://blog.logicspice.com/tag/best-online-booking-software">
-                      Best Online Booking Software,{" "}
-                    </a>
-                    <a href="https://blog.logicspice.com/tag/booking-apps">
-                      Booking Apps,{" "}
-                    </a>
-                    <a href="https://blog.logicspice.com/tag/best-appointment-scheduling-app">
-                      Best Appointment Scheduling App
-                    </a>
-                  </span>
-                  <img className="blog-image" src="" alt="Blog" />
-                  <p className="blog-text">
-                    Customer retention doesn’t start when they walk into your
-                    store—it starts when they book their first appointment.
-                    Here’s why online booking software is the best way to make a
-                    lasting
-                  </p>
-                  <button className="blog-button">READ MORE</button>
-                </div>
-                ))
-              ) : (
-                <div>No Blogs Available At The Moment...</div>
-              )}
-            </div> */}
             <div className="blog-container">
-              {blogData.length > 0 ? (
-                blogData.map((blog, i) => (
+              {currentBlogs.length > 0 ? (
+                currentBlogs.map((blog, i) => (
                   <div className="blog-box" key={blog.id}>
                     <h1 className="blog-title">
-                      <a
-                        href={`/${blog.slug}`}
+                      <Link
+                        href={`/blog/${blog.slug}`}
                         className="light_blue"
-                        title={blog.meta_title}
+                        title={blog.subject}
                       >
-                        {blog.meta_title || "Untitled Blog"}
-                      </a>
+                        {blog.subject || "Untitled Blog"}
+                      </Link>
                     </h1>
                     <p className="blog-date">
                       {new Date(blog.created_at).toLocaleDateString("en-US", {
@@ -160,34 +186,33 @@ const Page = () => {
                         year: "numeric",
                       })}{" "}
                       /
-                      <a
-                        className="text-[#337ab7]"
-                        href={`/category/${blog.category_id}`}
-                      >
+                      <span>
                         {blog.category_names &&
                           blog.category_names
                             .split(",")
                             .map((category_names, index) => (
-                              <a
-                                key={index}
-                                href={`/${category_names
-                                  .trim()
-                                  .replace(/\s+/g, "-")}`}
-                              >
-                                {blog.category_names.trim()}
+                              <React.Fragment key={index}>
+                                <Link
+                                  className="text-[#337ab7]"
+                                  href={`/category/${category_names
+                                    .trim()
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-")}`}
+                                >
+                                  {category_names.trim()}
+                                </Link>
                                 {index <
-                                blog.category_names.split(",").length - 1
-                                  ? ", "
-                                  : ""}
-                              </a>
+                                  blog.category_names.split(",").length - 1 &&
+                                  ", "}
+                              </React.Fragment>
                             ))}
-                      </a>
+                      </span>
                     </p>
 
                     <span className="blog-link">
                       {blog.tags &&
                         blog.tags.split(",").map((tag, index) => (
-                          <a
+                          <Link
                             key={index}
                             href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
                           >
@@ -195,24 +220,76 @@ const Page = () => {
                             {index < blog.tags.split(",").length - 1
                               ? ", "
                               : ""}
-                          </a>
+                          </Link>
                         ))}
                     </span>
 
-                    <img className="blog-image" src={blog.image} alt="Blog" />
+                    {blog.image !== "" ? (
+                      <Image
+                        width={400}
+                        height={100}
+                        className="blog-image"
+                        src={blog.image}
+                        alt="Blog"
+                      />
+                    ) : (
+                      <Image
+                        width={400}
+                        height={100}
+                        className="blog-image"
+                        unoptimized={true}
+                        src="/img/blog/dummy-blog-post.jpg"
+                        alt="Blog"
+                      />
+                    )}
 
                     <p className="blog-text">
-                      {blog.blog_description.length > 150
-                        ? blog.blog_description.slice(0, 150) + "..."
-                        : blog.blog_description}
+                      {parse(
+                        blog.blog_description.length > 200
+                          ? blog.blog_description.slice(0, 200) + "..."
+                          : blog.blog_description
+                      )}
                     </p>
 
-                    <button className="blog-button">READ MORE</button>
+                    <Link href={`/blog/${blog.slug}`} className="blog-button">
+                      READ MORE
+                    </Link>
                   </div>
                 ))
               ) : (
                 <div className="text-indigo-500 text-xl font-semibold">
                   No Blogs Available At The Moment...
+                </div>
+              )}
+              {filteredBlogs.length > 0 && (
+                <div className="pagination-container">
+                  <button
+                    className="pagination-button"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </button>
+                  <div className="pagination-numbers">
+                    {[...Array(totalPages)].map((_, index) => (
+                      <button
+                        key={index}
+                        className={`pagination-button ${
+                          currentPage === index + 1 ? "active" : ""
+                        }`}
+                        onClick={() => handlePageChange(index + 1)}
+                      >
+                        {index + 1}
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    className="pagination-button"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </button>
                 </div>
               )}
             </div>
@@ -224,14 +301,14 @@ const Page = () => {
                   id="searchtext"
                   className="search-input"
                   type="text"
+                  value={searchText}
                   onChange={handleSearchChange}
                   placeholder="Search by title, description or tag"
                 />
                 <button className="search-icon">
-                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <i className="fa fa-search" aria-hidden="true"></i>
                 </button>
               </div>
-
               <div>
                 <div className="blog-cost-calculator">
                   <div className="cost-content">
@@ -252,38 +329,18 @@ const Page = () => {
                 <h4 className="category-title">Categories</h4>
 
                 <ul className="category-list-ul">
-                  <li className="category-list-li">
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>{" "}
-                    <a href="https://blog.logicspice.com">All</a>
-                  </li>
-
-                  <li className="category-list-li">
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>{" "}
-                    <a href="https://blog.logicspice.com/category/android-application">
-                      Android Application
-                    </a>
-                  </li>
-
-                  <li className="category-list-li">
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>{" "}
-                    <a href="https://blog.logicspice.com/category/angularjs-development">
-                      AngularJS Development
-                    </a>
-                  </li>
-
-                  <li className="category-list-li">
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>{" "}
-                    <a href="https://blog.logicspice.com/category/artificial-intelligence">
-                      Artificial intelligence
-                    </a>
-                  </li>
-
-                  <li className="category-list-li">
-                    <i className="fa fa-chevron-right" aria-hidden="true"></i>{" "}
-                    <a href="https://blog.logicspice.com/category/best-online-booking-software">
-                      Best Online Booking Software
-                    </a>
-                  </li>
+                  {categoryList.length > 0 &&
+                    categoryList.map((category, index) => (
+                      <li className="category-list-li" key={category.id}>
+                        <i
+                          className="fa fa-chevron-right"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <Link href={`/category/${category.slug}`}>
+                          {category.name}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </aside>
 
@@ -321,73 +378,24 @@ const Page = () => {
               <aside className="category-box">
                 <h4 className="recent-post-title">Recent Posts</h4>
                 <ul className="recent-posts-blog-ul">
-                  <li className="recent-posts-blog-li flex gap-2">
-                    <i
-                      className="fa fa-chevron-right mt-1.5"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    <a
-                      href="https://blog.logicspice.com/how-online-booking-software-can-boost-customer-retention"
-                      title="How Online Booking Software Can Boost Customer Retention?"
-                    >
-                      How Online Booking Software Can Boost Customer Retention?
-                    </a>
-                  </li>
-
-                  <li className="recent-posts-blog-li flex gap-2">
-                    <i
-                      className="fa fa-chevron-right mt-1.5"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    <a
-                      href="https://blog.logicspice.com/the-future-of-blockchain-top-trends-shaping-the-industry-in-2024"
-                      title="The Future of Blockchain: Top Trends Shaping the Industry in 2024"
-                    >
-                      The Future of Blockchain: Top Trends Shaping the Industry
-                      in 2024
-                    </a>
-                  </li>
-
-                  <li className="recent-posts-blog-li flex gap-2">
-                    <i
-                      className="fa fa-chevron-right mt-1.5"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    <a
-                      href="https://blog.logicspice.com/guest-posting-strategies-for-tech-enthusiasts-tips-and-tricks"
-                      title="Guest Posting Strategies for Tech Enthusiasts: Tips and Tricks"
-                    >
-                      Guest Posting Strategies for Tech Enthusiasts: Tips and
-                      Tricks
-                    </a>
-                  </li>
-
-                  <li className="recent-posts-blog-li flex gap-2">
-                    <i
-                      className="fa fa-chevron-right mt-1.5"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    <a
-                      href="https://blog.logicspice.com/the-future-of-php-development-trends-to-watch-in-2024"
-                      title="The Future of PHP Development: Trends to Watch in 2024"
-                    >
-                      The Future of PHP Development: Trends to Watch in 2024
-                    </a>
-                  </li>
-
-                  <li className="recent-posts-blog-li flex gap-2">
-                    <i
-                      className="fa fa-chevron-right mt-1.5"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    <a
-                      href="https://blog.logicspice.com/the-impact-of-ai-on-mobile-app-development-trends-and-innovations"
-                      title="The Impact of AI on Mobile App Development Trends and Innovations"
-                    >
-                      The Impact of AI on Mobile App Development Trends and
-                      Innovations
-                    </a>
-                  </li>
+                  {recentPostsList.length > 0 &&
+                    recentPostsList.map((recentpost, index) => (
+                      <li
+                        className="recent-posts-blog-li flex gap-2"
+                        key={index}
+                      >
+                        <i
+                          className="fa fa-chevron-right mt-1.5"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        <Link
+                          href={`/blog/${recentpost.slug}`}
+                          title={recentpost.subject}
+                        >
+                          {recentpost.subject}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </aside>
             </div>
