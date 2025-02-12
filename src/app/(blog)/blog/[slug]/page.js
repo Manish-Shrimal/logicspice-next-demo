@@ -9,6 +9,8 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import Loader from '@/app/Components/loader';
+
 const Page = ({ params }) => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
@@ -45,8 +47,9 @@ const Page = ({ params }) => {
     website: "",
     slug: params.slug,
   });
+  const [totalComments, setTotalComments] = useState();
+  const [totalCommentsData, setTotalCommentsData] = useState([]);
   useEffect(() => {
-  
     if (Array.isArray(searchResults)) {
       const startIndex = (currentPage - 1) * blogsPerPage;
       const endIndex = startIndex + blogsPerPage;
@@ -64,23 +67,26 @@ const Page = ({ params }) => {
     }
   };
   console.log(params.slug, "From blog description page");
-  const handleSubscribe = async () => {
+  const validateSubscribeForm = () => {
+    let isValid = true;
     const emailInput = document.getElementById("subscribe-email");
     const emailPattern = /\S+@\S+\.\S+/;
-
     if (!isCaptchaValid1) {
       setrecaptcha1("Please check this");
-      return;
-    } else if (!emailPattern.test(emailInput.value)) {
+      isValid = false;
+    }
+    if (!emailPattern.test(emailInput.value)) {
       emailInput.setCustomValidity("Please enter a valid email address.");
       Swal.fire({
-        icon: "error",
-        title: "Subscription Failed",
+        icon: "warning",
         text: "Please enter a valid email address.",
       });
-      return;
-    } else {
-      emailInput.setCustomValidity("");
+      isValid = false;
+    }
+    return isValid;
+  };
+  const handleSubscribe = async () => {
+    if (validateSubscribeForm()) {
       try {
         const response = await axios.post(
           "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
@@ -259,6 +265,7 @@ const Page = ({ params }) => {
           email: "",
           website: "",
         });
+        getCommentData();
       } catch (error) {
         console.error(error);
       }
@@ -279,17 +286,18 @@ const Page = ({ params }) => {
       console.error(error);
     }
   };
-  const getCommentData = async() => {
+  const getCommentData = async () => {
     try {
       const response = await axios.get(
-        `https://lswebsitedemo.logicspice.com/logicspice/api/${params.slug}/comments`  
+        `https://lswebsitedemo.logicspice.com/logicspice/api/${params.slug}/comments`
       );
-      console.log(response.data);
-      
+      console.log(response.data.comments);
+      setTotalComments(response.data.total_comments);
+      setTotalCommentsData(response.data.comments);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     getData();
@@ -299,15 +307,14 @@ const Page = ({ params }) => {
   const handleSearch = async (event) => {
     const keyword = event.target.value;
     setSearchKeyword(keyword);
-    
+
     setSearchResults([]);
     if (keyword == "" || keyword === null || !keyword) {
-      
       setSearchKeyword();
       setPaginatedBlogs([]);
       setTotalPages(0);
       setCurrentPage(1);
-      console.log(searchResults.length ,"comment");
+      console.log(searchResults.length, "comment");
     }
     if (keyword.length > 2) {
       setLoading(true);
@@ -458,192 +465,228 @@ const Page = ({ params }) => {
                 </div>
               ) : (
                 <div className="blog-container">
-                  <div className="blog--box">
-                    <h1 className="blog-detail-title">{blogData.subject}</h1>
-                    <p className="blog-date">
-                      {new Date(blogData.created_at).toLocaleDateString(
-                        "en-US",
-                        {
-                          month: "short",
-                          day: "2-digit",
-                          year: "numeric",
-                        }
-                      )}{" "}
-                      /
-                      <span>
-                        {blogData.category_id &&
-                          blogData.category_id
-                            .split(",")
-                            .map((category_id, index) => (
-                              <React.Fragment key={index}>
-                                <Link
-                                  className="text-[#337ab7]"
-                                  href={`/category/${category_id
-                                    .trim()
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
-                                >
-                                  {category_id.trim()}
-                                </Link>
-                                {index <
-                                  blogData.category_id.split(",").length - 1 &&
-                                  ", "}
-                              </React.Fragment>
-                            ))}
-                      </span>
-                    </p>
-
-                    <Image
-                      height={400}
-                      width={200}
-                      className="blog-image"
-                      src={blogData.image}
-                      alt="Blog"
-                    />
-                    <p className="blog-detail-text">
-                      {parse(blogData.blog_description)}
-                    </p>
-
-                    <div className="flex flex-col gap-2 mb-4">
-                      <p className="blog-tags flex gap-1 items-center">
-                        <i class="fa fa-tag" aria-hidden="true"></i>Tags
-                      </p>
-                      <div className="flex flex-wrap gap-y-1 gap-x-2">
-                        {blogData.tags &&
-                          blogData.tags.split(",").map((tag, index) => (
-                            <Link
-                              key={index}
-                              className="blog-tag"
-                              href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
-                            >
-                              {tag.trim()}
-                              {index < blogData.tags.split(",").length - 1
-                                ? ", "
-                                : ""}
-                            </Link>
-                          ))}
-                      </div>
-                    </div>
-
-                    <div className="comments-area">
-                      <h2 className="comment-title">0 Comment</h2>
-
-                      <h3 className="comment-reply-title">
-                        <span className="comment-reply-title-span">Lea</span>ve
-                        a Reply
-                      </h3>
-
-                      <p className="comment-notes">
-                        <span id="email-notes" style={{ fontSize: "14px" }}>
-                          Your email address will not be publish.
-                        </span>{" "}
-                        <span style={{ fontSize: "15px" }}>
-                          Required fields are marked *
+                  {blogData.slug !== "" ? (
+                    <div className="blog--box">
+                      <h1 className="blog-detail-title">{blogData.subject}</h1>
+                      <p className="blog-date">
+                        {new Date(blogData.created_at).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "short",
+                            day: "2-digit",
+                            year: "numeric",
+                          }
+                        )}{" "}
+                        /
+                        <span>
+                          {blogData.category_id &&
+                            blogData.category_id
+                              .split(",")
+                              .map((category_id, index) => (
+                                <React.Fragment key={index}>
+                                  <Link
+                                    className="text-[#337ab7]"
+                                    href={`/category/${category_id
+                                      .trim()
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")}`}
+                                  >
+                                    {category_id.trim()}
+                                  </Link>
+                                  {index <
+                                    blogData.category_id.split(",").length -
+                                      1 && ", "}
+                                </React.Fragment>
+                              ))}
                         </span>
                       </p>
-                      <div className="flex mb-[10px]">
-                        <p className="comment-label">
-                          Comment <span className="text-red-500">*</span>
+
+                      <Image
+                        height={400}
+                        width={200}
+                        className="blog-image"
+                        src={blogData.image}
+                        alt="Blog"
+                      />
+                      <p className="blog-detail-text">
+                        {parse(blogData.blog_description)}
+                      </p>
+
+                      <div className="flex flex-col gap-2 mb-4">
+                        <p className="blog-tags flex gap-1 items-center">
+                          <i class="fa fa-tag" aria-hidden="true"></i>Tags
                         </p>
-                        <textarea
-                          className={`comment-text ${
-                            errors.comment ? "error" : ""
-                          }`}
-                          placeholder="Comment"
-                          autoComplete="OFF"
-                          id="BlogCommentListComment"
-                          name="comment"
-                          cols="50"
-                          rows="10"
-                          data-qb-tmp-id="lt-233487"
-                          spellCheck="false"
-                          data-gramm="false"
-                          value={commentData.comment}
-                          onChange={handleChange}
-                        ></textarea>
-                        {/* {errors.comment && (
+                        <div className="flex flex-wrap gap-y-1 gap-x-2">
+                          {blogData.tags &&
+                            blogData.tags.split(",").map((tag, index) => (
+                              <Link
+                                key={index}
+                                className="blog-tag"
+                                href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                              >
+                                {tag.trim()}
+                                {index < blogData.tags.split(",").length - 1
+                                  ? ", "
+                                  : ""}
+                              </Link>
+                            ))}
+                        </div>
+                      </div>
+
+                      <div className="comments-area">
+                        <h2 className="comment-title">
+                          {totalComments}{" "}
+                          {totalComments > 1 ? "Comments" : "Comment"}
+                        </h2>
+                        <div className="grid grid-cols-1 xl:grid-cols-2 w-full max-h-[200px] xl:max-h-[350px] gap-1.5 overflow-y-auto my-3">
+                          {totalCommentsData.length > 0 &&
+                            totalCommentsData.map((comments, index) => {
+                              return (
+                                <div
+                                  className="flex flex-col items-start justify-start px-3 py-2.5 bg-gray-200 rounded-lg"
+                                  key={comments.id}
+                                >
+                                  <div className="flex items-center justify-between w-full mb-1.5">
+                                    <p className="text-black font-bold">
+                                      {comments.name}
+                                    </p>
+                                    <p className="text-gray-600 font-semibold text-sm">
+                                      {new Date(
+                                        comments.created_at
+                                      ).toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                      })}
+                                    </p>
+                                  </div>
+                                  <p className="text-black break-all">
+                                    {comments.comment}
+                                  </p>
+                                </div>
+                              );
+                            })}
+                        </div>
+
+                        <h3 className="comment-reply-title">
+                          <span className="comment-reply-title-span">Lea</span>
+                          ve a Reply
+                        </h3>
+
+                        <p className="comment-notes">
+                          <span id="email-notes" style={{ fontSize: "14px" }}>
+                            Your email address will not be publish.
+                          </span>{" "}
+                          <span style={{ fontSize: "15px" }}>
+                            Required fields are marked *
+                          </span>
+                        </p>
+                        <div className="flex mb-[10px]">
+                          <p className="comment-label">
+                            Comment <span className="text-red-500">*</span>
+                          </p>
+                          <textarea
+                            className={`comment-text ${
+                              errors.comment ? "error" : ""
+                            }`}
+                            placeholder="Comment"
+                            autoComplete="OFF"
+                            id="BlogCommentListComment"
+                            name="comment"
+                            cols="50"
+                            rows="10"
+                            data-qb-tmp-id="lt-233487"
+                            spellCheck="false"
+                            data-gramm="false"
+                            value={commentData.comment}
+                            onChange={handleChange}
+                          ></textarea>
+                          {/* {errors.comment && (
                       <span className="error-message">{errors.comment}</span>
                     )} */}
-                      </div>
-                      <div className="flex mb-[10px]">
-                        <p className="comment-label">
-                          Name <span className="text-red-500">*</span>
-                        </p>
-                        <input
-                          className={`comment-input ${
-                            errors.name ? "error" : ""
-                          }`}
-                          placeholder="Name"
-                          autocomplete="OFF"
-                          name="name"
-                          type="text"
-                          value={commentData.name}
-                          onChange={handleChange}
-                        />
-                        {/* {errors.name && (
+                        </div>
+                        <div className="flex mb-[10px]">
+                          <p className="comment-label">
+                            Name <span className="text-red-500">*</span>
+                          </p>
+                          <input
+                            className={`comment-input ${
+                              errors.name ? "error" : ""
+                            }`}
+                            placeholder="Name"
+                            autocomplete="OFF"
+                            name="name"
+                            type="text"
+                            value={commentData.name}
+                            onChange={handleChange}
+                          />
+                          {/* {errors.name && (
                       <span className="error-message">{errors.name}</span>
                     )} */}
-                      </div>
-                      <div className="flex mb-[10px]">
-                        <p className="comment-label">
-                          Email <span className="text-red-500">*</span>
-                        </p>
-                        <input
-                          className={`comment-input ${
-                            errors.email ? "error" : ""
-                          }`}
-                          placeholder="Email"
-                          autocomplete="OFF"
-                          name="email"
-                          type="text"
-                          value={commentData.email}
-                          onChange={handleChange}
-                        />
-                        {/* {errors.email && (
+                        </div>
+                        <div className="flex mb-[10px]">
+                          <p className="comment-label">
+                            Email <span className="text-red-500">*</span>
+                          </p>
+                          <input
+                            className={`comment-input ${
+                              errors.email ? "error" : ""
+                            }`}
+                            placeholder="Email"
+                            autocomplete="OFF"
+                            name="email"
+                            type="text"
+                            value={commentData.email}
+                            onChange={handleChange}
+                          />
+                          {/* {errors.email && (
                       <span className="error-message">{errors.email}</span>
                     )} */}
-                      </div>
-                      <div className="flex mb-[10px]">
-                        <p className="comment-label">Website</p>
-                        <input
-                          class="comment-input"
-                          placeholder="Website"
-                          autocomplete="OFF"
-                          name="website"
-                          type="text"
-                          value={commentData.website}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div className="grid">
-                        <div className="comment-post">
-                          <div className="scale-[0.8] mb-[5px] ml-[-30px]">
-                            <ReCAPTCHA
-                              key={recaptchaKey}
-                              sitekey={recaptchaKey}
-                              onChange={onRecaptchaChange}
-                              onExpired={onRecaptchaExpired}
-                            />
-                            {errors.recaptcha && (
-                              <span className="error-message">
-                                {errors.recaptcha}
-                              </span>
-                            )}
+                        </div>
+                        <div className="flex mb-[10px]">
+                          <p className="comment-label">Website</p>
+                          <input
+                            class="comment-input"
+                            placeholder="Website"
+                            autocomplete="OFF"
+                            name="website"
+                            type="text"
+                            value={commentData.website}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="grid">
+                          <div className="comment-post">
+                            <div className="scale-[0.8] mb-[5px] ml-[-30px]">
+                              <ReCAPTCHA
+                                key={recaptchaKey}
+                                sitekey={recaptchaKey}
+                                onChange={onRecaptchaChange}
+                                onExpired={onRecaptchaExpired}
+                              />
+                              {errors.recaptcha && (
+                                <span className="error-message">
+                                  {errors.recaptcha}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="grid">
+                          <div className="comment-post">
+                            <button
+                              className="btn btn-primary"
+                              onClick={handlePostComment}
+                            >
+                              POST COMMENT
+                            </button>
                           </div>
                         </div>
                       </div>
-                      <div className="grid">
-                        <div className="comment-post">
-                          <button
-                            className="btn btn-primary"
-                            onClick={handlePostComment}
-                          >
-                            POST COMMENT
-                          </button>
-                        </div>
-                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <Loader />
+                  )}
                 </div>
               )}
             </>

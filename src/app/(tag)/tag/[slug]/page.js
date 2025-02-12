@@ -4,14 +4,14 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Footer from "@/app/Components/Footer";
 import Navbar from "@/app/Components/Navbar";
 import axios from "axios";
-import "@/app/(blog)/blog.css";
+import "@/app/(tag)/tag.css";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
 import Swal from "sweetalert2";
 import Loader from "@/app/Components/loader";
-const Page = () => {
+const Page = ({ params }) => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [recaptcha1, setrecaptcha1] = useState("");
@@ -27,19 +27,22 @@ const Page = () => {
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const [subscribeEmail, setSubscribeEmail] = useState();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    getData();
+  }, []);
   const handlePageChange = (pageNumber) => {
     window.scrollTo(0, 0);
     setCurrentPage(pageNumber);
   };
 
-  const validateForm = () =>{
+  const validateForm = () => {
     let isValid = true;
     const emailInput = document.getElementById("subscribe-email");
     const emailPattern = /\S+@\S+\.\S+/;
     if (!isCaptchaValid) {
       setrecaptcha1("Please check this");
       isValid = false;
-      
     }
     if (!emailPattern.test(emailInput.value)) {
       emailInput.setCustomValidity("Please enter a valid email address.");
@@ -50,11 +53,10 @@ const Page = () => {
       isValid = false;
     }
     return isValid;
-  }
+  };
 
-  const handleSubscribe = async() => {
-     if(validateForm()) {
-      
+  const handleSubscribe = async () => {
+    if (validateForm()) {
       try {
         const response = await axios.post(
           "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
@@ -62,7 +64,7 @@ const Page = () => {
             email_address: subscribeEmail,
           }
         );
-    
+
         // If subscription is successful
         if (response.status === 200) {
           Swal.fire({
@@ -88,7 +90,6 @@ const Page = () => {
         });
       }
     }
-    
   };
 
   const handleInputChange = (event) => {
@@ -114,6 +115,7 @@ const Page = () => {
   };
 
   const getData = async () => {
+    // setLoading(true);
     try {
       // const response = await axios.get(`${BaseAPI}/blog/listing`);
       const response = await axios.get(
@@ -123,15 +125,43 @@ const Page = () => {
       setFilteredBlogs(response.data.response.blogData);
       setCategoryList(response.data.response.categoryList);
       setRecentPostsList(response.data.response.recentBlogs);
+      setLoading(false);
       // console.log(response.data.response, "Blog Data");
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getData();
-  }, []);
+    if (blogData && params.slug) {
+      if (!searchText) {
+        setFilteredBlogs(
+          blogData.filter(
+            (blog) =>
+              blog.tags &&
+              blog.tags.toLowerCase().replace(/\s+/g, "-").includes(params.slug.toLowerCase())
+          )
+        );
+      } else {
+        const filtered = blogData.filter((blog) => {
+          const searchFields = [
+            blog.subject,
+            blog.meta_title,
+            blog.meta_keyword,
+            blog.blog_description,
+            blog.tags,
+          ];
+
+          return searchFields.some((field) =>
+            field ? field.toLowerCase().includes(searchText) : false
+          );
+        });
+
+        setFilteredBlogs(filtered);
+      }
+    }
+  }, [blogData, params.slug, searchText]);
 
   const handleSearchChange = (e) => {
     const value = e.target.value.toLowerCase();
@@ -172,134 +202,137 @@ const Page = () => {
 
         <div className="container">
           <div className="main-blog-container">
-            <div className="blog-container">
-              {currentBlogs.length > 0 ? (
-                currentBlogs.map((blog, i) => (
-                  <div className="blog-box" key={blog.id}>
-                    <h1 className="blog-title">
-                      <Link
-                        href={`/blog/${blog.slug}`}
-                        className="light_blue"
-                        title={blog.subject}
-                      >
-                        {blog.subject || "Untitled Blog"}
-                      </Link>
-                    </h1>
-                    <p className="blog-date">
-                      {new Date(blog.created_at).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "2-digit",
-                        year: "numeric",
-                      })}{" "}
-                      /
-                      <span>
-                        {blog.category_names &&
-                          blog.category_names
-                            .split(",")
-                            .map((category_names, index) => (
-                              <React.Fragment key={index}>
-                                <Link
-                                  className="text-[#337ab7]"
-                                  href={`/category/${category_names
-                                    .trim()
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
-                                >
-                                  {category_names.trim()}
-                                </Link>
-                                {index <
-                                  blog.category_names.split(",").length - 1 &&
-                                  ", "}
-                              </React.Fragment>
-                            ))}
+            {loading ? (
+              <Loader />
+            ) : (
+              <div className="blog-container">
+                {currentBlogs.length > 0 ? (
+                  currentBlogs.map((blog, i) => (
+                    <div className="blog-box" key={blog.id}>
+                      <h1 className="blog-title">
+                        <Link
+                          href={`/blog/${blog.slug}`}
+                          className="light_blue"
+                          title={blog.subject}
+                        >
+                          {blog.subject || "Untitled Blog"}
+                        </Link>
+                      </h1>
+                      <p className="blog-date">
+                        {new Date(blog.created_at).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "2-digit",
+                          year: "numeric",
+                        })}{" "}
+                        /
+                        <span>
+                          {blog.category_names &&
+                            blog.category_names
+                              .split(",")
+                              .map((category_names, index) => (
+                                <React.Fragment key={index}>
+                                  <Link
+                                    className="text-[#337ab7]"
+                                    href={`/category/${category_names
+                                      .trim()
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")}`}
+                                  >
+                                    {category_names.trim()}
+                                  </Link>
+                                  {index <
+                                    blog.category_names.split(",").length - 1 &&
+                                    ", "}
+                                </React.Fragment>
+                              ))}
+                        </span>
+                      </p>
+
+                      <span className="blog-link">
+                        {blog.tags &&
+                          blog.tags.split(",").map((tag, index) => (
+                            <Link
+                              key={index}
+                              href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                            >
+                              {tag.trim()}
+                              {index < blog.tags.split(",").length - 1
+                                ? ", "
+                                : ""}
+                            </Link>
+                          ))}
                       </span>
-                    </p>
 
-                    <span className="blog-link">
-                      {blog.tags &&
-                        blog.tags.split(",").map((tag, index) => (
-                          <Link
-                            key={index}
-                            href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
-                          >
-                            {tag.trim()}
-                            {index < blog.tags.split(",").length - 1
-                              ? ", "
-                              : ""}
-                          </Link>
-                        ))}
-                    </span>
-
-                    {blog.image !== "" ? (
-                      <Image
-                        width={400}
-                        height={100}
-                        className="blog-image"
-                        src={blog.image}
-                        alt="Blog"
-                      />
-                    ) : (
-                      <Image
-                        width={400}
-                        height={100}
-                        className="blog-image"
-                        unoptimized={true}
-                        src="/img/blog/dummy-blog-post.jpg"
-                        alt="Blog"
-                      />
-                    )}
-
-                    <p className="blog-text">
-                      {parse(
-                        blog.blog_description.length > 200
-                          ? blog.blog_description.slice(0, 200) + "..."
-                          : blog.blog_description
+                      {blog.image !== "" ? (
+                        <Image
+                          width={400}
+                          height={100}
+                          className="blog-image"
+                          src={blog.image}
+                          alt="Blog"
+                        />
+                      ) : (
+                        <Image
+                          width={400}
+                          height={100}
+                          className="blog-image"
+                          unoptimized={true}
+                          src="/img/blog/dummy-blog-post.jpg"
+                          alt="Blog"
+                        />
                       )}
-                    </p>
 
-                    <Link href={`/blog/${blog.slug}`} className="blog-button">
-                      READ MORE
-                    </Link>
+                      <p className="blog-text">
+                        {parse(
+                          blog.blog_description.length > 200
+                            ? blog.blog_description.slice(0, 200) + "..."
+                            : blog.blog_description
+                        )}
+                      </p>
+
+                      <Link href={`/blog/${blog.slug}`} className="blog-button">
+                        READ MORE
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-indigo-500 text-xl font-semibold">
+                    No Blogs Found...
                   </div>
-                ))
-              ) : (
-                // <div className="text-indigo-500 text-xl font-semibold">
-                //   No Blogs Available At The Moment...
-                // </div>
-                <Loader />
-              )}
-              {filteredBlogs.length > 0 && (
-                <div className="pagination-container">
-                  <button
-                    className="pagination-button"
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                  >
-                    Previous
-                  </button>
-                  <div className="pagination-numbers">
-                    {[...Array(totalPages)].map((_, index) => (
-                      <button
-                        key={index}
-                        className={`pagination-button ${
-                          currentPage === index + 1 ? "active" : ""
-                        }`}
-                        onClick={() => handlePageChange(index + 1)}
-                      >
-                        {index + 1}
-                      </button>
-                    ))}
+                )}
+                {filteredBlogs.length > 0 && (
+                  <div className="pagination-container">
+                    <button
+                      className="pagination-button"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </button>
+                    <div className="pagination-numbers">
+                      {[...Array(totalPages)].map((_, index) => (
+                        <button
+                          key={index}
+                          className={`pagination-button ${
+                            currentPage === index + 1 ? "active" : ""
+                          }`}
+                          onClick={() => handlePageChange(index + 1)}
+                        >
+                          {index + 1}
+                        </button>
+                      ))}
+                    </div>
+                    <button
+                      className="pagination-button"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                    </button>
                   </div>
-                  <button
-                    className="pagination-button"
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                  >
-                    Next
-                  </button>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             <div className="category-container">
               <p className="search-title">Search</p>
