@@ -201,6 +201,13 @@
   font-size: 20px !important;
 }
 
+.fa-times{
+  background: #451095;
+  padding: 8px 14px;
+  color: #fff;
+  font-size: 20px !important;
+}
+
 .blog-cost-calculator {
   background-color: #451095;
   /* background-image: url(../../img/calculator_img.png); */

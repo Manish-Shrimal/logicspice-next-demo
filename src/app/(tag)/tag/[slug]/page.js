@@ -28,6 +28,7 @@ const Page = ({ params }) => {
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const [subscribeEmail, setSubscribeEmail] = useState();
   const [loading, setLoading] = useState(true);
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
   useEffect(() => {
     getData();
   }, []);
@@ -41,7 +42,7 @@ const Page = ({ params }) => {
     const emailInput = document.getElementById("subscribe-email");
     const emailPattern = /\S+@\S+\.\S+/;
     if (!isCaptchaValid) {
-      setrecaptcha1("Please check this");
+      setrecaptcha1("Please verify recaptcha");
       isValid = false;
     }
     if (!emailPattern.test(emailInput.value)) {
@@ -57,6 +58,7 @@ const Page = ({ params }) => {
 
   const handleSubscribe = async () => {
     if (validateForm()) {
+      setSubscribeLoading(true);
       try {
         const response = await axios.post(
           "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
@@ -81,8 +83,10 @@ const Page = ({ params }) => {
           });
         }
         setSubscribeEmail("");
+        setSubscribeLoading(false);
       } catch (error) {
         console.error(error);
+        setSubscribeLoading(false);
         Swal.fire({
           icon: "error",
           title: "Subscription Failed",
@@ -140,7 +144,10 @@ const Page = ({ params }) => {
           blogData.filter(
             (blog) =>
               blog.tags &&
-              blog.tags.toLowerCase().replace(/\s+/g, "-").includes(params.slug.toLowerCase())
+              blog.tags
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .includes(params.slug.toLowerCase())
           )
         );
       } else {
@@ -206,6 +213,26 @@ const Page = ({ params }) => {
               <Loader />
             ) : (
               <div className="blog-container">
+                <nav aria-label="breadcrumb" className="w-max mb-3">
+                  <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
+                    <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                      <Link href="#">
+                        <p className="text-lg font-medium">Tag</p>
+                      </Link>
+                      <span class="pointer-events-none mx-2 text-slate-800">
+                        /
+                      </span>
+                      
+                    </li>
+                    <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                    <Link href="#">
+                        <p className="text-lg font-medium">
+                          {params.slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
+                        </p>
+                      </Link>
+                    </li>
+                  </ol>
+                </nav>
                 {currentBlogs.length > 0 ? (
                   currentBlogs.map((blog, i) => (
                     <div className="blog-box" key={blog.id}>
@@ -273,7 +300,7 @@ const Page = ({ params }) => {
                         />
                       ) : (
                         <Image
-                          width={400}
+                          width={100}
                           height={100}
                           className="blog-image"
                           unoptimized={true}
@@ -296,7 +323,7 @@ const Page = ({ params }) => {
                     </div>
                   ))
                 ) : (
-                  <div className="text-indigo-500 text-xl font-semibold">
+                  <div className="text-purple-700 text-2xl mt-4 w-full text-center font-semibold">
                     No Blogs Found...
                   </div>
                 )}
@@ -309,7 +336,7 @@ const Page = ({ params }) => {
                     >
                       Previous
                     </button>
-                    <div className="pagination-numbers">
+                    {/* <div className="pagination-numbers">
                       {[...Array(totalPages)].map((_, index) => (
                         <button
                           key={index}
@@ -321,6 +348,50 @@ const Page = ({ params }) => {
                           {index + 1}
                         </button>
                       ))}
+                    </div> */}
+                    <div className="pagination-numbers">
+                      {[...Array(totalPages)].map((_, index) => {
+                        const pageNumber = index + 1;
+
+                        // Show first 3 pages, last 3 pages, and current page if necessary
+                        if (
+                          pageNumber <= 2 ||
+                          pageNumber > totalPages - 2 ||
+                          (pageNumber >= currentPage - 1 &&
+                            pageNumber <= currentPage + 1)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className={`pagination-button ${
+                                currentPage === pageNumber ? "active" : ""
+                              }`}
+                              onClick={() => handlePageChange(pageNumber)}
+                            >
+                              {pageNumber}
+                            </button>
+                          );
+                        }
+
+                        // Show ellipsis if we're skipping over pages
+                        if (
+                          (pageNumber === 3 && currentPage >= 3) ||
+                          (pageNumber === totalPages - 2 &&
+                            currentPage <= totalPages - 2)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className="pagination-button disabled"
+                              disabled
+                            >
+                              ...
+                            </button>
+                          );
+                        }
+
+                        return null; // Skip rendering for other pages
+                      })}
                     </div>
                     <button
                       className="pagination-button"
@@ -345,9 +416,22 @@ const Page = ({ params }) => {
                   onChange={handleSearchChange}
                   placeholder="Search by title, description or tag"
                 />
-                <button className="search-icon">
-                  <i className="fa fa-search" aria-hidden="true"></i>
-                </button>
+                {searchText.length === 0 ? (
+                  <button className="search-icon">
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                ) : (
+                  <button
+                    className="search-icon"
+                    onClick={() => {
+                      setSearchText("");
+                      // setFilteredBlogs(blogData);
+                      setCurrentPage(1);
+                    }}
+                  >
+                    <i className="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                )}
               </div>
               <div>
                 <div className="blog-cost-calculator">
@@ -368,7 +452,7 @@ const Page = ({ params }) => {
               <aside className="category-box">
                 <h4 className="category-title">Categories</h4>
 
-                <ul className="category-list-ul">
+                <ul className="category-list-ul !pl-0">
                   {categoryList.length > 0 &&
                     categoryList.map((category, index) => (
                       <li className="category-list-li" key={category.id}>
@@ -385,39 +469,53 @@ const Page = ({ params }) => {
               </aside>
 
               <div className="subscribe-blog">
-                <div className="subscribe-blog-title">
-                  Subscribe to Our Blog
-                </div>
-                <div className="">
-                  <input
-                    id="subscribe-email"
-                    className="subscribe-email"
-                    type="email"
-                    onChange={handleInputChange}
-                    placeholder="Enter your email address"
-                  />
-                </div>
-                <div className="scale-[0.8] mb-[10px] ml-[-30px]">
-                  <ReCAPTCHA
-                    key={recaptchaKey}
-                    sitekey={recaptchaKey}
-                    onChange={onRecaptchaChange}
-                    onExpired={onRecaptchaExpired}
-                  />
-                  {recaptcha1 && (
-                    <span className="error-message">{recaptcha1}</span>
-                  )}
-                </div>
-                <div>
-                  <button className="btn btn-primary" onClick={handleSubscribe}>
-                    SUBSCRIBE
-                  </button>
-                </div>
+                {subscribeLoading ? (
+                  <div className="py-5">
+                    <div className="mt-[-100px]">
+                      <Loader />
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="subscribe-blog-title">
+                      Subscribe to Our Blog
+                    </div>
+                    <div className="">
+                      <input
+                        id="subscribe-email"
+                        className="subscribe-email"
+                        type="email"
+                        value={subscribeEmail}
+                        onChange={handleInputChange}
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+                    <div className="scale-[0.8] mb-[10px] ml-[-30px]">
+                      <ReCAPTCHA
+                        key={recaptchaKey}
+                        sitekey={recaptchaKey}
+                        onChange={onRecaptchaChange}
+                        onExpired={onRecaptchaExpired}
+                      />
+                      {recaptcha1 && (
+                        <span className="error-message">{recaptcha1}</span>
+                      )}
+                    </div>
+                    <div>
+                      <button
+                        className="btn btn-primary"
+                        onClick={handleSubscribe}
+                      >
+                        SUBSCRIBE
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
 
               <aside className="category-box">
                 <h4 className="recent-post-title">Recent Posts</h4>
-                <ul className="recent-posts-blog-ul">
+                <ul className="recent-posts-blog-ul !pl-0">
                   {recentPostsList.length > 0 &&
                     recentPostsList.map((recentpost, index) => (
                       <li

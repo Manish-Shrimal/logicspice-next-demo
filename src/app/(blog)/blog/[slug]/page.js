@@ -9,7 +9,7 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Swal from "sweetalert2";
-import Loader from '@/app/Components/loader';
+import Loader from "@/app/Components/loader";
 
 const Page = ({ params }) => {
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
@@ -19,6 +19,8 @@ const Page = ({ params }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
+  const [commentLoading, setCommentLoading] = useState(false);
   const [blogData, setBlogData] = useState({
     subject: "",
     meta_description: "",
@@ -58,7 +60,7 @@ const Page = ({ params }) => {
       setPaginatedBlogs(currentBlogs);
       setTotalPages(Math.ceil(searchResults.length / blogsPerPage));
     }
-  }, [searchResults]);
+  }, [searchResults, currentPage]);
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
@@ -72,7 +74,7 @@ const Page = ({ params }) => {
     const emailInput = document.getElementById("subscribe-email");
     const emailPattern = /\S+@\S+\.\S+/;
     if (!isCaptchaValid1) {
-      setrecaptcha1("Please check this");
+      setrecaptcha1("Please verify recaptcha");
       isValid = false;
     }
     if (!emailPattern.test(emailInput.value)) {
@@ -87,6 +89,7 @@ const Page = ({ params }) => {
   };
   const handleSubscribe = async () => {
     if (validateSubscribeForm()) {
+      setSubscribeLoading(true);
       try {
         const response = await axios.post(
           "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
@@ -111,8 +114,10 @@ const Page = ({ params }) => {
           });
         }
         setSubscribeEmail("");
+        setSubscribeLoading(false);
       } catch (error) {
         console.error(error);
+        setSubscribeLoading(false);
         Swal.fire({
           icon: "error",
           title: "Subscription Failed",
@@ -238,7 +243,7 @@ const Page = ({ params }) => {
     console.log(isCaptchaValid);
 
     if (!isCaptchaValid) {
-      newErrors.recaptcha = "Please check this";
+      newErrors.recaptcha = "Please verify recaptcha";
       valid = false;
     }
 
@@ -249,6 +254,7 @@ const Page = ({ params }) => {
   const handlePostComment = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setCommentLoading(true);
       try {
         const response = await axios.post(
           `https://lswebsitedemo.logicspice.com/logicspice/api/${params.slug}/comments`,
@@ -266,8 +272,10 @@ const Page = ({ params }) => {
           website: "",
         });
         getCommentData();
+        setCommentLoading(false);
       } catch (error) {
         console.error(error);
+        setCommentLoading(false);
       }
     }
   };
@@ -344,6 +352,23 @@ const Page = ({ params }) => {
             <>
               {searchResults.length > 0 ? (
                 <div className="blog-container">
+                  <nav aria-label="breadcrumb" className="w-max mb-3">
+                    <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
+                      <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                        <Link href="/blog">
+                          <p className="text-lg font-medium">Blog</p>
+                        </Link>
+                        <span class="pointer-events-none mx-2 text-slate-800">
+                          /
+                        </span>
+                        <Link href="#">
+                          <p className="text-lg font-medium">
+                            {blogData.subject}
+                          </p>
+                        </Link>
+                      </li>
+                    </ol>
+                  </nav>
                   {paginatedBlogs.map((blog, i) => (
                     <div className="blog-box" key={blog.id}>
                       <h1 className="blog-title">
@@ -402,10 +427,10 @@ const Page = ({ params }) => {
 
                       {blog.image !== "" ? (
                         <Image
-                          width={100}
+                          width={400}
                           height={100}
                           className="blog-image"
-                          // src={blog.image}
+                          src={blog.image}
                           alt="Blog"
                         />
                       ) : (
@@ -441,18 +466,50 @@ const Page = ({ params }) => {
                     >
                       Previous
                     </button>
+                    
                     <div className="pagination-numbers">
-                      {[...Array(totalPages)].map((_, index) => (
-                        <button
-                          key={index}
-                          className={`pagination-button ${
-                            currentPage === index + 1 ? "active" : ""
-                          }`}
-                          onClick={() => handlePageChange(index + 1)}
-                        >
-                          {index + 1}
-                        </button>
-                      ))}
+                      {[...Array(totalPages)].map((_, index) => {
+                        const pageNumber = index + 1;
+
+                        // Show first 3 pages, last 3 pages, and current page if necessary
+                        if (
+                          pageNumber <= 2 ||
+                          pageNumber > totalPages - 2 ||
+                          (pageNumber >= currentPage - 1 &&
+                            pageNumber <= currentPage + 1)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className={`pagination-button ${
+                                currentPage === pageNumber ? "active" : ""
+                              }`}
+                              onClick={() => handlePageChange(pageNumber)}
+                            >
+                              {pageNumber}
+                            </button>
+                          );
+                        }
+
+                        // Show ellipsis if we're skipping over pages
+                        if (
+                          (pageNumber === 3 && currentPage >= 3) ||
+                          (pageNumber === totalPages - 2 &&
+                            currentPage <= totalPages - 2)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className="pagination-button disabled"
+                              disabled
+                            >
+                              ...
+                            </button>
+                          );
+                        }
+
+                        return null; // Skip rendering for other pages
+                      })}
                     </div>
                     <button
                       className="pagination-button"
@@ -465,6 +522,26 @@ const Page = ({ params }) => {
                 </div>
               ) : (
                 <div className="blog-container">
+                  <nav aria-label="breadcrumb" className="w-max mb-3">
+                    <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
+                      <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                        <Link href="/blog">
+                          <p className="text-lg font-medium">Blog</p>
+                        </Link>
+                        <span class="pointer-events-none mx-2 text-slate-800">
+                          /
+                        </span>
+                        
+                      </li>
+                      <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                      <Link href="#">
+                          <p className="text-lg font-medium">
+                            {blogData.subject}
+                          </p>
+                        </Link>
+                      </li>
+                    </ol>
+                  </nav>
                   {blogData.slug !== "" ? (
                     <div className="blog--box">
                       <h1 className="blog-detail-title">{blogData.subject}</h1>
@@ -502,8 +579,8 @@ const Page = ({ params }) => {
                       </p>
 
                       <Image
-                        height={400}
-                        width={200}
+                        height={100}
+                        width={400}
                         className="blog-image"
                         src={blogData.image}
                         alt="Blog"
@@ -572,116 +649,128 @@ const Page = ({ params }) => {
                           <span className="comment-reply-title-span">Lea</span>
                           ve a Reply
                         </h3>
-
-                        <p className="comment-notes">
-                          <span id="email-notes" style={{ fontSize: "14px" }}>
-                            Your email address will not be publish.
-                          </span>{" "}
-                          <span style={{ fontSize: "15px" }}>
-                            Required fields are marked *
-                          </span>
-                        </p>
-                        <div className="flex mb-[10px]">
-                          <p className="comment-label">
-                            Comment <span className="text-red-500">*</span>
-                          </p>
-                          <textarea
-                            className={`comment-text ${
-                              errors.comment ? "error" : ""
-                            }`}
-                            placeholder="Comment"
-                            autoComplete="OFF"
-                            id="BlogCommentListComment"
-                            name="comment"
-                            cols="50"
-                            rows="10"
-                            data-qb-tmp-id="lt-233487"
-                            spellCheck="false"
-                            data-gramm="false"
-                            value={commentData.comment}
-                            onChange={handleChange}
-                          ></textarea>
-                          {/* {errors.comment && (
-                      <span className="error-message">{errors.comment}</span>
-                    )} */}
-                        </div>
-                        <div className="flex mb-[10px]">
-                          <p className="comment-label">
-                            Name <span className="text-red-500">*</span>
-                          </p>
-                          <input
-                            className={`comment-input ${
-                              errors.name ? "error" : ""
-                            }`}
-                            placeholder="Name"
-                            autocomplete="OFF"
-                            name="name"
-                            type="text"
-                            value={commentData.name}
-                            onChange={handleChange}
-                          />
-                          {/* {errors.name && (
-                      <span className="error-message">{errors.name}</span>
-                    )} */}
-                        </div>
-                        <div className="flex mb-[10px]">
-                          <p className="comment-label">
-                            Email <span className="text-red-500">*</span>
-                          </p>
-                          <input
-                            className={`comment-input ${
-                              errors.email ? "error" : ""
-                            }`}
-                            placeholder="Email"
-                            autocomplete="OFF"
-                            name="email"
-                            type="text"
-                            value={commentData.email}
-                            onChange={handleChange}
-                          />
-                          {/* {errors.email && (
-                      <span className="error-message">{errors.email}</span>
-                    )} */}
-                        </div>
-                        <div className="flex mb-[10px]">
-                          <p className="comment-label">Website</p>
-                          <input
-                            class="comment-input"
-                            placeholder="Website"
-                            autocomplete="OFF"
-                            name="website"
-                            type="text"
-                            value={commentData.website}
-                            onChange={handleChange}
-                          />
-                        </div>
-                        <div className="grid">
-                          <div className="comment-post">
-                            <div className="scale-[0.8] mb-[5px] ml-[-30px]">
-                              <ReCAPTCHA
-                                key={recaptchaKey}
-                                sitekey={recaptchaKey}
-                                onChange={onRecaptchaChange}
-                                onExpired={onRecaptchaExpired}
-                              />
-                              {errors.recaptcha && (
-                                <span className="error-message">
-                                  {errors.recaptcha}
-                                </span>
-                              )}
+                        {commentLoading ? (
+                          <div className="py-16">
+                            <div className="mt-[-100px]">
+                              <Loader />
                             </div>
                           </div>
-                        </div>
-                        <div className="grid">
-                          <div className="comment-post">
-                            <button
-                              className="btn btn-primary"
-                              onClick={handlePostComment}
-                            >
-                              POST COMMENT
-                            </button>
-                          </div>
-                        </div>
+                        ) : (
+                          <>
+                            <p className="comment-notes">
+                              <span
+                                id="email-notes"
+                                style={{ fontSize: "14px" }}
+                              >
+                                Your email address will not be published.
+                              </span>{" "}
+                              <span style={{ fontSize: "15px" }}>
+                                Required fields are marked *
+                              </span>
+                            </p>
+                            <div className="flex mb-[10px]">
+                              <p className="comment-label">
+                                Comment <span className="text-red-500">*</span>
+                              </p>
+                              <textarea
+                                className={`comment-text ${
+                                  errors.comment ? "error" : ""
+                                }`}
+                                placeholder="Comment"
+                                autoComplete="OFF"
+                                id="BlogCommentListComment"
+                                name="comment"
+                                cols="50"
+                                rows="10"
+                                data-qb-tmp-id="lt-233487"
+                                spellCheck="false"
+                                data-gramm="false"
+                                value={commentData.comment}
+                                onChange={handleChange}
+                              ></textarea>
+                              {/* {errors.comment && (
+                      <span className="error-message">{errors.comment}</span>
+                    )} */}
+                            </div>
+                            <div className="flex mb-[10px]">
+                              <p className="comment-label">
+                                Name <span className="text-red-500">*</span>
+                              </p>
+                              <input
+                                className={`comment-input ${
+                                  errors.name ? "error" : ""
+                                }`}
+                                placeholder="Name"
+                                autocomplete="OFF"
+                                name="name"
+                                type="text"
+                                value={commentData.name}
+                                onChange={handleChange}
+                              />
+                              {/* {errors.name && (
+                      <span className="error-message">{errors.name}</span>
+                    )} */}
+                            </div>
+                            <div className="flex mb-[10px]">
+                              <p className="comment-label">
+                                Email <span className="text-red-500">*</span>
+                              </p>
+                              <input
+                                className={`comment-input ${
+                                  errors.email ? "error" : ""
+                                }`}
+                                placeholder="Email"
+                                autocomplete="OFF"
+                                name="email"
+                                type="text"
+                                value={commentData.email}
+                                onChange={handleChange}
+                              />
+                              {/* {errors.email && (
+                      <span className="error-message">{errors.email}</span>
+                    )} */}
+                            </div>
+                            <div className="flex mb-[10px]">
+                              <p className="comment-label">Website</p>
+                              <input
+                                class="comment-input"
+                                placeholder="Website"
+                                autocomplete="OFF"
+                                name="website"
+                                type="text"
+                                value={commentData.website}
+                                onChange={handleChange}
+                              />
+                            </div>
+                            <div className="grid">
+                              <div className="comment-post">
+                                <div className="scale-[0.8] mb-[5px] ml-[-30px]">
+                                  <ReCAPTCHA
+                                    key={recaptchaKey}
+                                    sitekey={recaptchaKey}
+                                    onChange={onRecaptchaChange}
+                                    onExpired={onRecaptchaExpired}
+                                  />
+                                  {errors.recaptcha && (
+                                    <span className="error-message">
+                                      {errors.recaptcha}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="grid">
+                              <div className="comment-post">
+                                <button
+                                  className="btn btn-primary"
+                                  onClick={handlePostComment}
+                                >
+                                  POST COMMENT
+                                </button>
+                              </div>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -700,9 +789,22 @@ const Page = ({ params }) => {
                   onChange={handleSearch}
                   placeholder="Search by title, description or tag"
                 />
-                <button className="search-icon">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+                {!searchKeyword ? (
+                  <button className="search-icon">
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                ) : (
+                  <button
+                    className="search-icon"
+                    onClick={() => {
+                      setSearchKeyword("");
+                      setSearchResults([]);
+                      setCurrentPage(1);
+                    }}
+                  >
+                    <i className="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                )}
               </div>
 
               <div>
@@ -724,7 +826,7 @@ const Page = ({ params }) => {
               <aside className="category-box">
                 <h4 class="category-title">Categories</h4>
 
-                <ul className="category-list-ul">
+                <ul className="category-list-ul !pl-0">
                   {categoryList.length > 0 &&
                     categoryList.map((category, index) => (
                       <li className="category-list-li" key={category.id}>
@@ -741,39 +843,53 @@ const Page = ({ params }) => {
               </aside>
 
               <div className="subscribe-blog">
-                <div className="subscribe-blog-title">
-                  Subscribe to Our Blog
-                </div>
-                <div className="">
-                  <input
-                    id="subscribe-email"
-                    className="subscribe-email"
-                    type="email"
-                    onChange={handleInputChange}
-                    placeholder="Enter your email address"
-                  />
-                </div>
-                <div className="scale-[0.8] mb-[10px] ml-[-30px]">
-                  <ReCAPTCHA
-                    key={recaptchaKey}
-                    sitekey={recaptchaKey}
-                    onChange={onRecaptchaChange1}
-                    onExpired={onRecaptchaExpired1}
-                  />
-                  {recaptcha1 && (
-                    <span className="error-message">{recaptcha1}</span>
-                  )}
-                </div>
-                <div>
-                  <button className="btn btn-primary" onClick={handleSubscribe}>
-                    SUBSCRIBE
-                  </button>
-                </div>
+                {subscribeLoading ? (
+                  <div className="py-5">
+                    <div className="mt-[-100px]">
+                      <Loader />
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="subscribe-blog-title">
+                      Subscribe to Our Blog
+                    </div>
+                    <div className="">
+                      <input
+                        id="subscribe-email"
+                        className="subscribe-email"
+                        type="email"
+                        value={subscribeEmail}
+                        onChange={handleInputChange}
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+                    <div className="scale-[0.8] mb-[10px] ml-[-30px]">
+                      <ReCAPTCHA
+                        key={recaptchaKey}
+                        sitekey={recaptchaKey}
+                        onChange={onRecaptchaChange1}
+                        onExpired={onRecaptchaExpired1}
+                      />
+                      {recaptcha1 && (
+                        <span className="error-message">{recaptcha1}</span>
+                      )}
+                    </div>
+                    <div>
+                      <button
+                        className="btn btn-primary"
+                        onClick={handleSubscribe}
+                      >
+                        SUBSCRIBE
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
 
               <aside className="category-box">
                 <h4 class="recent-post-title">Recent Posts</h4>
-                <ul className="recent-posts-blog-ul">
+                <ul className="recent-posts-blog-ul !pl-0">
                   {recentPostsList.length > 0 &&
                     recentPostsList.map((recentpost, index) => (
                       <li

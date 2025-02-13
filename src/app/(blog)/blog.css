@@ -67,7 +67,7 @@
 
 .blog-container {
   grid-column: 1;
-  
+  width: inherit;
 }
 
 .blog-box {
@@ -195,6 +195,13 @@
 }
 
 .fa-search {
+  background: #451095;
+  padding: 8px 14px;
+  color: #fff;
+  font-size: 20px !important;
+}
+
+.fa-times{
   background: #451095;
   padding: 8px 14px;
   color: #fff;
@@ -355,6 +362,10 @@
   line-height: 30px;
   font-family: "interregular";
   color: #333333;
+}
+
+.blog-detail-text img{
+  width: fit-content !important;
 }
 
 .blog-tags {

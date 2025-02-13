@@ -27,19 +27,20 @@ const Page = () => {
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const [subscribeEmail, setSubscribeEmail] = useState();
+  const [loading, setLoading] = useState(true);
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
   const handlePageChange = (pageNumber) => {
     window.scrollTo(0, 0);
     setCurrentPage(pageNumber);
   };
 
-  const validateForm = () =>{
+  const validateForm = () => {
     let isValid = true;
     const emailInput = document.getElementById("subscribe-email");
     const emailPattern = /\S+@\S+\.\S+/;
     if (!isCaptchaValid) {
-      setrecaptcha1("Please check this");
+      setrecaptcha1("Please verify recaptcha");
       isValid = false;
-      
     }
     if (!emailPattern.test(emailInput.value)) {
       emailInput.setCustomValidity("Please enter a valid email address.");
@@ -50,11 +51,11 @@ const Page = () => {
       isValid = false;
     }
     return isValid;
-  }
+  };
 
-  const handleSubscribe = async() => {
-     if(validateForm()) {
-      
+  const handleSubscribe = async () => {
+    if (validateForm()) {
+      setSubscribeLoading(true);
       try {
         const response = await axios.post(
           "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
@@ -62,7 +63,7 @@ const Page = () => {
             email_address: subscribeEmail,
           }
         );
-    
+
         // If subscription is successful
         if (response.status === 200) {
           Swal.fire({
@@ -79,8 +80,10 @@ const Page = () => {
           });
         }
         setSubscribeEmail("");
+        setSubscribeLoading(false);
       } catch (error) {
         console.error(error);
+        setSubscribeLoading(false);
         Swal.fire({
           icon: "error",
           title: "Subscription Failed",
@@ -88,7 +91,6 @@ const Page = () => {
         });
       }
     }
-    
   };
 
   const handleInputChange = (event) => {
@@ -114,6 +116,7 @@ const Page = () => {
   };
 
   const getData = async () => {
+    setLoading(true);
     try {
       // const response = await axios.get(`${BaseAPI}/blog/listing`);
       const response = await axios.get(
@@ -123,9 +126,11 @@ const Page = () => {
       setFilteredBlogs(response.data.response.blogData);
       setCategoryList(response.data.response.categoryList);
       setRecentPostsList(response.data.response.recentBlogs);
+      setLoading(false);
       // console.log(response.data.response, "Blog Data");
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 
@@ -169,137 +174,211 @@ const Page = () => {
             </div>
           </div>
         </div>
+        <div className="container mt-3"></div>
 
         <div className="container">
           <div className="main-blog-container">
-            <div className="blog-container">
-              {currentBlogs.length > 0 ? (
-                currentBlogs.map((blog, i) => (
-                  <div className="blog-box" key={blog.id}>
-                    <h1 className="blog-title">
-                      <Link
-                        href={`/blog/${blog.slug}`}
-                        className="light_blue"
-                        title={blog.subject}
-                      >
-                        {blog.subject || "Untitled Blog"}
+            {loading ? (
+              <Loader />
+            ) : (
+              <div className="blog-container">
+                <nav aria-label="breadcrumb" className="w-max mb-3">
+                  <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
+                    <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
+                      <Link href="#">
+                        <p className="text-lg font-medium">Blog</p>
                       </Link>
-                    </h1>
-                    <p className="blog-date">
-                      {new Date(blog.created_at).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "2-digit",
-                        year: "numeric",
-                      })}{" "}
-                      /
-                      <span>
-                        {blog.category_names &&
-                          blog.category_names
-                            .split(",")
-                            .map((category_names, index) => (
-                              <React.Fragment key={index}>
-                                <Link
-                                  className="text-[#337ab7]"
-                                  href={`/category/${category_names
-                                    .trim()
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
-                                >
-                                  {category_names.trim()}
-                                </Link>
-                                {index <
-                                  blog.category_names.split(",").length - 1 &&
-                                  ", "}
-                              </React.Fragment>
-                            ))}
+                    </li>
+                  </ol>
+                </nav>
+
+                {currentBlogs.length > 0 ? (
+                  currentBlogs.map((blog, i) => (
+                    <div className="blog-box" key={blog.id}>
+                      <h1 className="blog-title">
+                        <Link
+                          href={`/blog/${blog.slug}`}
+                          className="light_blue"
+                          title={blog.subject}
+                        >
+                          {blog.subject || "Untitled Blog"}
+                        </Link>
+                      </h1>
+                      <p className="blog-date">
+                        {new Date(blog.created_at).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "2-digit",
+                          year: "numeric",
+                        })}{" "}
+                        /
+                        <span>
+                          {blog.category_names &&
+                            blog.category_names
+                              .split(",")
+                              .map((category_names, index) => (
+                                <React.Fragment key={index}>
+                                  <Link
+                                    className="text-[#337ab7]"
+                                    href={`/category/${category_names
+                                      .trim()
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")}`}
+                                  >
+                                    {category_names.trim()}
+                                  </Link>
+                                  {index <
+                                    blog.category_names.split(",").length - 1 &&
+                                    ", "}
+                                </React.Fragment>
+                              ))}
+                        </span>
+                      </p>
+
+                      <span className="blog-link">
+                        {blog.tags &&
+                          blog.tags.split(",").map((tag, index) => (
+                            <Link
+                              key={index}
+                              href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                            >
+                              {tag.trim()}
+                              {index < blog.tags.split(",").length - 1
+                                ? ", "
+                                : ""}
+                            </Link>
+                          ))}
                       </span>
-                    </p>
 
-                    <span className="blog-link">
-                      {blog.tags &&
-                        blog.tags.split(",").map((tag, index) => (
-                          <Link
-                            key={index}
-                            href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
-                          >
-                            {tag.trim()}
-                            {index < blog.tags.split(",").length - 1
-                              ? ", "
-                              : ""}
-                          </Link>
-                        ))}
-                    </span>
-
-                    {blog.image !== "" ? (
-                      <Image
-                        width={400}
-                        height={100}
-                        className="blog-image"
-                        src={blog.image}
-                        alt="Blog"
-                      />
-                    ) : (
-                      <Image
-                        width={400}
-                        height={100}
-                        className="blog-image"
-                        unoptimized={true}
-                        src="/img/blog/dummy-blog-post.jpg"
-                        alt="Blog"
-                      />
-                    )}
-
-                    <p className="blog-text">
-                      {parse(
-                        blog.blog_description.length > 200
-                          ? blog.blog_description.slice(0, 200) + "..."
-                          : blog.blog_description
+                      {blog.image !== "" ? (
+                        <Image
+                          width={400}
+                          height={100}
+                          className="blog-image"
+                          src={blog.image}
+                          alt="Blog"
+                        />
+                      ) : (
+                        <Image
+                          width={100}
+                          height={100}
+                          className="blog-image"
+                          unoptimized={true}
+                          src="/img/blog/dummy-blog-post.jpg"
+                          alt="Blog"
+                        />
                       )}
-                    </p>
 
-                    <Link href={`/blog/${blog.slug}`} className="blog-button">
-                      READ MORE
-                    </Link>
+                      <p className="blog-text">
+                        {parse(
+                          blog.blog_description.length > 200
+                            ? blog.blog_description.slice(0, 200) + "..."
+                            : blog.blog_description
+                        )}
+                      </p>
+
+                      <Link href={`/blog/${blog.slug}`} className="blog-button">
+                        READ MORE
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-purple-700 mt-4 text-2xl font-semibold w-full text-center">
+                    No Blogs Found...
                   </div>
-                ))
-              ) : (
-                // <div className="text-indigo-500 text-xl font-semibold">
-                //   No Blogs Available At The Moment...
-                // </div>
-                <Loader />
-              )}
-              {filteredBlogs.length > 0 && (
-                <div className="pagination-container">
-                  <button
-                    className="pagination-button"
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                  >
-                    Previous
-                  </button>
-                  <div className="pagination-numbers">
-                    {[...Array(totalPages)].map((_, index) => (
-                      <button
-                        key={index}
-                        className={`pagination-button ${
-                          currentPage === index + 1 ? "active" : ""
-                        }`}
-                        onClick={() => handlePageChange(index + 1)}
-                      >
-                        {index + 1}
-                      </button>
-                    ))}
+                  // <Loader />
+                )}
+                {filteredBlogs.length > 0 && (
+                  <div className="pagination-container ">
+                    <button
+                      className="pagination-button !hidden sm:!flex"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      className="pagination-button !flex sm:!hidden"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </button>
+                    {/* <div className="pagination-numbers">
+                      {[...Array(totalPages)].map((_, index) => (
+                        <button
+                          key={index}
+                          className={`pagination-button ${
+                            currentPage === index + 1 ? "active" : ""
+                          }`}
+                          onClick={() => handlePageChange(index + 1)}
+                        >
+                          {index + 1}
+                        </button>
+                      ))}
+                    </div> */}
+                    <div className="pagination-numbers">
+                      {[...Array(totalPages)].map((_, index) => {
+                        const pageNumber = index + 1;
+
+                        // Show first 3 pages, last 3 pages, and current page if necessary
+                        if (
+                          pageNumber <= 2 ||
+                          pageNumber > totalPages - 2 ||
+                          (pageNumber >= currentPage - 1 &&
+                            pageNumber <= currentPage + 1)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className={`pagination-button ${
+                                currentPage === pageNumber ? "active" : ""
+                              }`}
+                              onClick={() => handlePageChange(pageNumber)}
+                            >
+                              {pageNumber}
+                            </button>
+                          );
+                        }
+
+                        // Show ellipsis if we're skipping over pages
+                        if (
+                          (pageNumber === 3 && currentPage >= 3) ||
+                          (pageNumber === totalPages - 2 &&
+                            currentPage <= totalPages - 2)
+                        ) {
+                          return (
+                            <button
+                              key={index}
+                              className="pagination-button disabled"
+                              disabled
+                            >
+                              ...
+                            </button>
+                          );
+                        }
+
+                        return null; // Skip rendering for other pages
+                      })}
+                    </div>
+
+                    <button
+                      className="pagination-button !flex sm:!hidden"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </button>
+                    <button
+                      className="pagination-button !hidden sm:!flex"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                    </button>
                   </div>
-                  <button
-                    className="pagination-button"
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                  >
-                    Next
-                  </button>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             <div className="category-container">
               <p className="search-title">Search</p>
@@ -312,9 +391,22 @@ const Page = () => {
                   onChange={handleSearchChange}
                   placeholder="Search by title, description or tag"
                 />
-                <button className="search-icon">
-                  <i className="fa fa-search" aria-hidden="true"></i>
-                </button>
+                {searchText.length === 0 ? (
+                  <button className="search-icon">
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                ) : (
+                  <button
+                    className="search-icon"
+                    onClick={() => {
+                      setSearchText("");
+                      setFilteredBlogs(blogData);
+                      setCurrentPage(1);
+                    }}
+                  >
+                    <i className="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                )}
               </div>
               <div>
                 <div className="blog-cost-calculator">
@@ -335,7 +427,7 @@ const Page = () => {
               <aside className="category-box">
                 <h4 className="category-title">Categories</h4>
 
-                <ul className="category-list-ul">
+                <ul className="category-list-ul !pl-0">
                   {categoryList.length > 0 &&
                     categoryList.map((category, index) => (
                       <li className="category-list-li" key={category.id}>
@@ -352,39 +444,53 @@ const Page = () => {
               </aside>
 
               <div className="subscribe-blog">
-                <div className="subscribe-blog-title">
-                  Subscribe to Our Blog
-                </div>
-                <div className="">
-                  <input
-                    id="subscribe-email"
-                    className="subscribe-email"
-                    type="email"
-                    onChange={handleInputChange}
-                    placeholder="Enter your email address"
-                  />
-                </div>
-                <div className="scale-[0.8] mb-[10px] ml-[-30px]">
-                  <ReCAPTCHA
-                    key={recaptchaKey}
-                    sitekey={recaptchaKey}
-                    onChange={onRecaptchaChange}
-                    onExpired={onRecaptchaExpired}
-                  />
-                  {recaptcha1 && (
-                    <span className="error-message">{recaptcha1}</span>
-                  )}
-                </div>
-                <div>
-                  <button className="btn btn-primary" onClick={handleSubscribe}>
-                    SUBSCRIBE
-                  </button>
-                </div>
+                {subscribeLoading ? (
+                  <div className="py-5">
+                    <div className="mt-[-100px]">
+                      <Loader />
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="subscribe-blog-title">
+                      Subscribe to Our Blog
+                    </div>
+                    <div className="">
+                      <input
+                        id="subscribe-email"
+                        className="subscribe-email"
+                        type="email"
+                        value={subscribeEmail}
+                        onChange={handleInputChange}
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+                    <div className="scale-[0.8] mb-[10px] ml-[-30px]">
+                      <ReCAPTCHA
+                        key={recaptchaKey}
+                        sitekey={recaptchaKey}
+                        onChange={onRecaptchaChange}
+                        onExpired={onRecaptchaExpired}
+                      />
+                      {recaptcha1 && (
+                        <span className="error-message">{recaptcha1}</span>
+                      )}
+                    </div>
+                    <div>
+                      <button
+                        className="btn btn-primary"
+                        onClick={handleSubscribe}
+                      >
+                        SUBSCRIBE
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
 
               <aside className="category-box">
                 <h4 className="recent-post-title">Recent Posts</h4>
-                <ul className="recent-posts-blog-ul">
+                <ul className="recent-posts-blog-ul !pl-0">
                   {recentPostsList.length > 0 &&
                     recentPostsList.map((recentpost, index) => (
                       <li
