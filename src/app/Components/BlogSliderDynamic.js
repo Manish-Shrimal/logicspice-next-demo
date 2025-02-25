@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const BlogSliderDynamic = ({ blogData, blogImagePath }) => {
   const settings = {
@@ -57,13 +58,15 @@ const BlogSliderDynamic = ({ blogData, blogImagePath }) => {
                     alt={item.title}
                   />
                   <figcaption>
-                    <a
-                      href={`https://blog.logicspice.com/${item.slug}`}
+                    <Link
+                      // href={`https://blog.logicspice.com/${item.slug}`}
+                      href={`/blog/${item.slug}`}
+
                       title="Read more"
                       className="btn btn-primary"
                     >
                       Read more
-                    </a>
+                    </Link>
                   </figcaption>
                 </figure>
               </li>

@@ -10,8 +10,10 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import Swal from "sweetalert2";
 import Loader from "@/app/Components/loader";
+import BaseAPI from "@/app/BaseAPI/BaseAPI";
 
 const Page = ({ params }) => {
+  let currentTime = Date.now();
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [isCaptchaValid1, setIsCaptchaValid1] = useState(false);
@@ -62,13 +64,86 @@ const Page = ({ params }) => {
     }
   }, [searchResults, currentPage]);
 
-  const handlePageChange = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-      window.scrollTo(0, 0); // Optional, to scroll to top on page change
+  const [visiblePages, setVisiblePages] = useState([]);
+
+  const handlePageChange = (pageNumber) => {
+    // window.scrollTo(0, 0);
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    const updateVisiblePages = () => {
+      const newVisiblePages = [];
+      const range = 2;
+
+      newVisiblePages.push(1);
+
+      let start = Math.max(2, currentPage - range);
+      let end = Math.min(totalPages - 1, currentPage + range);
+
+      if (start > 2) {
+        newVisiblePages.push("...");
+      }
+
+      for (let i = start; i <= end; i++) {
+        newVisiblePages.push(i);
+      }
+
+      if (end < totalPages - 1) {
+        newVisiblePages.push("...");
+      }
+
+      if (totalPages > 1) {
+        newVisiblePages.push(totalPages);
+      }
+
+      setVisiblePages(newVisiblePages);
+    };
+
+    if (totalPages > 0) {
+      updateVisiblePages();
+    }
+  }, [currentPage, totalPages]);
+
+  const handleEllipsisClick = (index) => {
+    const isLeftEllipsis = index === 1;
+    const isRightEllipsis = index === visiblePages.length - 2;
+
+    if (isLeftEllipsis) {
+      const newPage = Math.max(1, currentPage - 5);
+      handlePageChange(newPage);
+    } else if (isRightEllipsis) {
+      const newPage = Math.min(totalPages, currentPage + 5);
+      handlePageChange(newPage);
     }
   };
-  console.log(params.slug, "From blog description page");
+
+  const renderPaginationButtons = () => {
+    return visiblePages.map((page, index) => {
+      if (page === "...") {
+        return (
+          <button
+            key={index}
+            className="pagination-button disabled"
+            onClick={() => handleEllipsisClick(index)}
+          >
+            ...
+          </button>
+        );
+      }
+      return (
+        <button
+          key={index}
+          className={`pagination-button ${
+            currentPage === page ? "active" : ""
+          }`}
+          onClick={() => handlePageChange(page)}
+        >
+          {page}
+        </button>
+      );
+    });
+  };
   const validateSubscribeForm = () => {
     let isValid = true;
     const emailInput = document.getElementById("subscribe-email");
@@ -91,26 +166,29 @@ const Page = ({ params }) => {
     if (validateSubscribeForm()) {
       setSubscribeLoading(true);
       try {
-        const response = await axios.post(
-          "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
-          {
-            email_address: subscribeEmail,
-          }
-        );
+        const response = await axios.post(BaseAPI + "/blog/subscribe", {
+          email_address: subscribeEmail,
+          slug: currentTime,
+        });
 
         // If subscription is successful
-        if (response.status === 200) {
+        if (response.data.status === 200) {
           Swal.fire({
             icon: "success",
             title: "Subscription Successful",
             text: "You have been successfully subscribed.",
           });
+        } else if (response.data.status === 500) {
+          Swal.fire({
+            icon: "warning",
+            // title: "Something went wrong",
+            text: response.data.message,
+          });
         } else {
-          // Handle other response statuses if needed
           Swal.fire({
             icon: "error",
-            title: "Something went wrong",
-            text: "Please try again later.",
+            // title: "Something went wrong",
+            text: response.message,
           });
         }
         setSubscribeEmail("");
@@ -257,7 +335,7 @@ const Page = ({ params }) => {
       setCommentLoading(true);
       try {
         const response = await axios.post(
-          `https://lswebsitedemo.logicspice.com/logicspice/api/${params.slug}/comments`,
+          BaseAPI + `/${params.slug}/comments`,
           commentData
         );
         Swal.fire({
@@ -283,9 +361,7 @@ const Page = ({ params }) => {
   const getData = async () => {
     try {
       // const response = await axios.get(`${BaseAPI}/blog/listing`);
-      const response = await axios.get(
-        ` https://lswebsitedemo.logicspice.com/logicspice/api/blog/detail/${params.slug}`
-      );
+      const response = await axios.get(BaseAPI + `/blog/detail/${params.slug}`);
       setBlogData(response.data.response.blogData);
       setCategoryList(response.data.response.categoryList);
       setRecentPostsList(response.data.response.recentBlogs);
@@ -296,9 +372,7 @@ const Page = ({ params }) => {
   };
   const getCommentData = async () => {
     try {
-      const response = await axios.get(
-        `https://lswebsitedemo.logicspice.com/logicspice/api/${params.slug}/comments`
-      );
+      const response = await axios.get(BaseAPI + `/${params.slug}/comments`);
       console.log(response.data.comments);
       setTotalComments(response.data.total_comments);
       setTotalCommentsData(response.data.comments);
@@ -328,10 +402,9 @@ const Page = ({ params }) => {
       setLoading(true);
 
       try {
-        const response = await axios.get(
-          `https://lswebsitedemo.logicspice.com/logicspice/api/blog/${keyword}/search`,
-          { params: { keyword: keyword } }
-        );
+        const response = await axios.get(BaseAPI + `/blog/${keyword}/search`, {
+          params: { keyword: keyword },
+        });
         setSearchResults(response.data.data);
         setCurrentPage(1);
         // console.log(response.data.response);
@@ -356,14 +429,20 @@ const Page = ({ params }) => {
                     <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
                       <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
                         <Link href="/blog">
-                          <p className="text-lg font-medium">Blog</p>
+                          <p className="text-lg font-medium !pb-0 !mb-0">
+                            Blog
+                          </p>
                         </Link>
                         <span class="pointer-events-none mx-2 text-slate-800">
                           /
                         </span>
+                      </li>
+                      <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
                         <Link href="#">
-                          <p className="text-lg font-medium">
-                            {blogData.subject}
+                          <p className="text-lg font-medium !pb-0 !mb-0">
+                            {blogData.subject.length > 60
+                              ? blogData.subject.slice(0, 60) + "..."
+                              : blogData.subject}
                           </p>
                         </Link>
                       </li>
@@ -395,7 +474,7 @@ const Page = ({ params }) => {
                                 <React.Fragment key={index}>
                                   <Link
                                     className="text-[#337ab7]"
-                                    href={`/category/${category_names
+                                    href={`/blog/category/${category_names
                                       .trim()
                                       .toLowerCase()
                                       .replace(/\s+/g, "-")}`}
@@ -415,7 +494,9 @@ const Page = ({ params }) => {
                           blog.tags.split(",").map((tag, index) => (
                             <Link
                               key={index}
-                              href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                              href={`/blog/tag/${tag
+                                .trim()
+                                .replace(/\s+/g, "-")}`}
                             >
                               {tag.trim()}
                               {index < blog.tags.split(",").length - 1
@@ -452,7 +533,17 @@ const Page = ({ params }) => {
                         )}
                       </p>
 
-                      <Link href={`/blog/${blog.slug}`} className="blog-button">
+                      <Link
+                        href={`/blog/${blog.slug}`}
+                        onClick={() => {
+                          if (blog.slug === params.slug) {
+                            setSearchKeyword("");
+                            setSearchResults([]);
+                            setCurrentPage(1);
+                          }
+                        }}
+                        className="blog-button"
+                      >
                         READ MORE
                       </Link>
                     </div>
@@ -466,9 +557,9 @@ const Page = ({ params }) => {
                     >
                       Previous
                     </button>
-                    
+
                     <div className="pagination-numbers">
-                      {[...Array(totalPages)].map((_, index) => {
+                      {/* {[...Array(totalPages)].map((_, index) => {
                         const pageNumber = index + 1;
 
                         // Show first 3 pages, last 3 pages, and current page if necessary
@@ -509,7 +600,8 @@ const Page = ({ params }) => {
                         }
 
                         return null; // Skip rendering for other pages
-                      })}
+                      })} */}
+                      {renderPaginationButtons()}
                     </div>
                     <button
                       className="pagination-button"
@@ -526,17 +618,20 @@ const Page = ({ params }) => {
                     <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
                       <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
                         <Link href="/blog">
-                          <p className="text-lg font-medium">Blog</p>
+                          <p className="text-lg font-medium !pb-0 !mb-0">
+                            Blog
+                          </p>
                         </Link>
                         <span class="pointer-events-none mx-2 text-slate-800">
                           /
                         </span>
-                        
                       </li>
                       <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
-                      <Link href="#">
-                          <p className="text-lg font-medium">
-                            {blogData.subject}
+                        <Link href="#">
+                          <p className="text-lg font-medium !pb-0 !mb-0">
+                            {blogData.subject.length > 60
+                              ? blogData.subject.slice(0, 60) + "..."
+                              : blogData.subject}
                           </p>
                         </Link>
                       </li>
@@ -563,7 +658,7 @@ const Page = ({ params }) => {
                                 <React.Fragment key={index}>
                                   <Link
                                     className="text-[#337ab7]"
-                                    href={`/category/${category_id
+                                    href={`/blog/category/${category_id
                                       .trim()
                                       .toLowerCase()
                                       .replace(/\s+/g, "-")}`}
@@ -589,17 +684,19 @@ const Page = ({ params }) => {
                         {parse(blogData.blog_description)}
                       </p>
 
-                      <div className="flex flex-col gap-2 mb-4">
+                      <div className="flex flex-col w-full gap-2 mb-4">
                         <p className="blog-tags flex gap-1 items-center">
                           <i class="fa fa-tag" aria-hidden="true"></i>Tags
                         </p>
-                        <div className="flex flex-wrap gap-y-1 gap-x-2">
+                        {/* <div className="flex flex-wrap gap-y-1 gap-x-2">
                           {blogData.tags &&
                             blogData.tags.split(",").map((tag, index) => (
                               <Link
                                 key={index}
                                 className="blog-tag"
-                                href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                                href={`/blog/tag/${tag
+                                  .trim()
+                                  .replace(/\s+/g, "-")}`}
                               >
                                 {tag.trim()}
                                 {index < blogData.tags.split(",").length - 1
@@ -607,6 +704,24 @@ const Page = ({ params }) => {
                                   : ""}
                               </Link>
                             ))}
+                        </div> */}
+                        <div className="flex flex-wrap gap-y-1 gap-x-2">
+                          {blogData.tags &&
+                            blogData.tags
+                              .split(",")
+                              .map((tag, index, array) => (
+                                <React.Fragment key={index}>
+                                  <Link
+                                    className="blog-tag"
+                                    href={`/blog/tag/${tag
+                                      .trim()
+                                      .replace(/\s+/g, "-")}`}
+                                  >
+                                    {tag.trim()}
+                                  </Link>
+                                  {/* {index < array.length - 1 && <span>, </span>} */}
+                                </React.Fragment>
+                              ))}
                         </div>
                       </div>
 
@@ -638,7 +753,7 @@ const Page = ({ params }) => {
                                     </p>
                                   </div>
                                   <p className="text-black break-all">
-                                    {comments.comment}
+                                    {parse(comments.comment)}
                                   </p>
                                 </div>
                               );
@@ -834,7 +949,7 @@ const Page = ({ params }) => {
                           className="fa fa-chevron-right"
                           aria-hidden="true"
                         ></i>{" "}
-                        <Link href={`/category/${category.slug}`}>
+                        <Link href={`/blog/category/${category.slug}`}>
                           {category.name}
                         </Link>
                       </li>

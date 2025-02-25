@@ -9,11 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // Fetch data
-  const product = await fetch(`${MetadataApi}/react-native-developers`,{
+  const product = await fetch(`${MetadataApi}/react-native-developers`, {
     cache: "no-store",
-  }).then((res) =>
-    res.json()
-  );
+  }).then((res) => res.json());
   // console.log(product)
 
   // let text = product.data.schema;
@@ -26,7 +24,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   //     .replace(/\\r/g, '')      // Remove \r (carriage return)
   //     .replace(/\\+/g, '')      // Remove unnecessary backslashes
   //     .replace(/[\u0000-\u001F\u007F]/g, '');  // Remove control characters
-
 
   //     schemaOrg = cleanedText && JSON.parse(cleanedText);
 
@@ -54,14 +51,13 @@ export async function generateMetadata({ params, searchParams }, parent) {
         "max-snippet": -1,
       },
     },
-    // schemaOrg: schemaOrg || null,
+    schemaOrg: product.data.schema,
   };
 }
 
 export default async function RootLayout({ children, params, searchParams }) {
   // Fetch metadata using the generateMetadata function
   const metadata = await generateMetadata({ params, searchParams });
- 
 
   return (
     <html lang="en">
@@ -72,10 +68,14 @@ export default async function RootLayout({ children, params, searchParams }) {
       </Head>
       <CookiesConsent />
       <body className={inter.className}>{children}</body>
-      {/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
-      /> */}
+      {metadata.schemaOrg && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(metadata.schemaOrg),
+          }}
+        />
+      )}
     </html>
   );
 }

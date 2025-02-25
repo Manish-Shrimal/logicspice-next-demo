@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import axios from "axios";
+import Link from "next/link";
 
 const Blogslider = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,9 +17,9 @@ const Blogslider = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://blog.logicspice.com/api/blog/listing");
+      const response = await axios.get("https://manage.logicspice.com/api/blog/listing");
       // console.log(response.data.data);
-      setBlogs(response.data.response);
+      setBlogs(response.data.response.blogData);
     } catch (error) {
       console.log(error.message);
     }
@@ -97,14 +98,14 @@ const Blogslider = () => {
                     className="lazy"
                   />
                   <figcaption>
-                    <a
-                      href={i.link}
+                    <Link
+                      href={`/blog/${i.slug}`}
                       title="Read more"
                       className="btn btn-primary"
                       target="_blank"
                     >
                       Read more
-                    </a>
+                    </Link>
                   </figcaption>
                 </figure>
               </li>

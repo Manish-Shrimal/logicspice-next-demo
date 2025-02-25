@@ -200,14 +200,26 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li
+                              // className={
+                              //   router.pathname ===
+                              //   "https://blog.logicspice.com/"
+                              //     ? "active"
+                              //     : ""
+                              // }
                               className={
                                 router.pathname ===
-                                "https://blog.logicspice.com/"
+                                "/blog"
                                   ? "active"
                                   : ""
                               }
                             >
-                              <Link href="https://blog.logicspice.com/">
+                              {/* <Link href="https://blog.logicspice.com/">
+                                <span className="hover_btn_menu">
+                                  <i className="menu_icon_all icon_blog"></i>
+                                </span>
+                                <span>Blog</span>
+                              </Link> */}
+                              <Link href="/blog">
                                 <span className="hover_btn_menu">
                                   <i className="menu_icon_all icon_blog"></i>
                                 </span>
@@ -877,7 +889,9 @@ const Navbar = () => {
                   </div>
                 </li>
                 <li>
-                  <Link href="https://blog.logicspice.com/">blog</Link>
+                  {/* <Link href="https://blog.logicspice.com/">blog</Link> */}
+                  <Link href="/blog">blog</Link>
+
                 </li>
                 <li>
                   <div

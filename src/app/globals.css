@@ -7978,6 +7978,11 @@ section {
   background: #eeeeee;
 }
 
+.new_contentt .content-paragraph {
+  margin-bottom: 15px;
+  
+}
+
 .new_contentt a{
   /* color: #0d6efd!important; */
   /* color: rgb(13, 110, 253)!important; */

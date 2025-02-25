@@ -110,6 +110,7 @@ export async function generateMetadata({ params, searchParams }) {
         "max-snippet": -1,
       },
     },
+    schemaOrg: product?.data?.schema,
   };
 }
 
@@ -129,6 +130,12 @@ export default async function RootLayout({ children, params, searchParams }) {
         {children}
         
       </body>
+      {metadata.schemaOrg && (
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
+      />
+      )}
     </html>
   );
 }

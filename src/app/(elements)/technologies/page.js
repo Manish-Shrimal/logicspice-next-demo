@@ -6,7 +6,7 @@ import "@/app/company/company.css";
 import Image from "next/image";
 import React, { useState } from "react";
 // import "@fortawesome/fontawesome-free/css/all.css";
-import "../../../../public/css/font-awesome.css"
+import "../../../../public/css/font-awesome.css";
 import Contactusmodel from "@/app/Components/Contactusmodel";
 
 const Page = () => {
@@ -40,9 +40,9 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
-                    src="/img/technology/laravel-icon.png"
+                    src="/img/technology/laravel-icon.jpg"
                     alt="Laravel"
                   />
                 </i>
@@ -52,7 +52,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
                     src="/img/technology/react-icon.png"
                     alt="React JS"
@@ -76,9 +76,9 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
-                    src="/img/technology/react-native-icon.png"
+                    src="/img/technology/react-icon.png"
                     alt="React Native"
                   />
                 </i>
@@ -88,7 +88,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
                     src="/img/technology/angular-icon.png"
                     alt="Angular"
@@ -100,7 +100,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
                     src="/img/technology/swift-icon.png"
                     alt="Swift"
@@ -124,7 +124,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
                     src="/img/technology/bigdata-icon.png"
                     alt="Big Data"
@@ -136,17 +136,13 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={50}
+                    width={60}
                     height={100}
                     src="/img/technology/devops-icon.png"
                     alt="DevOps Infrastructure"
                   />
                 </i>
-                <span>
-                  DevOps
-                  <br />
-                  Infrastructure
-                </span>
+                <span>DevOps</span>
               </li>
               <li>
                 <i>
@@ -158,7 +154,7 @@ const Page = () => {
                     alt="Ai"
                   />
                 </i>
-                <span>Ai</span>
+                <span>AI</span>
               </li>
               <li>
                 <i>
@@ -176,9 +172,9 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={50}
                     height={100}
-                    src="/img/technology/xcode-icon.png"
+                    src="/img/technology/xcode-icon.jpeg"
                     alt="Xcode"
                   />
                 </i>
@@ -224,7 +220,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={40}
                     height={100}
                     src="/img/technology/codeigniter-icon.png"
                     alt="Codeigniter"
@@ -260,9 +256,9 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={80}
+                    width={60}
                     height={100}
-                    src="/img/technology/vue-js-logo.jpg"
+                    src="/img/technology/vue-js-logo.png"
                     alt="Codeigniter"
                   />
                 </i>
@@ -272,7 +268,7 @@ const Page = () => {
                 <i>
                   <Image
                     unoptimized={true}
-                    width={60}
+                    width={40}
                     height={100}
                     src="/img/technology/blockchain-icon.png"
                     alt="Codeigniter"
@@ -432,7 +428,7 @@ const Page = () => {
                   <i>
                     <Image
                       unoptimized={true}
-                      width={60}
+                      width={50}
                       height={100}
                       src="/img/technology/angular-icon.png"
                       alt="Angular"
@@ -468,7 +464,7 @@ const Page = () => {
                   <i>
                     <Image
                       unoptimized={true}
-                      width={60}
+                      width={50}
                       height={100}
                       src="/img/technology/codeigniter-icon.png"
                       alt="Codeigniter"

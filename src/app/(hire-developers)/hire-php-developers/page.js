@@ -18,6 +18,9 @@ import Support from "@/app/Components/Support";
 import WhyHireFromLogicspice from "@/app/Components/WhyHireFromLogicspice";
 import Head from "next/head";
 import RootLayout from "./layout";
+
+
+
 const Page = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const item = {
@@ -73,6 +76,8 @@ const Page = () => {
       location: "USA",
     },
   ];
+
+  
 
   return (
     <>

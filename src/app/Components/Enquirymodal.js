@@ -179,6 +179,13 @@ const Enquirymodal = ({ modalStatus, toggle, title }) => {
         //   phone_no: "",
         //   message: "",
         // });
+        if (window.gtag) {
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-946594877/U5sJCLX0_9kBEL3Ir8MD', 
+            value: 1.0,
+            currency: 'USD',
+          });
+        }
 
         if (recaptchaRef.current) {
           recaptchaRef.current.reset();

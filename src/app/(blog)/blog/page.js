@@ -12,6 +12,7 @@ import parse from "html-react-parser";
 import Swal from "sweetalert2";
 import Loader from "@/app/Components/loader";
 const Page = () => {
+  let currentTime = Date.now();
   const recaptchaKey = "6Lep5B8qAAAAABS1ppbvL1LHjDXYRjPojknlmdzo";
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [recaptcha1, setrecaptcha1] = useState("");
@@ -29,11 +30,88 @@ const Page = () => {
   const [subscribeEmail, setSubscribeEmail] = useState();
   const [loading, setLoading] = useState(true);
   const [subscribeLoading, setSubscribeLoading] = useState(false);
+
+  const [visiblePages, setVisiblePages] = useState([]);
+
   const handlePageChange = (pageNumber) => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     setCurrentPage(pageNumber);
   };
 
+  useEffect(() => {
+    const updateVisiblePages = () => {
+      const newVisiblePages = [];
+      const range = 2;
+
+      newVisiblePages.push(1);
+
+      let start = Math.max(2, currentPage - range);
+      let end = Math.min(totalPages - 1, currentPage + range);
+
+      if (start > 2) {
+        newVisiblePages.push("...");
+      }
+
+      for (let i = start; i <= end; i++) {
+        newVisiblePages.push(i);
+      }
+
+      if (end < totalPages - 1) {
+        newVisiblePages.push("...");
+      }
+
+      if (totalPages > 1) {
+        newVisiblePages.push(totalPages);
+      }
+
+      setVisiblePages(newVisiblePages);
+    };
+
+    if (totalPages > 0) {
+      updateVisiblePages();
+    }
+  }, [currentPage, totalPages]);
+
+  const handleEllipsisClick = (index) => {
+    const isLeftEllipsis = index === 1;
+    const isRightEllipsis = index === visiblePages.length - 2;
+
+    if (isLeftEllipsis) {
+      const newPage = Math.max(1, currentPage - 5);
+      handlePageChange(newPage);
+    } else if (isRightEllipsis) {
+      const newPage = Math.min(totalPages, currentPage + 5);
+      handlePageChange(newPage);
+    }
+  };
+
+  const renderPaginationButtons = () => {
+    return visiblePages.map((page, index) => {
+      if (page === "...") {
+        return (
+          <button
+            key={index}
+            className="pagination-button disabled"
+            onClick={() => handleEllipsisClick(index)}
+          >
+            ...
+          </button>
+        );
+      }
+      return (
+        <button
+          key={index}
+          className={`pagination-button ${
+            currentPage === page ? "active" : ""
+          }`}
+          onClick={() => handlePageChange(page)}
+        >
+          {page}
+        </button>
+      );
+    });
+  };
+  
   const validateForm = () => {
     let isValid = true;
     const emailInput = document.getElementById("subscribe-email");
@@ -57,26 +135,29 @@ const Page = () => {
     if (validateForm()) {
       setSubscribeLoading(true);
       try {
-        const response = await axios.post(
-          "https://lswebsitedemo.logicspice.com/logicspice/api/blog/subscribe",
-          {
-            email_address: subscribeEmail,
-          }
-        );
+        const response = await axios.post(BaseAPI + "/blog/subscribe", {
+          email_address: subscribeEmail,
+          slug: currentTime,
+        });
 
         // If subscription is successful
-        if (response.status === 200) {
+        if (response.data.status === 200) {
           Swal.fire({
             icon: "success",
             title: "Subscription Successful",
             text: "You have been successfully subscribed.",
           });
+        } else if (response.data.status === 500) {
+          Swal.fire({
+            icon: "warning",
+            // title: "Something went wrong",
+            text: response.data.message,
+          });
         } else {
-          // Handle other response statuses if needed
           Swal.fire({
             icon: "error",
-            title: "Something went wrong",
-            text: "Please try again later.",
+            // title: "Something went wrong",
+            text: response.message,
           });
         }
         setSubscribeEmail("");
@@ -119,9 +200,7 @@ const Page = () => {
     setLoading(true);
     try {
       // const response = await axios.get(`${BaseAPI}/blog/listing`);
-      const response = await axios.get(
-        "https://lswebsitedemo.logicspice.com/logicspice/api/blog/listing"
-      );
+      const response = await axios.get(BaseAPI + "/blog/listing");
       setBlogData(response.data.response.blogData);
       setFilteredBlogs(response.data.response.blogData);
       setCategoryList(response.data.response.categoryList);
@@ -182,20 +261,20 @@ const Page = () => {
               <Loader />
             ) : (
               <div className="blog-container">
-                <nav aria-label="breadcrumb" className="w-max mb-3">
+                {/* <nav aria-label="breadcrumb" className="w-max mb-3">
                   <ol class="flex flex-wrap items-center rounded-md bg-slate-100 px-4 py-2">
                     <li class="flex cursor-pointer items-center text-sm text-slate-500 transition-colors duration-300 hover:text-slate-800">
                       <Link href="#">
-                        <p className="text-lg font-medium">Blog</p>
+                        <p className="text-lg font-medium !pb-0">Blog</p>
                       </Link>
                     </li>
                   </ol>
-                </nav>
+                </nav> */}
 
                 {currentBlogs.length > 0 ? (
                   currentBlogs.map((blog, i) => (
                     <div className="blog-box" key={blog.id}>
-                      <h1 className="blog-title">
+                      <h3 className="blog-title">
                         <Link
                           href={`/blog/${blog.slug}`}
                           className="light_blue"
@@ -203,7 +282,7 @@ const Page = () => {
                         >
                           {blog.subject || "Untitled Blog"}
                         </Link>
-                      </h1>
+                      </h3>
                       <p className="blog-date">
                         {new Date(blog.created_at).toLocaleDateString("en-US", {
                           month: "short",
@@ -219,7 +298,7 @@ const Page = () => {
                                 <React.Fragment key={index}>
                                   <Link
                                     className="text-[#337ab7]"
-                                    href={`/category/${category_names
+                                    href={`/blog/category/${category_names
                                       .trim()
                                       .toLowerCase()
                                       .replace(/\s+/g, "-")}`}
@@ -239,7 +318,9 @@ const Page = () => {
                           blog.tags.split(",").map((tag, index) => (
                             <Link
                               key={index}
-                              href={`/tag/${tag.trim().replace(/\s+/g, "-")}`}
+                              href={`/blog/tag/${tag
+                                .trim()
+                                .replace(/\s+/g, "-")}`}
                             >
                               {tag.trim()}
                               {index < blog.tags.split(",").length - 1
@@ -317,7 +398,7 @@ const Page = () => {
                       ))}
                     </div> */}
                     <div className="pagination-numbers">
-                      {[...Array(totalPages)].map((_, index) => {
+                      {/* {[...Array(totalPages)].map((_, index) => {
                         const pageNumber = index + 1;
 
                         // Show first 3 pages, last 3 pages, and current page if necessary
@@ -358,7 +439,8 @@ const Page = () => {
                         }
 
                         return null; // Skip rendering for other pages
-                      })}
+                      })} */}
+                      {renderPaginationButtons()}
                     </div>
 
                     <button
@@ -435,7 +517,7 @@ const Page = () => {
                           className="fa fa-chevron-right"
                           aria-hidden="true"
                         ></i>{" "}
-                        <Link href={`/category/${category.slug}`}>
+                        <Link href={`/blog/category/${category.slug}`}>
                           {category.name}
                         </Link>
                       </li>

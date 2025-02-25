@@ -101,8 +101,21 @@ export async function generateMetadata({ params, searchParams }, parent) {
       .replace(/\\+/g, "") // Remove unnecessary backslashes
       .replace(/[\u0000-\u001F\u007F]/g, ""); // Remove control characters
 
+   
     schemaOrg = cleanedText && JSON.parse(cleanedText);
+
+  
+
+
+
+  
+
+    // schemaOrg = cleanedText  
+
   }
+
+
+
 
   // Example FAQ schema
   const faqSchema = {

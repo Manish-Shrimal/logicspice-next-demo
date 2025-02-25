@@ -848,7 +848,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://blog.logicspice.com" target="_blank">
+                {/* <a href="https://blog.logicspice.com" target="_blank"> */}
+                <Link href="/blog" target="_blank">
+
                   <i>
                     <Image
                     unoptimized={true}
@@ -858,7 +860,7 @@ const Footer = () => {
                       alt="Official Blogs - Logicspice"
                     />
                   </i>
-                </a>
+                </Link>
               </li>
               <li>
                 <a

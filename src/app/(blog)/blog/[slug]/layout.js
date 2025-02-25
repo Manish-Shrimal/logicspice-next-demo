@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
-import "../../globals.css";
+import "../../../globals.css";
 import Head from "next/head";
+import BaseAPI from "@/app/BaseAPI/BaseAPI";
 import MetadataApi from "@/app/BaseAPI/MetadataApi";
 import Domain from "@/app/BaseAPI/Domain";
 import CookiesConsent from "@/app/Components/CookiesConsent";
@@ -8,13 +9,22 @@ import CookiesConsent from "@/app/Components/CookiesConsent";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  // Fetch data
-  const product = await fetch(`${MetadataApi}/ios-app-developers`, {
+//   Fetch data
+  const product = await fetch(`${BaseAPI}/blog/getMetadataBySlug/${params.slug}`,{
     cache: "no-store",
-  }).then((res) => res.json());
-  // console.log(product)
+  }).then((res) =>
+    res.json()
+  );
 
-  // let text = product.data.schema;
+//   const product = await fetch(`https://lswebsitedemo.logicspice.com/logicspice/api/blog/${params.slug}/metadata`,{
+//     cache: "no-store",
+//   }).then((res) =>
+//     res.json()
+//   );
+
+  let pageSlug = params;
+
+  let text = product.data.schema;
 
   // let schemaOrg = null;
   // if(text){
@@ -24,6 +34,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   //     .replace(/\\r/g, '')      // Remove \r (carriage return)
   //     .replace(/\\+/g, '')      // Remove unnecessary backslashes
   //     .replace(/[\u0000-\u001F\u007F]/g, '');  // Remove control characters
+
 
   //     schemaOrg = cleanedText && JSON.parse(cleanedText);
 
@@ -36,7 +47,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     keywords: product.data.meta_keyword,
     // Add other meta tags as needed
     alternates: {
-      canonical: `${Domain}/hire-ios-app-developers`,
+      canonical: `${Domain}/blog/${pageSlug.slug}`,
     },
     robots: {
       index: true,
@@ -49,13 +60,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
         "max-snippet": -1,
       },
     },
-    schemaOrg: product.data.schema,
+    // schemaOrg: schemaOrg || null,
   };
 }
 
 export default async function RootLayout({ children, params, searchParams }) {
   // Fetch metadata using the generateMetadata function
   const metadata = await generateMetadata({ params, searchParams });
+ 
 
   return (
     <html lang="en">
@@ -66,14 +78,10 @@ export default async function RootLayout({ children, params, searchParams }) {
       </Head>
       <CookiesConsent />
       <body className={inter.className}>{children}</body>
-      {metadata.schemaOrg && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata.schemaOrg),
-          }}
-        />
-      )}
+      {/* <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schemaOrg) }}
+      /> */}
     </html>
   );
 }

@@ -138,6 +138,9 @@ const Page = () => {
       </div>
     </section>
 
+
+
+
       {/* Lets load initially till this point and futher section will be loader when we scroll down. */}
       
 
