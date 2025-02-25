@@ -585,6 +585,74 @@ const Page = () => {
                       </div>
                       <div className="col-sm-6 col-md-4">
                         <Link
+                          href="/support-ticket-system"
+                          className="ready-product"
+                          data-aos="fade-up"
+                        >
+                          <Image
+                            unoptimized={true}
+                            width={80}
+                            height={100}
+                            className=""
+                            src="/img/support-ticket/support-ticket-icon.png"
+                            alt="Support Ticket System"
+                          />
+                          <div className="abs-product">
+                            <h3>Support Ticket System</h3>
+                            <p>
+                              {/* A Support Ticket System helps businesses manage
+                              customer queries efficiently by keeping everything
+                              organized in one place. It ensures quick responses
+                              and smooth issue resolution for better customer
+                              support. */}
+
+A Support Ticket System helps businesses manage customer queries efficiently by keeping everything organized in one place. It ensures quick responses and smooth issue resolution for better customer support.
+                            </p>
+                            <div className="product-star">
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                              <i className="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div className="product-review">412 REVIEWS</div>
+                            <ul className="make-style">
+                              {/* <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/android-new.png"
+                                  alt="android"
+                                />
+                              </li>
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/apple.png"
+                                  alt="apple"
+                                />
+                              </li> */}
+                              <li>
+                                <Image
+                                  unoptimized={true}
+                                  width={100}
+                                  height={100}
+                                  className=""
+                                  src="/img/softwares/web_new.png"
+                                  alt="web"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="col-sm-6 col-md-4">
+                        <Link
                           href="/applicant-tracking-system"
                           className="ready-product"
                           data-aos="fade-up"
@@ -665,7 +733,10 @@ const Page = () => {
                           <div className="abs-product">
                             <h3>Car Wash Management Software </h3>
                             <p>
-                            The Car Wash Management Software makes it easy to manage appointments, payments, and customer details, helping your car wash business run smoothly and efficiently.
+                              The Car Wash Management Software makes it easy to
+                              manage appointments, payments, and customer
+                              details, helping your car wash business run
+                              smoothly and efficiently.
                             </p>
                             <div className="product-star">
                               <i className="fa fa-star" aria-hidden="true"></i>
@@ -793,7 +864,7 @@ const Page = () => {
                             <p>
                               Our Live Chat Software enables businesses to
                               provide real-time support to customers, enhancing
-                              user experience and boosting conversions. It’s an
+                              user experience and boosting conversions. It&apos;s an
                               easy-to-use tool that helps teams engage with
                               visitors instantly, answer queries, and offer
                               solutions.
