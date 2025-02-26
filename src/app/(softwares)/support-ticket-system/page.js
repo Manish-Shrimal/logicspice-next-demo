@@ -494,7 +494,7 @@ const Page = () => {
             information, tracking attendance, or processing payroll, our best HR
             Management software helps you handle everything from one easy-to-use
             platform. */}
-            The Logicspice Support Ticket System is an easy-to-use help desk software that helps businesses manage customer support more effectively. Whether you're a small business or a large company, our best help desk system makes it simple for your team to communicate with customers and solve their issues quickly. With a user-friendly design, automated workflows, and support for multiple channels (email, chat, etc.), our support ticket software helps businesses respond faster and stay organized.
+            The Logicspice Support Ticket System is an easy-to-use help desk software that helps businesses manage customer support more effectively. Whether you&apos;re a small business or a large company, our best help desk system makes it simple for your team to communicate with customers and solve their issues quickly. With a user-friendly design, automated workflows, and support for multiple channels (email, chat, etc.), our support ticket software helps businesses respond faster and stay organized.
 
           </p>
           <p>
@@ -554,7 +554,7 @@ const Page = () => {
           </div>
           <div className="tatxt_txt_job">
           
-           Our support ticket software makes it easy for businesses to manage customer inquiries in one place. No more lost emails or missed messages—everything is organized and easy to track. With smart automation, support teams can respond faster, keeping customers happy and reducing wait times. Whether you're handling a few tickets or a high volume of requests, our system helps you stay on top of things. It’s designed to work for any business, making customer support smoother, more efficient, and stress-free.
+           Our support ticket software makes it easy for businesses to manage customer inquiries in one place. No more lost emails or missed messages—everything is organized and easy to track. With smart automation, support teams can respond faster, keeping customers happy and reducing wait times. Whether you&apos;re handling a few tickets or a high volume of requests, our system helps you stay on top of things. It’s designed to work for any business, making customer support smoother, more efficient, and stress-free.
 
           </div>
 
@@ -1226,7 +1226,7 @@ const Page = () => {
             </p>
             <h3 className="Haeddinh2">Grows with Your Business</h3>
             <p>
-            Whether you're a small startup or a large company, our best help desk software is built to grow with you. It’s flexible, customizable, and supports multiple languages, so you can create a <Link href="/software-maintenance-support"> customer support </Link> system that fits your needs perfectly.
+            Whether you&apos;re a small startup or a large company, our best help desk software is built to grow with you. It’s flexible, customizable, and supports multiple languages, so you can create a <Link href="/software-maintenance-support"> customer support </Link> system that fits your needs perfectly.
             </p>
           </div>
         </div>

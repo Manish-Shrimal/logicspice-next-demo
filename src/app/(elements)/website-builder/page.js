@@ -722,7 +722,7 @@ const Page = () => {
                   <label class="" for="textinput">
                     18.How does your business and products benefit your target
                     audience? Please specify a clear list of bullet items of
-                    benefits. What can your business offer your visitors, what's
+                    benefits. What can your business offer your visitors, what&apos;s
                     in it for them, how can you help them? What problems do your
                     prospects have that your business solves?
                   </label>
