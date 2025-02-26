@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useState, useRef } from "react";
 import Contactusmodel from "@/app/Components/Contactusmodel";
+import EnquiryModal from "@/app/Components/Enquirymodal";
 // import "../../../../public/css/font-awesome.min.css";
 import "../../../../public/css/font-awesome.css";
 import "../../resposive.css";
@@ -304,37 +305,29 @@ const Page = () => {
                     </span>
                   </div>
                 </div>
-                <div className="job-valu-btn">
-                  <span>Fill your basic details and</span>
+               
 
-                  <div
-                    className="btn-get"
-                    onClick={openDemoAccessModal}
-                    style={{ textAlign: "center" }}
-                  >
-                    <button>Get Demo Access!</button>
-                    {
-                      // <SoftwareEnquiry
-                      //   modalStatus={showModal}
-                      //   toggle={openModal}
-                      //   title="Please fill the form below and get access to the live demo of Job Board Software.See how it work yourself!"
-                      // />
-                      <GetDemoEnquiry
-                        modalStatus={demoAccessModal}
-                        toggle={openDemoAccessModal}
-                        title="Please fill the form below and get access to the live demo of Support Ticket System. See how it works yourself!"
-                      />
-                    }
+
+
+<div className="job-valu-btn">
+                    
+                    <div
+                      className="enquiry_software_btn"
+                      style={{ marginTop: "15px" }}
+                      onClick={openModal}
+                    >
+                      <button className="btn fiverr-buys NewGreenBtnJob">
+                        Enquire Now
+                      </button>
+                      {
+                        <EnquiryModal
+                          modalStatus={showModal}
+                          toggle={openModal}
+                          title="WordPress eCommerce Website"
+                        />
+                      }
+                    </div>
                   </div>
-
-                  <Link
-                    className=" fiverr-buys NewGreenBtnJob text-center"
-                    href="/buy-now/hrms-software"
-                    id="buy_now_1"
-                  >
-                    BUY NOW
-                  </Link>
-                </div>
                 <div
                   className="portal-price portal-priceNew"
                   style={{ display: "none" }}
@@ -381,7 +374,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>310 Reviews</p>
+                    <p>412 Reviews</p>
                   </div>
                 </div>
                 <div className="jocpp">
@@ -1265,11 +1258,11 @@ const Page = () => {
                     making it easier for customers to get started.
                   </span>
                 </li>
-                {/* <li>
+                <li>
                   <span>
-                  Unlimited Appointment Booking: Book as many appointments as you need without any limitations.
+                  Unlimited Support Tickets & Fast Resolutions: Handle every support request without limits, making it simple for your team to track and quickly resolve issues.
                   </span>
-                </li> */}
+                </li>
                  <li>
                   <span>
                     Enhanced Communication: Avail yourself of 5 domain-based
@@ -1315,7 +1308,13 @@ const Page = () => {
           <h2 className="taxt_tt_job">Delivered Solution</h2>
           <div className="SubscriptionModelPrice">
             <div className="SubscriptionModelPriceBx">
-              <h4>
+            <h4>
+                {/* {pageData.currency_symbol}
+                {pageData.price} */}
+                $ 895
+                {/* <span className="sml_labl"> {pageData.name}</span> */}
+              </h4>
+              {/* <h4>
                 {pageData.currency_symbol}
                 {pageData.price}
                 <span className="sml_labl"> {pageData.name}</span>
@@ -1344,6 +1343,19 @@ const Page = () => {
                 >
                   Buy Now
                 </Link>
+              </div> */}
+
+<div className="SubscriptionModelPriceBtn">
+                <div className="btn btn-get" onClick={openModal}>
+                  <button>Enquire Now</button>
+                  {
+                    <EnquiryModal
+                      modalStatus={showModal}
+                      toggle={openModal}
+                      title="Marketplace Software"
+                    />
+                  }
+                </div>
               </div>
               <div className="jocpp">
                 <ul className="job-pr-icon">
@@ -1367,7 +1379,7 @@ const Page = () => {
                       alt=""
                       className="lazy"
                     />
-                    <p>310 Reviews</p>
+                    <p>412 Reviews</p>
                   </div>
                 </div>
               </div>
@@ -1462,7 +1474,7 @@ const Page = () => {
         </div>
       </section>
       
-      <section className="used_technology_section" id="technologies">
+      {/* <section className="used_technology_section" id="technologies">
         <div className="container">
           <h4 className="title_main">
             <span>Used Technologies</span> and Server Requirements
@@ -1547,7 +1559,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="whatsupport_section" id="support">
         <div className="container">
           <h4 className="title_main">
@@ -1730,7 +1742,7 @@ const Page = () => {
                         style={{ width: "100%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">279</div>
+                    <div className="people_star_num">371</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -1747,7 +1759,7 @@ const Page = () => {
                         style={{ width: "30%" }}
                       ></div>
                     </div>
-                    <div className="people_star_num">31</div>
+                    <div className="people_star_num">41</div>
                   </div>
 
                   <div className="review_rating_fjs">
@@ -2292,7 +2304,7 @@ const Page = () => {
               <div className="btn btn-primary" onClick={openModal}>
                 <a>Enquire Now</a>
                 {
-                  <SoftwareEnquiry
+                  <EnquiryModal
                     modalStatus={showModal}
                     toggle={openModal}
                     title="Support Ticket System"
