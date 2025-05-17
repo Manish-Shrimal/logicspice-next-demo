@@ -46,7 +46,7 @@ const CustomDevelopment = () => {
               <p className="text-dating-light/90">
                 Our software is more than just code — it&apos;s a complete dating
                 website software solution that helps you connect people, grow
-                communities, and build a reliable revenue stream. Whether you're
+                communities, and build a reliable revenue stream. Whether you&apos;re
                 creating a general dating site software or a niche platform,
                 Logicspice provides the best foundation to get started.
               </p>
