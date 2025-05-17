@@ -78,7 +78,7 @@ const Support = () => {
           What Kind of Support Comes With Our Dating Software?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-          We are not just providing software—we’re your technology partner. From setup to scaling, our team ensures your dating platform stays updated, secure, and ready to grow.
+          We are not just providing software—we&apos;re your technology partner. From setup to scaling, our team ensures your dating platform stays updated, secure, and ready to grow.
           </p>
         </div>
         
@@ -102,9 +102,9 @@ const Support = () => {
           <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in glass-card transform hover:scale-[1.01] transition-transform duration-500" style={{ animationDelay: "0.3s" }}>
             <div className="grid md:grid-cols-2">
               <div className="p-8 md:p-12">
-                <h3 className="text-2xl !font-bold mb-4 bg-gradient-to-r from-dating-primary to-dating-secondary bg-clip-text text-transparent">We're With You Every Step of the Way</h3>
+                <h3 className="text-2xl !font-bold mb-4 bg-gradient-to-r from-dating-primary to-dating-secondary bg-clip-text text-transparent">We&apos;re With You Every Step of the Way</h3>
                 <p className="text-gray-600 mb-6">
-                Our dedicated support team ensures your dating software runs smoothly—day in, day out. Whether it's a technical glitch, a feature request, or just a quick question, we're here to help your platform grow and stay strong.
+                Our dedicated support team ensures your dating software runs smoothly—day in, day out. Whether it&apos;s a technical glitch, a feature request, or just a quick question, we&apos;re here to help your platform grow and stay strong.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-dating-primary/5 to-dating-secondary/5 rounded-lg hover:from-dating-primary/10 hover:to-dating-secondary/10 transition-all duration-300 transform hover:scale-[1.02]">
@@ -153,7 +153,7 @@ const Support = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-dating-primary/90 to-transparent flex items-end p-8">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 w-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
                     <p className="text-lg font-bold">Our promise to you</p>
-                    <p className="text-sm mt-2">We're not just a vendor, we're your partner in success. Your dating platform will receive the attention and care it deserves.</p>
+                    <p className="text-sm mt-2">We&apos;re not just a vendor, we&apos;re your partner in success. Your dating platform will receive the attention and care it deserves.</p>
                     <div className="mt-4 flex gap-2">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/20 hover:bg-white/30 transition-colors duration-300 backdrop-blur-sm">
                         <Heart className="h-3 w-3 mr-1" /> 99% Uptime

@@ -37,14 +37,14 @@ const CustomDevelopment = () => {
             <div className="space-y-6 animate-fade-in">
               <p className="text-dating-light/90 text-lg">
                 Are you eager to launch your own online dating software? Whether
-                you're an entrepreneur, a developer, or a startup aiming to
+                you&apos;re an entrepreneur, a developer, or a startup aiming to
                 disrupt the dating industry, our dating software is built to
                 give you everything you need, from user-friendly interfaces to
                 advanced backend control.
               </p>
 
               <p className="text-dating-light/90">
-                Our software is more than just code — it's a complete dating
+                Our software is more than just code — it&apos;s a complete dating
                 website software solution that helps you connect people, grow
                 communities, and build a reliable revenue stream. Whether you're
                 creating a general dating site software or a niche platform,

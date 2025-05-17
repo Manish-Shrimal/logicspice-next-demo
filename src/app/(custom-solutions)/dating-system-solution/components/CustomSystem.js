@@ -72,7 +72,7 @@ const CustomSystem = () => {
                   </div>
                   {/* <h3 className="text-2xl text-black !font-semibold mb-4">User Validation & Safety</h3> */}
                   <p className="text-gray-600 mb-4">
-                  What I love most is how easy and user-friendly the platform is. I don’t come from a tech background, but I was able to run everything on my own thanks to the simple admin panel. Highly recommend it for first-time founders!
+                  What I love most is how easy and user-friendly the platform is. I don&apos;t come from a tech background, but I was able to run everything on my own thanks to the simple admin panel. Highly recommend it for first-time founders!
                   </p>
                   {/* <p className="text-gray-600">
                     Our safety features include privacy controls, blocking capabilities, and reporting systems that help maintain platform integrity and user trust.
@@ -171,7 +171,7 @@ const CustomSystem = () => {
                   </div>
                   {/* <h3 className="text-2xl text-black !font-semibold mb-4">UI/UX Design</h3> */}
                   <p className="text-gray-600 mb-4">
-                  The design is clean, the performance is solid, and the user feedback we’ve gotten has been overwhelmingly positive. It’s a great foundation for anyone looking to launch a dating platform quickly.
+                  The design is clean, the performance is solid, and the user feedback we&apos;ve gotten has been overwhelmingly positive. It’s a great foundation for anyone looking to launch a dating platform quickly.
                   </p>
                   {/* <p className="text-gray-600">
                     We employ modern design principles, smooth animations, and responsive layouts to ensure your dating platform looks and feels premium across all devices.
