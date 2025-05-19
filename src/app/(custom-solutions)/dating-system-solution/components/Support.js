@@ -49,14 +49,14 @@ const Support = () => {
       </svg>,
       title: "SEO & ASO Support",
       description: "We help with SEO, ASO, and performance improvements to boost visibility and attract more users."
+    },
+    {
+      icon: <svg className="h-10 w-10 text-dating-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>,
+      title: "Performance Optimization",
+      description: "We make sure your dating platform runs fast and smooth, even when lots of people are using it, so users always enjoy a great experience."
     }
-    // {
-    //   icon: <svg className="h-10 w-10 text-dating-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    //     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    //   </svg>,
-    //   title: "SEO & ASO Support",
-    //   description: "Optimization for app stores and search engines to maximize visibility and downloads."
-    // }
   ];
 
   return (

@@ -2,39 +2,39 @@
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Card, CardContent } from "../components/ui/card";
-import { UserRoundCheck, MessageSquare, Calendar, Image, Heart, Bell } from "lucide-react";
+import { UsersCog, DollarSign, LayoutDashboard, ShieldOff, UserCog, UserRoundCheck, LogIn, Hand, Settings, MessageSquare, Calendar, Image, Heart, Bell } from "lucide-react";
 
 const AppFeatures = () => {
   const [activeTab, setActiveTab] = useState("features");
 
   const features = [
     {
-      icon: <UserRoundCheck className="h-8 w-8 text-dating-primary" />,
+      icon: <LogIn className="h-8 w-8 text-dating-primary" />,
       title: "Quick & Easy Sign-Up",
       description: "Users can register using email, phone number, or even social login options like Google and Facebook. This makes it easy to get started in seconds."
     },
     {
-      icon: <MessageSquare className="h-8 w-8 text-dating-primary" />,
+      icon: <Settings className="h-8 w-8 text-dating-primary" />,
       title: "Advanced Matchmaking Tools",
       description: "Help users find better matches with smart search filters, such as age, location, interests, preferences, and more. The more relevant the matches, the more users stay engaged."
     },
     {
-      icon: <Calendar className="h-8 w-8 text-dating-primary" />,
+      icon: <Hand className="h-8 w-8 text-dating-primary" />,
       title: "Swipe & Connect",
       description: "Let users swipe left or right to like or skip profiles — a familiar and addictive interaction loved by modern dating app users."
     },
     {
-      icon: <Heart className="h-8 w-8 text-dating-primary" />,
+      icon: <MessageSquare className="h-8 w-8 text-dating-primary" />,
       title: "Real-Time Chat & Messaging",
       description: "Users can send instant messages, photos, and emojis in a secure environment. Private conversations drive engagement and keep users coming back."
     },
     {
-      icon: <Image className="h-8 w-8 text-dating-primary" />,
+      icon: <UserCog className="h-8 w-8 text-dating-primary" />,
       title: "Customizable User Profiles",
       description: "Members can upload multiple photos, add bios, list personal details, and express their personality to attract the right matches."
     },
     {
-      icon: <Bell className="h-8 w-8 text-dating-primary" />,
+      icon: <ShieldOff className="h-8 w-8 text-dating-primary" />,
       title: "Block & Report System",
       description: "Safety matters. Users can easily block or report suspicious accounts, giving them peace of mind while using the platform."
     }
@@ -42,17 +42,17 @@ const AppFeatures = () => {
 
   const screenshots = [
     {
-      icon: <UserRoundCheck className="h-8 w-8 text-dating-primary" />,
+      icon: <LayoutDashboard className="h-8 w-8 text-dating-primary" />,
       title: "Easy-to-Use Admin Dashboard",
       description: "Your control center — see everything at a glance: user stats, signups, activity logs, and site health. No tech expertise needed."
     },
     {
-      icon: <MessageSquare className="h-8 w-8 text-dating-primary" />,
+      icon: <DollarSign className="h-8 w-8 text-dating-primary" />,
       title: "Revenue Management",
       description: "Earn through paid memberships, featured profiles, credit-based chat boosts, or even advertising placements. You set the pricing model that works for you."
     },
     {
-      icon: <Calendar className="h-8 w-8 text-dating-primary" />,
+      icon: <UsersCog className="h-8 w-8 text-dating-primary" />,
       title: "User Management & Moderation",
       description: "Approve new users, ban fake profiles, and manage reported content efficiently. Protect your community and maintain quality."
     },

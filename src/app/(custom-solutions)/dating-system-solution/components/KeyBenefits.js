@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { UserPlus, Lock, Filter, MessageCircle, MessageSquare, Users, Heart, Star } from "lucide-react";
+import { Bot, Brain, MapPin, Bell, Sparkles, BarChart2, Video, IdCard, Gem, UserPlus, Lock, Filter, MessageCircle, MessageSquare, Users, Heart, Star } from "lucide-react";
 import { Card, CardContent } from "../components/ui/card";
 import "../index.css"
 
 const KeyBenefits = () => {
   const benefits = [
     {
-      icon: <UserPlus className="h-10 w-10 text-dating-primary" />,
+      icon: <Gem className="h-10 w-10 text-dating-primary" />,
       title: "Unlock Premium Access",
       description: "Users can subscribe to exclusive features like read receipts, profile boosts, and advanced filters."
     },
@@ -22,7 +22,7 @@ const KeyBenefits = () => {
       description: "Connect users based on interests, lifestyle, and behavior using intelligent matching algorithms."
     },
     {
-      icon: <MessageCircle className="h-10 w-10 text-dating-primary" />,
+      icon: <IdCard className="h-10 w-10 text-dating-primary" />,
       title: "Complete Profiles, Better Matches",
       description: "Encourage users to build authentic profiles with interests, preferences, and lifestyle tags."
     },
@@ -32,22 +32,22 @@ const KeyBenefits = () => {
       description: "Instant messaging with typing indicators, read status, and optional audio messages."
     },
     {
-      icon: <Users className="h-10 w-10 text-dating-primary" />,
+      icon: <Video className="h-10 w-10 text-dating-primary" />,
       title: "Video Profiles",
       description: "Allow users to upload short intro videos to add a personal touch and increase trust."
     },
     {
-      icon: <Users className="h-10 w-10 text-dating-primary" />,
+      icon: <MapPin className="h-10 w-10 text-dating-primary" />,
       title: "Location-Based Matching",
       description: "Enable geo-targeted suggestions so users can meet people nearby or within selected areas."
     },
     {
-      icon: <Users className="h-10 w-10 text-dating-primary" />,
+      icon: <Bell className="h-10 w-10 text-dating-primary" />,
       title: "Smart Notifications",
       description: "Keep users engaged with personalized alerts about matches, likes, messages, and more."
     },
     {
-      icon: <Users className="h-10 w-10 text-dating-primary" />,
+      icon: <BarChart2 className="h-10 w-10 text-dating-primary" />,
       title: "Analytics Dashboard",
       description: "Get insights into user behavior, match rates, and app performance to make informed updates."
     }
@@ -106,13 +106,13 @@ const KeyBenefits = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 p-2 hover:bg-dating-light/70 rounded-lg transition-colors">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-dating-primary/20 to-dating-secondary/20 flex items-center justify-center transform hover:scale-110 transition-transform">
-                      <Heart className="w-4 h-4 text-dating-primary" />
+                      <Bot className="w-4 h-4 text-dating-primary" />
                     </div>
                     <span className="text-gray-700">AI-driven match recommendations</span>
                   </li>
                   <li className="flex items-center gap-3 p-2 hover:bg-dating-light/70 rounded-lg transition-colors">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-dating-primary/20 to-dating-secondary/20 flex items-center justify-center transform hover:scale-110 transition-transform">
-                      <Star className="w-4 h-4 text-dating-primary" />
+                      <Brain className="w-4 h-4 text-dating-primary" />
                     </div>
                     <span className="text-gray-700">Personality quiz integration</span>
                   </li>

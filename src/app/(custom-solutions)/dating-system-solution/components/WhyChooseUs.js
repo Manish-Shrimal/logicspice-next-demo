@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Clock, MessageSquare, DollarSign, Share2 } from "lucide-react";
+import { Clock, MessageSquare, DollarSign, Share2, LayoutDashboard, HeartHandshake } from "lucide-react";
 import { Card, CardContent } from "../components/ui/card";
 import "../index.css";
 const WhyChooseUs = () => {
@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
         "Launch your dating platform in days, not months, with quick deployment, step-by-step docs, and optional installation support.",
     },
     {
-      icon: <MessageSquare className="h-8 w-8 text-dating-primary" />,
+      icon: <LayoutDashboard className="h-8 w-8 text-dating-primary" />,
       title: "Modern & Intuitive UI/UX",
       description:
         "Every screen is designed for user behavior—clean layouts, fast loads, and smooth journeys boost engagement and conversions, even without design expertise.",
@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
         "Choose what suits you best—one-time payment for a complete solution or flexible monthly plans, with no hidden fees and optional add-ons available.",
     },
     {
-      icon: <Share2 className="h-8 w-8 text-dating-primary" />,
+      icon: <HeartHandshake className="h-8 w-8 text-dating-primary" />,
       title: "Ideal for All Dating Models",
       description:
         "From dating websites to matchmaking apps and niche relationship platforms, our software supports a wide range of business models.",

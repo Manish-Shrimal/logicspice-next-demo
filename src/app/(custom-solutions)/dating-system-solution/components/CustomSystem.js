@@ -13,12 +13,12 @@ const CustomSystem = () => {
       
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <span className="bg-dating-primary/10 text-dating-primary text-sm font-semibold px-4 py-1.5 rounded-full">CUSTOM SOLUTION</span>
+          <span className="bg-dating-primary/10 text-dating-primary text-sm font-semibold px-4 py-1.5 rounded-full">CLIENT TESTIMONIALS</span>
           <h2 className="text-4xl text-black !font-bold mt-4 mb-6">
-            Custom Dating System Development Solution
+          What Our Clients Say About Their Experience
           </h2>
           <p className="text-gray-600">
-            Our tailored approach ensures your dating platform meets your specific requirements and stands out in the market.
+          Our dating software is known for its flexibility, performance, and user-friendly design—helping clients stand out in a competitive market.
           </p>
         </div>
         
