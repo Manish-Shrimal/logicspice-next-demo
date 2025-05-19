@@ -85,7 +85,7 @@ const FAQ = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <AccordionTrigger className="!text-md text-black px-6 py-4 hover:no-underline hover:bg-dating-light/30 rounded-t-xl text-left font-semibold group">
-                  <span className="group-hover:text-dating-primary transition-colors">
+                  <span className="!text-md group-hover:text-dating-primary transition-colors">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
