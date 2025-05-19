@@ -109,7 +109,7 @@ const FAQ = () => {
               business. Request a free demo and see why entrepreneurs and
               developers choose Logicspice.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-dating-primary hover:bg-dating-primary/90 text-white px-8 rounded-full"
@@ -134,7 +134,7 @@ const FAQ = () => {
               </Button>
               <Contactusmodel modalStatus={modalOpen} toggle={toggleModal} />
             </div>
-            <div className="mt-8 flex justify-center gap-8">
+            <div className="mt-8 block sm:flex sm:justify-center gap-4 sm:gap-8">
               <div className="flex flex-col items-center">
                 <p className="text-4xl font-bold text-dating-primary">300+</p>
                 <p className="text-sm text-gray-500">Projects Completed</p>

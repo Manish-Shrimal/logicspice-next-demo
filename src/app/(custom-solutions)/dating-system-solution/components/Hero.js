@@ -34,7 +34,7 @@ const Hero = () => {
         style={{ animationDelay: "3.5s" }}
       ></div>
 
-      <div className="max-w-[1400px] mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 py-6 md:py-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-dating-primary/10 to-dating-secondary/10 backdrop-blur-sm rounded-full shadow-sm mb-2 transform hover:scale-105 transition-transform">
@@ -43,7 +43,7 @@ const Hero = () => {
                 Premium Dating App Development
               </p>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl !font-black tracking-tight leading-tight text-black">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl !font-black tracking-tight leading-tight text-black">
               Start Your{" "}
               <span className="bg-gradient-to-r from-dating-primary via-dating-accent to-dating-secondary bg-clip-text text-transparent animate-pulse-slow">
                 Dating Platform
@@ -56,7 +56,7 @@ const Hero = () => {
               and easy to manage. Start your online dating service today with a
               feature-rich script built to deliver real results.{" "}
             </p>
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-row gap-2 sm:flex-wrap sm:gap-4 pt-2  ">
               <Button
                 size="lg"
                 className="font-medium bg-gradient-to-r from-dating-primary to-dating-secondary hover:opacity-90 text-white rounded-full px-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 transform"
