@@ -991,8 +991,8 @@ const Page = () => {
             </strong>{" "}
             feature to further enhance efficiency.
           </div> */}
-            <div className="tatxt_txt_job space-y-4 text-gray-800 text-left leading-relaxed">
-              <p>
+            <div className="tatxt_txt_job space-y-4 !text-gray-800 !text-left leading-relaxed" style={{ textAlign: "left"}}>
+              <p className="">
                 Built with a robust PHP and React framework,{" "}
                 <strong>LS Jobber</strong> delivers the power and flexibility
                 needed to run a modern hiring platform. It offers a complete
