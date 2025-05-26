@@ -1027,7 +1027,7 @@ const Page = () => {
               </ul>
 
               <p>
-                Whether you're looking to build a CareerBuilder-style clone, a
+                Whether you&apos;re looking to build a CareerBuilder-style clone, a
                 Naukri-like experience, or a completely custom hiring portal,{" "}
                 <strong>LS Jobber</strong> offers the structure, speed, and
                 flexibility you need to succeed.
@@ -2272,9 +2272,9 @@ const Page = () => {
               </h3>
               <p>
                 LS Jobber offers an efficient solution to create a full-featured
-                job portal. Whether you’re a startup, recruitment firm, or an
+                job portal. Whether you&apos;re a startup, recruitment firm, or an
                 entrepreneur, our platform eliminates technical barriers and
-                provides you with a secure, responsive system that’s ready for
+                provides you with a secure, responsive system that&apos;s ready for
                 action.
               </p>
               <div className="do_for_you_box_list">
@@ -2308,12 +2308,12 @@ const Page = () => {
               </div>
               <p className="do_for_you_box_text">
                 Use our pre-built script to build and scale your platform as you
-                grow. It’s a great fit for anyone looking to launch the best
+                grow. It&apos;s a great fit for anyone looking to launch the best
                 white label job board, without sacrificing control or
                 flexibility.
               </p>
               <p className="do_for_you_box_text">
-                Our exceptional job board advertising software doesn’t just stop
+                Our exceptional job board advertising software doesn&apos;t just stop
                 at facilitating connections; it empowers you to craft your own
                 recruitment portal. This ready-to-deploy script, secure and
                 responsive, provides dedicated dashboards for administrators,
@@ -2385,7 +2385,7 @@ const Page = () => {
                   <p className="do_for_you_left_text">
                     The powerful admin panel puts you in charge of
                     everything—from user accounts and job listings to payment
-                    gateways and content management. It's intuitive, secure, and
+                    gateways and content management. It&apos;s intuitive, secure, and
                     designed to handle complex workflows with ease. Perfect for
                     those needing advanced tools without the steep learning
                     curve typical of enterprise platforms.
@@ -2399,7 +2399,7 @@ const Page = () => {
                     Global Reach, Local Impact
                   </h4>
                   <p className="do_for_you_left_text">
-                    Whether you're building a regional job portal or an
+                    Whether you&apos;re building a regional job portal or an
                     international job marketplace, LS Jobber is designed for
                     global success. Our clients span across the UK, USA, India,
                     Europe, and beyond—making LS Jobber a trusted choice in both
