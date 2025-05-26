@@ -435,7 +435,7 @@ const ScriptUpdatedModal = () => {
                 <ul>
                   <li><span>Enjoy a <b>unified modern design</b> for the web platform.</span></li>
                   <li><span>Improved the website performance.</span></li>
-                  <li><span>Utilized the backend API's.</span></li>
+                  <li><span>Utilized the backend API&apos;s.</span></li>
                   <li><span>Minor bug fixes.</span></li>
                 </ul>
 

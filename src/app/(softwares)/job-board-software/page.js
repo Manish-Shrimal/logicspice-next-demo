@@ -4483,7 +4483,7 @@ const Page = () => {
               </h1>
               <p className="text-md text-gray-800 mb-6 max-w-3xl mx-auto">
                 LS Jobber makes it easy to build and manage a job portal that
-                delivers results. Whether you're creating a niche hiring site or
+                delivers results. Whether you&apos;re creating a niche hiring site or
                 a global job marketplace, our white label job board software
                 gives you everything you need to grow and succeed.
               </p>
