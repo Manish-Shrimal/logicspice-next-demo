@@ -2218,31 +2218,31 @@
   }
 
   .do_for_you_box {
-    background: #f1f1f1;
-    padding: 30px 20px 90px 20px;
-    margin-top: 30px;
-    border-radius: 20px;
-    position: relative;
+    background: #f1f1f1 !important;
+    padding: 30px 20px 90px 20px !important;
+    margin-top: 30px !important;
+    border-radius: 20px !important;
+    position: relative !important;
 }
 .do_for_you_box_list {
-  display: block;
-  margin: 15px 0;
+  display: block !important;
+  margin: 15px 0 !important;
   
 }
 
 .do_for_you_info_box {
-  display: block;
-  margin: 40px 0;
+  display: block !important;
+  margin: 40px 0 !important;
 }
 .do_for_you_left {
-  margin-bottom: 15px;
+  margin-bottom: 15px !important;
 }
 
 .SubscriptionModelRight{
-  display: none;
+  display: none !important;
 }
 .SubscriptionModelLeft {
-  display: none;
+  display: none !important;
 }
 
 .ScriptupdateImg img {
@@ -4644,11 +4644,11 @@
   }
 
   .why_people_love_ls_jobber {
-    margin: 50px 0 0 0;
+    margin: 50px 0 0 0 !important;
   }
   .table-container {
    
-    margin: 3rem 0 0rem;
+    margin: 3rem 0 0rem !important;
     
 }
 
@@ -4664,23 +4664,23 @@
 }
 
   .JobBoardNewtab .jobseeker_app_job a {
-    background-size: 55px;
+    background-size: 55px !important;
   }
 
   .JobBoardNewtab .emplyer_app_job a,
   .JobBoardNewtab .emplyer_app_job.active a,
   .JobBoardNewtab .emplyer_app_job:hover a {
-    background-size: 55px;
+    background-size: 55px !important;
   }
 
   .JobBoardNewtab .admin_app_job a,
   .JobBoardNewtab .admin_app_job.active a,
   .JobBoardNewtab .admin_app_job:hover a {
-    background-size: 55px;
+    background-size: 55px !important;
   }
 
   .tab_bbx_job .JobBoardNewtab li a {
-    padding-top: 60px;
+    padding-top: 60px !important;
   }
 
   .LogicticMarketplaceBanner::after {
