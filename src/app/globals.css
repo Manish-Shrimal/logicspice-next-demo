@@ -16,6 +16,8 @@
   }
 }
 
+
+
 /* *{
   border: 2px solid red;
 } */
@@ -89,6 +91,9 @@ a:focus {
 
 } */
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"); */
+
+
+
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -263,6 +268,10 @@ body {
 /* .btn button {
   text-transform: uppercase;
 } */
+
+.topSectionHome {
+  margin-top: 110px;
+}
 
 /* footer css  */
 .nav.navbar-nav .ad-footer-view-all .btn.btn-primary {
@@ -1279,6 +1288,9 @@ bread-top {
 .hover_btn_menu .menu_icon_all.icon_portfolio {
   background: url(/img/header/portfolio-icon.png) no-repeat;
 }
+.hover_btn_menu .menu_icon_all.icon_partner_with_us {
+  background: url(/img/header/partners-icon.png) no-repeat;
+}
 
 .hover_btn_menu .menu_icon_all.icon_development_methodology {
   background-position: -32px -80px;
@@ -2079,7 +2091,19 @@ bread-top {
   background-size: cover;
   padding: 10px 0 20px;
   background-attachment: fixed;
+  min-height: 50px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .ServiceTextAnimation {
   width: 100%;
@@ -3067,7 +3091,7 @@ positivitymain {
 .HomeSlider {
   display: inline-block;
   width: 100%;
-  padding-top: 140px;
+  padding-top: 40px;
   float: left;
   direction: rtl;
   height: 420px;
@@ -3128,6 +3152,11 @@ positivitymain {
 
 .HomeBannerImg {
   position: relative;
+}
+
+.home-slider {
+  display: inline-block !important;
+  width: 100% !important;
 }
 
 .home-slider #testiCW .owl-dot span {
@@ -3672,7 +3701,7 @@ positivitymain {
 /* take a look css  */
 
 .take-a-look {
-  padding: 60px 0;
+  /* padding: 60px 0; */
   /* border-bottom: 1px solid #3f3f3f; */
   /* background: rgb(241, 241, 241); */
 }
@@ -3682,6 +3711,11 @@ positivitymain {
   margin: 0!important;
 
 }
+.take-a-look .MainHeading {
+  font-size: 26px;
+}
+
+
 
 .take-a-look .carousel-control {
   background-image: none !important;
@@ -5387,6 +5421,27 @@ body.modal-open .quote_pop_plus {
 }
 
 @media (max-width: 767px) {
+
+  .quoue_box_full_sec {
+   
+    position: fixed;
+    z-index: 99;
+    top: auto;
+    bottom: 10px !important;
+    right: 0;
+    width: auto;
+    box-shadow: 0px 0 4px 0 rgba(0, 0, 0, 0.5);
+  }
+
+
+.whatsapp-call {
+  position: fixed;
+  right: 7px;
+  top: auto;
+  bottom: 140px !important;
+  z-index: 999999;
+}
+
   .CustomQuickFAQScript .accordion-header .accordion-button {
     background: url(/img/ordermanagement/faq_select-min.png) 4% center no-repeat
       #fff;
@@ -5395,6 +5450,10 @@ body.modal-open .quote_pop_plus {
     color: #303030;
     box-shadow: none;
     border-radius: 0 !important;
+  }
+
+  .take-a-look p {
+    font-size: 24px !important;
   }
 
   .footer-bg .CustomQuickFAQScript .accordion-item {
@@ -5605,9 +5664,14 @@ body.modal-open .quote_pop_plus {
     font-size: 14px !important;
   }
 
-  .laravel_core_features_section {
+  /* .laravel_core_features_section {
     padding: 50px 0 0 !important;
     background-color: #f00 !important;
+    background-image: none !important;
+  } */
+  .php-development.laravel_core_features_section {
+    padding: 50px 0 0 !important;
+    background-color: none !important;
     background-image: none !important;
   }
 
@@ -5654,11 +5718,11 @@ body.modal-open .quote_pop_plus {
     margin: 10px 0 60px !important;
   }
 
-  .laravel_core_features_section {
+  /* .laravel_core_features_section {
     padding: 50px 0 0 !important;
     background-color: #f00 !important;
     background-image: none !important;
-  }
+  } */
 
   .laravel_choose_features_section h2 {
     font-size: 20px !important;
@@ -6251,6 +6315,7 @@ body.modal-open .quote_pop_plus {
 
   .home-slider {
     height: 540px;
+    
     /* overflow: hidden; */
   }
 
@@ -7336,7 +7401,7 @@ body.modal-open .quote_pop_plus {
   font-size: 33px;
   font-weight: bold !important;
   margin: 0 auto 40px;
-  max-width: 540px;
+  max-width: 800px;
 }
 
 .panel-thanks h3 {
@@ -7347,6 +7412,15 @@ body.modal-open .quote_pop_plus {
 }
 
 .panel-thanks .btn-download-script {
+  background: #451095;
+  box-shadow: 0 1px 1px #999;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold !important;
+  padding: 15px 50px;
+  text-transform: none;
+}
+.panel-thanks .btn-download-script:hover {
   background: #451095;
   box-shadow: 0 1px 1px #999;
   color: #fff;
@@ -7389,7 +7463,7 @@ body.modal-open .quote_pop_plus {
 }
 
 .panel-thanks {
-  padding: 50px 20px;
+  padding: 140px 20px;
   text-align: center;
   position: relative;
   z-index: 9999;
@@ -7997,3 +8071,258 @@ section {
   font-family: "roboto", sans-serif !important;
   color: #3f3f3f!important;
 }
+.HomeTopAnimation {
+	position: relative;
+	padding: 20px 0 20px;
+}
+.HomeTextAnimation {
+	position: relative;
+	z-index: 99;
+}
+.HomeTextAnimation h1 {
+	font-size: 30px;
+}
+
+
+
+
+
+
+
+
+/* FAQ Css in home page  */
+
+
+
+
+
+
+.faq-section {
+  position: relative;
+  background-color: #EDE5D5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.faq-heading {
+  font-size: 30px!important;
+  font-weight: bold!important;
+  margin-bottom: 30px!important;
+  color: #000!important;
+  text-transform: uppercase!important;
+}
+
+.faq-box {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+
+
+
+.faq-item {
+  border-bottom: 1px solid #eee;
+  padding: 25px 0 0;
+}
+
+/* .faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+} */
+
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: #000;
+}
+
+.faq-icon i {
+  font-size: 30px;
+  transition: color 0.3s;
+}
+
+.faq-answer a{
+  color: #083891!important;
+}
+
+.minus-icon {
+  color: #5F259F; /* Purple as per screenshot */
+}
+
+.plus-icon {
+  color: #5a5a5a; /* Default gray color */
+}
+
+.faq-icon {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #5a5a5a;
+}
+
+.faq-answer {
+
+  color: #2E2E2E;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.faq-top-img,
+.faq-bottom-img {
+  position: absolute;
+  z-index: 0;
+}
+
+
+.faq-answer-wrapper {
+  overflow: hidden;
+  transition: all .4s ease;
+  /* opacity: 1;
+    overflow: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(-10px); */
+}
+
+
+
+
+
+
+
+
+.faq-top-img {
+  top: -50px;
+  left: 10px;
+  width: 150px;
+}
+
+
+.faq-bottom-img {
+  bottom: 50px;
+  right: -24px;
+  width: 120px;
+}
+
+.HomeFaqSection{
+  position: relative;
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+  .faq-heading {
+    font-size: 26px!important;
+  }
+
+  .faq-box {
+    padding: 15px!important;
+  }
+
+  .faq-question {
+    font-size: 15px!important;
+  }
+
+  .faq-answer {
+    font-size: 14px!important;
+  }
+
+  .faq-top-img {
+    width: 120px!important;
+    left: 30px!important;
+  }
+
+  .faq-bottom-img {
+    width: 100px!important;
+    right: 20px!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-heading {
+    font-size: 24px!important;
+  }
+
+  .faq-question {
+    /* flex-direction: column; */
+    display: flex;
+    align-items: flex-start!important;
+    gap: 10px!important;
+  }
+
+  .faq-icon {
+    align-self: flex-end!important;
+    font-size: 14px!important;
+    margin-bottom: 30px!important;
+  }
+  .faq-icon i{
+    font-size: 20px!important;
+  }
+
+  .faq-top-img {
+    /* width: 100px;
+    left: 20px;
+    top: 5px; */
+    display: none!important;
+  }
+
+  .faq-bottom-img {
+    /* width: 90px;
+    right: 10px;
+    bottom: 30px; */
+    display: none!important;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-heading {
+    font-size: 20px!important;
+  }
+
+  .faq-box {
+    padding: 10px!important;
+  }
+
+  .faq-question {
+    font-size: 14px!important;
+  }
+
+  .faq-answer {
+    font-size: 13px!important;
+    margin-top: 5px!important;
+  }
+
+  .faq-top-img {
+    width: 80px!important;
+    left: 10px!important;
+  }
+
+  .faq-bottom-img {
+    width: 70px!important;
+    right: 5px!important;
+    bottom: 20px!important;
+  }
+}
+
+
+
+
+
+
+

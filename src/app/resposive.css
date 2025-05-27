@@ -2247,9 +2247,21 @@
 
 .ScriptupdateImg img {
   position: relative !important;
-  top: 0px!important;
-  left: 0%!important;
+  top: 0px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 }
+
+.NewJobBoardDesign .logic-parter {
+  display: grid !important;
+  margin-top: 20px !important;
+  gap: 10px !important;
+}
+
+.latest_feature_product {
+  padding: 40px 0 0px !important;
+}
+
 
   .sub-contact::after,
   .sub-contact h2 {
@@ -3366,7 +3378,7 @@
   .food_restaurant_job.ebay_cutting a,
   .tab_bbx_job ul li a:hover,
   .tab_bbx_job ul li.active a {
-    background-size: 50px;
+    background-size: 55px;
   }
 
   .costomer_tab_left ul li {
@@ -4631,6 +4643,15 @@
     border: none;
   }
 
+  .why_people_love_ls_jobber {
+    margin: 50px 0 0 0;
+  }
+  .table-container {
+   
+    margin: 3rem 0 0rem;
+    
+}
+
   .ClientLogoHome {
     display: inline-block !important;
     width: 100% !important;
@@ -4638,24 +4659,28 @@
     /* overflow: hidden!important; */
   }
 
+  .JobBoardSectionNew {
+    padding: 0 0 30px 0 !important;
+}
+
   .JobBoardNewtab .jobseeker_app_job a {
-    background-size: 65px;
+    background-size: 55px;
   }
 
   .JobBoardNewtab .emplyer_app_job a,
   .JobBoardNewtab .emplyer_app_job.active a,
   .JobBoardNewtab .emplyer_app_job:hover a {
-    background-size: 65px;
+    background-size: 55px;
   }
 
   .JobBoardNewtab .admin_app_job a,
   .JobBoardNewtab .admin_app_job.active a,
   .JobBoardNewtab .admin_app_job:hover a {
-    background-size: 60px;
+    background-size: 55px;
   }
 
   .tab_bbx_job .JobBoardNewtab li a {
-    padding-top: 55px;
+    padding-top: 60px;
   }
 
   .LogicticMarketplaceBanner::after {

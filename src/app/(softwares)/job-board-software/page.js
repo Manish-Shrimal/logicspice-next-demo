@@ -33,7 +33,7 @@ const SoftwareEnquiry = dynamic(
 
 const FeatureCard = ({ icon, title, description }) => (
   <div className="bg-white rounded-xl shadow-md flex flex-col items-center text-center relative group hover:bg-gradient-to-r BuildHover">
-    <div className="bg-white h-full p-2 rounded-xl relative">
+    <div className="bg-white h-full p-2 rounded-xl relative !w-full">
       <div className="text-3xl mb-2 flex items-center gap-2">
         <Image
           src={icon}
@@ -2828,7 +2828,7 @@ const Page = () => {
             </div>
           </div>
         </section>
-        <section className="job_portal_area script-update-bg" style={{ height: "270px" }}>
+        <section className="job_portal_area script-update-bg">
           <div className="container">
         
           
@@ -2913,7 +2913,7 @@ const Page = () => {
         </div>
       </section> */}
 
-        <section className="job_portal_area job_portal_area_food" style={{ height: "330px"}}>
+        <section className="job_portal_area job_portal_area_food">
           <div className="best-partner-left-img">
                   <Image
                     unoptimized={true}
@@ -4473,7 +4473,7 @@ const Page = () => {
         {/* cta section */}
         <section className="jobboard_cta_section">
           <div className="flex justify-center items-center !bg-white !rounded-xl py-5">
-            <div className="bg-[url('/img/jobboard/jobboard-cta-bg.png')] bg-cover bg-center h-64 w-full p-8 max-w-6xl rounded-xl shadow-lg w-full text-center">
+            <div className="bg-[url('/img/jobboard/jobboard-cta-bg.png')] bg-cover bg-center h-auto md:h-64  w-full p-8 max-w-6xl rounded-xl shadow-lg w-full text-center">
               <p className="text-sm font-semibold text-gray-500 uppercase mb-2">
                 {/* Get Started */}
               </p>
