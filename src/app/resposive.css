@@ -1645,6 +1645,24 @@
 
 @media (max-width: 767px) {
 
+  /* .quoue_box_full_sec {
+   
+    position: fixed;
+    z-index: 99;
+    bottom: 150px!important;
+    right: 0;
+    width: auto;
+    box-shadow: 0px 0 4px 0 rgba(0, 0, 0, 0.5);
+  }
+
+
+.whatsapp-call {
+  position: fixed;
+  right: 7px;
+  bottom: 150px !important;
+  z-index: 999999;
+} */
+
   .slick-prev:before{
     display: none !important;
   }
@@ -1664,6 +1682,9 @@
   .upload-photo {
     float: none !important;
     display: inline-block !important;
+  }
+  .NewJobBoardDesign .best-partner-left-img img{
+    display: none!important;
   }
 
   .personal-detals-table {
@@ -1785,7 +1806,7 @@
   .HireFlexNewImg {
     float: left !important;
     width: 100% !important;
-    display: none !important;
+    /* display: none !important; */
   }
 
   .HireFlexNewSection .new-hiring-div .title_heading {
@@ -1813,17 +1834,17 @@
 
   .HireFlexNewSection .new-hiring-div .title_heading {
     display: inline-block !important;
-    text-align: left !important;
-    padding-left: 100px !important;
+    text-align: center !important;
+    padding-left: 35px !important;
   }
 
   .cack_logo_img {
-    display: none !important;
+    /* display: none !important; */
     padding-top: 20px !important;
-    position: absolute !important;
+    /* position: absolute !important;
     right: 60px !important;
-    top: -230px !important;
-    width: 100px !important;
+    top: -230px !important; */
+    /* width: 100px !important; */
   }
 
   .team_head {
@@ -1953,7 +1974,7 @@
 
   .headings.headings p,
   .headings p {
-    font-size: 15px !important;
+    font-size: 24px !important;
     padding: 0 10px;
     /* color: #505458; */
   }
@@ -2105,6 +2126,10 @@
     width: 50%;
   }
 
+  .client-side {
+    background-attachment: scroll;
+  }
+
   .cer-icon img {
     height: 17px;
     width: 14px;
@@ -2191,6 +2216,40 @@
     left: 0;
     width: 100%;
   }
+
+  .do_for_you_box {
+    background: #f1f1f1;
+    padding: 30px 20px 90px 20px;
+    margin-top: 30px;
+    border-radius: 20px;
+    position: relative;
+}
+.do_for_you_box_list {
+  display: block;
+  margin: 15px 0;
+  
+}
+
+.do_for_you_info_box {
+  display: block;
+  margin: 40px 0;
+}
+.do_for_you_left {
+  margin-bottom: 15px;
+}
+
+.SubscriptionModelRight{
+  display: none;
+}
+.SubscriptionModelLeft {
+  display: none;
+}
+
+.ScriptupdateImg img {
+  position: relative !important;
+  top: 0px!important;
+  left: 0%!important;
+}
 
   .sub-contact::after,
   .sub-contact h2 {
@@ -2741,8 +2800,8 @@
   }
 
   body.modal-open {
-    position: fixed !important;
-    overflow: auto !important;
+    position: relative !important;
+    overflow: hidden !important;
     height: 100% !important;
     top: 0px !important;
     width: 100%;
@@ -3399,6 +3458,14 @@
     float: none;
     margin: 0 13px;
     display: inline-block;
+  }
+
+  /* .SubscriptionModelPriceBx .job-pr-icon li{
+    border-right: none!important;
+  } */
+
+  .single_device {
+    border: unset!important;
   }
 
   .job-portal-banner-link .my-breadcrumb {
@@ -4524,6 +4591,7 @@
 
   .ServicesNewSection {
     padding: 10px 0 14px;
+    background-attachment: scroll;
   }
 
   .NewJobSiteDesign {
@@ -4545,9 +4613,14 @@
   }
 
   .take-a-look {
-    padding: 30px 0  !important;
+    padding: 0px  !important;
   }
-
+  .take-a-look .MainHeading {
+    font-size: 24px !important;
+  }
+  .topSectionHome {
+    margin-top: 75px;
+  }
 
 
   .readymateSolution .ready-product {
@@ -4709,6 +4782,14 @@
   .ReactNavtiveAppBanner,
   .ReactJsWebBanner {
     padding-top: 30px !important;
+  }
+
+  .laravel_core_features_section {
+    background: url(/img/product-img/cackphp_features_bg.jpg) center center no-repeat;
+    background-size: cover;
+    padding: 20px 0 !important;
+    overflow: hidden;
+    margin-bottom: 30px;
   }
 
   .reactJs-development .laravel_core_features_section {
