@@ -841,7 +841,7 @@ const Page = () => {
             seekers.
           </p> */}
 
-            <div className="flex flex-col items-center pt-8 pb-0">
+            <div className="flex flex-col items-center !pt-8 pb-0">
               <h1 className="w-full text-left text-4xl font-bold text-gray-800 mb-8">
                 Build a Powerful Job Board in Minutes
               </h1>
