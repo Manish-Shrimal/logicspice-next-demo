@@ -841,7 +841,7 @@ const Page = () => {
             seekers.
           </p> */}
 
-            <div className="flex flex-col items-center pt-12 pb-0">
+            <div className="flex flex-col items-center pt-8 md:pt-10 pb-0">
               <h1 className="w-full text-left text-4xl font-bold text-gray-800 mb-8">
                 Build a Powerful Job Board in Minutes
               </h1>
@@ -1090,7 +1090,7 @@ const Page = () => {
                         <div className="col-lg-8 col-md-9">
                           <div className="costomer_tab_left costomer_tab_leftright">
                             <ul>
-                              <p className="">Basic Jobseeker App Features:</p>
+                              {/* <p className="">Basic Jobseeker App Features:</p> */}
                               <li>
                                 <i className="JobBoardImg">
                                   <Image
@@ -1582,7 +1582,7 @@ const Page = () => {
                               unoptimized={true}
                               width={300}
                               height={100}
-                              src="/img/jobboard/emplyer-mobile.png"
+                              src="/img/jobboard/employer-mobile-preview.png"
                               alt="Buyer App Features"
                             />
                           </div>
@@ -1597,7 +1597,7 @@ const Page = () => {
                                     width={100}
                                     height={100}
                                     alt="img"
-                                    src="/img/jobboard/ragister-icon.png"
+                                    src="/img/jobboard/emplyer-mobile.png"
                                   />
                                 </i>
                                 <span>
@@ -1890,9 +1890,9 @@ const Page = () => {
                           <div className="costomer_tab_right costomer_tab_rightleft2">
                             <Image
                               unoptimized={true}
-                              width={300}
+                              width={360}
                               height={100}
-                              src="/img/fiverrclone/gigger_deshboard.png"
+                              src="/img/jobboard/admin-preview.png"
                               alt="Admin Panel"
                             />{" "}
                           </div>
@@ -2367,17 +2367,7 @@ const Page = () => {
                 </div>
               </div>
 
-              <div className="do_for_you_info_box">
-                <div className="do_for_you_left">
-                  <Image
-                    src="/img/jobboard/do_for_you_info_image2.png"
-                    alt="tick"
-                    width={500}
-                    height={100}
-                    className="do_for_you_info_image"
-                  />
-                </div>
-
+              <div className="do_for_you_info_box DoForSecond">
                 <div className="do_for_you_right">
                   <h4 className="do_for_you_left_heading">
                     Complete Control with Admin Dashboard
@@ -2391,6 +2381,17 @@ const Page = () => {
                     curve typical of enterprise platforms.
                   </p>
                 </div>
+                <div className="do_for_you_left">
+                  <Image
+                    src="/img/jobboard/do_for_you_info_image2.png"
+                    alt="tick"
+                    width={500}
+                    height={100}
+                    className="do_for_you_info_image mt-2 md:mt-0"
+                  />
+                </div>
+
+                
               </div>
 
               <div className="do_for_you_info_box">
@@ -4491,7 +4492,7 @@ const Page = () => {
                 className="bg-[#451095] hover:bg-[#6c10f7] text-white font-semibold py-2 px-6 rounded-full"
                 onClick={toggleModal}
               >
-                Contact Our Team
+                Launch Your Job Board Now
               </button>
             </div>
           </div>

@@ -1058,7 +1058,12 @@ section {
   color: white;
 
 }
-
+.DoForSecond {
+	direction: rtl;
+}
+.DoForSecond .do_for_you_right {
+	direction: ltr;
+}
 /* job board software comparison table css */
 .why_people_love_ls_jobber {
   margin: 50px 0;
@@ -7190,6 +7195,7 @@ a:hover {
   .feature-list {
 	width: 100%;
 }
+
 }
 
 
