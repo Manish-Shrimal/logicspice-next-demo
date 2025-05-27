@@ -1080,9 +1080,9 @@ section {
 .table-container {
   width: 100%;
   /* overflow-x: auto; */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); */
   border-radius: 8px;
-  margin: 2rem 0;
+  margin: 3rem 0 2rem;
   display: inline-block;
   width: 100%;
 }
@@ -7687,9 +7687,16 @@ background: #451095!important;
 }
 
 .ScriptupdateImg img{
-  position: absolute!important;
-  top: -160px!important;
-  left: 76%!important;
+  position: absolute;
+  top: -160px ;
+  left: 76%;
+}
+
+.jobboard_best_partner {
+  height: 300px;
+}
+.jobboard-script-update {
+  height: 280px;
 }
 
 
