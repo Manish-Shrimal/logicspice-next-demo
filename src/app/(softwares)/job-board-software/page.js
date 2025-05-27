@@ -2828,7 +2828,7 @@ const Page = () => {
             </div>
           </div>
         </section>
-        <section className="job_portal_area script-update-bg">
+        <section className="job_portal_area script-update-bg jobboard-script-update">
           <div className="container">
         
           
@@ -2913,7 +2913,7 @@ const Page = () => {
         </div>
       </section> */}
 
-        <section className="job_portal_area job_portal_area_food">
+        <section className="job_portal_area job_portal_area_food jobboard_best_partner">
           <div className="best-partner-left-img">
                   <Image
                     unoptimized={true}

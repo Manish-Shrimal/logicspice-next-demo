@@ -2252,6 +2252,13 @@
   transform: translateX(-50%) !important;
 }
 
+.jobboard_best_partner {
+  height: 400px !important;
+}
+.jobboard-script-update {
+  height: 410px;
+}
+
 .NewJobBoardDesign .logic-parter {
   display: grid !important;
   margin-top: 20px !important;
