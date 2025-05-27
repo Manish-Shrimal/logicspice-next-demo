@@ -2256,7 +2256,7 @@
   height: 400px !important;
 }
 .jobboard-script-update {
-  height: 410px;
+  height: 410px !important;
 }
 
 .NewJobBoardDesign .logic-parter {
