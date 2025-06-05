@@ -1289,7 +1289,7 @@ const Page = () => {
                                   Application History Tracking
                                   <div className="product-idea">
                                     <p>
-                                      Keep track of all the jobs you've applied
+                                      Keep track of all the jobs you&apos;ve applied
                                       to, ensuring you stay organized throughout
                                       your job search.
                                     </p>
@@ -1888,7 +1888,7 @@ const Page = () => {
                                   <div className="product-idea">
                                     <p>
                                       Easily review your payment transactions
-                                      based on the membership plan you've
+                                      based on the membership plan you&apos;ve
                                       purchased.
                                     </p>
                                   </div>
@@ -1909,7 +1909,7 @@ const Page = () => {
                                   View Candidate Profiles
                                   <div className="product-idea">
                                     <p>
-                                      Access the profiles of job seekers you've
+                                      Access the profiles of job seekers you&apos;ve
                                       shortlisted or are interested in hiring.
                                     </p>
                                   </div>
@@ -2066,7 +2066,7 @@ const Page = () => {
                                       Stripe and PayPal integrated, employers
                                       can easily pay using Visa, MasterCard,
                                       American Express, Discover, or PayPal.
-                                      Whether it's for job postings or
+                                      Whether it&apos;s for job postings or
                                       membership plans, the checkout is fast,
                                       secure, and fully reliable—no technical
                                       setup needed.
@@ -2093,7 +2093,7 @@ const Page = () => {
                                       profile that highlights their brand. Add
                                       your logo, company info, website, images,
                                       videos, and display all your active job
-                                      listings in one place. It’s a powerful way
+                                      listings in one place. It&apos;s a powerful way
                                       to attract the right candidates and
                                       showcase your company culture.
                                     </p>
@@ -2280,7 +2280,7 @@ const Page = () => {
                                       Admins can view and manage job
                                       seekers—edit profiles, activate or
                                       deactivate accounts, delete users, manage
-                                      certificates, and see which jobs they’ve
+                                      certificates, and see which jobs they&apos;ve
                                       applied for.
                                     </p>
                                   </div>
@@ -2555,7 +2555,7 @@ const Page = () => {
                                   Sub Admin Management
                                   <div className="product-idea">
                                     <p>
-                                      If you're a business looking to streamline
+                                      If you&apos;re a business looking to streamline
                                       your recruitment process, Job board
                                       software has got you covered. Our platform
                                       allows you to create accounts for your

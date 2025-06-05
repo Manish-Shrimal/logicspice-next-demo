@@ -2337,7 +2337,7 @@ const Page = () => {
                 </li>
 
                 <li>
-                  <span>Utilized the backend API's.</span>
+                  <span>Utilized the backend API&apos;s.</span>
                 </li>
 
                 <li>

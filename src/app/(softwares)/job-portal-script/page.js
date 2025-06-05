@@ -669,7 +669,7 @@ const Page = () => {
                   <span className="font-semibold">LS Jobber</span> is a powerful
                   white label job portal script created for businesses, HR
                   agencies, and entrepreneurs who want to build and run their
-                  own custom job portal platform. Whether you're starting a new
+                  own custom job portal platform. Whether you&apos;re starting a new
                   job portal or scaling an existing recruitment business, LS
                   Jobber offers a complete solution with full customization and
                   zero coding hassle.
