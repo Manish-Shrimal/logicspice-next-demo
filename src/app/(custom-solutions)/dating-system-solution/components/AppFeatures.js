@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Card, CardContent } from "../components/ui/card";
-import { UsersCog, DollarSign, LayoutDashboard, ShieldOff, UserCog, UserRoundCheck, LogIn, Hand, Settings, MessageSquare, Calendar, Image, Heart, Bell } from "lucide-react";
+import { UserCog, DollarSign, LayoutDashboard, ShieldOff, Users, UserRoundCheck, LogIn, Hand, Settings, MessageSquare, Calendar, Image, Heart, Bell } from "lucide-react";
 
 const AppFeatures = () => {
   const [activeTab, setActiveTab] = useState("features");
@@ -52,7 +52,7 @@ const AppFeatures = () => {
       description: "Earn through paid memberships, featured profiles, credit-based chat boosts, or even advertising placements. You set the pricing model that works for you."
     },
     {
-      icon: <UsersCog className="h-8 w-8 text-dating-primary" />,
+      icon: <UserCog className="h-8 w-8 text-dating-primary" />,
       title: "User Management & Moderation",
       description: "Approve new users, ban fake profiles, and manage reported content efficiently. Protect your community and maintain quality."
     },

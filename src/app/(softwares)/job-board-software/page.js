@@ -21,6 +21,7 @@ import axios from "axios";
 import BaseAPI from "../../BaseAPI/BaseAPI";
 import { Button } from "@mui/material";
 import TableRow from "./TableRow";
+import useWindowWidth from "../../Components/useWindowWidth";
 
 const GetDemoEnquiry = dynamic(
   () => import("../../Components/GetDemoEnquiry"),
@@ -52,74 +53,85 @@ const FeatureCard = ({ icon, title, description }) => (
 const tableData = [
   {
     feature: "Quick & Free Setup",
-    logicspice: "Get your job board up and running in no time with a hassle-free setup process—no technical expertise required.",
-    others: "Often involves complex installation steps, extra charges, or the need for developer support."
+    logicspice:
+      "Get your job board up and running in no time with a hassle-free setup process—no technical expertise required.",
+    others:
+      "Often involves complex installation steps, extra charges, or the need for developer support.",
   },
   {
     feature: "Device Compatibility",
-    logicspice: "Fully responsive – works perfectly on mobiles, tablets, and desktops",
-    others: "May have layout or loading issues on mobile devices"
+    logicspice:
+      "Fully responsive – works perfectly on mobiles, tablets, and desktops",
+    others: "May have layout or loading issues on mobile devices",
   },
   {
     feature: "User Experience",
-    logicspice: "Simple and clean interface for job seekers, employers, and admins",
-    others: "Complex interfaces that require training or support"
+    logicspice:
+      "Simple and clean interface for job seekers, employers, and admins",
+    others: "Complex interfaces that require training or support",
   },
   {
     feature: "Flexible Pricing Options",
-    logicspice: "One-time license fee or affordable monthly plan (45 $) to suit different needs",
-    others: "Usually, only offer monthly or annual recurring plans"
+    logicspice:
+      "One-time license fee or affordable monthly plan (45 $) to suit different needs",
+    others: "Usually, only offer monthly or annual recurring plans",
   },
   {
     feature: "Customizability",
-    logicspice: "Highly customizable for industries, regions, and niche markets",
-    others: "Limited flexibility in design or features"
+    logicspice:
+      "Highly customizable for industries, regions, and niche markets",
+    others: "Limited flexibility in design or features",
   },
   {
     feature: "Jobseeker & Employer Tools",
-    logicspice: "Feature-rich panels with CV builder, job alerts, video CV, and more",
-    others: "Basic features with fewer job-seeker tools"
+    logicspice:
+      "Feature-rich panels with CV builder, job alerts, video CV, and more",
+    others: "Basic features with fewer job-seeker tools",
   },
   {
     feature: "Admin Control",
-    logicspice: "Powerful admin dashboard with full control over users, jobs, categories & more",
-    others: "Limited admin control or a difficult-to-manage backend"
+    logicspice:
+      "Powerful admin dashboard with full control over users, jobs, categories & more",
+    others: "Limited admin control or a difficult-to-manage backend",
   },
   {
     feature: "SEO & Marketing Ready",
-    logicspice: "Built-in SEO optimization + blog, social sharing, and email alerts",
-    others: "Requires third-party tools or manual setup"
+    logicspice:
+      "Built-in SEO optimization + blog, social sharing, and email alerts",
+    others: "Requires third-party tools or manual setup",
   },
   {
     feature: "Custom Pages & API Access",
     logicspice: "Create SEO-optimized pages + private API for integrations",
-    others: "Rarely included or requires expensive add-ons"
+    others: "Rarely included or requires expensive add-ons",
   },
   {
     feature: "Payment Gateway Support",
     logicspice: "Supports Stripe, PayPal & others for easy transactions",
-    others: "Limited gateway options or manual setup required"
+    others: "Limited gateway options or manual setup required",
   },
   {
     feature: "Scalability",
-    logicspice: "Scales smoothly as your platform grows – from startup to enterprise",
-    others: "Performance drops as traffic or data increases"
+    logicspice:
+      "Scales smoothly as your platform grows – from startup to enterprise",
+    others: "Performance drops as traffic or data increases",
   },
   {
     feature: "Support & Documentation",
     logicspice: "Dedicated support team + complete documentation",
-    others: "Poor support or lack of proper user guides"
-  }
+    others: "Poor support or lack of proper user guides",
+  },
 ];
 const Page = () => {
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  
+  let windowWidth = useWindowWidth();
+
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [open, setOpen] = useState(false);
@@ -443,116 +455,130 @@ const Page = () => {
     };
   }, []);
 
-
-
-  const [activeTab, setActiveTab] = useState('basic');
+  const [activeTab, setActiveTab] = useState("basic");
 
   const basicFeatures = [
     {
       icon: "/img/jobboard/ragister-icon.png",
       title: "Jobseeker Registration",
-      description: "Jobseekers can register on the Job Portal using Email Address."
+      description:
+        "Jobseekers can register on the Job Portal using Email Address.",
     },
     {
       icon: "/img/jobboard/search_job.png",
       title: "Search Jobs",
-      description: "Jobseekers can search Jobs using Keyword, Category, Location & Work Type etc. which will provide the relevant result."
+      description:
+        "Jobseekers can search Jobs using Keyword, Category, Location & Work Type etc. which will provide the relevant result.",
     },
     {
       icon: "/img/jobboard/apply_job.png",
       title: "Apply to a Job",
-      description: "Jobseekers can apply for the Jobs which are relevant to their Profile."
+      description:
+        "Jobseekers can apply for the Jobs which are relevant to their Profile.",
     },
     {
       icon: "/img/jobboard/manage_profile.png",
       title: "Manage Profile",
-      description: "Jobseekers can view their profile details & can manage(add/edit/delete) their Profile."
+      description:
+        "Jobseekers can view their profile details & can manage(add/edit/delete) their Profile.",
     },
     {
       icon: "/img/jobboard/applied_job.png",
       title: "Applied List",
-      description: "Jobseeker can view the list of applied jobs on the portal."
-    }
+      description: "Jobseeker can view the list of applied jobs on the portal.",
+    },
   ];
 
   const advancedFeatures = [
     {
       icon: "/img/jobboard/manage_alert.png",
       title: "Manage Job Alerts",
-      description: "Jobseekers can apply for Job Alerts & will get the Job alerts for specific Job, location & Category. Jobseekers can manage(add/edit/delete) Job alerts."
+      description:
+        "Jobseekers can apply for Job Alerts & will get the Job alerts for specific Job, location & Category. Jobseekers can manage(add/edit/delete) Job alerts.",
     },
     {
       icon: "/img/jobboard/save_fav.png",
       title: "Save Favorite Jobs",
-      description: "Jobseekers can save the Job as Favorite and can apply in future or soon."
+      description:
+        "Jobseekers can save the Job as Favorite and can apply in future or soon.",
     },
     {
       icon: "/img/jobboard/share_job.png",
       title: "Share a Job",
-      description: "Jobseekers can share Job Tumblr, Facebook, Twitter, Print, Pinterest, Gmail, Google+ etc."
+      description:
+        "Jobseekers can share Job Tumblr, Facebook, Twitter, Print, Pinterest, Gmail, Google+ etc.",
     },
     {
       icon: "/img/jobboard/manage_edu.png",
       title: "Manage Education",
-      description: "Jobseekers can view their Education details & can manage(add/edit/delete) the Education."
+      description:
+        "Jobseekers can view their Education details & can manage(add/edit/delete) the Education.",
     },
     {
       icon: "/img/jobboard/manage_exp.png",
       title: "Manage Experience",
-      description: "Jobseekers can view all experience details which they have added in the profile & can manage(add/edit/delete) Experience."
+      description:
+        "Jobseekers can view all experience details which they have added in the profile & can manage(add/edit/delete) Experience.",
     },
     {
       icon: "/img/jobboard/genrate_cv.png",
       title: "Generate a CV",
-      description: "Jobseekers can create CV by selecting the format & adding the fields which are mandatory for creating CV. Jobseekers can update the CV as per their requirement."
+      description:
+        "Jobseekers can create CV by selecting the format & adding the fields which are mandatory for creating CV. Jobseekers can update the CV as per their requirement.",
     },
     {
       icon: "/img/jobboard/jobs_by.png",
       title: "Jobs by Industry, Functions, City",
-      description: "Jobseekers can search for Jobs using Specific Industry, Specific Functions & Specific City."
+      description:
+        "Jobseekers can search for Jobs using Specific Industry, Specific Functions & Specific City.",
     },
     {
       icon: "/img/jobboard/approve_tickets.png",
       title: "Declaration Statement",
-      description: "Jobseeker need to select a declaration statement while applying for jobs."
+      description:
+        "Jobseeker need to select a declaration statement while applying for jobs.",
     },
     {
       icon: "/img/jobboard/manage_blog.png",
       title: "Professional Registration",
-      description: "Jobseeker need to fill all the professional descriptions."
+      description: "Jobseeker need to fill all the professional descriptions.",
     },
     {
       icon: "/img/jobboard/send_mail.png",
       title: "Mail Communication",
-      description: "Jobseekers can communicate with employers through email."
+      description: "Jobseekers can communicate with employers through email.",
     },
     {
       icon: "/img/jobboard/tickets_history.png",
       title: "Mail History",
-      description: "Jobseekers can manage mail history of custom mail communication."
+      description:
+        "Jobseekers can manage mail history of custom mail communication.",
     },
     {
       icon: "/img/jobboard/deletes_acc.png",
       title: "Delete Account",
-      description: "Jobseekers can delete accounts by entering the reason for account deletion."
+      description:
+        "Jobseekers can delete accounts by entering the reason for account deletion.",
     },
     {
       icon: "/img/jobboard/upload-video.png",
       title: "Upload Video CV",
-      description: "Jobseekers can upload their video CV and employers can view it in their jobseeker profile."
+      description:
+        "Jobseekers can upload their video CV and employers can view it in their jobseeker profile.",
     },
     {
       icon: "/img/jobboard/categories-auto.png",
       title: "Membership Plan",
-      description: "Jobseekers can purchase the Membership Plan(Free/paid) as per their requirement which is relevant to them."
+      description:
+        "Jobseekers can purchase the Membership Plan(Free/paid) as per their requirement which is relevant to them.",
     },
     {
       icon: "/img/jobboard/simple_application.png",
       title: "Email Notification",
-      description: "Jobseeker will receive email notifications for the Job Alerts and for some important features."
-    }
+      description:
+        "Jobseeker will receive email notifications for the Job Alerts and for some important features.",
+    },
   ];
-
 
   return (
     <>
@@ -684,7 +710,7 @@ const Page = () => {
                     <ul className="job-pr-icon jobwidthauto">
                       <li>
                         {/* <i className="fa fa-globe" aria-hidden="true"></i> */}
-                        <Image 
+                        <Image
                           unoptimized={true}
                           width={30}
                           height={30}
@@ -694,7 +720,7 @@ const Page = () => {
                       </li>
                       <li>
                         {/* <i class="fa fa-android" aria-hidden="true"></i> */}
-                        <Image 
+                        <Image
                           unoptimized={true}
                           width={30}
                           height={30}
@@ -704,7 +730,7 @@ const Page = () => {
                       </li>
                       <li>
                         {/* <i class="fa fa-apple" aria-hidden="true"></i> */}
-                        <Image 
+                        <Image
                           unoptimized={true}
                           width={30}
                           height={30}
@@ -771,7 +797,7 @@ const Page = () => {
                   <Image
                     src="/img/jobboard/jobboardNewImgs.png"
                     alt="Job Board Software"
-                    width={490} // Increased resolution 
+                    width={490} // Increased resolution
                     height={430} // Adjusted to maintain aspect ratio
                     sizes="(max-width: 768px) 100vw, 700px" // Ensures correct scaling on mobile
                     priority
@@ -842,9 +868,9 @@ const Page = () => {
           </p> */}
 
             <div className="flex flex-col items-center pb-0">
-              <h1 className="w-full text-left text-4xl font-bold text-gray-800 mb-8">
+              <h2 className="w-full text-left text-4xl font-bold text-gray-800 mb-8">
                 Build a Powerful Job Board in Minutes
-              </h1>
+              </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mb-8">
                 <FeatureCard
@@ -952,6 +978,13 @@ const Page = () => {
                     <li className="!text-white">
                       Optimized job search with filters
                     </li>
+
+                    <li className="!text-white">Job Search Monetization</li>
+                    <li className="!text-white">Custom Domain + Free SSL</li>
+                    <li className="!text-white">Built-in Blog Module</li>
+                    <li className="!text-white">Custom Code & CSS</li>
+                    <li className="!text-white">One-Click Data Export</li>
+                    <li className="!text-white">Modern, Customizable Design</li>
                   </ul>
                 </div>
               </div>
@@ -991,13 +1024,16 @@ const Page = () => {
             </strong>{" "}
             feature to further enhance efficiency.
           </div> */}
-            <div className="tatxt_txt_job space-y-4 !text-gray-800 !text-left leading-relaxed" style={{ textAlign: "left"}}>
+            <div
+              className="tatxt_txt_job space-y-4 !text-gray-800 !text-left leading-relaxed"
+              style={{ textAlign: "left" }}
+            >
               <p className="">
-                Built with a robust PHP and React framework,{" "}
-                <strong>LS Jobber</strong> delivers the power and flexibility
-                needed to run a modern hiring platform. It offers a complete
-                toolkit for businesses, recruiters, and staffing agencies who
-                want to manage the hiring process effectively.
+                Built with a robust PHP and React framework, LS Jobber delivers
+                the power and flexibility needed to run a modern hiring
+                platform. It offers a complete toolkit for businesses,
+                recruiters, and staffing agencies who want to manage the hiring
+                process effectively.
               </p>
 
               <ul className="list-disc pl-4 space-y-2 core-feature-left-border">
@@ -1027,10 +1063,10 @@ const Page = () => {
               </ul>
 
               <p>
-                Whether you&apos;re looking to build a CareerBuilder-style clone, a
-                Naukri-like experience, or a completely custom hiring portal,{" "}
-                <strong>LS Jobber</strong> offers the structure, speed, and
-                flexibility you need to succeed.
+                Whether you&apos;re looking to build a CareerBuilder-style
+                clone, a Naukri-like experience, or a completely custom hiring
+                portal, LS Jobber offers the structure, speed, and flexibility
+                you need to succeed.
               </p>
             </div>
 
@@ -1044,9 +1080,13 @@ const Page = () => {
                     }`}
                     onClick={() => handleSellerTab()}
                   >
-                    <a className={` ${
-                      sellerTab ? "JobBoardJobseekerNewtabOpen" : ""
-                    }`}>Jobseeker App Features </a>
+                    <a
+                      className={` ${
+                        sellerTab ? "JobBoardJobseekerNewtabOpen" : ""
+                      }`}
+                    >
+                      Jobseeker App Features{" "}
+                    </a>
                   </li>
                   <li
                     id="tab2_li"
@@ -1055,18 +1095,26 @@ const Page = () => {
                     }`}
                     onClick={() => handleBuyerTab()}
                   >
-                    <a className={` ${
-                      buyerTab ? "JobBoardEmployerNewtabOpen" : ""
-                    }`}>Employer App Features </a>
+                    <a
+                      className={` ${
+                        buyerTab ? "JobBoardEmployerNewtabOpen" : ""
+                      }`}
+                    >
+                      Employer App Features{" "}
+                    </a>
                   </li>
                   <li
                     id="tab3_li"
                     className={`admin_app_job ddlj ${adminTab ? "active" : ""}`}
                     onClick={() => handleAdminTab()}
                   >
-                    <a className={` ${
-                      adminTab ? "JobBoardAdminNewtabOpen" : ""
-                    }`}>Admin Panel</a>
+                    <a
+                      className={` ${
+                        adminTab ? "JobBoardAdminNewtabOpen" : ""
+                      }`}
+                    >
+                      Admin Panel
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -1103,11 +1151,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Jobseeker Registration
+                                  Easy Registration
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can register on the Job Portal
-                                      using Email Address.
+                                      Job seekers can register on the Job Portal
+                                      using an email address to start the job
+                                      search journey.
                                     </p>
                                   </div>
                                 </span>
@@ -1124,13 +1173,14 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Job Alerts
+                                  Personalized Job Alerts
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can apply for Job Alerts &amp;
-                                      will get the Job alerts for specific Job,
-                                      location &amp; Category. Jobseekers can
-                                      manage(add/edit/delete) Job alerts.
+                                      Job seekers can apply for custom job
+                                      alerts based on their preferred role,
+                                      location, or industry and receive timely
+                                      notifications when matching opportunities
+                                      arise.
                                     </p>
                                   </div>
                                 </span>
@@ -1147,12 +1197,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Profile
+                                  Profile Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view their profile details
-                                      &amp; can manage(add/edit/delete) their
-                                      Profile.
+                                      Create and update your profile with
+                                      details like education, experience, and
+                                      skills to showcase your qualifications
+                                      effectively.
                                     </p>
                                   </div>
                                 </span>
@@ -1172,8 +1223,8 @@ const Page = () => {
                                   Save Favorite Jobs
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can save the Job as Favorite
-                                      and can apply in future or soon.
+                                      Job seekers can save the Job as a Favorite
+                                      and can apply in the future or soon.
                                     </p>
                                   </div>
                                 </span>
@@ -1190,11 +1241,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Apply to a Job
+                                  Seamless Job Applications
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can apply for the Jobs which
-                                      are relevant to their Profile.{" "}
+                                      Apply to jobs that align with your profile
+                                      directly through the platform,
+                                      streamlining your application process.
                                     </p>
                                   </div>
                                 </span>
@@ -1211,12 +1263,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Search Jobs
+                                  Advanced Job Search
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can search Jobs using Keyword,
-                                      Category, Location &amp; Work Type etc.
-                                      which will provide the relevant result.
+                                      Job seekers can search for Jobs using
+                                      keywords, Category, Location, and Work
+                                      Type, etc., which will provide the
+                                      relevant results.
                                     </p>
                                   </div>
                                 </span>
@@ -1233,11 +1286,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Applied List
+                                  Application History Tracking
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker can view the list of applied
-                                      jobs on the portal.
+                                      Keep track of all the jobs you've applied
+                                      to, ensuring you stay organized throughout
+                                      your job search.
                                     </p>
                                   </div>
                                 </span>
@@ -1254,12 +1308,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Share a Job
+                                  Share Job Opportunities
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can share Job Tumblr, Facebook,
-                                      Twitter, Print, Pinterest, Gmail, Google+
-                                      etc.
+                                      Easily share job listings with friends or
+                                      on social media platforms to expand your
+                                      network.
                                     </p>
                                   </div>
                                 </span>
@@ -1276,12 +1330,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Education
+                                  Education Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view their Education
-                                      details &amp; can manage(add/edit/delete)
-                                      the Education.
+                                      Job seekers can view and manage their
+                                      education details—add new entries, edit
+                                      existing ones, or delete them anytime.
                                     </p>
                                   </div>
                                 </span>
@@ -1298,12 +1352,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Experience
+                                  Experience Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view all experience details
-                                      which they have added in the profile &amp;
-                                      can manage(add/edit/delete) Experience.
+                                      Job seekers can view and manage all their
+                                      work experience—add new roles, edit
+                                      details, or remove any as needed from
+                                      their profile.
                                     </p>
                                   </div>
                                 </span>
@@ -1323,10 +1378,10 @@ const Page = () => {
                                   Generate a CV
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can create CV by selecting the
-                                      format &amp; adding the fields which are
-                                      mandatory for creating CV. Jobseekers can
-                                      update the CV as per their requirement.
+                                      Job seekers can easily create a CV by
+                                      choosing a template and filling in the
+                                      required details. They can also update or
+                                      edit their CV anytime as needed.
                                     </p>
                                   </div>
                                 </span>
@@ -1343,12 +1398,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Jobs by Industry, Functions, City
+                                  Industry & Location-Based Search
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can search for Jobs using
-                                      Specific Industry, Specific Functions
-                                      &amp; Specific City.
+                                      Search for jobs by specific industries,
+                                      functions, or cities to find opportunities
+                                      that suit your preferences.
                                     </p>
                                   </div>
                                 </span>
@@ -1368,8 +1423,10 @@ const Page = () => {
                                   Declaration Statement
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker need to select a declaration
-                                      statement while applying for jobs.
+                                      Job seekers can include a declaration
+                                      statement when applying for jobs, adding a
+                                      professional and personal touch to their
+                                      application.
                                     </p>
                                   </div>
                                 </span>
@@ -1389,8 +1446,9 @@ const Page = () => {
                                   Professional Registration
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker need to fill all the
-                                      professional descriptions.
+                                      Complete your professional details to help
+                                      employers get a full picture of your
+                                      skills and experience.
                                     </p>
                                   </div>
                                 </span>
@@ -1407,11 +1465,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Mail Communication
+                                  Email Communication
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can communicate with employers
-                                      through email.
+                                      Communicate directly with employers via
+                                      email, facilitating prompt and efficient
+                                      interactions.
                                     </p>
                                   </div>
                                 </span>
@@ -1428,11 +1487,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Mail History
+                                  Email History Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can manage mail history of
-                                      custom mail communication.
+                                      Maintain a record of your email
+                                      communications with employers for future
+                                      reference.
                                     </p>
                                   </div>
                                 </span>
@@ -1449,11 +1509,11 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Delete Account
+                                  Account Deletion
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can delete accounts by entering
-                                      the reason for account deletion.
+                                      Job seekers can delete accounts by
+                                      entering the reason for account deletion.
                                     </p>
                                   </div>
                                 </span>
@@ -1470,12 +1530,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Upload Video CV
+                                  Video CV Upload
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can upload their video CV and
-                                      employers can view it in their jobseeker
-                                      profile.
+                                      Job seekers have the option to upload a
+                                      video CV, allowing employers to get a more
+                                      personal view of their skills and
+                                      personality through their profile.
                                     </p>
                                   </div>
                                 </span>
@@ -1495,9 +1556,9 @@ const Page = () => {
                                   Membership Plan
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can purchase the Membership
-                                      Plan(Free/paid) as per their requirement
-                                      which is relevant to them.
+                                      Job seekers can choose and purchase a free
+                                      or paid membership plan based on their
+                                      needs and preferences.
                                     </p>
                                   </div>
                                 </span>
@@ -1514,19 +1575,42 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Email Notification
+                                  Email Notifications
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker will receive email notifications
-                                      for the Job Alerts and for some important
-                                      features.
+                                      Receive email notifications for job alerts
+                                      and other important updates to stay
+                                      informed.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/simple_application.png"
+                                    alt="Jobseeker App Feature"
+                                  />
+                                </i>
+                                <span>
+                                  Private Job Search
+                                  <div className="product-idea">
+                                    <p>
+                                      Only logged-in users can view and search
+                                      for jobs. This keeps job listings private
+                                      and adds an extra layer of privacy for
+                                      both job seekers and employers.
                                     </p>
                                   </div>
                                 </span>
                               </li>
                             </ul>
 
-{/* <div className="container mx-auto p-6 bg-gray-50 min-h-screen">
+                            {/* <div className="container mx-auto p-6 bg-gray-50 min-h-screen">
           <div className="flex justify-center mb-6">
             <div className="flex space-x-4 bg-white rounded-lg shadow p-1">
               <button
@@ -1597,15 +1681,16 @@ const Page = () => {
                                     width={100}
                                     height={100}
                                     alt="img"
-                                    src="/img/jobboard/emplyer-mobile.png"
+                                    src="/img/jobboard/ragister-icon.png"
                                   />
                                 </i>
                                 <span>
-                                  Employer Registration
+                                  Easy Employer Registration
                                   <div className="product-idea">
                                     <p>
-                                      Employers can register on the Job Portal
-                                      using Email Address.
+                                      Employers can quickly sign up on the job
+                                      portal using their email address to start
+                                      posting jobs.
                                     </p>
                                   </div>
                                 </span>
@@ -1622,12 +1707,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Membership Plans
+                                  Flexible Membership Plans
                                   <div className="product-idea">
                                     <p>
-                                      Employers can purchase the Membership
-                                      Plan(Free/paid) as per their requirement
-                                      which is relevant to them.
+                                      Employers can choose and purchase a free
+                                      or paid membership plan based on their
+                                      hiring needs.
                                     </p>
                                   </div>
                                 </span>
@@ -1644,12 +1729,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Favorite Candidates
+                                  Save Favorite Candidates
                                   <div className="product-idea">
                                     <p>
-                                      Employers can mark the Candidate as
-                                      Favorites who is relevant to the Job Post
-                                      or requirement.
+                                      Employers can mark candidates as favorites
+                                      for future reference if they match the job
+                                      requirements.
                                     </p>
                                   </div>
                                 </span>
@@ -1666,16 +1751,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Create Job
+                                  Create New Jobs
                                   <div className="product-idea">
                                     <p>
-                                      Employers can create a job by adding Job
-                                      Title, Category, Job Description, Company
-                                      Name, Company Profile, Work Type, Contact
-                                      Name &amp; Contact Number, Company
-                                      Website, Skills, Designation, Location,
-                                      Experience, Annual salary, Company Logo
-                                      etc.
+                                      Employers can easily create job listings
+                                      by filling in details like job title,
+                                      category, description, company info,
+                                      skills, salary, and more.
                                     </p>
                                   </div>
                                 </span>
@@ -1692,12 +1774,11 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Jobs
+                                  Manage Job Listings
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the list of Created
-                                      Jobs &amp; can manage(add/edit/delete)
-                                      Jobs.
+                                      View and manage all posted jobs—edit,
+                                      update, or delete listings as needed.
                                     </p>
                                   </div>
                                 </span>
@@ -1714,11 +1795,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Update Job status
+                                  Job Status Control
                                   <div className="product-idea">
                                     <p>
-                                      Employer can activate/deactivate the Jobs
-                                      which are posted.
+                                      Employers can activate or deactivate job
+                                      postings at any time based on their hiring
+                                      status.
                                     </p>
                                   </div>
                                 </span>
@@ -1736,12 +1818,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Profile
+                                  Profile Management
                                   <div className="product-idea">
                                     <p>
-                                      Employer can view Profile &amp; can
-                                      manage(update) Profile. Employers can
-                                      change passwords &amp; logos.
+                                      Employers can update their profile
+                                      details, change passwords, and upload or
+                                      update their company logo.
                                     </p>
                                   </div>
                                 </span>
@@ -1759,11 +1841,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Count Search view
+                                  Search View Tracking
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the count for total
-                                      numbers of Search views.
+                                      View the total number of times your
+                                      company profile appeared in job seeker
+                                      searches.
                                     </p>
                                   </div>
                                 </span>
@@ -1780,11 +1863,11 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Count Job View
+                                  Job View Insights
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the count for total
-                                      numbers of Job views.
+                                      Track how many times your posted jobs have
+                                      been viewed by job seekers.
                                     </p>
                                   </div>
                                 </span>
@@ -1801,11 +1884,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Payment History
+                                  Payment History Access
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the Payment Transaction
-                                      as per the purchased plan.
+                                      Easily review your payment transactions
+                                      based on the membership plan you've
+                                      purchased.
                                     </p>
                                   </div>
                                 </span>
@@ -1822,11 +1906,11 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  View Jobseeker Profile
+                                  View Candidate Profiles
                                   <div className="product-idea">
                                     <p>
-                                      Employer can view Profile of Jobseekers
-                                      who have shortlisted or want to Hire.
+                                      Access the profiles of job seekers you've
+                                      shortlisted or are interested in hiring.
                                     </p>
                                   </div>
                                 </span>
@@ -1843,12 +1927,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Plan Invoice
+                                  Downloadable Invoices
                                   <div className="product-idea">
                                     <p>
-                                      According to the purchased plan invoice
-                                      will be generated &amp; employer can
-                                      display/download.
+                                      Get downloadable invoices for each
+                                      membership plan or service you’ve
+                                      purchased.
                                     </p>
                                   </div>
                                 </span>
@@ -1865,11 +1949,223 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Mail Communication
+                                  Email Communication
                                   <div className="product-idea">
                                     <p>
-                                      Employers can communicate with jobseekers
-                                      by using the mail.
+                                      Communicate directly with job seekers
+                                      through email to simplify the hiring
+                                      process.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/manage_job.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Mail History
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can manage mail history of
+                                      custom mail communication.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/update_job.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Dashboard Background Image
+                                  <div className="product-idea">
+                                    <p>
+                                      An employer can change/update the
+                                      dashboard background image.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt=""
+                                    className="lazy"
+                                    src="/img/jobboard/manage_profile.png"
+                                  />
+                                </i>
+                                <span>
+                                  Delete Account
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can delete accounts by entering
+                                      the reason.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/count_search_view.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Import Jobseekers
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can now import jobseekers in
+                                      bulk through excel file by using the
+                                      predefined format.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/count_job_view.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Easy & Secure Payments
+                                  <div className="product-idea">
+                                    <p>
+                                      Our job board software makes the payment
+                                      process smooth and stress-free. With
+                                      Stripe and PayPal integrated, employers
+                                      can easily pay using Visa, MasterCard,
+                                      American Express, Discover, or PayPal.
+                                      Whether it's for job postings or
+                                      membership plans, the checkout is fast,
+                                      secure, and fully reliable—no technical
+                                      setup needed.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/payment_history.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Company Profile Page
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can build a professional company
+                                      profile that highlights their brand. Add
+                                      your logo, company info, website, images,
+                                      videos, and display all your active job
+                                      listings in one place. It’s a powerful way
+                                      to attract the right candidates and
+                                      showcase your company culture.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/manage_user_acc.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Access to Jobseeker Contact Details
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can view jobseeker contact
+                                      details—such as email or phone—only when
+                                      their membership plan includes this
+                                      feature. This ensures fair access and adds
+                                      value to premium plans.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/manage_content.png"
+                                    alt="Jobseeker App Feature"
+                                  />
+                                </i>
+                                <span>
+                                  Modern Job Listings
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can create engaging job listings
+                                      by adding text, images, or even videos,
+                                      helping them better showcase their company
+                                      and attract top candidates.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/jobboard/send_mail.png"
+                                    alt=""
+                                  />
+                                </i>
+                                <span>
+                                  Talent Pool Access
+                                  <div className="product-idea">
+                                    <p>
+                                      Employers can explore the candidate
+                                      database directly, making it easier to
+                                      find and reach out to potential hires
+                                      without waiting for applications.
                                     </p>
                                   </div>
                                 </span>
@@ -1914,7 +2210,9 @@ const Page = () => {
                                   Secure Login
                                   <div className="product-idea">
                                     <p>
-                                      Admin can login securely on this portal.
+                                      Admins can securely log in to the Job
+                                      Portal with credentials to manage all
+                                      operations efficiently.
                                     </p>
                                   </div>
                                 </span>
@@ -1933,9 +2231,11 @@ const Page = () => {
                                   Admin Dashboard
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view dashboard which will
-                                      display the total number of counts for
-                                      Seller, Buyer, Gig orders etc.
+                                      The dashboard gives a clear overview of
+                                      the platform, including total counts of
+                                      employers, job seekers, job categories,
+                                      skills, designations, locations, jobs,
+                                      blogs, and more.
                                     </p>
                                   </div>
                                 </span>
@@ -1951,12 +2251,14 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Users
+                                  Configuration
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Users(Seller/Buyer)
-                                      & can manage(add/edit/delete) Users. Admin
-                                      can activate/deactivate Users.
+                                      Admins can manage key configurations like
+                                      login credentials, contact details, plans,
+                                      site logo, slogans, PayPal settings,
+                                      favicon, and even add or manage
+                                      sub-admins.
                                     </p>
                                   </div>
                                 </span>
@@ -1972,12 +2274,14 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Gigs
+                                  Manage Jobseekers
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Gigs & can
-                                      manage(delete) Gigs. Admin can
-                                      activate/deactivate Gigs.
+                                      Admins can view and manage job
+                                      seekers—edit profiles, activate or
+                                      deactivate accounts, delete users, manage
+                                      certificates, and see which jobs they’ve
+                                      applied for.
                                     </p>
                                   </div>
                                 </span>
@@ -1993,11 +2297,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Gig Orders
+                                  Manage Employers
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Gig orders & can
-                                      manage (view) gig Orders.
+                                      Admins can view and manage employer
+                                      accounts—add, edit, delete,
+                                      activate/deactivate, or verify them as
+                                      needed.
                                     </p>
                                   </div>
                                 </span>
@@ -2013,11 +2319,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Services
+                                  Manage Job Listings
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of services & can
-                                      manage(view/add/edit/delete) services.
+                                      Admins can monitor all job listings—edit
+                                      or delete them, activate/deactivate
+                                      postings, and view applicants who applied
+                                      for each job.
                                     </p>
                                   </div>
                                 </span>
@@ -2033,12 +2341,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Categories
+                                  Import Jobs through XLSX/CSV
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Categories & can
-                                      manage(view/add/edit/delete) Categories.
-                                      Admin can activate/deactivate Categories.
+                                      Easily import multiple job listings by
+                                      uploading XLSX or CSV files using the
+                                      sample format. Admins can also assign
+                                      imported jobs to specific employers.
                                     </p>
                                   </div>
                                 </span>
@@ -2054,11 +2363,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Skills
+                                  Manage Newsletter
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Skills & can manage
-                                      (view/add/edit/delete) skills.
+                                      Admin can view the list of Newsletters &
+                                      can send Newsletter Email. Admin can keep
+                                      logs of email & can view unsubscribe user
+                                      lists.
                                     </p>
                                   </div>
                                 </span>
@@ -2074,13 +2385,13 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Sub-categories
+                                  Manage Course
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Sub-categories &
-                                      can manage(view/add/edit/delete)
-                                      Sub-categories. Admin can
-                                      activate/deactivate Sub-categories.
+                                      Admin can view a list of courses & can
+                                      manage(view/add/edit/delete) courses.
+                                      Admin can activate/ deactivate the Course
+                                      & can view details of the specialization.
                                     </p>
                                   </div>
                                 </span>
@@ -2096,12 +2407,14 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Manage Countries
+                                  Manage Categories
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of Countries & can
-                                      manage(view/add/edit/delete) Countries.
-                                      Admin can activate/deactivate Countries.
+                                      Admin can view a list of categories & can
+                                      manage(view/add/edit/delete) categories.
+                                      Admin can activate/ deactivate Categories
+                                      & can view details of the subcategory list
+                                      under Categories.
                                     </p>
                                   </div>
                                 </span>
@@ -2117,11 +2430,12 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  View Reviews & Ratings
+                                  Manage Blogs
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the list of Reviews &
-                                      Ratings Seller & Buyer has received.
+                                      Admin can view lists of blogs & can manage
+                                      (add/edit/delete) Blogs. Admin can
+                                      activate/Deactivate Blogs.
                                     </p>
                                   </div>
                                 </span>
@@ -2137,12 +2451,254 @@ const Page = () => {
                                   />
                                 </i>
                                 <span>
-                                  Transaction History
+                                  Manage Banner
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view payment transactions which
-                                      will display the status of the payment
-                                      paid/pending.
+                                      Admin can view a list of Banners & can
+                                      manage(add/edit/delete) Banners.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/admin_dash.png"
+                                  />
+                                </i>
+                                <span>
+                                  Payment History
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin can view the Payment History for all
+                                      Employers who have purchased plans.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_user.png"
+                                  />
+                                </i>
+                                <span>
+                                  Theme Color Management
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin can change the website color theme
+                                      with multiple options and reset it back to
+                                      the default color of the website.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_gig.png"
+                                  />
+                                </i>
+                                <span>
+                                  Manage Announcement
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin can manage scripts at the backend,
+                                      and Google AdWords can be displayed.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_gig_order.png"
+                                  />
+                                </i>
+                                <span>
+                                  Manage Payment Configuration:
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin can change/update the configuration
+                                      of payment gateways.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_service.png"
+                                  />
+                                </i>
+                                <span>
+                                  Sub Admin Management
+                                  <div className="product-idea">
+                                    <p>
+                                      If you're a business looking to streamline
+                                      your recruitment process, Job board
+                                      software has got you covered. Our platform
+                                      allows you to create accounts for your
+                                      teammates and will be able to
+                                      add/edit/delete/activate/deactivate them.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_category.png"
+                                  />
+                                </i>
+                                <span>
+                                  Assign Roles to Sub Admin
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin can assign roles and provide them
+                                      with specific access to work on it as a
+                                      sub-admin. This ensures that everyone on
+                                      your team is on the same page when it
+                                      comes to hiring the best talent.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_skill.png"
+                                  />
+                                </i>
+                                <span>
+                                  Banner Ads Placement
+                                  <div className="product-idea">
+                                    <p>
+                                      Looking to generate additional revenue
+                                      through 3rd party ad networks? With our
+                                      job board software, you can easily upload
+                                      banner ads to your job board by
+                                      copy-pasting the line of code or with a
+                                      static image. This allows you to monetize
+                                      your job board and make the most of your
+                                      online presence.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_cat.png"
+                                  />
+                                </i>
+                                <span>
+                                  Membership Plan for Employers & Jobseeker
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin will be able to
+                                      manage(add/edit/delete) the membership
+                                      plans for both Employers & Jobseeker.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_countries.png"
+                                  />
+                                </i>
+                                <span>
+                                  Manage Currency
+                                  <div className="product-idea">
+                                    <p>
+                                      Admin will be able to
+                                      manage(add/edit/delete) the currency, and
+                                      the currency that is selected by athe dmin
+                                      will display on the script.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/manage_testimonial.png"
+                                  />
+                                </i>
+                                <span>
+                                  Private API Access
+                                  <div className="product-idea">
+                                    <p>
+                                      Get a private API to connect your job
+                                      board with other systems. You can
+                                      automatically add or remove jobs,
+                                      employers, categories, and locations
+                                      without logging into the dashboard.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/jobboard/payment_history.png"
+                                  />
+                                </i>
+                                <span>
+                                  Custom Pages
+                                  <div className="product-idea">
+                                    <p>
+                                      Create your own pages like “About Us,”
+                                      “Privacy Policy,” or marketing landing
+                                      pages. You can fully customize the
+                                      content, URLs, and SEO settings to match
+                                      your brand and improve search visibility.
                                     </p>
                                   </div>
                                 </span>
@@ -2272,10 +2828,10 @@ const Page = () => {
               </h3>
               <p>
                 LS Jobber offers an efficient solution to create a full-featured
-                job portal. Whether you&apos;re a startup, recruitment firm, or an
-                entrepreneur, our platform eliminates technical barriers and
-                provides you with a secure, responsive system that&apos;s ready for
-                action.
+                job portal. Whether you&apos;re a startup, recruitment firm, or
+                an entrepreneur, our platform eliminates technical barriers and
+                provides you with a secure, responsive system that&apos;s ready
+                for action.
               </p>
               <div className="do_for_you_box_list">
                 <div className="do_for_you_box_list_item">
@@ -2308,11 +2864,11 @@ const Page = () => {
               </div>
               <p className="do_for_you_box_text">
                 Use our pre-built script to build and scale your platform as you
-                grow. It&apos;s a great fit for anyone looking to launch the best
-                white label job board, without sacrificing control or
+                grow. It&apos;s a great fit for anyone looking to launch the
+                best white label job board, without sacrificing control or
                 flexibility.
               </p>
-              <p className="do_for_you_box_text">
+              {/* <p className="do_for_you_box_text">
                 Our exceptional job board advertising software doesn&apos;t just stop
                 at facilitating connections; it empowers you to craft your own
                 recruitment portal. This ready-to-deploy script, secure and
@@ -2324,7 +2880,7 @@ const Page = () => {
                 know-how—our expert technical team ensures a seamless setup for
                 you. Effortlessly launch your own job board advertising website
                 in record time with our ready-to-use Job Board Software Script.
-              </p>
+              </p> */}
               <Image
                 src="/img/jobboard/search 1.png"
                 className="do_for_you_box_search_image"
@@ -2375,10 +2931,10 @@ const Page = () => {
                   <p className="do_for_you_left_text">
                     The powerful admin panel puts you in charge of
                     everything—from user accounts and job listings to payment
-                    gateways and content management. It&apos;s intuitive, secure, and
-                    designed to handle complex workflows with ease. Perfect for
-                    those needing advanced tools without the steep learning
-                    curve typical of enterprise platforms.
+                    gateways and content management. It&apos;s intuitive,
+                    secure, and designed to handle complex workflows with ease.
+                    Perfect for those needing advanced tools without the steep
+                    learning curve typical of enterprise platforms.
                   </p>
                 </div>
                 <div className="do_for_you_left">
@@ -2390,8 +2946,6 @@ const Page = () => {
                     className="do_for_you_info_image mt-2 md:mt-0"
                   />
                 </div>
-
-                
               </div>
 
               <div className="do_for_you_info_box">
@@ -2426,61 +2980,64 @@ const Page = () => {
         <section className="why_people_love_ls_jobber">
           <div className="container">
             <div className="comparison_heading_box">
-              <h3 className="comparison_heading">Logicspice Job Board Software (LS Jobber) vs. Other Job Board Solutions</h3>
+              <h3 className="comparison_heading">
+                Logicspice Job Board Software (LS Jobber) vs. Other Job Board
+                Solutions
+              </h3>
             </div>
             <div className="table-container">
-          {windowWidth < 768 ? (
-            // Mobile view - unchanged
-            <div className="mobile-table">
-              <div className="mobile-header">
-                <h2 className="logicspice-header">LOGICSPICE LS JOBBER</h2>
-                <h2 className="others-header">Other Job Board Solutions</h2>
-              </div>
-              <ul className="feature-list">
-                {tableData.map((row, index) => (
-                  <li key={index} className="feature-item">
-                    <div className="feature-title">{row.feature}</div>
-                    <ul className="comparison-list">
-                      <li className="card logicspice-card scaled-card">
-                        <h3>LogicSpice LS Jobber</h3>
-                        <p>{row.logicspice}</p>
+              {windowWidth < 768 ? (
+                // Mobile view - unchanged
+                <div className="mobile-table">
+                  <div className="mobile-header">
+                    <h2 className="logicspice-header">LOGICSPICE LS JOBBER</h2>
+                    <h2 className="others-header">Other Job Board Solutions</h2>
+                  </div>
+                  <ul className="feature-list">
+                    {tableData.map((row, index) => (
+                      <li key={index} className="feature-item">
+                        <div className="feature-title">{row.feature}</div>
+                        <ul className="comparison-list">
+                          <li className="card logicspice-card scaled-card">
+                            <h3>LogicSpice LS Jobber</h3>
+                            <p>{row.logicspice}</p>
+                          </li>
+                          <li className="card others-card">
+                            <h3>Other Job Board Solutions</h3>
+                            <p>{row.others}</p>
+                          </li>
+                        </ul>
                       </li>
-                      <li className="card others-card">
-                        <h3>Other Job Board Solutions</h3>
-                        <p>{row.others}</p>
-                      </li>
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                // Desktop view - column-based structure
+                <div className="desktop-columns">
+                  {/* Feature Column */}
+                  <ul className="column-list feature-list header-list">
+                    <li>Feature/Criteria</li>
+                    {tableData.map((row, index) => (
+                      <li key={index}>{row.feature}</li>
+                    ))}
+                  </ul>
+                  {/* LogicSpice Column */}
+                  <ul className="column-list logicspice-list header-list">
+                    <li>LOGICSPICE LS JOBBER</li>
+                    {tableData.map((row, index) => (
+                      <li key={index}>{row.logicspice}</li>
+                    ))}
+                  </ul>
+                  {/* Others Column */}
+                  <ul className="column-list others-list header-list">
+                    <li>Other Job Board Solutions</li>
+                    {tableData.map((row, index) => (
+                      <li key={index}>{row.others}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          ) : (
-            // Desktop view - column-based structure
-            <div className="desktop-columns">
-              {/* Feature Column */}
-              <ul className="column-list feature-list header-list">
-                <li>Feature/Criteria</li>
-                {tableData.map((row, index) => (
-                  <li key={index}>{row.feature}</li>
-                ))}
-              </ul>
-              {/* LogicSpice Column */}
-              <ul className="column-list logicspice-list header-list">
-                <li>LOGICSPICE LS JOBBER</li>
-                {tableData.map((row, index) => (
-                  <li key={index}>{row.logicspice}</li>
-                ))}
-              </ul>
-              {/* Others Column */}
-              <ul className="column-list others-list header-list">
-                <li>Other Job Board Solutions</li>
-                {tableData.map((row, index) => (
-                  <li key={index}>{row.others}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
           </div>
         </section>
 
@@ -2831,32 +3388,22 @@ const Page = () => {
         </section>
         <section className="job_portal_area script-update-bg jobboard-script-update">
           <div className="container">
-        
-          
-                <div className="job_or_title">
-                  <h2 className="taxt_tt_job">Script Update History</h2>
-                  <br />
+            <div className="job_or_title">
+              <h2 className="taxt_tt_job">Script Update History</h2>
+              <br />
 
-                  <ScriptUpdatedModal />
+              <ScriptUpdatedModal />
+            </div>
 
-                
-              
-
-                
-                </div>
-             
-              <div className="ScriptupdateImg">
-               <Image
-                  unoptimized={true}
-                  width={220}
-                  height={200}
-                  src="/img/jobboard/Update-History 2.png"
-                  alt="img"
-                />
-              </div>
-               
-           
-            
+            <div className="ScriptupdateImg">
+              <Image
+                unoptimized={true}
+                width={220}
+                height={200}
+                src="/img/jobboard/Update-History 2.png"
+                alt="img"
+              />
+            </div>
           </div>
         </section>
 
@@ -2916,73 +3463,73 @@ const Page = () => {
 
         <section className="job_portal_area job_portal_area_food jobboard_best_partner">
           <div className="best-partner-left-img">
-                  <Image
-                    unoptimized={true}
-                    width={350}
-                    height={200}
-                    src="/img/jobboard/best-partner-company.png"
-                    alt="img"
-                  />
-                </div>
+            <Image
+              unoptimized={true}
+              width={350}
+              height={200}
+              src="/img/jobboard/best-partner-company.png"
+              alt="img"
+            />
+          </div>
           <div className="container">
             {/* <div className="row align-items-center"> */}
-              {/* <div className="col-md-3"> */}
-                
-              {/* </div> */}
-              {/* <div className="col-md-9"> */}
-                <div className="job_or_title">
-                  <h2 className="taxt_tt_job">
-                    Best Partner Company For Your Technological Solutions!
-                  </h2>
-                  <br />
-                  <div className="best-partner">
-                    <div className="logic-parter">
-                      <a
-                        className=""
-                        aria-controls="jobportal"
-                        onClick={toggleJobPortalModal}
-                      >
-                        <Image
-                          unoptimized={true}
-                          width={20}
-                          height={20}
-                          src="/img/jobboard/best_partner_image1.png"
-                          alt=""
-                          className=""
-                        />
-                        <span className="">How It Works</span>
-                      </a>
-                      <a
-                        className=""
-                        aria-controls="buyjobportal"
-                        onClick={toggleBuyJobPortalModal}
-                      >
-                        <Image
-                          unoptimized={true}
-                          width={20}
-                          height={20}
-                          src="/img/jobboard/best_partner_image2.png"
-                          alt=""
-                          className=""
-                        />{" "}
-                        <span>Companies Using It</span>
-                      </a>
-                      <a onClick={toggleInfo} className="ylogicspice">
-                        <Image
-                          unoptimized={true}
-                          width={20}
-                          height={20}
-                          src="/img/jobboard/best_partner_image3.png"
-                          alt=""
-                          className=""
-                        />
-                        <span>Why Logicspice</span>
-                      </a>
-                      {/* <Whylogicspice open={showInfo} /> */}
-                    </div>
-                  </div>
+            {/* <div className="col-md-3"> */}
+
+            {/* </div> */}
+            {/* <div className="col-md-9"> */}
+            <div className="job_or_title">
+              <h2 className="taxt_tt_job">
+                Best Partner Company For Your Technological Solutions!
+              </h2>
+              <br />
+              <div className="best-partner">
+                <div className="logic-parter">
+                  <a
+                    className=""
+                    aria-controls="jobportal"
+                    onClick={toggleJobPortalModal}
+                  >
+                    <Image
+                      unoptimized={true}
+                      width={20}
+                      height={20}
+                      src="/img/jobboard/best_partner_image1.png"
+                      alt=""
+                      className=""
+                    />
+                    <span className="">How It Works</span>
+                  </a>
+                  <a
+                    className=""
+                    aria-controls="buyjobportal"
+                    onClick={toggleBuyJobPortalModal}
+                  >
+                    <Image
+                      unoptimized={true}
+                      width={20}
+                      height={20}
+                      src="/img/jobboard/best_partner_image2.png"
+                      alt=""
+                      className=""
+                    />{" "}
+                    <span>Companies Using It</span>
+                  </a>
+                  <a onClick={toggleInfo} className="ylogicspice">
+                    <Image
+                      unoptimized={true}
+                      width={20}
+                      height={20}
+                      src="/img/jobboard/best_partner_image3.png"
+                      alt=""
+                      className=""
+                    />
+                    <span>Why Logicspice</span>
+                  </a>
+                  {/* <Whylogicspice open={showInfo} /> */}
                 </div>
-              {/* </div> */}
+              </div>
+            </div>
+            {/* </div> */}
             {/* </div> */}
             <Whylogicspice open={showInfo} />
           </div>
@@ -3630,7 +4177,7 @@ const Page = () => {
                 <div className="ecommerce--review">
                   <div className="customers_review_sec_row">
                     <div className="customer_review_stext">
-                      I have purchased this script and has constructed my own
+                      I have purchased this software and has constructed my own
                       job-site. This was an easy task because of
                       logicspice&apos;s free installation and support. Keep up
                       the good work. I will be back for more in the future.
@@ -3646,7 +4193,8 @@ const Page = () => {
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <i className="fa fa-star" aria-hidden="true"></i>
                       </span>
-                      John, USA
+                      {/* John, USA */}
+                      <span id="client-name">John, USA </span>{" "}
                       <span>
                         <Image
                           unoptimized={true}
@@ -3661,9 +4209,9 @@ const Page = () => {
                   </div>
                   <div className="customers_review_sec_row">
                     <div className="customer_review_stext" id="fiveer-clone">
-                      This is the best job portal script. Thanks for your great
+                      This is the best job board software. Thanks for your great
                       efforts and support while installing the script. Your
-                      prompt service regarding a few minor issues was superb
+                      prompt service regarding a few minor issues was superb.
                     </div>
 
                     <div className="who_ratset">
@@ -3677,7 +4225,7 @@ const Page = () => {
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <i className="fa fa-star" aria-hidden="true"></i>
                       </span>
-                      <span id="client-name">D. Smith, Germany in USA</span>{" "}
+                      <span id="client-name">D. Smith, Germany</span>{" "}
                       <span>
                         <Image
                           unoptimized={true}
@@ -3880,16 +4428,14 @@ const Page = () => {
                         }}
                         style={titleStyle}
                       >
-                        <span>01. </span> Can a Jobseeker upload his CV to apply
-                        for job?
+                        <span>01. </span> Can I connect my own custom domain?
                       </a>
                     </div>
                     <div style={activeIndex === 0 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          No. The information about the jobseeker will go from
-                          his profile to the employer that he is applying the
-                          job for.
+                          Yes. You can fully white-label the platform by using
+                          your own domain and branding.
                         </p>
                       </div>
                     </div>
@@ -3906,14 +4452,14 @@ const Page = () => {
                         style={titleStyle}
                       >
                         <span>02. </span> Will there be any installation charges
-                        when I purchase the job portal script?
+                        when I purchase the job board software script?
                       </a>
                     </div>
                     <div style={activeIndex === 1 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          No. The installation of our Job Portal Product will be
-                          absolutely free of cost.
+                          No setup fees. We offer free installation and launch
+                          support with all standard plans.
                         </p>
                       </div>
                     </div>
@@ -3929,15 +4475,16 @@ const Page = () => {
                         }}
                         style={titleStyle}
                       >
-                        <span>03. </span> Can jobseeker download the CV that he
-                        has created on this website?
+                        <span>03. </span> Can I translate the Job board to
+                        another language?
                       </a>
                     </div>
                     <div style={activeIndex === 2 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          Yes. Once the job seeker creates his CV, he can
-                          download the same in a PDF format.
+                          Absolutely. You can translate all user-facing text
+                          into any language, making your job board globally
+                          accessible.
                         </p>
                       </div>
                     </div>
@@ -3953,16 +4500,16 @@ const Page = () => {
                           toggleAccordion(3);
                         }}
                       >
-                        <span>04. </span> Can employer or jobseeker write blog
-                        posts?
+                        <span>04. </span> Does it support multiple currencies?
                       </a>
                     </div>
                     <div style={activeIndex === 3 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          The employers and jobseekers cannot write blog posts.
-                          The blog posts will be written by the admin, and
-                          employers & Job Seekers can view them.
+                          The platform supports multiple currencies like USD,
+                          EUR, GBP, INR, CAD, AUD, and many others. Whatever
+                          currency the admin chooses will show up across the
+                          website and the mobile apps (Android & iOS).
                         </p>
                       </div>
                     </div>
@@ -3978,18 +4525,15 @@ const Page = () => {
                           toggleAccordion(4);
                         }}
                       >
-                        <span>05. </span> Once I purchase the job portal script,
-                        how many days will it take to go online?
+                        <span>05. </span> Do I need any design or coding skills?
                       </a>
                     </div>
                     <div style={activeIndex === 4 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          It takes 2 working days generally, provided all the
-                          information to make it live has been given. If you
-                          want customizations, then the time taken to implement
-                          your Job portal depends on the level of customization
-                          and data migration.
+                          Not at all. The platform is fully no-code—customize
+                          layouts, colors, and content easily through the admin
+                          panel.
                         </p>
                       </div>
                     </div>
@@ -4005,16 +4549,16 @@ const Page = () => {
                           toggleAccordion(5);
                         }}
                       >
-                        <span>06. </span> How can Jobseeker apply for a job?
+                        <span>06. </span> Do job seekers need to upload a
+                        separate CV to apply?
                       </a>
                     </div>
                     <div style={activeIndex === 5 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          Jobseeker can send their details directly to the job
-                          company or they can attach a cover letter along with
-                          their application. They can edit, add, or delete their
-                          cover letter from the profile.
+                          No need. When a job seeker applies, their profile
+                          information is sent directly to the employer, so
+                          there’s no extra CV upload step.
                         </p>
                       </div>
                     </div>
@@ -4030,17 +4574,15 @@ const Page = () => {
                           toggleAccordion(6);
                         }}
                       >
-                        <span>07. </span> How can Jobseeker create job alerts?
+                        <span>07. </span> Can job seekers download their CV as a
+                        PDF?
                       </a>
                     </div>
                     <div style={activeIndex === 6 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          Jobseekers will be able to manage the alerts that will
-                          help them receive emails if the job is available
-                          according to their set criteria. They can add alerts
-                          by providing the information like designation of job
-                          required and location of job.
+                          Yes. Once they’ve filled out their profile, they can
+                          export it as a PDF résumé in one click.
                         </p>
                       </div>
                     </div>
@@ -4056,15 +4598,19 @@ const Page = () => {
                           toggleAccordion(7);
                         }}
                       >
-                        <span>08. </span> Can I update some design and
-                        functionality in application code myself?
+                        <span>08. </span> I’m currently using another job board.
+                        Can I switch easily to your platform?
                       </a>
                     </div>
                     <div style={activeIndex === 7 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          Yes, you will have access to all the code, except some
-                          of the core encrypted files.
+                          Yes, switching is simple and smooth. In most cases,
+                          the transition takes less than an hour. If you have
+                          data like user profiles, job listings, or subscriber
+                          email lists, our support team can help you import
+                          everything safely. Just share the files, and we’ll
+                          handle the rest—no hassle on your end.
                         </p>
                       </div>
                     </div>
@@ -4080,15 +4626,15 @@ const Page = () => {
                           toggleAccordion(8);
                         }}
                       >
-                        <span>09. </span> Will I be able to use it on multiple
-                        domains after I purchase this script?
+                        <span>09. </span> How long does it take to go live?
                       </a>
                     </div>
                     <div style={activeIndex === 8 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          You will be licensed to use it only for the domain you
-                          purchased it for.
+                          Usually within 2 business days, depending on how
+                          quickly we receive your hosting details and
+                          configuration preferences.
                         </p>
                       </div>
                     </div>
@@ -4104,15 +4650,15 @@ const Page = () => {
                           toggleAccordion(9);
                         }}
                       >
-                        <span>10. </span> Can I resell the script? Will I have
-                        rights over the script code?
+                        <span>10. </span> Is my data secure?
                       </a>
                     </div>
                     <div style={activeIndex === 9 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          All rights will remain with Logicspice only, and you
-                          cannot resell it.
+                          Yes. We use enterprise-grade hosting (like AWS) and
+                          SSL encryption for all data. Payment details are
+                          handled securely through trusted gateways like Stripe.
                         </p>
                       </div>
                     </div>
@@ -4128,12 +4674,47 @@ const Page = () => {
                           toggleAccordion(10);
                         }}
                       >
-                        <span>11. </span> Do you offer Money Back Guarantee?
+                        <span>11. </span> How do job seekers get notified of new
+                        opportunities?
                       </a>
                     </div>
                     <div style={activeIndex === 10 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
+                          They can set custom job alerts by location, category,
+                          or keywords and get real-time updates by email.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={panelStyle} data-aos="fade-up">
+                    <div style={headingStyle}>
+                      <a
+                        href="#collapse07"
+                        style={titleStyle}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleAccordion(11);
+                        }}
+                      >
+                        <span>12. </span> Do you offer a money‑back guarantee?
+                      </a>
+                    </div>
+                    <div style={activeIndex === 11 ? showStyle : collapseStyle}>
+                      <div style={bodyStyle}>
+                        <p>
+                          {/* Yes, you need to provide a map API key. Please follow
+                          the steps mentioned in the below URL to generate a
+                          Google map API key:{" "}
+                          <a
+                            href="https://developers.google.com/maps/documentation/javascript/get-api-key"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Generate Google Map API Key
+                          </a>
+                          . You need to set up your billing details over that. */}
                           Yes, we offer a 30-day money back guarantee to ensure
                           customer satisfaction with our software. If for any
                           reason you wish to discontinue using the product, you
@@ -4150,18 +4731,18 @@ const Page = () => {
                   <div style={panelStyle} data-aos="fade-up">
                     <div style={headingStyle}>
                       <a
-                        href="#collapse07"
+                        href="#collapse504"
                         style={titleStyle}
                         onClick={(e) => {
                           e.preventDefault();
-                          toggleAccordion(11);
+                          toggleAccordion(12);
                         }}
                       >
-                        <span>12. </span> Do I need to provide Google map API
+                        <span>13. </span> Do I need to provide Google map API
                         key? If yes, how to generate Google map API key?
                       </a>
                     </div>
-                    <div style={activeIndex === 11 ? showStyle : collapseStyle}>
+                    <div style={activeIndex === 12 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
                           Yes, you need to provide a map API key. Please follow
@@ -4179,7 +4760,6 @@ const Page = () => {
                       </div>
                     </div>
                   </div>
-
                   <div style={panelStyle} data-aos="fade-up">
                     <div style={headingStyle}>
                       <a
@@ -4187,20 +4767,42 @@ const Page = () => {
                         style={titleStyle}
                         onClick={(e) => {
                           e.preventDefault();
-                          toggleAccordion(12);
+                          toggleAccordion(13);
                         }}
                       >
-                        <span>13. </span> Along with hosting server details,
-                        what other recommendations?
+                        <span>14. </span> Can the employer or jobseeker write
+                        blog posts?
                       </a>
                     </div>
-                    <div style={activeIndex === 12 ? showStyle : collapseStyle}>
+                    <div style={activeIndex === 13 ? showStyle : collapseStyle}>
                       <div style={bodyStyle}>
                         <p>
-                          We recommend you purchase an SSL certificate along
-                          with a hosting server, considering that an SSL
-                          certificate is necessary for all websites these days
-                          and it provides a secure layer to the website as well.
+                          The employers and jobseekers cannot write blog posts.
+                          The blog posts will be written by the admin, and
+                          employers & Job Seekers can view them.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={panelStyle} data-aos="fade-up">
+                    <div style={headingStyle}>
+                      <a
+                        href="#collapse504"
+                        style={titleStyle}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleAccordion(14);
+                        }}
+                      >
+                        <span>15. </span> Is SSL included or recommended?
+                      </a>
+                    </div>
+                    <div style={activeIndex === 14 ? showStyle : collapseStyle}>
+                      <div style={bodyStyle}>
+                        <p>
+                          We strongly recommend an SSL certificate to protect
+                          data and enhance user trust. It’s essential for secure
+                          logins and modern SEO.
                         </p>
                       </div>
                     </div>
@@ -4478,15 +5080,15 @@ const Page = () => {
               <p className="text-sm font-semibold text-gray-500 uppercase mb-2">
                 {/* Get Started */}
               </p>
-              <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
+              <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
                 Ready to Launch Your Own{" "}
                 <span className="text-[#451095]">Job Board?</span>
-              </h1>
+              </h2>
               <p className="text-md text-gray-800 mb-6 max-w-3xl mx-auto">
                 LS Jobber makes it easy to build and manage a job portal that
-                delivers results. Whether you&apos;re creating a niche hiring site or
-                a global job marketplace, our white label job board software
-                gives you everything you need to grow and succeed.
+                delivers results. Whether you&apos;re creating a niche hiring
+                site or a global job marketplace, our white label job board
+                software gives you everything you need to grow and succeed.
               </p>
               <button
                 className="bg-[#451095] hover:bg-[#6c10f7] text-white font-semibold py-2 px-6 rounded-full"

@@ -13,6 +13,8 @@ import Contactusmodel from "../../Components/Contactusmodel";
 import SoftwareEnquiry from "../../Components/SoftwareEnquiry";
 import "../../resposive.css";
 import Whylogicspice from "../../Components/Whylogicspice";
+import YouTubeLazyEmbed from "../../Components/YouTubeLazyEmbed";
+
 import Reviewmodals from "../../Components/Reviewmodals";
 import { Modal, ModalBody } from "react-bootstrap";
 import axios from "axios";
@@ -115,7 +117,7 @@ const tableData = [
 
 const Page = () => {
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-let windowWidth = useWindowWidth();
+  let windowWidth = useWindowWidth();
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -126,7 +128,6 @@ let windowWidth = useWindowWidth();
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
 
   var settings = {
     dots: true,
@@ -411,13 +412,18 @@ let windowWidth = useWindowWidth();
     <>
       <div className="NewJobBoardDesign">
         <Navbar />
-        <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign JobBoardPageNew">
+        <section className="paid-pro job-portal-banner fiverr-new-banner job-portal-bg NewJobSiteDesign JobBoardNewDesign JobPortalPageNew">
           <div className="container">
             <div className="row">
               <div className="col-sm-7 col-md-7">
-                <h1 className="!mt-[10px]">
-                  LS Jobber - White Label Job Portal Script{" "}
+                {/* <h1 className="!mt-[10px]">
+                  LS Jobber - White Label Job Portal <br />Script{" "}
+                </h1> */}
+                <h1 className="mt-2 text-3xl font-bold text-black leading-snug">
+                  LS Jobber – White Label Job Portal <br />
+                  Script
                 </h1>
+
                 <div className="both-left-p-sec">
                   <h2>
                     All-in-one job board script to launch a job portal clone.
@@ -462,15 +468,11 @@ let windowWidth = useWindowWidth();
                     >
                       <button>Get Demo Access!</button>
                       {
-                        // <SoftwareEnquiry
-                        //   modalStatus={showModal}
-                        //   toggle={openModal}
-                        //   title="Please fill the form below and get access to the live demo of Job Board Software.See how it work yourself!"
-                        // />
+                        
                         <GetDemoEnquiry
                           modalStatus={demoAccessModal}
                           toggle={openDemoAccessModal}
-                          title="Please fill the form below and get access to the live demo of Job Board Software. See how it works yourself!"
+                          title="Please fill the form below and get access to the live demo of Job Portal Script. See how it works yourself!"
                         />
                       }
                     </div>
@@ -623,7 +625,7 @@ let windowWidth = useWindowWidth();
                   <Image
                     src="/img/job-portal/job-portal-banner-img.png"
                     alt="Job Portal Script"
-                    width={400} // Increased resolution
+                    width={380} // Increased resolution
                     height={430} // Adjusted to maintain aspect ratio
                     sizes="(max-width: 768px) 100vw, 700px" // Ensures correct scaling on mobile
                     priority
@@ -655,20 +657,60 @@ let windowWidth = useWindowWidth();
         </section>
         <section className="job-section-top-new JobBoardSectionNew">
           <div className="container">
-            <p>
-              Crafting a personalized job portal has never been this empowering.
-              Our LS Jobber offers a gateway for businesses and companies to
-              establish their own
-              <strong> bespoke white label job portals</strong>. Not just that,
-              entrepreneurs can seamlessly integrate recruiters into the hiring
-              process, streamlining the journey from opportunity to employment.
-              With its <i>advanced functionalities</i> and{" "}
-              <i>user-friendliness</i>, even individuals without a technical
-              background can effortlessly navigate this dynamic platform. The
-              admin&apos;s role is made effortless through a responsive and
-              user-friendly dashboard, where insights into users, jobs,
-              categories, and payment histories are at your fingertips.
-            </p>
+      
+
+            <div className="flex flex-col items-center pb-0">
+              <h2 className="w-full text-left text-4xl font-bold text-gray-800 mb-8">
+                Launch Faster. Hire Smarter. Grow Bigger.
+              </h2>
+
+              <div className="text-left">
+                <p className="text-lg text-gray-600 mb-4">
+                  <span className="font-semibold">LS Jobber</span> is a powerful
+                  white label job portal script created for businesses, HR
+                  agencies, and entrepreneurs who want to build and run their
+                  own custom job portal platform. Whether you're starting a new
+                  job portal or scaling an existing recruitment business, LS
+                  Jobber offers a complete solution with full customization and
+                  zero coding hassle.
+                </p>
+                <p className="text-gray-600 mb-4">
+                  With this job portal application, you get a professional
+                  dashboard to manage job listings, employers, job seekers, and
+                  recruiters—effortlessly.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mb-8">
+                <FeatureCard
+                  icon="/img/jobboard/launch-fast-icon.png"
+                  title="White-Label Script"
+                  description="100% white-label and fully brandable to reflect your brand identity"
+                />
+                <FeatureCard
+                  icon="/img/jobboard/fully-customizable-icon.png"
+                  title="All-In-One Platform"
+                  description="Built for employers, job seekers, and recruiters alike"
+                />
+                <FeatureCard
+                  icon="/img/jobboard/white-labeled-icon.png"
+                  title="No coding required"
+                  description="Get started quickly with hassle-free setup and management"
+                />
+                <FeatureCard
+                  icon="/img/jobboard/scalable-and-flexible-icon.png"
+                  title="Custom Workflows"
+                  description="Advanced filters, categories, and workflows customized to your business"
+                />
+                <FeatureCard
+                  icon="/img/jobboard/zero-maintainence-icon.png"
+                  title="Maintenance-Free"
+                  description="We manage the backend, letting you focus on growing your business"
+                />
+              </div>
+
+             
+            </div>
           </div>
         </section>
         <section
@@ -681,16 +723,7 @@ let windowWidth = useWindowWidth();
           <div className="container">
             <div className="row">
               <div className="col-md-6 job-video">
-                {/* <iframe
-                id="jobvideo"
-                width="100%"
-                height="312"
-                src="https://www.youtube.com/embed/7fJVD2R2kkA?rel=0&autoplay=0"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe> */}
-                <div ref={iframeRef}>
+                {/* <div ref={iframeRef}>
                   <iframe
                     className="!rounded-xl"
                     id="ytplayer"
@@ -701,7 +734,8 @@ let windowWidth = useWindowWidth();
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
-                </div>
+                </div> */}
+                <YouTubeLazyEmbed videoId="7fJVD2R2kkA" />
               </div>
               <div className="col-md-6">
                 <div className="job-board-features">
@@ -724,6 +758,12 @@ let windowWidth = useWindowWidth();
                     <li className="!text-white">
                       Optimized job search with filters
                     </li>
+                    <li className="!text-white">Job Search Monetization</li>
+                    <li className="!text-white">Custom Domain + Free SSL</li>
+                    <li className="!text-white">Built-in Blog Module</li>
+                    <li className="!text-white">Custom Code & CSS</li>
+                    <li className="!text-white">One-Click Data Export</li>
+                    <li className="!text-white">Modern, Customizable Design</li>
                   </ul>
                 </div>
               </div>
@@ -800,7 +840,7 @@ let windowWidth = useWindowWidth();
                 <ul className="JobBoardNewtab">
                   <li
                     id="tab1_li"
-                    className={`jobseeker_app_job ddlj ${
+                    className={`jobseeker_app_job_job_portal ddlj ${
                       sellerTab ? "active" : ""
                     }`}
                     onClick={() => handleSellerTab()}
@@ -815,7 +855,7 @@ let windowWidth = useWindowWidth();
                   </li>
                   <li
                     id="tab2_li"
-                    className={`emplyer_app_job ddlj ${
+                    className={`emplyer_app_job_job_portal ddlj ${
                       buyerTab ? "active" : ""
                     }`}
                     onClick={() => handleBuyerTab()}
@@ -825,12 +865,14 @@ let windowWidth = useWindowWidth();
                         buyerTab ? "JobBoardEmployerNewtabOpen" : ""
                       }`}
                     >
-                      Employer App Features{" "}
+                      Employer Panel{" "}
                     </a>
                   </li>
                   <li
                     id="tab3_li"
-                    className={`admin_app_job ddlj ${adminTab ? "active" : ""}`}
+                    className={`admin_app_job_job_portal ddlj ${
+                      adminTab ? "active" : ""
+                    }`}
                     onClick={() => handleAdminTab()}
                   >
                     <a
@@ -875,11 +917,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Jobseeker Registration
+                                  Easy Registration
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can register on the Job Portal
-                                      using Email Address.
+                                      Job seekers can quickly sign up using
+                                      their email address to start browsing and
+                                      applying for jobs.
                                     </p>
                                   </div>
                                 </span>
@@ -896,13 +939,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Job Alerts
+                                  Custom Job Alerts
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can apply for Job Alerts & will
-                                      get the Job alerts for specific Job,
-                                      location & Category. Jobseekers can
-                                      manage(add/edit/delete) Job alerts.
+                                      Set up personalized job alerts based on
+                                      your preferred role, location, or
+                                      category—and receive updates right in your
+                                      inbox.
                                     </p>
                                   </div>
                                 </span>
@@ -919,12 +962,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Profile
+                                  Profile Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view their profile details
-                                      & can manage(add/edit/delete) their
-                                      Profile.
+                                      Create, edit, or delete your profile
+                                      anytime. Keep your details up-to-date to
+                                      match the right opportunities.
                                     </p>
                                   </div>
                                 </span>
@@ -944,8 +987,8 @@ let windowWidth = useWindowWidth();
                                   Save Favorite Jobs
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can save the Job as Favorite
-                                      and can apply in future or soon.
+                                      Found a great opportunity but not ready to
+                                      apply? Save it and come back to it later.
                                     </p>
                                   </div>
                                 </span>
@@ -962,11 +1005,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Apply to a Job
+                                  Simple Job Applications
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can apply for the Jobs which
-                                      are relevant to their Profile.{" "}
+                                      Apply directly to jobs that match your
+                                      profile—fast, easy, and hassle-free.
                                     </p>
                                   </div>
                                 </span>
@@ -983,12 +1026,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Search Jobs
+                                  Smart Job Search
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can search Jobs using Keyword,
-                                      Category, Location & Work Type etc. which
-                                      will provide the relevant result.
+                                      Use filters like keyword, location,
+                                      category, or work type to find jobs that
+                                      truly fit you.
                                     </p>
                                   </div>
                                 </span>
@@ -1005,11 +1048,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Applied List
+                                  Track Your Applications
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker can view the list of applied
-                                      jobs on the portal.
+                                      Keep a clear view of all the jobs you've
+                                      applied to, all in one place.
                                     </p>
                                   </div>
                                 </span>
@@ -1026,12 +1069,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Share a Job
+                                  Share Job Opportunities
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can share Job Tumblr, Facebook,
-                                      Twitter, Print, Pinterest, Gmail, Google+
-                                      etc.
+                                      Share job listings with your network via
+                                      platforms like Facebook, Gmail, Pinterest,
+                                      and more.
                                     </p>
                                   </div>
                                 </span>
@@ -1048,12 +1091,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Education
+                                  Education Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view their Education
-                                      details & can manage(add/edit/delete) the
-                                      Education.
+                                      Add, edit, or remove your education
+                                      history to show your academic background.
                                     </p>
                                   </div>
                                 </span>
@@ -1070,12 +1112,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Experience
+                                  Experience Management
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can view all experience details
-                                      which they have added in the profile & can
-                                      manage(add/edit/delete) Experience.
+                                      Easily manage your work experience details
+                                      right from your profile.
                                     </p>
                                   </div>
                                 </span>
@@ -1092,13 +1133,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Generate a CV
+                                  Build Your CV
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can create CV by selecting the
-                                      format & adding the fields which are
-                                      mandatory for creating CV. Jobseekers can
-                                      update the CV as per their requirement.
+                                      Generate a professional CV with
+                                      customizable templates—update it anytime
+                                      as you grow.
                                     </p>
                                   </div>
                                 </span>
@@ -1115,12 +1155,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Jobs by Industry, Functions, City
+                                  Search by Industry, Role, or Location
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can search for Jobs using
-                                      Specific Industry, Specific Functions &
-                                      Specific City.
+                                      Find jobs tailored to your field,
+                                      function, or preferred city with advanced
+                                      search options.
                                     </p>
                                   </div>
                                 </span>
@@ -1137,11 +1177,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Declaration Statement
+                                  Add a Declaration Statement
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker need to select a declaration
-                                      statement while applying for jobs.
+                                      Include a professional declaration
+                                      statement in your job applications when
+                                      required.
                                     </p>
                                   </div>
                                 </span>
@@ -1158,11 +1199,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Professional Registration
+                                  Professional Details
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker need to fill all the
-                                      professional descriptions.
+                                      Fill in your complete professional summary
+                                      to help employers better understand your
+                                      background.
                                     </p>
                                   </div>
                                 </span>
@@ -1179,11 +1221,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Mail Communication
+                                  Email Communication
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can communicate with employers
-                                      through email.
+                                      Connect with employers via built-in email
+                                      communication tools.
                                     </p>
                                   </div>
                                 </span>
@@ -1200,11 +1242,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Mail History
+                                  Manage Email History
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can manage mail history of
-                                      custom mail communication.
+                                      Track and organize your email
+                                      conversations with potential employers.
                                     </p>
                                   </div>
                                 </span>
@@ -1221,11 +1263,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Delete Account
+                                  Account Deletion Option
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can delete accounts by entering
-                                      the reason for account deletion.
+                                      Done with job searching? You can easily
+                                      delete your account and provide a reason
+                                      if you choose to.
                                     </p>
                                   </div>
                                 </span>
@@ -1242,12 +1285,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Upload Video CV
+                                  Video CV Upload
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can upload their video CV and
-                                      employers can view it in their jobseeker
-                                      profile.
+                                      Make your profile stand out by uploading a
+                                      video CV—give employers a better sense of
+                                      who you are.
                                     </p>
                                   </div>
                                 </span>
@@ -1264,12 +1307,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Membership Plan
+                                  Membership Plans
                                   <div className="product-idea">
                                     <p>
-                                      Jobseekers can purchase the Membership
-                                      Plan(Free/paid) as per their requirement
-                                      which is relevant to them.
+                                      Choose from free or premium membership
+                                      options depending on your job search
+                                      needs.
                                     </p>
                                   </div>
                                 </span>
@@ -1286,12 +1329,34 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Email Notification
+                                  Email Notifications
                                   <div className="product-idea">
                                     <p>
-                                      Jobseeker will receive email notifications
-                                      for the Job Alerts and for some important
-                                      features.
+                                      Stay updated with instant notifications
+                                      for job alerts and key activities.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/job-portal/simple_application.png"
+                                    alt="Jobseeker App Feature"
+                                  />
+                                </i>
+                                <span>
+                                  AI-Based Job Recommendations
+                                  <div className="product-idea">
+                                    <p>
+                                      Get job suggestions powered by AI based on
+                                      your profile, behavior, and application
+                                      history.
                                     </p>
                                   </div>
                                 </span>
@@ -1334,11 +1399,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Employer Registration
+                                  Easy Registration
                                   <div className="product-idea">
                                     <p>
-                                      Employers can register on the Job Portal
-                                      using Email Address.
+                                      Employers can sign up quickly using their
+                                      email address and start posting jobs right
+                                      away.
                                     </p>
                                   </div>
                                 </span>
@@ -1355,12 +1421,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Membership Plans
+                                  Flexible Membership Plans
                                   <div className="product-idea">
                                     <p>
-                                      Employers can purchase the Membership
-                                      Plan(Free/paid) as per their requirement
-                                      which is relevant to them.
+                                      Employers can choose a free or paid
+                                      membership plan based on what they need.
                                     </p>
                                   </div>
                                 </span>
@@ -1378,12 +1443,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Favorite Candidates
+                                  Save Favorite Candidates
                                   <div className="product-idea">
                                     <p>
-                                      Employers can mark the Candidate as
-                                      Favorites who is relevant to the Job Post
-                                      or requirement.
+                                      Mark top candidates as favorites so you
+                                      can easily return to them later when
+                                      you&apos;re ready to make a hiring
+                                      decision.
                                     </p>
                                   </div>
                                 </span>
@@ -1400,15 +1466,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Create Job
+                                  Post Jobs Effortlessly
                                   <div className="product-idea">
                                     <p>
-                                      Employers can create a job by adding Job
-                                      Title, Category, Job Description, Company
-                                      Name, Company Profile, Work Type, Contact
-                                      Name & Contact Number, Company Website,
-                                      Skills, Designation, Location, Experience,
-                                      Annual salary, Company Logo etc.
+                                      Employers can create detailed job listings
+                                      with everything from title and job
+                                      description to required skills, salary,
+                                      location, company info, and more.
                                     </p>
                                   </div>
                                 </span>
@@ -1425,11 +1489,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Jobs
+                                  Job Management
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the list of Created
-                                      Jobs & can manage(add/edit/delete) Jobs.
+                                      Edit, update, or remove job postings
+                                      anytime from your dashboard—stay in full
+                                      control of your listings.
                                     </p>
                                   </div>
                                 </span>
@@ -1446,11 +1511,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Update Job status
+                                  Job Status Updates
                                   <div className="product-idea">
                                     <p>
-                                      Employer can activate/deactivate the Jobs
-                                      which are posted.
+                                      Easily activate or deactivate job listings
+                                      with a single click.
                                     </p>
                                   </div>
                                 </span>
@@ -1467,12 +1532,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Profile
+                                  Profile Management
                                   <div className="product-idea">
                                     <p>
-                                      Employer can view Profile & can
-                                      manage(update) Profile. Employers can
-                                      change passwords & logos.
+                                      Keep your company profile updated with the
+                                      latest information, including logo and
+                                      contact details. Change passwords anytime
+                                      for added security.
                                     </p>
                                   </div>
                                 </span>
@@ -1489,16 +1555,17 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Count Search view
+                                  View Counts for Jobs and Searches
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the count for total
-                                      numbers of Search views.
+                                      Track how many people are viewing your
+                                      jobs and searching for roles similar to
+                                      what you offer.
                                     </p>
                                   </div>
                                 </span>
                               </li>
-                              <li>
+                              {/* <li>
                                 <i className="JobBoardImg">
                                   <Image
                                     unoptimized={true}
@@ -1518,7 +1585,7 @@ let windowWidth = useWindowWidth();
                                     </p>
                                   </div>
                                 </span>
-                              </li>
+                              </li> */}
                               <li>
                                 <i className="JobBoardImg">
                                   <Image
@@ -1531,11 +1598,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Payment History
+                                  Payment History Overview
                                   <div className="product-idea">
                                     <p>
-                                      Employers can view the Payment Transaction
-                                      as per the purchased plan.
+                                      Get a clear view of your transaction
+                                      history based on purchased plans and
+                                      features.
                                     </p>
                                   </div>
                                 </span>
@@ -1552,11 +1620,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  View Jobseeker Profile
+                                  Browse Jobseeker Profiles
                                   <div className="product-idea">
                                     <p>
-                                      Employer can view Profile of Jobseekers
-                                      who have shortlisted or want to Hire.
+                                      Access detailed profiles of job seekers
+                                      who match your hiring criteria or have
+                                      applied for your jobs.
                                     </p>
                                   </div>
                                 </span>
@@ -1573,12 +1642,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Plan Invoice
+                                  Invoices for Plans
                                   <div className="product-idea">
                                     <p>
-                                      According to the purchased plan invoice
-                                      will be generated & employer can
-                                      display/download.
+                                      Download or display invoices for your
+                                      membership plans and maintain records for
+                                      your purchases.
                                     </p>
                                   </div>
                                 </span>
@@ -1595,11 +1664,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Mail Communication
+                                  Email Communication
                                   <div className="product-idea">
                                     <p>
-                                      Employers can communicate with jobseekers
-                                      by using the mail.
+                                      Communicate directly with job seekers
+                                      through built-in email tools—no
+                                      third-party platforms required.
                                     </p>
                                   </div>
                                 </span>
@@ -1619,8 +1689,9 @@ let windowWidth = useWindowWidth();
                                   Mail History
                                   <div className="product-idea">
                                     <p>
-                                      Employers can manage mail history of
-                                      custom mail communication.
+                                      Access and manage your history of email
+                                      interactions with candidates for better
+                                      follow-up and organization.
                                     </p>
                                   </div>
                                 </span>
@@ -1637,11 +1708,11 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Dashboard Background Image
+                                  Custom Dashboard Background
                                   <div className="product-idea">
                                     <p>
-                                      Employer can change/update dashboard
-                                      background image.
+                                      Make your dashboard feel like home by
+                                      uploading your own background image.
                                     </p>
                                   </div>
                                 </span>
@@ -1658,11 +1729,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Delete Account
+                                  Delete Account Option
                                   <div className="product-idea">
                                     <p>
-                                      Employers can delete accounts by entering
-                                      the reason.
+                                      Done hiring? You can delete your account
+                                      anytime, with the option to provide a
+                                      reason.
                                     </p>
                                   </div>
                                 </span>
@@ -1679,12 +1751,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Import Jobseekers
+                                  Bulk Jobseeker Import
                                   <div className="product-idea">
                                     <p>
-                                      Employers can now import jobseekers in
-                                      bulk through excel file by using the
-                                      predefined format.
+                                      Import jobseeker data in bulk using a
+                                      simple Excel format—ideal for larger
+                                      hiring needs or database transfers.
                                     </p>
                                   </div>
                                 </span>
@@ -1702,17 +1774,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Accept Online Payments
+                                  Secure Online Payments
                                   <div className="product-idea">
                                     <p>
-                                      When it comes to recruitment, accepting
-                                      payments can be a headache. But with our
-                                      job boards software, you can enjoy a
-                                      simple and seamless checkout process. Our
-                                      platform comes with Stripe and PayPal
-                                      built-in payment gateways, allowing you to
-                                      accept Visa, MasterCard, Discover,
-                                      American Express, and PayPal with ease.
+                                      Our platform includes built-in Stripe and
+                                      PayPal gateways, making it easy to accept
+                                      payments via Visa, MasterCard, Discover,
+                                      American Express, and PayPal.
                                     </p>
                                   </div>
                                 </span>
@@ -1732,13 +1800,11 @@ let windowWidth = useWindowWidth();
                                   Company Profile Page
                                   <div className="product-idea">
                                     <p>
-                                      Employers can create a branded company
-                                      profile page on our job board software,
-                                      which includes their logo, company
-                                      information, website, images, videos, and
-                                      all active jobs posted. This can be a
-                                      useful tool to attract more applicants and
-                                      showcase your company culture.
+                                      Showcase your company to potential
+                                      candidates with a dedicated profile page.
+                                      Add your logo, company details, website,
+                                      photos, videos, and all your active job
+                                      postings to attract more applications.
                                     </p>
                                   </div>
                                 </span>
@@ -1755,13 +1821,34 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  View Jobseeker Contact Details
+                                  View Job Seeker Contact Details
                                   <div className="product-idea">
                                     <p>
-                                      Employers will be able to view the
-                                      jobseeker contact details only if they
-                                      have that respective membership plan
-                                      active.
+                                      With the right membership plan, employers
+                                      can view job seeker contact information to
+                                      connect directly with potential hires.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i className="JobBoardImg">
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    className="lazy"
+                                    src="/img/job-portal/view_jobseeker_icon.png"
+                                    alt="Jobseeker App Feature"
+                                  />
+                                </i>
+                                <span>
+                                  Job Performance Analytics
+                                  <div className="product-idea">
+                                    <p>
+                                      View detailed insights on job ad
+                                      performance—clicks, views, applications,
+                                      and conversion rate.
                                     </p>
                                   </div>
                                 </span>
@@ -1807,7 +1894,8 @@ let windowWidth = useWindowWidth();
                                   Secure Login
                                   <div className="product-idea">
                                     <p>
-                                      Admin can login securely on Job Portal.
+                                      Admins can securely log in to the job
+                                      portal with protected access.
                                     </p>
                                   </div>
                                 </span>
@@ -1827,10 +1915,11 @@ let windowWidth = useWindowWidth();
                                   Admin Dashboard
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the Dashboard where it will
-                                      display the total number of Employers,
-                                      Jobseekers, Categories, Skills,
-                                      Designation, Locations, Jobs, Blogs etc.
+                                      The admin can access a central dashboard
+                                      that shows the total number of employers,
+                                      jobseekers, categories, skills,
+                                      designations, locations, jobs, blogs, and
+                                      more — all in one organized view.
                                     </p>
                                   </div>
                                 </span>
@@ -1850,10 +1939,11 @@ let windowWidth = useWindowWidth();
                                   Configuration
                                   <div className="product-idea">
                                     <p>
-                                      Admin can update Username, Password,
-                                      Email, Security Questions, Plans, Contact
-                                      Us Address, Slogan Text, Logo, PayPal
-                                      details, Favicon, Subadmins etc.
+                                      Update essential details like username,
+                                      password, email, security questions,
+                                      contact address, slogan, logo, favicon,
+                                      PayPal info, and manage sub-admin
+                                      accounts.
                                     </p>
                                   </div>
                                 </span>
@@ -1873,10 +1963,10 @@ let windowWidth = useWindowWidth();
                                   Manage Jobseekers
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the list of Jobseekers &
-                                      can activate, deactivate, delete, edit,
-                                      view, manage certificate, view applied job
-                                      list.
+                                      Admin can view and manage jobseekers —
+                                      activate, deactivate, edit, delete
+                                      profiles, view certificates, and track
+                                      applied jobs.
                                     </p>
                                   </div>
                                 </span>
@@ -1896,10 +1986,9 @@ let windowWidth = useWindowWidth();
                                   Manage Employers
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view a list of employers & can
-                                      manage(view/add/edit/delete) employers.
-                                      Admin can activate, deactivate employers &
-                                      can verify them.
+                                      Admin can access the full employer list
+                                      and take actions like add, edit, delete,
+                                      activate, deactivate, or verify profiles.
                                     </p>
                                   </div>
                                 </span>
@@ -1919,11 +2008,9 @@ let windowWidth = useWindowWidth();
                                   Manage Jobs
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the list of Jobs posted
-                                      with and can manage(view/edit/delete) the
-                                      Jobs. Admin can activate/deactivate jobs.
-                                      Admin can view the Jobseekers list who has
-                                      applied for this Job.
+                                      Browse all job postings, edit or remove
+                                      listings, activate/deactivate jobs, and
+                                      see which jobseekers have applied.
                                     </p>
                                   </div>
                                 </span>
@@ -1943,10 +2030,10 @@ let windowWidth = useWindowWidth();
                                   Manage Newsletter
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the list of Newsletter &
-                                      can send Newsletter Email. Admin can keep
-                                      logs of email & can view unsubscribe user
-                                      lists.
+                                      Admin can view the list of newsletter and
+                                      send newsletter emails, keep logs of sent
+                                      messages, and view users who&apos;ve
+                                      unsubscribed.
                                     </p>
                                   </div>
                                 </span>
@@ -1966,10 +2053,8 @@ let windowWidth = useWindowWidth();
                                   Manage Course
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of course & can
-                                      manage(view/add/edit/delete) course. Admin
-                                      can activate/ deactivate Course & can view
-                                      details of specialization.
+                                      Add, edit, delete, or deactivate courses
+                                      and view their specializations with ease.
                                     </p>
                                   </div>
                                 </span>
@@ -1986,14 +2071,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Categories
+                                  Manage Categories & Subcategories
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view list of categories & can
-                                      manage(view/add/edit/delete) categories.
-                                      Admin can activate/ deactivate Categories
-                                      & can view details of subcategory list
-                                      under Categories.
+                                      Create, update, or delete categories.
+                                      Activate or deactivate them and manage the
+                                      full subcategory structure.
                                     </p>
                                   </div>
                                 </span>
@@ -2013,9 +2096,9 @@ let windowWidth = useWindowWidth();
                                   Manage Blogs
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view lists of blogs & can manage
-                                      (add/edit/delete) Blogs. Admin can
-                                      activate/Deactivate Blogs.
+                                      Add, edit, delete, or toggle the
+                                      activation status of blogs posted on the
+                                      portal.
                                     </p>
                                   </div>
                                 </span>
@@ -2035,8 +2118,8 @@ let windowWidth = useWindowWidth();
                                   Manage Banner
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view a list of Banners & can
-                                      manage(add/edit/delete) Banners.
+                                      Easily add, edit, or remove banner ads
+                                      that appear across your site.
                                     </p>
                                   </div>
                                 </span>
@@ -2056,8 +2139,8 @@ let windowWidth = useWindowWidth();
                                   Payment History
                                   <div className="product-idea">
                                     <p>
-                                      Admin can view the Payment History for all
-                                      Employers who have purchased plans.
+                                      Admin can track all payment transactions
+                                      made by employers for purchased plans.
                                     </p>
                                   </div>
                                 </span>
@@ -2074,12 +2157,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Theme color management
+                                  Theme Color Management
                                   <div className="product-idea">
                                     <p>
-                                      Admin can change the website color theme
-                                      with multiple options and reset back to
-                                      the default color of the website.
+                                      Customize the look of your site with color
+                                      themes and reset them to default whenever
+                                      needed.
                                     </p>
                                   </div>
                                 </span>
@@ -2096,7 +2179,7 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Announcement
+                                  Manage Announcements
                                   <div className="product-idea">
                                     <p>
                                       Admin can manage announcements at backend
@@ -2121,8 +2204,9 @@ let windowWidth = useWindowWidth();
                                   Manage Payment Configuration
                                   <div className="product-idea">
                                     <p>
-                                      Admin can change/update configuration of
-                                      payment gateways.
+                                      Admin can set up or update details for
+                                      integrated payment gateways like Stripe or
+                                      PayPal.
                                     </p>
                                   </div>
                                 </span>
@@ -2139,15 +2223,13 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Sub Admin Management
+                                  Sub-Admin Management
                                   <div className="product-idea">
                                     <p>
-                                      If you&apos;re a business, looking to
-                                      streamline your recruitment process, Job
-                                      board software has got you covered. Our
-                                      platform allows you to create accounts for
-                                      your teammates and will be able to
-                                      add/edit/delete/activate/deactivate them.
+                                      Create accounts for your team members and
+                                      manage their permissions — add, edit,
+                                      delete, activate, or deactivate
+                                      sub-admins.
                                     </p>
                                   </div>
                                 </span>
@@ -2164,14 +2246,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Assign Roles to Sub Admin
+                                  Assign Roles to Sub-Admin
                                   <div className="product-idea">
                                     <p>
-                                      Admin can assign roles and provide them
-                                      with specific access to work over it as a
-                                      sub-admin. This ensures that everyone on
-                                      your team is on the same page when it
-                                      comes to hiring the best talent.
+                                      Assign specific roles and access levels so
+                                      your team can help manage the platform
+                                      efficiently.
                                     </p>
                                   </div>
                                 </span>
@@ -2191,14 +2271,9 @@ let windowWidth = useWindowWidth();
                                   Banner Ads Placement
                                   <div className="product-idea">
                                     <p>
-                                      Looking to generate additional revenue
-                                      through 3rd party ad networks? With our
-                                      job board software, you can easily upload
-                                      banner ads to your job board by
-                                      copy-pasting the line of code or with a
-                                      static image. This allows you to monetize
-                                      your job board and make the most of your
-                                      online presence.
+                                      Monetize your job board by placing
+                                      third-party banner ads with simple code
+                                      snippets or image uploads.
                                     </p>
                                   </div>
                                 </span>
@@ -2215,13 +2290,12 @@ let windowWidth = useWindowWidth();
                                   />
                                 </i>
                                 <span>
-                                  Manage Membership Plan for Employers &
-                                  Jobseeker
+                                  Manage Membership Plans
                                   <div className="product-idea">
                                     <p>
-                                      Admin will be able to
-                                      manage(add/edit/delete) the membership
-                                      plans for both Employers & Jobseeker.{" "}
+                                      Admin can create and update membership
+                                      plans for both employers and job seekers —
+                                      free or paid.
                                     </p>
                                   </div>
                                 </span>
@@ -2240,10 +2314,30 @@ let windowWidth = useWindowWidth();
                                   Manage Currency
                                   <div className="product-idea">
                                     <p>
-                                      Admin will be able to
-                                      manage(add/edit/delete) the currency, and
-                                      the currency which is selected by admin
-                                      will display on the script.
+                                      Admin can Add, edit, or delete currencies.
+                                      The selected currency will be reflected
+                                      across the platform.
+                                    </p>
+                                  </div>
+                                </span>
+                              </li>
+                              <li>
+                                <i>
+                                  <Image
+                                    unoptimized={true}
+                                    width={100}
+                                    height={100}
+                                    alt="img"
+                                    src="/img/job-portal/customize_design.png"
+                                  />
+                                </i>
+                                <span>
+                                  Advanced Analytics Dashboard
+                                  <div className="product-idea">
+                                    <p>
+                                      Access detailed reports on traffic, user
+                                      engagement, job posts, application rates,
+                                      and revenue.{" "}
                                     </p>
                                   </div>
                                 </span>
@@ -2327,7 +2421,7 @@ let windowWidth = useWindowWidth();
                 Build a Modern Job Portal Like Monster or Naukri
               </h3>
               <p>
-                LS Jobber goes beyond a simple job portal script—it's your
+                LS Jobber goes beyond a simple job portal script—it&apos;s your
                 all-in-one readymade solution to launch a professional, scalable
                 job website like Monster or Naukri, without the high costs.
               </p>
@@ -2380,7 +2474,7 @@ let windowWidth = useWindowWidth();
               <Image
                 src="/img/job-portal/search 1.png"
                 className="do_for_you_box_search_image"
-                alt="job board software"
+                alt="job portal script"
                 width={120}
                 height={400}
                 unoptimized={true}
@@ -2451,13 +2545,13 @@ let windowWidth = useWindowWidth();
                     Worldwide{" "}
                   </h4>
                   <p className="do_for_you_left_text">
-                    Whether you're an HR consultant in the UK, a staffing agency
-                    in the USA, or an entrepreneur launching a niche job board
-                    in Australia or India, LS Jobber adapts to your business
-                    needs. Our white label job portal script is trusted across
-                    the globe for creating high-performing hiring platforms in
-                    various industries like healthcare, tech, education, and
-                    logistics.
+                    Whether you&apos;re an HR consultant in the UK, a staffing
+                    agency in the USA, or an entrepreneur launching a niche job
+                    board in Australia or India, LS Jobber adapts to your
+                    business needs. Our white label job portal script is trusted
+                    across the globe for creating high-performing hiring
+                    platforms in various industries like healthcare, tech,
+                    education, and logistics.
                   </p>
                 </div>
 
@@ -2480,7 +2574,7 @@ let windowWidth = useWindowWidth();
           <div className="container">
             <div className="comparison_heading_box">
               <h3 className="comparison_heading">
-                Logicspice Job Board Software (LS Jobber) vs. Other Job Board
+                Logicspice Job Board Script (LS Jobber) vs. Other Job Portal
                 Solutions
               </h3>
             </div>
@@ -2502,7 +2596,7 @@ let windowWidth = useWindowWidth();
                             <p>{row.logicspice}</p>
                           </li>
                           <li className="card others-card">
-                            <h3>Other Job Board Solutions</h3>
+                            <h3>Other Job Portal Solutions</h3>
                             <p>{row.others}</p>
                           </li>
                         </ul>
@@ -2529,7 +2623,7 @@ let windowWidth = useWindowWidth();
                   </ul>
                   {/* Others Column */}
                   <ul className="column-list others-list header-list">
-                    <li>Other Job Board Solutions</li>
+                    <li>Other Job Portal Solutions</li>
                     {tableData.map((row, index) => (
                       <li key={index}>{row.others}</li>
                     ))}
@@ -3880,10 +3974,7 @@ let windowWidth = useWindowWidth();
                 <div className="ecommerce--review">
                   <div className="customers_review_sec_row">
                     <div className="customer_review_stext">
-                      I have purchased this script and has constructed my own
-                      job-site. This was an easy task because of
-                      logicspice&apos;s free installation and support. Keep up
-                      the good work. I will be back for more in the future.
+                    Launching my job portal with Logicspice’s script was one of the best decisions I’ve made. The customization options are impressive, and the admin panel is super intuitive. It saved me a lot of time and development cost. I appreciate the quick assistance provided during setup.
                     </div>
                     <div className="who_ratset">
                       <span
@@ -3896,13 +3987,14 @@ let windowWidth = useWindowWidth();
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <i className="fa fa-star" aria-hidden="true"></i>
                       </span>
-                      John, USA
+                   {/* Mark Reynolds,  United Kingdom */}
+                   <span id="client-name">Mark Reynolds,  United Kingdom </span>{" "}
                       <span>
                         <Image
                           unoptimized={true}
                           width={100}
                           height={100}
-                          src="/img/job-portal/usa_flag_img.png"
+                          src="/img/job-portal/uk_flag_img.png"
                           alt="mobile app development in USA"
                           style={{ width: "20px", marginLeft: "3px;" }}
                         />
@@ -3911,9 +4003,7 @@ let windowWidth = useWindowWidth();
                   </div>
                   <div className="customers_review_sec_row">
                     <div className="customer_review_stext" id="fiveer-clone">
-                      This is the best job portal script. Thanks for your great
-                      efforts and support while installing the script. Your
-                      prompt service regarding a few minor issues was superb
+                     As someone new to web development, I was nervous about setting up a job site. But Logicspice made it surprisingly easy. Their script is beginner-friendly, and the customer support team really knows their stuff. They answered my questions fast and got me through the technical setup without stress.
                     </div>
 
                     <div className="who_ratset">
@@ -3927,40 +4017,7 @@ let windowWidth = useWindowWidth();
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <i className="fa fa-star" aria-hidden="true"></i>
                       </span>
-                      <span id="client-name">D. Smith, Germany in USA</span>{" "}
-                      <span>
-                        <Image
-                          unoptimized={true}
-                          width={100}
-                          height={100}
-                          src="/img/job-portal/german.png"
-                          alt="mobile app development in USA"
-                          style={{ width: "20px", marginLeft: "3px;" }}
-                        />
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="customers_review_sec_row">
-                    <div className="customer_review_stext" id="fiveer-clone">
-                      Recently I bought this script from logicspice and it
-                      worked really nice, it helped my business to gain more
-                      efficiency. I recommend for all whom looking for a job
-                      board script, it&apos;s really nice.
-                    </div>
-
-                    <div className="who_ratset">
-                      <span
-                        className="star_review_main"
-                        style={{ paddingRight: "10px", color: "gold;" }}
-                      >
-                        <i className="fa fa-star" aria-hidden="true"></i>
-                        <i className="fa fa-star" aria-hidden="true"></i>
-                        <i className="fa fa-star" aria-hidden="true"></i>
-                        <i className="fa fa-star" aria-hidden="true"></i>
-                        <i className="fa fa-star" aria-hidden="true"></i>
-                      </span>
-                      <span id="client-name">mike wilshon, AUS</span>{" "}
+                      <span id="client-name">Dan Huge,  Australia</span>{" "}
                       <span>
                         <Image
                           unoptimized={true}
@@ -3973,11 +4030,41 @@ let windowWidth = useWindowWidth();
                       </span>
                     </div>
                   </div>
+
+                  <div className="customers_review_sec_row">
+                    <div className="customer_review_stext" id="fiveer-clone">
+                     I’ve tried other scripts before, but Logicspice really stands out. The platform is stable, easy to manage, and packed with the right features for employers and job seekers. Their documentation was clear, and the support team resolved my queries quickly. 
+                    </div>
+
+                    <div className="who_ratset">
+                      <span
+                        className="star_review_main"
+                        style={{ paddingRight: "10px", color: "gold;" }}
+                      >
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                      <span id="client-name">Tomas Herrera, United States</span>{" "}
+                      <span>
+                        <Image
+                          unoptimized={true}
+                          width={100}
+                          height={100}
+                          src="/img/job-portal/usa_flag_img.png"
+                          alt="mobile app development in USA"
+                          style={{ width: "20px", marginLeft: "3px;" }}
+                        />
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="ecommerce--review--point ">
-                  <div className="outof_rating">
+                  {/* <div className="outof_rating">
                     <div className="review_rating_fjs">
                       <div className="star_num">
                         5 <i className="fa fa-star"></i>
@@ -4062,7 +4149,99 @@ let windowWidth = useWindowWidth();
                       </div>
                       <div className="people_star_num">0</div>
                     </div>
+                  </div> */}
+                  <div className="outof_rating">
+                    <div className="review_rating_fjs">
+                      <div className="star_num">
+                        5 <i className="fa fa-star"></i>
+                      </div>
+                      <div className="progress">
+                        <div
+                          className="progress-bar progress-bar-danger progress-bar-striped"
+                          role="progressbar"
+                          aria-valuenow="100"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          aria-label="5 star rating progress"
+                          style={{ width: "100%" }}
+                        ></div>
+                      </div>
+                      <div className="people_star_num">174</div>
+                    </div>
+
+                    <div className="review_rating_fjs">
+                      <div className="star_num">
+                        4 <i className="fa fa-star"></i>
+                      </div>
+                      <div className="progress">
+                        <div
+                          className="progress-bar progress-bar-danger progress-bar-striped"
+                          role="progressbar"
+                          aria-valuenow="30"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          aria-label="4 star rating progress"
+                          style={{ width: "30%" }}
+                        ></div>
+                      </div>
+                      <div className="people_star_num">44</div>
+                    </div>
+
+                    <div className="review_rating_fjs">
+                      <div className="star_num">
+                        0 <i className="fa fa-star"></i>
+                      </div>
+                      <div className="progress">
+                        <div
+                          className="progress-bar progress-bar-danger progress-bar-striped"
+                          role="progressbar"
+                          aria-valuenow="0"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          aria-label="0 star rating progress"
+                          style={{ width: "0%" }}
+                        ></div>
+                      </div>
+                      <div className="people_star_num">0</div>
+                    </div>
+
+                    <div className="review_rating_fjs">
+                      <div className="star_num">
+                        2 <i className="fa fa-star"></i>
+                      </div>
+                      <div className="progress">
+                        <div
+                          className="progress-bar progress-bar-danger progress-bar-striped"
+                          role="progressbar"
+                          aria-valuenow="0"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          aria-label="2 star rating progress"
+                          style={{ width: "0%" }}
+                        ></div>
+                      </div>
+                      <div className="people_star_num">0</div>
+                    </div>
+
+                    <div className="review_rating_fjs">
+                      <div className="star_num">
+                        1 <i className="fa fa-star"></i>
+                      </div>
+                      <div className="progress">
+                        <div
+                          className="progress-bar progress-bar-danger progress-bar-striped"
+                          role="progressbar"
+                          aria-valuenow="0"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          aria-label="1 star rating progress"
+                          style={{ width: "0%" }}
+                        ></div>
+                      </div>
+                      <div className="people_star_num">0</div>
+                    </div>
                   </div>
+
                   <div className="ecommerce--review--btn ">
                     <a className="btn btn-primary" onClick={openReviewModel}>
                       Rate and Review product
@@ -4133,7 +4312,7 @@ let windowWidth = useWindowWidth();
                       <div style={bodyStyle}>
                         <p>
                           No! With the Pro License, you&apos;ll get free updates
-                          for the next 6 months. If you're on a monthly
+                          for the next 6 months. If you&apos;re on a monthly
                           subscription, you&apos;ll enjoy lifetime free updates.
                           We regularly enhance the script and template, and all
                           new features or improvements will be available to you
@@ -4254,7 +4433,7 @@ let windowWidth = useWindowWidth();
                         }}
                       >
                         <span>07. </span> Will there be any installation charges
-                        when I purchase the job board software script?
+                        when I purchase the job portal script script?
                       </a>
                     </div>
                     <div style={activeIndex === 6 ? showStyle : collapseStyle}>
@@ -4384,7 +4563,7 @@ let windowWidth = useWindowWidth();
                         <p>
                           Yes, to show locations on your site, you’ll need a
                           Google Map API key. To generate one, follow the steps
-                          provided in the official
+                          provided in the official {""}
                           <a
                             href="https://developers.google.com/maps/documentation/javascript/get-api-key"
                             target="_blank"
@@ -4428,140 +4607,132 @@ let windowWidth = useWindowWidth();
         </section>
 
         <section className="content_area feature_inner" id="features">
-                  <div className="container">
-                    <h2 className="title_main">LS Jobber Features</h2>
-                    <div id="joblboardslide">
-                      <Slider {...settings}>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/applied-job.jpg"
-                              alt="Job Application"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Job Application</div>
-                            <div className="pro-feat-detai">
-                              Jobseekers can apply for the job directly to the company
-                              or they can attach a cover letter along with their
-                              application.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/create-job.jpg"
-                              alt="Create New Job"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Create New Job</div>
-                            <div className="pro-feat-detai">
-                              Employers create new jobs by entering details i.e. Job
-                              title,Category,Description,Company Name, Work Type.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/home-page.jpg"
-                              alt="Job Search"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Job Search</div>
-                            <div className="pro-feat-detai">
-                              Search jobs by keywords, category, location, industry,
-                              functional area & city.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/myprofile.jpg"
-                              alt="Create CV"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Create CV</div>
-                            <div className="pro-feat-detai">
-                              Jobseekers will be able to create and download their CV on
-                              the website. All the details will get automated from
-                              profile.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/manage-jobs.jpg"
-                              alt="Job Management"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Job Management</div>
-                            <div className="pro-feat-detai">
-                              Manage the jobs created by them making them active or
-                              inactive. Check the list of job seekers who applied for
-                              job.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="SliderMainBx">
-                          <div className="feat-slide-img">
-                            <Image
-                              unoptimized={true}
-                              width={1500}
-                              height={100 / (100 / 100)}
-                              src="/img/jobboard/purchase-membership.jpg"
-                              alt="Membership Plan"
-                            />
-                          </div>
-                          <div className="hands-proved">
-                            <div className="titleof_scnew">Membership Plan</div>
-                            <div className="pro-feat-detai">
-                              Employers buy membership plan which suits their
-                              requirement best.They can renew or update your membership
-                              plan at any time.
-                            </div>
-                          </div>
-                        </div>
-                      </Slider>
+          <div className="container">
+            <h2 className="title_main">LS Jobber Features</h2>
+            <div id="joblboardslide">
+              <Slider {...settings}>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/applied-job.jpg"
+                      alt="Job Application"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Job Application</div>
+                    <div className="pro-feat-detai">
+                      Jobseekers can apply for the job directly to the company
+                      or they can attach a cover letter along with their
+                      application.
                     </div>
                   </div>
-                </section>
+                </div>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/create-job.jpg"
+                      alt="Create New Job"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Create New Job</div>
+                    <div className="pro-feat-detai">
+                      Employers create new jobs by entering details i.e. Job
+                      title,Category,Description,Company Name, Work Type.
+                    </div>
+                  </div>
+                </div>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/home-page.jpg"
+                      alt="Job Search"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Job Search</div>
+                    <div className="pro-feat-detai">
+                      Search jobs by keywords, category, location, industry,
+                      functional area & city.
+                    </div>
+                  </div>
+                </div>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/myprofile.jpg"
+                      alt="Create CV"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Create CV</div>
+                    <div className="pro-feat-detai">
+                      Jobseekers will be able to create and download their CV on
+                      the website. All the details will get automated from
+                      profile.
+                    </div>
+                  </div>
+                </div>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/manage-jobs.jpg"
+                      alt="Job Management"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Job Management</div>
+                    <div className="pro-feat-detai">
+                      Manage the jobs created by them making them active or
+                      inactive. Check the list of job seekers who applied for
+                      job.
+                    </div>
+                  </div>
+                </div>
+                <div className="SliderMainBx">
+                  <div className="feat-slide-img">
+                    <Image
+                      unoptimized={true}
+                      width={1500}
+                      height={100 / (100 / 100)}
+                      src="/img/jobboard/purchase-membership.jpg"
+                      alt="Membership Plan"
+                    />
+                  </div>
+                  <div className="hands-proved">
+                    <div className="titleof_scnew">Membership Plan</div>
+                    <div className="pro-feat-detai">
+                      Employers buy membership plan which suits their
+                      requirement best.They can renew or update your membership
+                      plan at any time.
+                    </div>
+                  </div>
+                </div>
+              </Slider>
+            </div>
+          </div>
+        </section>
 
         <section className="JObboardVideSection">
           <div className="container">
             <div className="JobBoardVideoBottom">
-              {/* <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/jZUjtbUTuHQ?si=NrWfYG4wQYAnm1bJ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe> */}
-              <div ref={iframeRef}>
+              <YouTubeLazyEmbed videoId="jZUjtbUTuHQ" />
+              {/* <div ref={iframeRef}>
                 <iframe
                   id="ytplayer"
                   width="100%"
@@ -4571,7 +4742,7 @@ let windowWidth = useWindowWidth();
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -4702,21 +4873,33 @@ let windowWidth = useWindowWidth();
               <p className="text-sm font-semibold text-gray-500 uppercase mb-2">
                 {/* Get Started */}
               </p>
-              <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
-                Ready to Launch Your Own{" "}
-                <span className="text-[#451095]">Job Board?</span>
-              </h1>
+              <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
+                {/* Ready to Launch Your Own{" "}
+                <span className="text-[#451095]">Job Board?</span> */}
+                Make Finding Talent Simple and Fast
+              </h2>
               <p className="text-md text-gray-800 mb-6 max-w-3xl mx-auto">
-                LS Jobber makes it easy to build and manage a job portal that
+                {/* LS Jobber makes it easy to build and manage a job portal that
                 delivers results. Whether you&apos;re creating a niche hiring
                 site or a global job marketplace, our white label job board
-                software gives you everything you need to grow and succeed.
+                software gives you everything you need to grow and succeed. */}
+                Ready to make hiring easier and faster? LS Jobber lets you create your job portal quickly—no tech skills required.
+
               </p>
+               <p className="text-md text-gray-800 mb-6 max-w-3xl mx-auto">
+                Try our free demo now and see how simple it is to post jobs, manage candidates, and grow your hiring process.
+               </p>
+                 <p className="text-md text-gray-800 mb-6 max-w-3xl mx-auto">
+               If you have any questions, just reach out—we’re here to help!
+
+               </p>
+              
               <button
                 className="bg-[#451095] hover:bg-[#6c10f7] text-white font-semibold py-2 px-6 rounded-full"
                 onClick={toggleModal}
               >
-                Launch Your Job Board Now
+                {/* Launch Your Job Board Now */}
+                Get started today 
               </button>
             </div>
           </div>
