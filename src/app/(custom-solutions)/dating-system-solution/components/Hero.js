@@ -43,7 +43,7 @@ const Hero = () => {
                 Premium Dating App Development
               </p>
             </div>
-            <h1 className="text-3xl sm:text-6xl lg:text-7xl !font-black tracking-tight leading-tight text-black">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl !font-black tracking-tight leading-tight text-gray-700">
               Start Your{" "}
               <span className="bg-gradient-to-r from-dating-primary via-dating-accent to-dating-secondary bg-clip-text text-transparent animate-pulse-slow">
                 Dating Platform
