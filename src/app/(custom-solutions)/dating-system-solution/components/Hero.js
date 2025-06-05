@@ -38,7 +38,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-dating-primary/10 to-dating-secondary/10 backdrop-blur-sm rounded-full shadow-sm mb-2 transform hover:scale-105 transition-transform">
-              <p className="pb-0 text-sm font-medium flex items-center gap-2 text-dating-primary">
+              <p className="pb-0 !mb-0 text-sm font-medium flex items-center gap-2 text-dating-primary">
                 <Heart className="h-4 w-4 animate-pulse" />
                 Premium Dating App Development
               </p>
